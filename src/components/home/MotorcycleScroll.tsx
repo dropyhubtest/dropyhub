@@ -117,10 +117,8 @@ export const MotorcycleScroll: React.FC = () => {
       const suppBottomDoc = sR
         ? sR.bottom + scrollY
         : (pR ? pR.bottom + scrollY - 145 : 2231);
-      const panelBottomDoc = pR
-        ? pR.bottom + scrollY
-        : 2456;
-      const estimatorDocY = (suppBottomDoc + 15 + panelBottomDoc + 45) / 2;
+      // Precision video calibration: sits centered inside the lower whitespace below the onboarding guarantee
+      const estimatorDocY = suppBottomDoc + 48.5;
 
       const estimatorAnchor: StateAnchor = {
         docX: panelLeft + panelWidth * 0.52,
@@ -128,7 +126,7 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -90, // Facing right
       };
 
-      // 04. About DropyHub — right column directly below intro paragraph
+      // 04. About DropyHub — right column directly below intro paragraph, angled up-left towards description
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
       const dR = desc ? desc.getBoundingClientRect() : null;
       const aboutDocX = dR ? (dR.left + dR.width / 2) : (centerX + 280);
@@ -136,7 +134,7 @@ export const MotorcycleScroll: React.FC = () => {
       const aboutAnchor: StateAnchor = {
         docX: aboutDocX,
         docY: aboutDocY,
-        rotation: -270, // Facing left
+        rotation: -225, // Angled up-left matching reference video
       };
 
       // 05. How to Start — corridor between steps list & photo panel
@@ -290,12 +288,12 @@ export const MotorcycleScroll: React.FC = () => {
         transitionTween = null;
       }
 
-      // Snappy, video-calibrated transition duration (0.85s) with crisp power2.out deceleration
+      // Snappy, video-calibrated transition duration (0.95s) with crisp power2.out deceleration
       transitionTween = gsap.to(animState, {
         docX: targetAnchor.docX,
         docY: targetAnchor.docY,
         rotation: targetAnchor.rotation,
-        duration: 0.85,
+        duration: 0.95,
         ease: 'power2.out',
         overwrite: 'auto',
       });

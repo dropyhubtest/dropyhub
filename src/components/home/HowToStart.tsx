@@ -168,7 +168,7 @@ export const HowToStart: React.FC = () => {
         {/* Clipped image: x = -23px, y = 0, width = 670px, height = 279px */}
         <div className={styles.imageContainer}>
           <Image
-            src="/assets/About/image 102.png"
+            src="/assets/About/image-102.png"
             alt="DropyHub delivery partners at hub"
             width={670}
             height={279}

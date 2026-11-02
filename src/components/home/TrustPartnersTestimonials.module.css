@@ -84,9 +84,13 @@
 .frame352Pattern {
   position: absolute;
   inset: 0;
-  background-image: url("/assets/Home/Frame 352.svg");
-  background-repeat: repeat-x;
-  background-position: center;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.5) 13.5px,
+    rgba(195, 196, 200, 0.5) 15px
+  );
   pointer-events: none;
 }
 

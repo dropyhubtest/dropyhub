@@ -210,6 +210,88 @@
     object-fit: contain;
   }
 
+  /* Sunrisers & IPL Partner Badge */
+  .partnerBadge {
+    position: absolute;
+    left: 104px;
+    top: 544px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  .badgeFrame {
+    position: relative;
+    width: 96px;
+    height: 54px;
+    padding: 3.5px;
+    background-image: url("/assets/Home/SRH_bg.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+  }
+
+  .badgeInner {
+    width: 100%;
+    height: 100%;
+    background-color: #0c0c0c;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 2px 4px;
+    box-sizing: border-box;
+  }
+
+  .iplLogo {
+    display: block;
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .srhLogo {
+    display: block;
+    width: 44px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .badgeText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .badgeTitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .badgeSubtitle {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    color: #9c9ca4;
+    line-height: 1.2;
+  }
+
   /* Bottom Row Content */
   .bottomRow {
     position: absolute;
@@ -437,6 +519,86 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  .partnerBadge {
+    position: relative;
+    left: auto;
+    top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .badgeFrame {
+    position: relative;
+    width: 86px;
+    height: 48px;
+    padding: 3px;
+    background-image: url("/assets/Home/SRH_bg.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+  }
+
+  .badgeInner {
+    width: 100%;
+    height: 100%;
+    background-color: #0c0c0c;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 2px 4px;
+    box-sizing: border-box;
+  }
+
+  .iplLogo {
+    display: block;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .srhLogo {
+    display: block;
+    width: 38px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .badgeText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .badgeTitle {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+
+  .badgeSubtitle {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    color: #9c9ca4;
+    line-height: 1.2;
   }
 
   .bottomRow {

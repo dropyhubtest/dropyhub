@@ -78,6 +78,32 @@ export const Hero: React.FC = () => {
           />
         </div>
 
+        {/* Sunrisers Hyderabad Official Partner Badge */}
+        <div className={styles.partnerBadge}>
+          <div className={styles.badgeFrame}>
+            <div className={styles.badgeInner}>
+              <Image
+                src="/assets/Home/IPL.png"
+                alt="TATA IPL 2025"
+                width={26}
+                height={26}
+                className={styles.iplLogo}
+              />
+              <Image
+                src="/assets/Home/SRH_logo.svg"
+                alt="Sunrisers Hyderabad"
+                width={44}
+                height={32}
+                className={styles.srhLogo}
+              />
+            </div>
+          </div>
+          <div className={styles.badgeText}>
+            <span className={styles.badgeTitle}>Official Partners</span>
+            <span className={styles.badgeSubtitle}>IPL-2025 Sunrisers</span>
+          </div>
+        </div>
+
         {/* Bottom Row / Content */}
         <div className={styles.bottomRow}>
           <p className={styles.description}>
