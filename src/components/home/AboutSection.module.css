@@ -1,0 +1,362 @@
+/* ==========================================================================
+   About DropyHub and Partner Value Grid Section
+   Figma Reference: Node 1278:20469 (Desktop - 13)
+   Reference dimensions: 1440px desktop reference width
+   ========================================================================== */
+
+.aboutSection {
+  position: relative;
+  width: 100%;
+  height: 1563px;
+  background-color: #111111;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.aboutContainer {
+  position: relative;
+  width: 1440px;
+  height: 1563px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. About Introduction (x = 100px, y = 79px, width = 1240px)
+   ========================================================================== */
+.topIntro {
+  position: absolute;
+  left: 100px;
+  top: 79px;
+  width: 1240px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.topIntroLeft {
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.44px;
+  color: #807f7f;
+  text-transform: uppercase;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #807f7f;
+  display: inline-block;
+}
+
+.mainHeading {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 10px 0 0 0;
+}
+
+.topIntroRight {
+  width: 579px;
+  flex-shrink: 0;
+}
+
+.aboutDescription {
+  font-family: var(--font-secondary), var(--font-estimator), "Open Sauce Two", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  color: #807f7f;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. Partner Ecosystem Introduction (x = 100px, y = 225px)
+   ========================================================================== */
+.ecosystemIntro {
+  position: absolute;
+  left: 100px;
+  top: 225px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ecosystemHeading {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: #e2e5ef;
+  margin: 0 0 10px 0;
+}
+
+.ecosystemDescription {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  color: #807f7f;
+  width: 511px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. Section Dividers (Subtle Grey)
+   - Horizontal line 1: y = 381px, x = 60px to 1380px
+   - Horizontal line 2: y = 551px, x = 61px to 1381px
+   - Horizontal line 3: y = 719px, x = 60px to 1380px
+   - Horizontal line 4: y = 900px, x = 60px to 1380px
+   - Central vertical dividers at x = 720px: y = 381px to 900px
+   ========================================================================== */
+.horizontalDivider {
+  position: absolute;
+  left: 40px;
+  width: 1361px;
+  height: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.divider1 {
+  top: 381px;
+}
+
+.divider2 {
+  top: 551px;
+}
+
+.divider3 {
+  top: 719px;
+}
+
+.divider4FullBleed {
+  position: absolute;
+  left: 0;
+  top: 900px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.verticalDivider {
+  position: absolute;
+  left: 720px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.vDividerRow1 {
+  top: 381px;
+  height: 170px;
+}
+
+.vDividerRow2 {
+  top: 551px;
+  height: 168px;
+}
+
+.vDividerRow3 {
+  top: 719px;
+  height: 181px;
+}
+
+/* ==========================================================================
+   4. Partner Value Cards Grid
+   Two-column, three-row desktop grid
+   - Card dimensions: 636 × 146px
+   - Left column: x = 72px
+   - Right column: x = 732px
+   - Rows: y = 393px, 562px, 731px
+   - Outer card border-radius: 12px
+   - Entire tile-and-text group centred horizontally and vertically within the card
+   - Icon tile: 130 × 86px, #565555 background, 1px border-radius
+   - Text gap: 21px, text area width: 442px
+   ========================================================================== */
+.card {
+  position: absolute;
+  width: 636px;
+  height: 146px;
+  border-radius: 12px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Card Positions */
+.cardR1C1 {
+  left: 72px;
+  top: 393px;
+}
+
+.cardR1C2 {
+  left: 732px;
+  top: 393px;
+}
+
+.cardR2C1 {
+  left: 72px;
+  top: 562px;
+}
+
+.cardR2C2 {
+  left: 732px;
+  top: 562px;
+}
+
+.cardR3C1 {
+  left: 72px;
+  top: 731px;
+}
+
+.cardR3C2 {
+  left: 732px;
+  top: 731px;
+}
+
+/* Icon Tile: 130 × 86px, #565555 background, 1px border-radius */
+.iconTile {
+  width: 130px;
+  height: 86px;
+  border-radius: 1px;
+  background-color: #565555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 21px;
+}
+
+.iconImage {
+  display: block;
+}
+
+/* Text Area: 442px width */
+.textArea {
+  width: 442px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #e2e5ef;
+  margin: 0 0 4px 0;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 21px;
+  color: #807f7f;
+  margin: 0;
+}
+
+/* ==========================================================================
+   5. Bottom Section Divider (Full-Viewport Width, 64px Height)
+   ========================================================================== */
+.aboutBottomDivider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  background-color: #111111;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.aboutBottomDividerPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(46, 46, 46, 0.7) 13.5px,
+    rgba(46, 46, 46, 0.7) 15px
+  );
+  pointer-events: none;
+}
+
+.aboutBottomDividerInner {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.railLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 1px;
+  height: 64px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brokenRailRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  width: 1px;
+  height: 64px;
+  pointer-events: none;
+  z-index: 5;
+}

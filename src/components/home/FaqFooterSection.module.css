@@ -1,0 +1,575 @@
+/* ==========================================================================
+   FaqFooterSection — FAQ, Final CTA and Footer
+   Figma Reference: Frame 1278:20505 (Desktop - 15 FAQ & Footer group)
+   Dimensions: 1440 × 1501px Desktop Section
+   Surface: #f8f8f8 (Light Surface)
+   ========================================================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 1501px;
+  background-color: #f8f8f8;
+  color: var(--color-raw-2c2a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 1440px;
+  height: 1501px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   A. FAQ Section (y = 0 to 446px)
+   ========================================================================== */
+.faqEyebrow {
+  position: absolute;
+  left: 71px;
+  top: 29px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.44px;
+  color: var(--color-raw-5655);
+  text-transform: uppercase;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-raw-5655);
+  display: inline-block;
+}
+
+.faqHeading {
+  position: absolute;
+  left: 71px;
+  top: 56px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+/* FAQ Accordion */
+.accordionContainer {
+  position: absolute;
+  left: 508px;
+  top: 51px;
+  width: 728px;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-raw-c3c4c8);
+}
+
+.accordionButton {
+  background: transparent;
+  border: none;
+  padding: 16px 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.activeIndicator {
+  width: 3px;
+  height: 22px;
+  background-color: #111111;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.questionText {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.answerContent {
+  padding: 0 0 18px 0;
+}
+
+.activeAnswerMargin {
+  margin-left: 15px;
+}
+
+.answerText {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  color: var(--color-raw-807f);
+  margin: 0;
+}
+
+/* ==========================================================================
+   B. Full-Width FAQ Divider Band (y = 446px, h = 43px)
+   ========================================================================== */
+.faqDividerBand {
+  position: absolute;
+  left: 0;
+  top: 446px;
+  width: 100%;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-top: 1px solid var(--color-raw-c3c4c8);
+  border-bottom: 1px solid var(--color-raw-c3c4c8);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.faqDividerPattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/Home/Frame 352.svg");
+  background-repeat: repeat-x;
+  background-position: center;
+  pointer-events: none;
+}
+
+.faqDividerInner {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.railFaqLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  height: 446px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railFaqRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  height: 446px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 2px;
+  height: 43px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.brokenRailRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  width: 2px;
+  height: 43px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.railCtaLeft {
+  position: absolute;
+  left: 40px;
+  top: 489px;
+  /* extend all the way through the CTA divider line, footer links, socials — stop just before "Our Services" fade */
+  height: 391px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railCtaRight {
+  position: absolute;
+  left: 1400px;
+  top: 489px;
+  height: 391px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Rail segment: ctaBottomLine (y=724px) through social links (y=1059px) */
+.railFooterLeft {
+  position: absolute;
+  left: 40px;
+  top: 880px;
+  height: 170px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railFooterRight {
+  position: absolute;
+  left: 1400px;
+  top: 880px;
+  height: 170px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Fade segment: starts at "Our Services" level (~1050px), fades to transparent */
+.railFadeLeft {
+  position: absolute;
+  left: 40px;
+  top: 1050px;
+  height: 160px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8),
+    rgba(195, 196, 200, 0)
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railFadeRight {
+  position: absolute;
+  left: 1400px;
+  top: 1050px;
+  height: 160px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8),
+    rgba(195, 196, 200, 0)
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   C. Final Signup CTA (y = 575px)
+   ========================================================================== */
+.ctaContainer {
+  position: absolute;
+  left: 95px;
+  top: 575px;
+  width: 1276px;
+  height: 113px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ctaHeading {
+  width: 371px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.ctaRight {
+  width: 574px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ctaDescription {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  color: var(--color-raw-807f);
+  margin: 0 0 20px 0;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.joinNowBtn {
+  width: 166px;
+  height: 40px;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.joinNowBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.learnMoreLink {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-raw-2c2a);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.learnMoreLink:hover {
+  text-decoration: underline;
+}
+
+/* Horizontal Divider line below CTA at y = 724px */
+.ctaBottomLine {
+  position: absolute;
+  left: 95px;
+  top: 724px;
+  width: 1276px;
+  height: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   D. Footer Links (y = 785px, w = 1248px, h = 217px)
+   ========================================================================== */
+.footerLinks {
+  position: absolute;
+  left: 109px;
+  top: 785px;
+  width: 1248px;
+  height: 220px;
+}
+
+.footerCol {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.companyCol {
+  left: 0;
+  width: 240px;
+}
+
+.partnersCol {
+  left: 469px;
+  width: 240px;
+}
+
+.contactCol {
+  left: 954px;
+  width: 320px;
+}
+
+.colTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--color-raw-2c2a);
+  text-transform: uppercase;
+  margin: 0 0 18px 0;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footerLink {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-raw-807f);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footerLink:hover {
+  color: var(--color-raw-2c2a);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-raw-807f);
+}
+
+.contactIcon {
+  width: 16px;
+  height: 13px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contactIconLocation {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactLink {
+  color: var(--color-raw-807f);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.contactLink:hover {
+  color: var(--color-raw-2c2a);
+}
+
+.addressText {
+  max-width: 220px;
+  line-height: 21px;
+}
+
+/* ==========================================================================
+   E. Social Links, Copyright & Description (y = 1059px)
+   ========================================================================== */
+.socialLinks {
+  position: absolute;
+  left: 109px;
+  top: 1059px;
+  width: 158px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.socialIconBtn {
+  color: var(--color-raw-2c2a);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.socialIconBtn:hover {
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+.socialIconImg {
+  display: block;
+}
+
+.copyrightText {
+  position: absolute;
+  left: 109px;
+  top: 1106px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-raw-807f);
+  margin: 0;
+  z-index: 5;
+}
+
+.footerDescription {
+  position: absolute;
+  left: 109px;
+  top: 1140px;
+  width: 1248px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  color: var(--color-raw-807f);
+  margin: 0;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   F. Oversized Outlined Wordmark (Full Viewport Width)
+   ========================================================================== */
+.outlinedWordmark {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 1140px;
+  height: 361px;
+  font-family: var(--font-display);
+  font-size: clamp(160px, 21.1vw, 304px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(195, 196, 200, 0.45);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}

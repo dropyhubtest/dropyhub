@@ -1,0 +1,445 @@
+/* ==========================================================================
+   TrustPartnersTestimonials — Innovation, Our Partners & Testimonials
+   Figma Reference: Desktop - 15 (Node 1278:20583, Child Frame 1278:20584)
+   Dimensions: 1440 × 1068px Desktop Section
+   Surface: #f8f8f8 (Light Surface)
+   ========================================================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 1068px;
+  background-color: #f8f8f8;
+  color: var(--color-raw-2c2a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 1440px;
+  height: 1068px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Separators & Frame Lines
+   ========================================================================== */
+.topLine {
+  position: absolute;
+  left: 0;
+  top: 42px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.separatorLine {
+  position: absolute;
+  left: 40px;
+  width: 1360px;
+  height: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sep175 {
+  top: 175px;
+}
+
+.sep394 {
+  top: 394px;
+}
+
+.sep1068 {
+  top: 1067px;
+}
+
+/* ==========================================================================
+   Frame 352: Partner-to-Testimonials Divider (Full Viewport Width, 43px Height)
+   ========================================================================== */
+.frame352Divider {
+  position: absolute;
+  left: 0;
+  top: 603px;
+  width: 100%;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-top: 1px solid var(--color-raw-c3c4c8);
+  border-bottom: 1px solid var(--color-raw-c3c4c8);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.frame352Pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/Home/Frame 352.svg");
+  background-repeat: repeat-x;
+  background-position: center;
+  pointer-events: none;
+}
+
+.frame352Inner {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.railTopLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  height: 603px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railTopRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  height: 603px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railBottomLeft {
+  position: absolute;
+  left: 40px;
+  top: 646px;
+  height: 422px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railBottomRight {
+  position: absolute;
+  left: 1400px;
+  top: 646px;
+  height: 422px;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 2px;
+  height: 43px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.brokenRailRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  width: 2px;
+  height: 43px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* ==========================================================================
+   Section A: Innovation / Your Security, Our Priority
+   ========================================================================== */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.44px;
+  color: var(--color-raw-5655);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-raw-5655);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.innovationEyebrow {
+  position: absolute;
+  left: 71px;
+  top: 77px;
+}
+
+.innovationHeading {
+  position: absolute;
+  left: 71px;
+  top: 104px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.innovationSupportingText {
+  position: absolute;
+  left: 732px;
+  top: 88px;
+  width: 648px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  color: var(--color-raw-807f);
+  margin: 0;
+}
+
+.securityChecklist {
+  position: absolute;
+  left: 732px;
+  top: 219px;
+  width: 335px;
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.securityItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+}
+
+.checkIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.securityText {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  color: var(--color-raw-2c2a);
+}
+
+/* ==========================================================================
+   Section B: Our Partners
+   ========================================================================== */
+.partnersEyebrow {
+  position: absolute;
+  left: 71px;
+  top: 418px;
+}
+
+.partnersHeading {
+  position: absolute;
+  left: 71px;
+  top: 445px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.partnersLogoStrip {
+  position: absolute;
+  left: 66px;
+  top: 511px;
+  width: 1309px;
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.logoTrack {
+  display: flex;
+  align-items: center;
+  gap: 30.7px;
+  flex-shrink: 0;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 40px;
+}
+
+.logoImg {
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================================================
+   Section C: Testimonials
+   ========================================================================== */
+.testimonialsComponent {
+  position: absolute;
+  left: 59px;
+  top: 668px;
+  width: 1321px;
+  height: 400px;
+  background-color: transparent;
+  overflow: visible;
+}
+
+.testimonialsTitle {
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.navArrowBtn {
+  position: absolute;
+  top: 156px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  z-index: 5;
+}
+
+.navArrowBtn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.navArrowBtn:active {
+  transform: scale(0.95);
+}
+
+.leftArrow {
+  left: 128px;
+  transform: rotate(180deg);
+}
+
+.leftArrow:hover {
+  transform: rotate(180deg) scale(1.05);
+}
+
+.leftArrow:active {
+  transform: rotate(180deg) scale(0.95);
+}
+
+.rightArrow {
+  left: 1204px;
+}
+
+.navIcon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.testimonialContentArea {
+  position: absolute;
+  left: 263px;
+  top: 16px;
+  width: 795px;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.quoteText {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.authorProfile {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  margin-top: 24px;
+}
+
+.avatarWrapper {
+  width: 62px;
+  height: 62px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #d1d5db;
+}
+
+.avatarImg {
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.authorName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-raw-2c2a);
+  margin: 0;
+}
+
+.authorSubtitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-raw-807f);
+  margin: 0;
+}

@@ -1,0 +1,594 @@
+/* ==========================================================================
+   Interactive Earnings Estimator Section
+   Figma Reference: Node 1278:20631 (1440 × 825px)
+   ========================================================================== */
+
+.estimatorSection {
+  position: relative;
+  width: 100%;
+  height: 825px;
+  background-color: #f8f8f8;
+  color: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.estimatorContainer {
+  position: relative;
+  width: 1440px;
+  height: 785px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. Section Heading (x = 100px, y = 38px)
+   ========================================================================== */
+.headerArea {
+  position: absolute;
+  left: 100px;
+  top: 38px;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.44px;
+  color: #807f7f;
+  text-transform: uppercase;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2c2a29;
+  display: inline-block;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #111111;
+  margin: 8px 0 0 0;
+}
+
+/* ==========================================================================
+   2. Main Desktop Geometry (x = 94px, y = 113px, width = 1252px)
+   ========================================================================== */
+.mainContent {
+  position: absolute;
+  left: 94px;
+  top: 113px;
+  width: 1252px;
+  height: 633px;
+}
+
+/* ==========================================================================
+   3. Left Input Panels (Width: 612px, Total Height: 633px)
+   Exact Figma Heights & Offsets:
+   - Panel 1: top: 0, height: 132px
+   - Panel 2: top: 145px, height: 212px
+   - Panel 3: top: 370px, height: 125px
+   - Panel 4: top: 508px, height: 125px
+   Simple white rectangular surfaces: no rounded corners, no drop shadows, no extra borders.
+   ========================================================================== */
+.leftColumn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 612px;
+  height: 633px;
+}
+
+.panelBase {
+  position: absolute;
+  left: 0;
+  width: 612px;
+  background-color: #ffffff;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+  padding: 16px 24px;
+}
+
+/* Panel 1: Vehicle type (Top: 0, Height: 132px) */
+.panelVehicle {
+  top: 0;
+  height: 132px;
+  padding-top: 18px;
+}
+
+/* Panel 2: Operating city (Top: 145px, Height: 212px) */
+.panelCity {
+  top: 145px;
+  height: 212px;
+  padding-top: 22px;
+}
+
+/* Panel 3: Deliveries slider (Top: 370px, Height: 125px) */
+.panelDeliveries {
+  top: 370px;
+  height: 125px;
+  padding-top: 16px;
+}
+
+/* Panel 4: Working days slider (Top: 508px, Height: 125px) */
+.panelDays {
+  top: 508px;
+  height: 125px;
+  padding-top: 16px;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: #111111;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.44px;
+  margin-right: 4px;
+}
+
+.panelValueBadge {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #666666;
+}
+
+.boldNumber {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+  margin-right: 4px;
+}
+
+/* Vehicle Selection Buttons:
+   179 × 46px, 168 × 46px, 163 × 46px with 12px gap, 4px corner radius */
+.vehicleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vehicleBtnBase {
+  height: 46px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 10px;
+  transition: all 0.15s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.vehicleBtnEV {
+  width: 179px;
+}
+
+.vehicleBtnPetrol {
+  width: 168px;
+}
+
+.vehicleBtnBicycle {
+  width: 163px;
+}
+
+/* Active vehicle button: pink border */
+.vehicleBtnActive {
+  border: 1.5px solid #ea0066;
+  background-color: #ffffff;
+}
+
+.vehicleIconWrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vehicleBtnText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: #444444;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+/* Active vehicle text: pink color */
+.vehicleBtnTextActive {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: #ea0066;
+  white-space: nowrap;
+}
+
+/* City Selection Buttons:
+   43px button height, 4px corner radius, 14px Manrope Regular text */
+.cityGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 10px;
+}
+
+.cityBtn {
+  height: 43px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  padding: 0 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.cityBtn:hover {
+  border-color: #b0b0b0;
+}
+
+.cityBtnActive {
+  border: 1.5px solid #ea0066;
+  background-color: #ffffff;
+  color: #ea0066;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Figma Designed Slider / Scrolling Bar
+   - 5px track height with split black (#111111) and neutral grey (#e2e2e8)
+   - 15px circular thumb
+   - 11px Manrope zone labels
+   ========================================================================== */
+.sliderArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.rangeInput {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 2.5px;
+  outline: none;
+  cursor: pointer;
+  margin: 10px 0 8px 0;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #111111;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.rangeInput::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #111111;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.sliderLabelText {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: #888888;
+}
+
+/* ==========================================================================
+   4. Right Earnings Panel (x = 649px, y = 3px, width = 603px, height = 630px)
+   - White background, square outer corners, no additional shadow
+   - Internal content: x = 52px, y = 47px, width = 495px
+   ========================================================================== */
+.rightColumn {
+  position: absolute;
+  left: 649px;
+  top: 3px;
+  width: 603px;
+  height: 630px;
+  background-color: #ffffff;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.earningsContent {
+  position: absolute;
+  left: 52px;
+  top: 47px;
+  width: 495px;
+  display: flex;
+  flex-direction: column;
+}
+
+.earningsHeading {
+  font-family: var(--font-secondary), var(--font-estimator), "Open Sauce Two", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #111111;
+  margin: 0 0 24px 0;
+}
+
+.breakdownList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.breakdownRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.breakdownRowLast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0 8px 0;
+  border-bottom: none;
+}
+
+.breakdownLabel {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: #444444;
+}
+
+.breakdownValue {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.positiveValue {
+  color: #111111;
+}
+
+.dashedDivider {
+  width: 100%;
+  height: 1px;
+  border-top: 1px dashed #dcdcdc;
+  margin: 14px 0 16px 0;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.totalLabel {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: #555555;
+}
+
+.totalAmountArea {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.totalAmount {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.totalPeriod {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: #807f7f;
+}
+
+.dailyAverage {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: #807f7f;
+  text-align: right;
+  margin: 0 0 20px 0;
+}
+
+/* CTA: 495 × 48px, #111111 background, 12px border radius, Space Grotesk Bold 16px */
+.ctaButton {
+  width: 495px;
+  height: 48px;
+  background-color: #111111;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: none;
+}
+
+.ctaButton:hover {
+  background-color: #ea0066;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(234, 0, 102, 0.25);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+.integrationNote {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #666666;
+  text-align: center;
+}
+
+.supportingText {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: #807f7f;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+
+/* ==========================================================================
+   5. Full-Viewport Hatched Divider (Frame 334) at Section Bottom (Height 40px)
+   ========================================================================== */
+.bottomDivider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-top: 1px solid var(--color-raw-c3c4c8);
+  border-bottom: 1px solid var(--color-raw-c3c4c8);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.bottomDividerPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.5) 13.5px,
+    rgba(195, 196, 200, 0.5) 15px
+  );
+  pointer-events: none;
+}
+
+.bottomDividerInner {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.railLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 1px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brokenRailRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  width: 1px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 5;
+}

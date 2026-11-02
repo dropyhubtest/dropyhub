@@ -1,0 +1,283 @@
+:root {
+  /* ==========================================================================
+     Typography Tokens
+     ========================================================================== */
+  --font-display: "Space Grotesk Variable", "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-body: "Manrope Variable", "Manrope", system-ui, -apple-system, sans-serif;
+  --font-secondary: "Open Sauce Two", system-ui, -apple-system, sans-serif;
+  --font-estimator: var(--font-secondary);
+  --font-accent: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+  --font-tagline: var(--font-accent);
+  --font-wordmark: var(--font-accent);
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-md: 1.125rem;    /* 18px */
+  --font-size-lg: 1.25rem;     /* 20px */
+  --font-size-xl: 1.5rem;      /* 24px */
+  --font-size-2xl: 1.875rem;   /* 30px */
+  --font-size-3xl: 2.25rem;    /* 36px */
+  --font-size-4xl: 3rem;       /* 48px */
+  --font-size-5xl: 3.75rem;    /* 60px */
+  --font-size-6xl: 4.5rem;     /* 72px */
+
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.15;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* ==========================================================================
+     Figma Observed Color Palette
+     ========================================================================== */
+  --color-raw-111: #111111;
+  --color-raw-2c2a: #2c2a2a;
+  --color-raw-5655: #565555;
+  --color-raw-807f: #807f7f;
+  --color-raw-9797aa: #9797aa;
+  --color-raw-b6005d: #b6005d;
+  --color-raw-b7b6: #b7b6b6;
+  --color-raw-c3c4c8: #c3c4c8;
+  --color-raw-c5c5: #c5c5c5;
+  --color-raw-cccccc: #cccccc;
+  --color-raw-d9d9d9: #d9d9d9;
+  --color-raw-f1ef: #f1efef;
+  --color-raw-f8f8: #f8f8f8;
+  --color-raw-f9f9: #f9f9f9;
+  --color-raw-fff: #ffffff;
+
+  /* Gradient Stop Colours Observed in Figma */
+  --color-raw-ea0066: #ea0066;
+  --color-raw-900057: #900057;
+  --color-raw-510055: #510055;
+  --color-raw-d39d08: #d39d08;
+  --color-raw-f8f59f: #f8f59f;
+
+  /* ==========================================================================
+     Semantic Surface Tokens (Dark & Light)
+     ========================================================================== */
+  /* Dark Surfaces */
+  --surface-dark-primary: #111111;
+  --surface-dark-secondary: #2c2a2a;
+  --surface-dark-card: #2c2a2a;
+  --surface-dark-card-hover: #353333;
+
+  /* Light Surfaces */
+  --surface-light-primary: #f8f8f8;
+  --surface-light-secondary: #f9f9f9;
+  --surface-light-card: #ffffff;
+  --surface-light-card-alt: #f1efef;
+
+  /* Global Canvas Default (neutral dark base) */
+  --bg-primary: var(--surface-dark-primary);
+  --bg-secondary: var(--surface-dark-secondary);
+  --bg-surface: var(--surface-dark-card);
+
+  /* ==========================================================================
+     Semantic Text Tokens
+     ========================================================================== */
+  /* Text on Dark Surfaces */
+  --text-dark-primary: #ffffff;
+  --text-dark-secondary: #c5c5c5;
+  --text-dark-muted: #807f7f;
+  --text-dark-subtle: #565555;
+  --text-dark-slate: #9797aa;
+
+  /* Text on Light Surfaces */
+  --text-light-primary: #111111;
+  --text-light-secondary: #565555;
+  --text-light-muted: #807f7f;
+  --text-light-subtle: #b7b6b6;
+  --text-light-slate: #9797aa;
+
+  /* Global Default Text Tokens */
+  --text-primary: var(--text-dark-primary);
+  --text-secondary: var(--text-dark-secondary);
+  --text-muted: var(--text-dark-muted);
+
+  /* ==========================================================================
+     Borders & Dividers
+     ========================================================================== */
+  --border-dark-subtle: rgba(255, 255, 255, 0.08);
+  --border-dark-default: #565555;
+  --border-dark-strong: #807f7f;
+  --border-dark-cool: #c3c4c8;
+
+  --border-light-subtle: #f1efef;
+  --border-light-default: #c5c5c5;
+  --border-light-strong: #b7b6b6;
+  --border-light-neutral: #cccccc;
+  --border-light-divider: #d9d9d9;
+
+  --border-default: var(--border-dark-subtle);
+
+  /* ==========================================================================
+     Brand Accent Tokens (Observed in Figma)
+     ========================================================================== */
+  --color-accent: #b6005d;
+  --color-accent-rgb: 182, 0, 93;
+
+  /* ==========================================================================
+     Observed Figma Gradients
+     ========================================================================== */
+  /* CTA Gradient: #ea0066 at 0%, #b6005d at 35.58%, #900057 at 64.91%, #510055 at 100% */
+  --gradient-cta: linear-gradient(90deg, #ea0066 0%, #b6005d 35.58%, #900057 64.91%, #510055 100%);
+
+  /* Divider Gradient: #c3c4c8 at 82.031% fading to transparent at 100% */
+  --gradient-divider: linear-gradient(90deg, #c3c4c8 0%, #c3c4c8 82.031%, transparent 100%);
+
+  /* ==========================================================================
+     Component-Specific Artwork Tokens (Motorcycle Artwork)
+     ========================================================================== */
+  /* Motorcycle Artwork Gradient: #d39d08 → #f8f59f with 50% layer opacity */
+  --gradient-motorcycle-artwork: linear-gradient(180deg, #d39d08 0%, #f8f59f 100%);
+  --opacity-motorcycle-artwork: 0.5;
+
+  /* ==========================================================================
+     Spacing Scale
+     ========================================================================== */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ==========================================================================
+     Border Radii
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-pill: 9999px;
+
+  /* ==========================================================================
+     Transitions
+     ========================================================================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ==========================================================================
+     Container Widths
+     ========================================================================== */
+  --container-max-width: 1280px;
+  --container-narrow-width: 960px;
+}
+
+/* ==========================================================================
+   Alternating Section Modifiers (Dark & Light)
+   ========================================================================== */
+.section-dark,
+[data-section-theme="dark"] {
+  background-color: var(--surface-dark-primary);
+  color: var(--text-dark-primary);
+  --section-card-bg: var(--surface-dark-card);
+  --section-text-primary: var(--text-dark-primary);
+  --section-text-secondary: var(--text-dark-secondary);
+  --section-text-muted: var(--text-dark-muted);
+  --section-border: var(--border-dark-subtle);
+}
+
+.section-light,
+[data-section-theme="light"] {
+  background-color: var(--surface-light-primary);
+  color: var(--text-light-primary);
+  --section-card-bg: var(--surface-light-card);
+  --section-text-primary: var(--text-light-primary);
+  --section-text-secondary: var(--text-light-secondary);
+  --section-text-muted: var(--text-light-muted);
+  --section-border: var(--border-light-subtle);
+}
+
+/* ==========================================================================
+   Typography Utility Classes
+   ========================================================================== */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-secondary,
+.font-estimator {
+  font-family: var(--font-secondary);
+}
+
+.font-accent,
+.font-tagline,
+.font-wordmark {
+  font-family: var(--font-accent);
+}
+
+/* ==========================================================================
+   Base Resets
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}

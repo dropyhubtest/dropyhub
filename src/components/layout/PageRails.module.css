@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Continuous Vertical Page Rails
+   Global desktop rail system at 1440px reference frame
+   - Left rail: x = 40px
+   - Right rail: x = 1400px
+   - Origin: y = 88px (below header)
+   All solid lines and dotted/dashed divider transitions are rendered directly
+   on the rail itself to guarantee zero shift or duplicate lines.
+   ========================================================================== */
+
+.railsOverlay {
+  position: absolute;
+  top: 88px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.railsContainer {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+}
+
+.leftRail {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightRail {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Hero segment (y = 88px to 759px -> 671px) on dark surface */
+.heroSegment {
+  width: 1px;
+  height: 671px;
+  background-color: #2e2e2e;
+  flex-shrink: 0;
+}
+
+/* 2. Stats bar segment (y = 759px to 897px -> 138px) on light surface */
+.statsBarSegment {
+  width: 1px;
+  height: 138px;
+  background-color: var(--color-raw-c3c4c8);
+  flex-shrink: 0;
+}
+
+/* 3. Dotted divider transitions across horizontal hatched bars (Frame 334 / 352) */
+.dashedDivider40 {
+  width: 1px;
+  height: 40px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8) 0px,
+    var(--color-raw-c3c4c8) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  flex-shrink: 0;
+}
+
+.dashedDivider43 {
+  width: 1px;
+  height: 43px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8) 0px,
+    var(--color-raw-c3c4c8) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  flex-shrink: 0;
+}
+
+.dashedDivider64 {
+  width: 1px;
+  height: 64px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8) 0px,
+    var(--color-raw-c3c4c8) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  flex-shrink: 0;
+}
+
+/* 4. Why DropyHub & Estimator content (694px + 785px = 1479px) on light surface */
+.whyEstimatorSegment {
+  width: 1px;
+  height: 1479px;
+  background-color: var(--color-raw-c3c4c8);
+  flex-shrink: 0;
+}
+
+/* 5. About Section content (1499px) on dark surface */
+.aboutContentSegment {
+  width: 1px;
+  height: 1499px;
+  background-color: #2e2e2e;
+  flex-shrink: 0;
+}
+
+/* 6. Trust & Partners content (603px) on light surface */
+.trustPartnersSegment {
+  width: 1px;
+  height: 603px;
+  background-color: var(--color-raw-c3c4c8);
+  flex-shrink: 0;
+}
+
+/* 7. Testimonials & FAQ content (422px + 446px = 868px) on light surface */
+.testimonialsFaqSegment {
+  width: 1px;
+  height: 868px;
+  background-color: var(--color-raw-c3c4c8);
+  flex-shrink: 0;
+}
+
+/* 8. CTA & Footer Top (solid down to Our Services at y = 895px in FaqFooterSection -> 406px) */
+.ctaFooterTopSegment {
+  width: 1px;
+  height: 406px;
+  background-color: var(--color-raw-c3c4c8);
+  flex-shrink: 0;
+}
+
+/* 9. Footer Fade Out: Starts exactly at 'Our Services' and fades to 0 over 135px */
+.footerFadeSegment {
+  width: 1px;
+  height: 135px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8),
+    rgba(195, 196, 200, 0)
+  );
+  flex-shrink: 0;
+}
+
+/* 10. Footer Transparent: Stays clean/transparent through social links and wordmark (471px) */
+.footerTransparentSegment {
+  width: 1px;
+  height: 471px;
+  background: transparent;
+  flex-shrink: 0;
+}

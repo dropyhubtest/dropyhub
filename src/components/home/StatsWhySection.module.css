@@ -1,0 +1,305 @@
+/* ==========================================================================
+   Statistics + Why DropyHub Section
+   Target: 1440px Desktop Reference Frame (Node 1278:20360)
+   ========================================================================== */
+
+.sectionWrapper {
+  position: relative;
+  width: 100%;
+  background-color: var(--surface-light-primary);
+  color: var(--text-light-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   1. Top Statistics Bar
+   Bounded by 1319px inner grid (x=61px to x=1380px), height=138px
+   ========================================================================== */
+.statsBarContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--surface-light-primary);
+}
+
+.statsBarFrame {
+  position: relative;
+  width: 1440px;
+  height: 138px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.statsGrid {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 1360px;
+  height: 138px;
+  display: grid;
+  grid-template-columns: repeat(6, 226.666px);
+  box-sizing: border-box;
+}
+
+.statItem {
+  height: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 12px;
+  border-right: 0.5px solid var(--color-raw-c3c4c8);
+  box-sizing: border-box;
+}
+
+.statItem:last-child {
+  border-right: none;
+}
+
+.statIconWrapper {
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 38.154px;
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--text-light-primary);
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.statSup {
+  font-size: 23.846px;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 2px;
+  vertical-align: super;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 14.308px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text-light-muted);
+  margin: 6px 0 0 0;
+}
+
+/* ==========================================================================
+   2. Full-Viewport Horizontal Divider (Frame 334)
+   - Width: 100% of browser content viewport (full-bleed, edge-to-edge)
+   - Height: 40px
+   - Diagonal hatch pattern with top and bottom subtle grey borders
+   - Dotted vertical rail transitions at x=61px and x=1380px across 40px height
+   ========================================================================== */
+.fullBleedDivider {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--surface-light-primary);
+  border-top: 1px solid var(--color-raw-c3c4c8);
+  border-bottom: 1px solid var(--color-raw-c3c4c8);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.dividerPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.5) 13.5px,
+    rgba(195, 196, 200, 0.5) 15px
+  );
+  pointer-events: none;
+}
+
+.dividerInner {
+  position: relative;
+  width: 1440px;
+  height: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.railLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-raw-c3c4c8);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dottedRailLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 1px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dottedRailRight {
+  position: absolute;
+  left: 1400px;
+  top: 0;
+  width: 1px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   3. Why DropyHub Content Area
+   - Frame: 1440px desktop reference width
+   - Heading at x=100px, top=37px (overall y=215px)
+   - Left column at x=125px, top=143px (overall y=321px)
+   - Right column at x=951px, top=143px (overall y=321px)
+   - Central corridor: 467px gap
+   ========================================================================== */
+.whySectionContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--surface-light-primary);
+}
+
+.whySectionFrame {
+  position: relative;
+  width: 1440px;
+  height: 694px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.headerArea {
+  position: absolute;
+  left: 100px;
+  top: 37px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.44px;
+  color: var(--text-light-muted);
+  text-transform: uppercase;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-raw-2c2a);
+  display: inline-block;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text-light-primary);
+  margin: 8px 0 0 0;
+}
+
+/* Feature cards columns and central corridor */
+.cardsColumnLeft {
+  position: absolute;
+  left: 125px;
+  top: 143px;
+  width: 359px;
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
+}
+
+.cardsColumnRight {
+  position: absolute;
+  left: 951px;
+  top: 143px;
+  width: 359px;
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
+}
+
+.card {
+  width: 359px;
+  height: 192px;
+  background-color: var(--surface-light-card);
+  border-radius: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+  border: 0.5px solid #f9f9f9;
+  box-shadow: 6px 4px 11.7px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardIconWrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.cardHeading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-light-primary);
+  margin: 0 0 24px 0;
+}
+
+.cardBody {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--text-light-secondary);
+  margin: 0;
+}
