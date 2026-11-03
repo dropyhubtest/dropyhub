@@ -4,8 +4,8 @@ import Link from "next/link";
 import styles from "./Hero.module.css";
 
 const NAV_ITEMS = [
-  { label: "HOME", href: "#", active: true },
-  { label: "ABOUT", href: "#about" },
+  { label: "HOME", href: "/", active: true },
+  { label: "ABOUT", href: "/about" },
   { label: "WAREHOUSE", href: "#warehouse" },
   { label: "SERVICES", href: "#services" },
   { label: "BENEFITS", href: "#benefits" },

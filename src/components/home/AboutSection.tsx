@@ -146,26 +146,26 @@ export const AboutSection: React.FC = () => {
         <div className={styles.aboutBottomDividerPattern} />
         <div className={styles.aboutBottomDividerInner}>
           <div className={styles.brokenRailLeft}>
-            <svg width="2" height="64" viewBox="0 0 2 64" fill="none">
+            <svg width="2" height="64" viewBox="0 0 2 64" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
                 x2="1"
                 y2="64"
-                stroke="#2e2e2e"
+                stroke="#3e3e3e"
                 strokeWidth="1.5"
                 strokeDasharray="4 4"
               />
             </svg>
           </div>
           <div className={styles.brokenRailRight}>
-            <svg width="2" height="64" viewBox="0 0 2 64" fill="none">
+            <svg width="2" height="64" viewBox="0 0 2 64" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
                 x2="1"
                 y2="64"
-                stroke="#2e2e2e"
+                stroke="#3e3e3e"
                 strokeWidth="1.5"
                 strokeDasharray="4 4"
               />

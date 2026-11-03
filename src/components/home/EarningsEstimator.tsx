@@ -302,7 +302,7 @@ export const EarningsEstimator: React.FC = () => {
         <div className={styles.bottomDividerPattern} />
         <div className={styles.bottomDividerInner}>
           <div className={styles.brokenRailLeft}>
-            <svg width="2" height="40" viewBox="0 0 2 40" fill="none">
+            <svg width="2" height="40" viewBox="0 0 2 40" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
@@ -310,12 +310,12 @@ export const EarningsEstimator: React.FC = () => {
                 y2="40"
                 stroke="#c3c4c8"
                 strokeWidth="1.5"
-                strokeDasharray="4 4"
+                strokeDasharray="3 3"
               />
             </svg>
           </div>
           <div className={styles.brokenRailRight}>
-            <svg width="2" height="40" viewBox="0 0 2 40" fill="none">
+            <svg width="2" height="40" viewBox="0 0 2 40" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
@@ -323,7 +323,7 @@ export const EarningsEstimator: React.FC = () => {
                 y2="40"
                 stroke="#c3c4c8"
                 strokeWidth="1.5"
-                strokeDasharray="4 4"
+                strokeDasharray="3 3"
               />
             </svg>
           </div>

@@ -98,7 +98,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
         <div className={styles.frame352Pattern} />
         <div className={styles.frame352Inner}>
           <div className={styles.brokenRailLeft}>
-            <svg width="2" height="43" viewBox="0 0 2 43" fill="none">
+            <svg width="2" height="43" viewBox="0 0 2 43" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
@@ -106,12 +106,12 @@ export const TrustPartnersTestimonials: React.FC = () => {
                 y2="43"
                 stroke="#c3c4c8"
                 strokeWidth="1.5"
-                strokeDasharray="4 4"
+                strokeDasharray="3 3"
               />
             </svg>
           </div>
           <div className={styles.brokenRailRight}>
-            <svg width="2" height="43" viewBox="0 0 2 43" fill="none">
+            <svg width="2" height="43" viewBox="0 0 2 43" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
@@ -119,7 +119,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
                 y2="43"
                 stroke="#c3c4c8"
                 strokeWidth="1.5"
-                strokeDasharray="4 4"
+                strokeDasharray="3 3"
               />
             </svg>
           </div>

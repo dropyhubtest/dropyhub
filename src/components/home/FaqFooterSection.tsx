@@ -55,28 +55,28 @@ export const FaqFooterSection: React.FC = () => {
         <div className={styles.faqDividerPattern} />
         <div className={styles.faqDividerInner}>
           <div className={styles.brokenRailLeft}>
-            <svg width="2" height="43" viewBox="0 0 2 43" fill="none">
+            <svg width="2" height="43" viewBox="0 0 2 43" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
                 x2="1"
                 y2="43"
                 stroke="#c3c4c8"
-                strokeWidth="1"
-                strokeDasharray="4 4"
+                strokeWidth="1.5"
+                strokeDasharray="3 3"
               />
             </svg>
           </div>
           <div className={styles.brokenRailRight}>
-            <svg width="2" height="43" viewBox="0 0 2 43" fill="none">
+            <svg width="2" height="43" viewBox="0 0 2 43" fill="none" style={{ display: "block" }}>
               <line
                 x1="1"
                 y1="0"
                 x2="1"
                 y2="43"
                 stroke="#c3c4c8"
-                strokeWidth="1"
-                strokeDasharray="4 4"
+                strokeWidth="1.5"
+                strokeDasharray="3 3"
               />
             </svg>
           </div>
@@ -161,9 +161,9 @@ export const FaqFooterSection: React.FC = () => {
                 </svg>
               </a>
 
-              <a href="#about" className={styles.learnMoreLink}>
+              <Link href="/about" className={styles.learnMoreLink}>
                 Learn more
-              </a>
+              </Link>
             </div>
           </div>
         </div>

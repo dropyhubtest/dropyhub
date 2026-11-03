@@ -28,26 +28,26 @@
     height: 759px;
   }
 
-  /* Thin vertical decorative lines (Page Rails at x=40px and right=40px) */
+  /* Side vertical decorative borders (Page Rails with increased width & margin) */
   .decorativeLine {
     position: absolute;
-    left: 40px;
+    left: clamp(80px, 6vw, 112px);
     top: 88px;
-    width: 1px;
+    width: 1.5px;
     height: 671px;
-    background-color: #2e2e2e;
+    background-color: #3e3e3e;
     z-index: 1;
     pointer-events: none;
   }
 
   .decorativeLineRight {
     position: absolute;
-    right: 40px;
+    right: clamp(80px, 6vw, 112px);
     left: auto;
     top: 88px;
-    width: 1px;
+    width: 1.5px;
     height: 671px;
-    background-color: #2e2e2e;
+    background-color: #3e3e3e;
     z-index: 1;
     pointer-events: none;
   }
@@ -63,7 +63,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 clamp(80px, 6vw, 112px);
     box-sizing: border-box;
   }
 
@@ -217,7 +217,7 @@
   /* Sunrisers & IPL Partner Badge */
   .partnerBadge {
     position: absolute;
-    left: clamp(40px, 6vw, 104px);
+    left: clamp(80px, 6vw, 112px);
     top: 544px;
     display: inline-flex;
     align-items: center;
@@ -308,7 +308,7 @@
 
   .description {
     position: absolute;
-    left: clamp(40px, 6vw, 104px);
+    left: clamp(80px, 6vw, 112px);
     top: 621px;
     width: min(494px, 40vw);
     font-family: var(--font-body);
@@ -323,7 +323,7 @@
 
   .ctaGroup {
     position: absolute;
-    right: clamp(40px, 6vw, 104px);
+    right: clamp(80px, 6vw, 112px);
     left: auto;
     top: 627px;
     display: flex;

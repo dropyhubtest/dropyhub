@@ -29,8 +29,8 @@
    ========================================================================== */
 .topIntro {
   position: absolute;
-  left: clamp(40px, 6vw, 100px);
-  right: clamp(40px, 6vw, 100px);
+  left: clamp(80px, 6vw, 112px);
+  right: clamp(80px, 6vw, 112px);
   top: 79px;
   width: auto;
   display: flex;
@@ -92,7 +92,7 @@
    ========================================================================== */
 .ecosystemIntro {
   position: absolute;
-  left: clamp(40px, 6vw, 100px);
+  left: clamp(80px, 6vw, 112px);
   top: 225px;
   display: flex;
   flex-direction: column;
@@ -121,8 +121,8 @@
    ========================================================================== */
 .horizontalDivider {
   position: absolute;
-  left: 40px;
-  right: 40px;
+  left: clamp(80px, 6vw, 112px);
+  right: clamp(80px, 6vw, 112px);
   width: auto;
   height: 1px;
   background-color: var(--color-raw-c3c4c8);
@@ -314,32 +314,32 @@
 
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
   bottom: 0;
-  width: 1px;
-  background-color: #2e2e2e;
+  width: 1.5px;
+  background-color: #3e3e3e;
   pointer-events: none;
   z-index: 5;
 }
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
   bottom: 0;
-  width: 1px;
-  background-color: #2e2e2e;
+  width: 1.5px;
+  background-color: #3e3e3e;
   pointer-events: none;
   z-index: 5;
 }
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
-  width: 1px;
+  width: 2px;
   height: 64px;
   pointer-events: none;
   z-index: 5;
@@ -347,10 +347,10 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
-  width: 1px;
+  width: 2px;
   height: 64px;
   pointer-events: none;
   z-index: 5;

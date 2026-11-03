@@ -33,8 +33,8 @@
 
 .statsGrid {
   position: absolute;
-  left: 40px;
-  right: 40px;
+  left: clamp(80px, 6vw, 112px);
+  right: clamp(80px, 6vw, 112px);
   top: 0;
   height: 138px;
   display: grid;
@@ -143,10 +143,10 @@
 
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -154,11 +154,11 @@
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -166,9 +166,9 @@
 
 .dottedRailLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
-  width: 1px;
+  width: 2px;
   height: 40px;
   pointer-events: none;
   z-index: 5;
@@ -176,10 +176,10 @@
 
 .dottedRailRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
-  width: 1px;
+  width: 2px;
   height: 40px;
   pointer-events: none;
   z-index: 5;
@@ -210,7 +210,7 @@
 
 .headerArea {
   position: absolute;
-  left: clamp(40px, 6vw, 100px);
+  left: clamp(80px, 6vw, 112px);
   top: 37px;
   display: flex;
   flex-direction: column;
@@ -248,9 +248,9 @@
 /* Feature cards columns and central corridor */
 .cardsColumnLeft {
   position: absolute;
-  left: clamp(40px, 7vw, 125px);
+  left: clamp(80px, 6vw, 112px);
   top: 143px;
-  width: 359px;
+  width: min(359px, 28vw);
   display: flex;
   flex-direction: column;
   gap: 49px;
@@ -258,10 +258,10 @@
 
 .cardsColumnRight {
   position: absolute;
-  right: clamp(40px, 7vw, 125px);
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 143px;
-  width: 359px;
+  width: min(359px, 28vw);
   display: flex;
   flex-direction: column;
   gap: 49px;

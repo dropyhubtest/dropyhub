@@ -126,7 +126,7 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -90, // Facing right
       };
 
-      // 04. About DropyHub — right column directly below intro paragraph, angled up-left matching reference screenshot
+      // 04. About DropyHub — right column directly below intro paragraph (facing horizontal left matching user direction arrow)
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
       const dR = desc ? desc.getBoundingClientRect() : null;
       const aboutDocX = dR ? (dR.left + dR.width / 2) : (centerX + 280);
@@ -134,7 +134,7 @@ export const MotorcycleScroll: React.FC = () => {
       const aboutAnchor: StateAnchor = {
         docX: aboutDocX,
         docY: aboutDocY,
-        rotation: -225, // Angled up-left matching reference screenshot (media_1793691409990_d35a750f.png)
+        rotation: -270, // Facing horizontal left (pointing west ← along user's red arrow)
       };
 
       // 05. How to Start — corridor between steps list & photo panel

@@ -28,7 +28,7 @@
    ========================================================================== */
 .headerArea {
   position: absolute;
-  left: clamp(40px, 6vw, 100px);
+  left: clamp(80px, 6vw, 112px);
   top: 38px;
   display: flex;
   flex-direction: column;
@@ -554,10 +554,10 @@
 
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -565,11 +565,11 @@
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -577,9 +577,9 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
-  width: 1px;
+  width: 2px;
   height: 40px;
   pointer-events: none;
   z-index: 5;
@@ -587,10 +587,10 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
-  width: 1px;
+  width: 2px;
   height: 40px;
   pointer-events: none;
   z-index: 5;

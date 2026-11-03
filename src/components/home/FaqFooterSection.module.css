@@ -30,7 +30,7 @@
    ========================================================================== */
 .faqEyebrow {
   position: absolute;
-  left: 71px;
+  left: clamp(80px, 6vw, 112px);
   top: 29px;
   display: inline-flex;
   align-items: center;
@@ -53,7 +53,7 @@
 
 .faqHeading {
   position: absolute;
-  left: 71px;
+  left: clamp(80px, 6vw, 112px);
   top: 56px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -166,10 +166,10 @@
 
 .railFaqLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
   height: 446px;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -177,11 +177,11 @@
 
 .railFaqRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
   height: 446px;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -189,7 +189,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 0;
   width: 2px;
   height: 43px;
@@ -199,7 +199,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 0;
   width: 2px;
@@ -210,10 +210,10 @@
 
 .railCtaLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 489px;
   height: 391px;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -221,11 +221,11 @@
 
 .railCtaRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 489px;
   height: 391px;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -234,10 +234,10 @@
 /* Rail segment: ctaBottomLine (y=724px) through social links (y=1059px) */
 .railFooterLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 880px;
   height: 170px;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -245,11 +245,11 @@
 
 .railFooterRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 880px;
   height: 170px;
-  width: 1px;
+  width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
   z-index: 5;
@@ -258,10 +258,10 @@
 /* Fade segment: starts at "Our Services" level (~1050px), fades to transparent */
 .railFadeLeft {
   position: absolute;
-  left: 40px;
+  left: clamp(80px, 6vw, 112px);
   top: 1050px;
   height: 160px;
-  width: 1px;
+  width: 1.5px;
   background: linear-gradient(
     to bottom,
     var(--color-raw-c3c4c8),
@@ -273,11 +273,11 @@
 
 .railFadeRight {
   position: absolute;
-  right: 40px;
+  right: clamp(80px, 6vw, 112px);
   left: auto;
   top: 1050px;
   height: 160px;
-  width: 1px;
+  width: 1.5px;
   background: linear-gradient(
     to bottom,
     var(--color-raw-c3c4c8),
@@ -373,8 +373,8 @@
 /* Horizontal Divider line below CTA at y = 724px */
 .ctaBottomLine {
   position: absolute;
-  left: 40px;
-  right: 40px;
+  left: clamp(80px, 6vw, 112px);
+  right: clamp(80px, 6vw, 112px);
   top: 724px;
   width: auto;
   height: 1px;
@@ -387,8 +387,8 @@
    ========================================================================== */
 .footerLinks {
   position: absolute;
-  left: clamp(40px, 6vw, 109px);
-  right: clamp(40px, 6vw, 109px);
+  left: clamp(80px, 6vw, 112px);
+  right: clamp(80px, 6vw, 112px);
   top: 785px;
   width: auto;
   height: 220px;
@@ -532,7 +532,7 @@
 
 .socialIcons {
   position: absolute;
-  left: clamp(40px, 6vw, 109px);
+  left: clamp(80px, 6vw, 112px);
   top: 1059px;
   display: flex;
   align-items: center;
@@ -541,7 +541,7 @@
 
 .copyrightText {
   position: absolute;
-  left: clamp(40px, 6vw, 109px);
+  left: clamp(80px, 6vw, 112px);
   top: 1106px;
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 13px;
@@ -554,8 +554,8 @@
 
 .footerDescription {
   position: absolute;
-  left: clamp(40px, 6vw, 109px);
-  right: clamp(40px, 6vw, 109px);
+  left: clamp(80px, 6vw, 112px);
+  right: clamp(80px, 6vw, 112px);
   top: 1140px;
   width: auto;
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
