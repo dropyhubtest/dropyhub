@@ -60,6 +60,10 @@ const COMMITMENTS = [
 export const AboutStatsPillars: React.FC = () => {
   return (
     <section className={styles.statsSection} aria-label="Key Metrics, Mission and Vision">
+      {/* Continuous Side Rails at 40px */}
+      <div className={styles.railLeft} aria-hidden="true" />
+      <div className={styles.railRight} aria-hidden="true" />
+
       <div className={styles.container}>
         {/* 1. 6-Metric Stats Bar */}
         <div className={styles.statsBar}>

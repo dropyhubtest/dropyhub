@@ -85,7 +85,15 @@ export const AboutHero: React.FC = () => {
       </div>
 
       {/* 4. Horizontal Hatched Divider Bar at Section Bottom */}
-      <div className={styles.hatchedDivider} aria-hidden="true" />
+      <div className={styles.hatchedDivider} aria-hidden="true">
+        <div className={styles.hatchedPattern} />
+        <svg className={styles.brokenRailLeft} viewBox="0 0 2 24" preserveAspectRatio="none">
+          <line x1="1" y1="0" x2="1" y2="24" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeDasharray="3 3" />
+        </svg>
+        <svg className={styles.brokenRailRight} viewBox="0 0 2 24" preserveAspectRatio="none">
+          <line x1="1" y1="0" x2="1" y2="24" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeDasharray="3 3" />
+        </svg>
+      </div>
     </section>
   );
 };

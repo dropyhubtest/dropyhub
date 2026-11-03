@@ -73,6 +73,10 @@ const BENEFITS_DATA: BenefitBox[] = [
 export const AboutPartnerBenefits: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Partner Platforms and Executive Benefits">
+      {/* Continuous Side Rails at 40px */}
+      <div className={styles.railLeft} aria-hidden="true" />
+      <div className={styles.railRight} aria-hidden="true" />
+
       <div className={styles.container}>
         {/* Top Part: Connecting you with India's top marquee */}
         <div className={styles.partnersMarqueeBlock}>

@@ -95,6 +95,10 @@ export const AboutValuesTimeline: React.FC = () => {
     <section className={styles.sectionWrapper} aria-label="Core Values and Company Roadmap">
       {/* 1. Core Values (Light Background) */}
       <div className={styles.valuesContainer}>
+        {/* Continuous Side Rails for Values */}
+        <div className={styles.railLeftLight} aria-hidden="true" />
+        <div className={styles.railRightLight} aria-hidden="true" />
+
         <div className={styles.valuesHeader}>
           <span className={styles.eyebrowLight}>
             <span className={styles.bulletPink} aria-hidden="true" />
@@ -126,10 +130,22 @@ export const AboutValuesTimeline: React.FC = () => {
       </div>
 
       {/* Hatched Divider Bar Transition */}
-      <div className={styles.hatchedDivider} aria-hidden="true" />
+      <div className={styles.hatchedDivider} aria-hidden="true">
+        <div className={styles.hatchedPattern} />
+        <svg className={styles.brokenRailLeft} viewBox="0 0 2 44" preserveAspectRatio="none">
+          <line x1="1" y1="0" x2="1" y2="44" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeDasharray="3 3" />
+        </svg>
+        <svg className={styles.brokenRailRight} viewBox="0 0 2 44" preserveAspectRatio="none">
+          <line x1="1" y1="0" x2="1" y2="44" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeDasharray="3 3" />
+        </svg>
+      </div>
 
       {/* 2. Roadmap / Phased Journey (Dark Background) */}
       <div className={styles.roadmapSection}>
+        {/* Continuous Side Rails for Roadmap */}
+        <div className={styles.railLeftDark} aria-hidden="true" />
+        <div className={styles.railRightDark} aria-hidden="true" />
+
         <div className={styles.roadmapContainer}>
           <span className={styles.eyebrowDark}>
             <span className={styles.bulletYellow} aria-hidden="true" />

@@ -7,6 +7,10 @@ import styles from './AboutCtaFooter.module.css';
 export const AboutCtaFooter: React.FC = () => {
   return (
     <footer className={styles.ctaFooterSection} aria-label="Call to Action and Footer">
+      {/* Continuous Side Rails at 40px */}
+      <div className={styles.railLeft} aria-hidden="true" />
+      <div className={styles.railRight} aria-hidden="true" />
+
       <div className={styles.container}>
         {/* 1. CTA Banner */}
         <div className={styles.ctaBanner}>

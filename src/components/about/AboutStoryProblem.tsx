@@ -6,14 +6,18 @@ import styles from './AboutStoryProblem.module.css';
 
 export const AboutStoryProblem: React.FC = () => {
   return (
-    <section className={styles.storySection} aria-label="Our Story, Problem and Solution">
+    <section className={styles.storySection} aria-label="The DropyHub Story, Problem and Solution">
+      {/* Continuous Side Rails at 40px */}
+      <div className={styles.railLeft} aria-hidden="true" />
+      <div className={styles.railRight} aria-hidden="true" />
+
       <div className={styles.container}>
-        {/* Top Part: Story Narrative & Visual */}
+        {/* Part 1: THE DROPYHUB STORY */}
         <div className={styles.storyBlock}>
           <div className={styles.storyTextCol}>
             <span className={styles.eyebrow}>
               <span className={styles.bullet} aria-hidden="true" />
-              OUR STORY &amp; PURPOSE
+              THE DROPYHUB STORY
             </span>
             <h2 className={styles.sectionHeading}>
               A Delivery Network Built Around People
@@ -21,20 +25,19 @@ export const AboutStoryProblem: React.FC = () => {
 
             <div className={styles.paragraphs}>
               <p>
-                India&apos;s delivery ecosystem runs on millions of daily rides, but behind every
-                delivery is a partner navigating fuel costs, vehicle breakdowns, lack of insurance,
-                and unpredictable daily earnings. DropyHub was founded to change this reality.
+                Delivery work can be difficult when riders must arrange their own vehicle,
+                housing and day-to-day support. DropyHub brings these essentials together
+                so delivery executives can focus on completing orders safely and reliably.
               </p>
               <p>
-                We created India&apos;s first complete partner ecosystem: a captive delivery network
-                where the company handles asset ownership, weekly payouts, fuel efficiency, training,
-                and grievance resolution, so delivery partners can focus on doing what they do best.
+                We coordinate with partner companies, onboard delivery executives and help
+                organize the resources needed to keep deliveries moving—from EV bike access
+                to hostel accommodation and weekly performance bonuses.
               </p>
               <p>
-                Operating across 12+ cities with a network of 5,000+ active delivery executives,
-                DropyHub serves top platforms like Swiggy, Zomato, Blinkit, Amazon, Zepto, Flipkart,
-                and Uber, ensuring guaranteed deployment, high SLA adherence, and a disciplined,
-                verified partner workforce.
+                Our role goes beyond recruitment. We connect delivery demand with an
+                organized rider network and support our executives with practical resources,
+                clear onboarding and ongoing assistance.
               </p>
             </div>
           </div>
@@ -47,71 +50,72 @@ export const AboutStoryProblem: React.FC = () => {
                 width={708}
                 height={506}
                 className={styles.riderImage}
+                priority
               />
             </div>
           </div>
         </div>
 
-        {/* Hairline Divider */}
-        <div className={styles.hairlineDivider} aria-hidden="true" />
-
-        {/* Bottom Part: The Problem & The Solution */}
-        <div className={styles.problemSolutionBlock}>
+        {/* Part 2: WHY WE EXIST (The Problem & The Solution) */}
+        <div className={styles.whyWeExistBlock}>
           <span className={styles.eyebrow}>
             <span className={styles.bullet} aria-hidden="true" />
-            THE PROBLEM &amp; THE SOLUTION
+            WHY WE EXIST
           </span>
 
-          <div className={styles.splitCardsGrid}>
-            {/* The Problem Card */}
-            <div className={`${styles.card} ${styles.problemCard}`}>
+          {/* Full-width hairline divider line */}
+          <div className={styles.sectionDividerLine} aria-hidden="true" />
+
+          {/* 50/50 Architecture Grid split by vertical center line */}
+          <div className={styles.twoColumnGrid}>
+            {/* The Problem Column */}
+            <div className={styles.gridColumn}>
+              <div className={styles.columnContent}>
+                <h3 className={styles.columnTitle}>The Problem</h3>
+                <p className={styles.columnDescription}>
+                  The delivery economy creates opportunities every day. But getting started
+                  and staying on track can be challenging when people have to figure everything
+                  out alone.
+                </p>
+              </div>
               <div className={styles.watermarkWrapper}>
                 <Image
                   src="/assets/About/emojione-monotone_question-mark.png"
                   alt=""
-                  width={120}
-                  height={120}
+                  width={140}
+                  height={140}
                   className={styles.watermarkIcon}
                   aria-hidden="true"
                 />
               </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>The Problem</h3>
-                <p className={styles.cardDescription}>
-                  The delivery ecosystem moves millions of parcels every day, but delivery
-                  partners face high entry costs, lack of vehicles, low daily earnings,
-                  zero safety nets, and negligible career mobility.
-                </p>
-              </div>
             </div>
 
-            {/* The Solution Card */}
-            <div className={`${styles.card} ${styles.solutionCard}`}>
+            {/* The Solution Column */}
+            <div className={`${styles.gridColumn} ${styles.solutionColumn}`}>
+              <div className={styles.columnContent}>
+                <h3 className={styles.columnTitle}>The Solution</h3>
+                <p className={styles.columnDescription}>
+                  DropyHub works to make that journey more accessible by connecting delivery
+                  partners with work opportunities and support that can help them move forward.
+                </p>
+              </div>
               <div className={styles.watermarkWrapper}>
                 <Image
                   src="/assets/About/mage_light-bulb.png"
                   alt=""
-                  width={120}
-                  height={120}
+                  width={140}
+                  height={140}
                   className={styles.watermarkIcon}
                   aria-hidden="true"
                 />
               </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>The Solution</h3>
-                <p className={styles.cardDescription}>
-                  DropyHub creates a captive fleet ecosystem: we provide vehicles, guaranteed
-                  daily earnings, structured onboarding, and comprehensive support so partners
-                  thrive while platforms get reliable SLAs.
-                </p>
-              </div>
             </div>
           </div>
+
+          {/* Bottom hairline line */}
+          <div className={styles.bottomDividerLine} aria-hidden="true" />
         </div>
       </div>
-
-      {/* Section Bottom Hatched Divider */}
-      <div className={styles.hatchedDivider} aria-hidden="true" />
     </section>
   );
 };
