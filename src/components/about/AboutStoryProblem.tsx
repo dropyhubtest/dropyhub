@@ -118,8 +118,11 @@ export const AboutStoryProblem: React.FC = () => {
         <div className={styles.bottomDividerLine} aria-hidden="true" />
       </div>
 
-      {/* Bar 1: Normal black bar with decreased height */}
-      <div className={styles.blackSpacerBar} aria-hidden="true" />
+      {/* Bar 1: Normal black bar with decreased height and continuous side rails */}
+      <div className={styles.blackSpacerBar} aria-hidden="true">
+        <div className={styles.blackBarRailLeft} />
+        <div className={styles.blackBarRailRight} />
+      </div>
 
       {/* Bar 2: White horizontal bar with slashes and dotted rail lines */}
       <div className={styles.whiteSlashedBar} aria-hidden="true">
