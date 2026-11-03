@@ -1,5 +1,8 @@
 /* ==========================================================================
-   AboutHero.module.css — Precision Desktop-First Styling for About Hero
+   AboutHero.module.css — Precision Styling for About Hero
+   Matches Figma design Frame 402 / Frame 1191:2038
+   Hero image covers 90% of the hero section width.
+   Left and right borders start AFTER this section.
    ========================================================================== */
 
 .heroSection {
@@ -11,122 +14,13 @@
   box-sizing: border-box;
 }
 
-/* Header Navigation (Full-width viewport layout) */
-.header {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 88px;
-  padding: 0 60px;
-  box-sizing: border-box;
-  z-index: 10;
-}
-
-.railLeft {
-  position: absolute;
-  left: 40px;
-  top: 88px;
-  bottom: 0;
-  width: 1.5px;
-  background-color: #2e2e2e;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.railRight {
-  position: absolute;
-  right: 40px;
-  top: 88px;
-  bottom: 0;
-  width: 1.5px;
-  background-color: #2e2e2e;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.logoWrapper {
-  display: flex;
-  align-items: center;
-}
-
-.logoImage {
-  display: block;
-  width: 88px;
-  height: 54px;
-  object-fit: contain;
-}
-
-.navigation {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-}
-
-.navList {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 32px;
-}
-
-.navItem {
-  display: flex;
-  align-items: center;
-}
-
-.navLink {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 500;
-  color: #a3a3a3;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: color 0.15s ease;
-}
-
-.navLink:hover {
-  color: #ffffff;
-}
-
-.navLinkActive {
-  color: #ffffff;
-  font-weight: 700;
-  border-bottom: 2px solid #ffffff;
-  padding-bottom: 4px;
-}
-
-.joinNowButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 38px;
-  padding: 0 20px;
-  background-color: #272727;
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.15s ease;
-}
-
-.joinNowButton:hover {
-  background-color: #383838;
-}
-
-/* Content Container (Full Viewport Width) */
+/* Content Container (90% width centered) */
 .contentContainer {
   position: relative;
   width: 100%;
-  padding: 40px 64px 64px 64px;
+  padding: 36px 5% 48px 5%;
   box-sizing: border-box;
-  z-index: 5;
+  z-index: 2;
 }
 
 .titleRow {
@@ -134,7 +28,8 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  margin-bottom: 44px;
+  width: 100%;
+  margin-bottom: 36px;
 }
 
 .headingCol {
@@ -143,34 +38,34 @@
 
 .mainTitle {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.2vw, 4.2rem);
+  font-size: clamp(34px, 4vw, 54px);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1.1;
   color: #ffffff;
   margin: 0;
 }
 
 .descCol {
   flex: 1;
-  max-width: 540px;
+  max-width: 480px;
 }
 
 .description {
-  font-family: var(--font-body);
-  font-size: 15px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14.5px;
   line-height: 1.6;
-  color: #c5c5c5;
+  color: #a3a3a3;
   margin: 0;
 }
 
-/* Hero Team Image Banner */
+/* Hero Team Image Banner: covers 90% of the section width */
 .imageBannerWrapper {
   position: relative;
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
   background-color: #141414;
 }
 
@@ -181,7 +76,8 @@
   object-fit: cover;
 }
 
-/* Pure CSS Hatched Divider Bar at Section Bottom */
+/* Horizontal Hatched Divider Bar at Section Bottom
+   Left & Right borders start AFTER this bar */
 .hatchedDivider {
   position: relative;
   width: 100%;
@@ -191,6 +87,7 @@
   border-bottom: 1px solid #2e2e2e;
   box-sizing: border-box;
   overflow: hidden;
+  margin-top: 12px;
 }
 
 .hatchedPattern {
@@ -206,45 +103,17 @@
   pointer-events: none;
 }
 
-.brokenRailLeft {
-  position: absolute;
-  left: 40px;
-  top: 0;
-  width: 2px;
-  height: 44px;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.brokenRailRight {
-  position: absolute;
-  right: 40px;
-  top: 0;
-  width: 2px;
-  height: 44px;
-  pointer-events: none;
-  z-index: 5;
-}
-
 /* Responsive Breakpoints */
 @media (max-width: 992px) {
-  .header {
-    padding: 24px 24px 20px 24px;
-  }
-
-  .navigation {
-    display: none; /* Mobile header simplified */
-  }
-
   .contentContainer {
-    padding: 24px 24px 48px 24px;
+    padding: 24px 20px 36px 20px;
   }
 
   .titleRow {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 28px;
+    gap: 16px;
+    margin-bottom: 24px;
   }
 
   .descCol {
@@ -252,6 +121,6 @@
   }
 
   .mainTitle {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 }

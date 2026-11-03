@@ -1,54 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 import styles from "./Hero.module.css";
-
-const NAV_ITEMS = [
-  { label: "HOME", href: "/", active: true },
-  { label: "ABOUT", href: "/about" },
-  { label: "WAREHOUSE", href: "#warehouse" },
-  { label: "SERVICES", href: "#services" },
-  { label: "BENEFITS", href: "#benefits" },
-  { label: "PARTNERSHIP", href: "#partnership" },
-];
 
 export const Hero: React.FC = () => {
   return (
     <section className={styles.heroSection} aria-label="Hero Section">
-      {/* Full-width Header / Navigation across viewport */}
-      <header className={styles.header}>
-        <div className={styles.logoWrapper}>
-          <Link href="/" aria-label="DropyHub Home">
-            <Image
-              src="/assets/Home/Dropyhub_logo.png"
-              alt="DropyHub Logo"
-              width={88}
-              height={54}
-              priority
-              className={styles.logoImage}
-            />
-          </Link>
-        </div>
-
-        <nav className={styles.navigation} aria-label="Main Navigation">
-          <ul className={styles.navList}>
-            {NAV_ITEMS.map((item) => (
-              <li key={item.label} className={styles.navItem}>
-                <Link
-                  href={item.href}
-                  className={`${styles.navLink} ${item.active ? styles.navLinkActive : ""}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <Link href="#join" className={styles.joinNowButton}>
-            JOIN NOW
-          </Link>
-        </nav>
-      </header>
+      {/* Shared Global Navbar */}
+      <Navbar />
 
       <div className={styles.heroFrame}>
         {/* Continuous desktop rails across Hero */}
