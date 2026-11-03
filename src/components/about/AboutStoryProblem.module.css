@@ -1,6 +1,6 @@
 /* ==========================================================================
    AboutStoryProblem.module.css — Precision Styling for Story & Problem/Solution
-   Matches Figma design Frame 1191:2038 / media_1793716358854_96537902.png
+   Matches Figma design Frame 1191:2038 / media_1793718729947_267bfc9c.png
    ========================================================================== */
 
 .storySection {
@@ -12,12 +12,12 @@
   box-sizing: border-box;
 }
 
-/* Continuous Side Rails at 40px starting immediately after Hero */
+/* Continuous Side Rails at 40px (runs down to the white slashed bar) */
 .railLeft {
   position: absolute;
   left: 40px;
   top: 0;
-  bottom: 0;
+  bottom: 44px;
   width: 1.5px;
   background-color: #2e2e2e;
   pointer-events: none;
@@ -28,17 +28,18 @@
   position: absolute;
   right: 40px;
   top: 0;
-  bottom: 0;
+  bottom: 44px;
   width: 1.5px;
   background-color: #2e2e2e;
   pointer-events: none;
   z-index: 5;
 }
 
-.container {
+/* Part 1: THE DROPYHUB STORY CONTAINER */
+.storyContainer {
   position: relative;
   width: 100%;
-  padding: 60px 64px 72px 64px;
+  padding: 60px 64px 56px 64px;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -65,15 +66,11 @@
   display: inline-block;
 }
 
-/* ==========================================================================
-   Part 1: The DropyHub Story
-   ========================================================================== */
 .storyBlock {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 48px;
-  margin-bottom: 72px;
 }
 
 .storyTextCol {
@@ -131,13 +128,16 @@
 }
 
 /* ==========================================================================
-   Part 2: Why We Exist (The Problem & The Solution)
-   50/50 Architecture Grid with Center Hairline Split
-   Figma Reference: media_1793716358854_96537902.png
+   Part 2: WHY WE EXIST (The Problem & The Solution)
+   Spans from left rail (40px) to right rail (40px) connecting all 4 corners
    ========================================================================== */
-.whyWeExistBlock {
+.whyWeExistWrapper {
   position: relative;
-  width: 100%;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: calc(100% - 80px);
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .topDividerLine {
@@ -155,7 +155,7 @@
 
 .problemColumn {
   position: relative;
-  padding: 36px 36px 44px 0;
+  padding: 36px 36px 44px 24px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -166,7 +166,7 @@
 .solutionColumn {
   position: relative;
   border-left: 1px solid #2e2e2e;
-  padding: 36px 0 44px 48px;
+  padding: 36px 24px 44px 48px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -231,6 +231,65 @@
 }
 
 /* ==========================================================================
+   Bar 1: Normal black bar with decreased height
+   ========================================================================== */
+.blackSpacerBar {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  background-color: #0c0c0c;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Bar 2: White horizontal bar with slashes and dotted rail lines
+   ========================================================================== */
+.whiteSlashedBar {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-raw-c3c4c8, #c3c4c8);
+  border-bottom: 1px solid var(--color-raw-c3c4c8, #c3c4c8);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.slashedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.7) 13.5px,
+    rgba(195, 196, 200, 0.7) 15px
+  );
+  pointer-events: none;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 2px;
+  height: 44px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.brokenRailRight {
+  position: absolute;
+  right: 40px;
+  top: 0;
+  width: 2px;
+  height: 44px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
 @media (max-width: 992px) {
@@ -242,15 +301,20 @@
     right: 20px;
   }
 
-  .container {
-    padding: 40px 32px 60px 32px;
+  .whyWeExistWrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .storyContainer {
+    padding: 40px 24px 44px 24px;
   }
 
   .storyBlock {
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
-    margin-bottom: 48px;
   }
 
   .storyTextCol,
@@ -266,13 +330,13 @@
   }
 
   .problemColumn {
-    padding: 28px 0;
+    padding: 28px 16px;
   }
 
   .solutionColumn {
     border-left: none;
     border-top: 1px solid #2e2e2e;
-    padding: 28px 0;
+    padding: 28px 16px;
   }
 
   .eyebrowSpacer {
@@ -285,5 +349,13 @@
     opacity: 0.6;
     right: 12px;
     top: 24px;
+  }
+
+  .brokenRailLeft {
+    left: 20px;
+  }
+
+  .brokenRailRight {
+    right: 20px;
   }
 }
