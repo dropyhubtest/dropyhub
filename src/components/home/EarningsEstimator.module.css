@@ -18,7 +18,7 @@
 
 .estimatorContainer {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 785px;
   box-sizing: border-box;
 }
@@ -28,7 +28,7 @@
    ========================================================================== */
 .headerArea {
   position: absolute;
-  left: 100px;
+  left: clamp(40px, 6vw, 100px);
   top: 38px;
   display: flex;
   flex-direction: column;
@@ -64,13 +64,14 @@
 }
 
 /* ==========================================================================
-   2. Main Desktop Geometry (x = 94px, y = 113px, width = 1252px)
+   2. Main Desktop Geometry (Centered within rails)
    ========================================================================== */
 .mainContent {
   position: absolute;
-  left: 94px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 113px;
-  width: 1252px;
+  width: min(1252px, calc(100% - 80px));
   height: 633px;
 }
 
@@ -545,7 +546,7 @@
 
 .bottomDividerInner {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 100%;
   flex-shrink: 0;
   pointer-events: none;
@@ -564,7 +565,8 @@
 
 .railRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -585,7 +587,8 @@
 
 .brokenRailRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 0;
   width: 1px;
   height: 40px;

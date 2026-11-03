@@ -6,9 +6,10 @@
 
 .howToStartContainer {
   position: absolute;
-  left: 93px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 949px;
-  width: 1255px;
+  width: min(1255px, calc(100% - 80px));
   height: 533px;
   box-sizing: border-box;
 }

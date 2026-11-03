@@ -20,7 +20,7 @@
 
 .container {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 1501px;
   box-sizing: border-box;
 }
@@ -158,7 +158,7 @@
 
 .faqDividerInner {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 100%;
   flex-shrink: 0;
   pointer-events: none;
@@ -177,7 +177,8 @@
 
 .railFaqRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 0;
   height: 446px;
   width: 1px;
@@ -198,7 +199,8 @@
 
 .brokenRailRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 0;
   width: 2px;
   height: 43px;
@@ -210,7 +212,6 @@
   position: absolute;
   left: 40px;
   top: 489px;
-  /* extend all the way through the CTA divider line, footer links, socials — stop just before "Our Services" fade */
   height: 391px;
   width: 1px;
   background-color: var(--color-raw-c3c4c8);
@@ -220,7 +221,8 @@
 
 .railCtaRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 489px;
   height: 391px;
   width: 1px;
@@ -243,7 +245,8 @@
 
 .railFooterRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 880px;
   height: 170px;
   width: 1px;
@@ -270,7 +273,8 @@
 
 .railFadeRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 1050px;
   height: 160px;
   width: 1px;
@@ -288,9 +292,10 @@
    ========================================================================== */
 .ctaContainer {
   position: absolute;
-  left: 95px;
+  left: clamp(40px, 6vw, 95px);
+  right: clamp(40px, 6vw, 95px);
   top: 575px;
-  width: 1276px;
+  width: auto;
   height: 113px;
   display: flex;
   justify-content: space-between;
@@ -368,44 +373,44 @@
 /* Horizontal Divider line below CTA at y = 724px */
 .ctaBottomLine {
   position: absolute;
-  left: 95px;
+  left: 40px;
+  right: 40px;
   top: 724px;
-  width: 1276px;
+  width: auto;
   height: 1px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
 }
 
 /* ==========================================================================
-   D. Footer Links (y = 785px, w = 1248px, h = 217px)
+   D. Footer Links (Full Width Grid)
    ========================================================================== */
 .footerLinks {
   position: absolute;
-  left: 109px;
+  left: clamp(40px, 6vw, 109px);
+  right: clamp(40px, 6vw, 109px);
   top: 785px;
-  width: 1248px;
+  width: auto;
   height: 220px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .footerCol {
-  position: absolute;
-  top: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .companyCol {
-  left: 0;
   width: 240px;
 }
 
 .partnersCol {
-  left: 469px;
   width: 240px;
 }
 
 .contactCol {
-  left: 954px;
   width: 320px;
 }
 
@@ -525,9 +530,18 @@
   display: block;
 }
 
+.socialIcons {
+  position: absolute;
+  left: clamp(40px, 6vw, 109px);
+  top: 1059px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .copyrightText {
   position: absolute;
-  left: 109px;
+  left: clamp(40px, 6vw, 109px);
   top: 1106px;
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 13px;
@@ -540,9 +554,10 @@
 
 .footerDescription {
   position: absolute;
-  left: 109px;
+  left: clamp(40px, 6vw, 109px);
+  right: clamp(40px, 6vw, 109px);
   top: 1140px;
-  width: 1248px;
+  width: auto;
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 14px;
   font-weight: 300;

@@ -13,9 +13,7 @@
 .valuesContainer {
   position: relative;
   width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 64px 52px 64px 52px;
+  padding: 64px clamp(24px, 4.5vw, 64px);
   background-color: #fcfcfc;
   box-sizing: border-box;
 }
@@ -148,9 +146,7 @@
 .roadmapContainer {
   position: relative;
   width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 52px;
+  padding: 0 clamp(24px, 4.5vw, 64px);
   box-sizing: border-box;
 }
 

@@ -126,7 +126,7 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -90, // Facing right
       };
 
-      // 04. About DropyHub — right column directly below intro paragraph, angled up-left towards description
+      // 04. About DropyHub — right column directly below intro paragraph, angled up-left matching reference screenshot
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
       const dR = desc ? desc.getBoundingClientRect() : null;
       const aboutDocX = dR ? (dR.left + dR.width / 2) : (centerX + 280);
@@ -134,7 +134,7 @@ export const MotorcycleScroll: React.FC = () => {
       const aboutAnchor: StateAnchor = {
         docX: aboutDocX,
         docY: aboutDocY,
-        rotation: -225, // Angled up-left matching reference video
+        rotation: -225, // Angled up-left matching reference screenshot (media_1793691409990_d35a750f.png)
       };
 
       // 05. How to Start — corridor between steps list & photo panel
@@ -165,12 +165,12 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -450, // Facing right
       };
 
-      // 07. Testimonials — left column beside quotation & left arrow
+      // 07. Testimonials — shifted right beside quotation & left carousel arrow
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
       const nR = navBtn ? navBtn.getBoundingClientRect() : null;
       const compR = comp ? comp.getBoundingClientRect() : null;
-      const testDocX = nR ? (nR.left - 130) : (compR ? compR.left + 115 : centerX - 510);
+      const testDocX = nR ? (nR.left - 60) : (compR ? compR.left + 185 : centerX - 440);
       const baseScale = getBaseScale();
       // Position delivery box cleanly 25px below the Testimonials section label
       const testDocY = compR

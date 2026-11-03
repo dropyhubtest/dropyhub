@@ -25,7 +25,7 @@
 
 .statsBarFrame {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 138px;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -34,11 +34,11 @@
 .statsGrid {
   position: absolute;
   left: 40px;
+  right: 40px;
   top: 0;
-  width: 1360px;
   height: 138px;
   display: grid;
-  grid-template-columns: repeat(6, 226.666px);
+  grid-template-columns: repeat(6, 1fr);
   box-sizing: border-box;
 }
 
@@ -135,7 +135,7 @@
 
 .dividerInner {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 100%;
   flex-shrink: 0;
   pointer-events: none;
@@ -154,7 +154,8 @@
 
 .railRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -175,7 +176,8 @@
 
 .dottedRailRight {
   position: absolute;
-  left: 1400px;
+  right: 40px;
+  left: auto;
   top: 0;
   width: 1px;
   height: 40px;
@@ -200,7 +202,7 @@
 
 .whySectionFrame {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 694px;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -208,7 +210,7 @@
 
 .headerArea {
   position: absolute;
-  left: 100px;
+  left: clamp(40px, 6vw, 100px);
   top: 37px;
   display: flex;
   flex-direction: column;
@@ -246,7 +248,7 @@
 /* Feature cards columns and central corridor */
 .cardsColumnLeft {
   position: absolute;
-  left: 125px;
+  left: clamp(40px, 7vw, 125px);
   top: 143px;
   width: 359px;
   display: flex;
@@ -256,7 +258,8 @@
 
 .cardsColumnRight {
   position: absolute;
-  left: 951px;
+  right: clamp(40px, 7vw, 125px);
+  left: auto;
   top: 143px;
   width: 359px;
   display: flex;
