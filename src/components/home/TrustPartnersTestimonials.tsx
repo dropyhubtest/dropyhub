@@ -206,9 +206,26 @@ export const TrustPartnersTestimonials: React.FC = () => {
 
         <div className={styles.partnersLogoStrip}>
           <div className={styles.logoTrack}>
-            {REPEATED_LOGOS.map((logo, index) => (
+            {PARTNER_LOGOS_SEQUENCE.concat(PARTNER_LOGOS_SEQUENCE).map((logo, index) => (
               <div
-                key={`${logo.id}-${index}`}
+                key={`track1-${logo.id}-${index}`}
+                className={styles.logoItem}
+                style={{ width: `${logo.width}px` }}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className={styles.logoImg}
+                />
+              </div>
+            ))}
+          </div>
+          <div className={styles.logoTrack} aria-hidden="true">
+            {PARTNER_LOGOS_SEQUENCE.concat(PARTNER_LOGOS_SEQUENCE).map((logo, index) => (
+              <div
+                key={`track2-${logo.id}-${index}`}
                 className={styles.logoItem}
                 style={{ width: `${logo.width}px` }}
               >

@@ -35,7 +35,7 @@ import styles from './MotorcycleScroll.module.css';
 const BIKE_W = 262.55;
 const BIKE_H = 393.83;
 const BASE_VIEWPORT_W = 1600;
-const CALIBRATED_WIDTH_1600 = 228; // Exactly 228px at 1600px viewport
+const CALIBRATED_WIDTH_1600 = 280; // Increased bike size across every section (280px at 1600px viewport)
 
 export interface StateAnchor {
   docX: number;
@@ -154,10 +154,10 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing down
       };
 
-      // 06. Innovation — left of security checklist, level with SOS Support
+      // 06. Innovation — pushed left relative to security checklist
       const checklist = document.querySelector('[class*="securityChecklist"], [class*="checklist"]');
       const cR = checklist ? checklist.getBoundingClientRect() : null;
-      const innovDocX = cR ? (cR.left - 200) : (centerX - 240);
+      const innovDocX = cR ? (cR.left - 310) : (centerX - 350);
       const innovDocY = cR ? (cR.top + scrollY + cR.height / 2) : 4304;
       const innovationAnchor: StateAnchor = {
         docX: innovDocX,
@@ -193,10 +193,10 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing down
       };
 
-      // 09. Footer — over "Dropyhub" outlined wordmark
+      // 09. Footer — shifted to the left over "Dropyhub" outlined wordmark
       const wordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
       const wR = wordmark ? wordmark.getBoundingClientRect() : null;
-      const footerDocX = wR ? (wR.left + wR.width * 0.38) : centerX;
+      const footerDocX = wR ? (wR.left + wR.width * 0.26) : (centerX - 160);
       const footerDocY = wR ? (wR.top + scrollY + wR.height * 0.52) : 6415;
       const footerAnchor: StateAnchor = {
         docX: footerDocX,

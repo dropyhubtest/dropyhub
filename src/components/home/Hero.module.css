@@ -28,10 +28,10 @@
     height: 759px;
   }
 
-  /* Side vertical decorative borders (Page Rails with increased width & margin) */
+  /* Side vertical decorative borders (Page Rails at 40px from viewport sides) */
   .decorativeLine {
     position: absolute;
-    left: clamp(80px, 6vw, 112px);
+    left: 40px;
     top: 88px;
     width: 1.5px;
     height: 671px;
@@ -42,7 +42,7 @@
 
   .decorativeLineRight {
     position: absolute;
-    right: clamp(80px, 6vw, 112px);
+    right: 40px;
     left: auto;
     top: 88px;
     width: 1.5px;
@@ -52,7 +52,7 @@
     pointer-events: none;
   }
 
-  /* Header & Navigation */
+  /* Header & Navigation (Padding 60px keeps logo and JOIN NOW comfortably inside rails) */
   .header {
     position: absolute;
     left: 0;
@@ -63,7 +63,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 clamp(80px, 6vw, 112px);
+    padding: 0 60px;
     box-sizing: border-box;
   }
 
@@ -217,7 +217,7 @@
   /* Sunrisers & IPL Partner Badge */
   .partnerBadge {
     position: absolute;
-    left: clamp(80px, 6vw, 112px);
+    left: 64px;
     top: 544px;
     display: inline-flex;
     align-items: center;
@@ -308,7 +308,7 @@
 
   .description {
     position: absolute;
-    left: clamp(80px, 6vw, 112px);
+    left: 64px;
     top: 621px;
     width: min(494px, 40vw);
     font-family: var(--font-body);
@@ -323,7 +323,7 @@
 
   .ctaGroup {
     position: absolute;
-    right: clamp(80px, 6vw, 112px);
+    right: 64px;
     left: auto;
     top: 627px;
     display: flex;

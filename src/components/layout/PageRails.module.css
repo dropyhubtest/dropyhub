@@ -29,7 +29,7 @@
 
 .leftRail {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -39,7 +39,7 @@
 
 .rightRail {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   bottom: 0;

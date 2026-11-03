@@ -30,7 +30,7 @@
    ========================================================================== */
 .faqEyebrow {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 29px;
   display: inline-flex;
   align-items: center;
@@ -53,7 +53,7 @@
 
 .faqHeading {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 56px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -166,7 +166,7 @@
 
 .railFaqLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   height: 446px;
   width: 1.5px;
@@ -177,7 +177,7 @@
 
 .railFaqRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   height: 446px;
@@ -189,7 +189,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   width: 2px;
   height: 43px;
@@ -199,7 +199,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   width: 2px;
@@ -210,7 +210,7 @@
 
 .railCtaLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 489px;
   height: 391px;
   width: 1.5px;
@@ -221,7 +221,7 @@
 
 .railCtaRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 489px;
   height: 391px;
@@ -234,7 +234,7 @@
 /* Rail segment: ctaBottomLine (y=724px) through social links (y=1059px) */
 .railFooterLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 880px;
   height: 170px;
   width: 1.5px;
@@ -245,7 +245,7 @@
 
 .railFooterRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 880px;
   height: 170px;
@@ -258,7 +258,7 @@
 /* Fade segment: starts at "Our Services" level (~1050px), fades to transparent */
 .railFadeLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 1050px;
   height: 160px;
   width: 1.5px;
@@ -273,7 +273,7 @@
 
 .railFadeRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 1050px;
   height: 160px;
@@ -292,8 +292,8 @@
    ========================================================================== */
 .ctaContainer {
   position: absolute;
-  left: clamp(40px, 6vw, 95px);
-  right: clamp(40px, 6vw, 95px);
+  left: 64px;
+  right: 64px;
   top: 575px;
   width: auto;
   height: 113px;
@@ -373,8 +373,8 @@
 /* Horizontal Divider line below CTA at y = 724px */
 .ctaBottomLine {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
-  right: clamp(80px, 6vw, 112px);
+  left: 40px;
+  right: 40px;
   top: 724px;
   width: auto;
   height: 1px;
@@ -387,8 +387,8 @@
    ========================================================================== */
 .footerLinks {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
-  right: clamp(80px, 6vw, 112px);
+  left: 64px;
+  right: 64px;
   top: 785px;
   width: auto;
   height: 220px;
@@ -532,7 +532,7 @@
 
 .socialIcons {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 1059px;
   display: flex;
   align-items: center;
@@ -541,7 +541,7 @@
 
 .copyrightText {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 1106px;
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 13px;
@@ -554,8 +554,8 @@
 
 .footerDescription {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
-  right: clamp(80px, 6vw, 112px);
+  left: 64px;
+  right: 64px;
   top: 1140px;
   width: auto;
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;

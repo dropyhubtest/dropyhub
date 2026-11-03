@@ -42,8 +42,8 @@
 
 .separatorLine {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
-  right: clamp(80px, 6vw, 112px);
+  left: 40px;
+  right: 40px;
   width: auto;
   height: 1px;
   background-color: var(--color-raw-c3c4c8);
@@ -105,7 +105,7 @@
 
 .railTopLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   height: 603px;
   width: 1.5px;
@@ -116,7 +116,7 @@
 
 .railTopRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   height: 603px;
@@ -128,7 +128,7 @@
 
 .railBottomLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 646px;
   height: 422px;
   width: 1.5px;
@@ -139,7 +139,7 @@
 
 .railBottomRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 646px;
   height: 422px;
@@ -151,7 +151,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   width: 2px;
   height: 43px;
@@ -161,7 +161,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   width: 2px;
@@ -197,13 +197,13 @@
 
 .innovationEyebrow {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 77px;
 }
 
 .innovationHeading {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 104px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -264,13 +264,13 @@
    ========================================================================== */
 .partnersEyebrow {
   position: absolute;
-  left: 71px;
+  left: 64px;
   top: 418px;
 }
 
 .partnersHeading {
   position: absolute;
-  left: 71px;
+  left: 64px;
   top: 445px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -280,22 +280,51 @@
   margin: 0;
 }
 
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .partnersLogoStrip {
   position: absolute;
-  left: 66px;
+  left: 40px;
+  right: 40px;
   top: 511px;
-  width: 1309px;
-  height: 40px;
+  height: 48px;
   overflow: hidden;
   display: flex;
   align-items: center;
+  gap: 36px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
 }
 
 .logoTrack {
   display: flex;
   align-items: center;
-  gap: 30.7px;
+  gap: 36px;
   flex-shrink: 0;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.logoTrack:hover {
+  animation-play-state: paused;
 }
 
 .logoItem {

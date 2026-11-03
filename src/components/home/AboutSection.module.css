@@ -29,8 +29,8 @@
    ========================================================================== */
 .topIntro {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
-  right: clamp(80px, 6vw, 112px);
+  left: 64px;
+  right: 64px;
   top: 79px;
   width: auto;
   display: flex;
@@ -92,7 +92,7 @@
    ========================================================================== */
 .ecosystemIntro {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 64px;
   top: 225px;
   display: flex;
   flex-direction: column;
@@ -121,8 +121,8 @@
    ========================================================================== */
 .horizontalDivider {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
-  right: clamp(80px, 6vw, 112px);
+  left: 40px;
+  right: 40px;
   width: auto;
   height: 1px;
   background-color: var(--color-raw-c3c4c8);
@@ -314,7 +314,7 @@
 
 .railLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -325,7 +325,7 @@
 
 .railRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   bottom: 0;
@@ -337,7 +337,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: clamp(80px, 6vw, 112px);
+  left: 40px;
   top: 0;
   width: 2px;
   height: 64px;
@@ -347,7 +347,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: clamp(80px, 6vw, 112px);
+  right: 40px;
   left: auto;
   top: 0;
   width: 2px;
