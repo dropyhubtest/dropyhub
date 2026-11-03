@@ -1,15 +1,15 @@
 /* ==========================================================================
-   AboutStatsPillars.module.css — Styling for Metrics Bar & Mission/Vision
+   AboutStatsPillars.module.css — Precision Styling for Metrics & Pillars
+   Matches Figma design media_1793719475801_911e7bcc.png
    ========================================================================== */
 
 .statsSection {
   position: relative;
   width: 100%;
-  background-color: #fcfcfc;
+  background-color: #fbfbfb;
   color: #111111;
   overflow: hidden;
   box-sizing: border-box;
-  border-top: none;
 }
 
 /* Continuous Side Rails at 40px */
@@ -35,154 +35,172 @@
   z-index: 5;
 }
 
-.container {
+/* 1. 6-Metric Stats Bar: Connected to rails at 40px */
+.statsBarWrapper {
   position: relative;
-  width: 100%;
-  padding: 48px 64px 64px 64px;
+  width: calc(100% - 80px);
+  margin-left: 40px;
+  margin-right: 40px;
   box-sizing: border-box;
-}
-
-/* 1. 6-Metric Stats Bar */
-.statsBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 48px;
+  border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
-  margin-bottom: 56px;
+  background-color: #ffffff;
+  z-index: 2;
 }
 
-.statCol {
-  position: relative;
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+}
+
+.statBox {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  padding: 24px 18px 24px 22px;
   gap: 14px;
-  flex: 1;
+  box-sizing: border-box;
+  border-right: 1px solid #e8e8e8;
+  min-height: 102px;
+}
+
+.statBox:last-child {
+  border-right: none;
 }
 
 .statIconWrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background-color: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: transparent;
 }
 
 .statIcon {
   display: block;
-  width: 20px;
-  height: 20px;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 .statText {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .statValue {
   font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   color: #111111;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
+  display: flex;
+  align-items: baseline;
+}
+
+.plusSup {
+  font-size: 0.6em;
+  line-height: 0;
+  vertical-align: super;
+  font-weight: 500;
+  margin-left: 2px;
 }
 
 .statLabel {
-  font-family: var(--font-body);
-  font-size: 11.5px;
-  color: #737373;
-  line-height: 1.2;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 12.5px;
+  color: #666666;
+  line-height: 1.25;
+  white-space: nowrap;
 }
 
-.colSeparator {
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 36px;
-  background-color: #e8e8e8;
+/* 2. Pillars Section: Grid of 3 Cards */
+.pillarsWrapper {
+  position: relative;
+  width: calc(100% - 80px);
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 56px 24px 80px 24px;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
-/* 2. Pillars Grid */
 .pillarsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+  width: 100%;
 }
 
 .pillarCard {
   background-color: #ffffff;
   border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 36px 32px;
+  border-radius: 16px;
+  padding: 38px 34px 42px 34px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 290px;
 }
 
 .pillarCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #ea0066;
+  font-weight: 500;
+  letter-spacing: 1.44px;
+  color: #555555;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .bullet {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background-color: #ea0066;
+  background-color: #555555;
   display: inline-block;
 }
 
 .pillarTitle {
   font-family: var(--font-display);
-  font-size: 21px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1.25;
   color: #111111;
-  margin: 0 0 16px 0;
-  letter-spacing: -0.01em;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.015em;
 }
 
 .pillarDescription {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
   color: #555555;
   margin: 0;
 }
 
-/* Checklist for Commitment card */
+/* Checklist for Why Choose DropyHub card */
 .checklist {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .checkItem {
@@ -192,43 +210,64 @@
 }
 
 .checkIcon {
-  font-weight: 700;
-  font-size: 13px;
-  color: #111111;
-  line-height: 1.4;
   flex-shrink: 0;
+  margin-top: 3px;
 }
 
 .checkText {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: #444444;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333333;
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  .statBox {
+    padding: 20px 14px;
+    gap: 10px;
+  }
+  .statValue {
+    font-size: 24px;
+  }
+  .statLabel {
+    font-size: 11.5px;
+  }
+}
+
 @media (max-width: 1024px) {
-  .statsBar {
-    display: grid;
+  .statsGrid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
   }
-
-  .colSeparator {
-    display: none;
+  .statBox:nth-child(3) {
+    border-right: none;
   }
-
+  .statBox:nth-child(n+4) {
+    border-top: 1px solid #e8e8e8;
+  }
   .pillarsGrid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .pillarsWrapper {
+    padding: 40px 16px 60px 16px;
   }
 }
 
 @media (max-width: 640px) {
-  .container {
-    padding: 36px 20px 48px 20px;
-  }
-
-  .statsBar {
+  .statsGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .statBox:nth-child(even) {
+    border-right: none;
+  }
+  .statBox:nth-child(odd) {
+    border-right: 1px solid #e8e8e8;
+  }
+  .statBox:nth-child(n+3) {
+    border-top: 1px solid #e8e8e8;
+  }
+  .statBox {
+    padding: 16px 12px;
   }
 }
