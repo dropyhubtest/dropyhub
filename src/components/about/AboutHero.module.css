@@ -18,7 +18,7 @@
 .contentContainer {
   position: relative;
   width: 100%;
-  padding: 112px 5% 16px 5%;
+  padding: 112px 0 16px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -63,14 +63,14 @@
   margin: 0;
 }
 
-/* Hero Team Image Banner: expanded at the bottom to fill down to the divider */
+/* Hero Team Image Banner: exactly 1392px width, no border-radius */
 .imageBannerWrapper {
   position: relative;
   width: 1392px;
-  max-width: 90vw;
-  height: clamp(560px, 50vw, 720px);
+  max-width: 100%;
+  height: clamp(560px, 50vw, 696px);
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
   background-color: #141414;
@@ -82,6 +82,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center bottom;
+  border-radius: 0;
 }
 
 /* Horizontal Hatched Divider Bar at Section Bottom
