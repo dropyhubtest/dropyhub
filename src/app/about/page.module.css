@@ -1,0 +1,9 @@
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0c0c0c;
+  overflow-x: hidden;
+}

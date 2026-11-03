@@ -1,0 +1,280 @@
+/* ==========================================================================
+   AboutValuesTimeline.module.css — Precision Styling for Core Values & Roadmap
+   ========================================================================== */
+
+.sectionWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 1. Core Values (Light Background) */
+.valuesContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 52px 64px 52px;
+  background-color: #fcfcfc;
+  box-sizing: border-box;
+}
+
+.valuesHeader {
+  max-width: 720px;
+  margin-bottom: 44px;
+}
+
+.eyebrowLight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ea0066;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.bulletPink {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ea0066;
+  display: inline-block;
+}
+
+.valuesHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.valueCard {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 32px 26px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-3px);
+  border-color: #ea0066;
+  box-shadow: 0 8px 24px rgba(234, 0, 102, 0.08);
+}
+
+.iconTile {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  flex-shrink: 0;
+}
+
+.valueIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.valueTitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111111;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.valueDescription {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #666666;
+  margin: 0;
+}
+
+/* Hatched Divider Bar Transition */
+.hatchedDivider {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.12) 0px,
+    rgba(255, 255, 255, 0.12) 1.5px,
+    transparent 1.5px,
+    transparent 10px
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #0c0c0c;
+  box-sizing: border-box;
+}
+
+/* 2. Roadmap / Phased Journey (Dark Background) */
+.roadmapSection {
+  position: relative;
+  width: 100%;
+  background-color: #0c0c0c;
+  color: #ffffff;
+  padding: 64px 0 72px 0;
+}
+
+.roadmapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 52px;
+  box-sizing: border-box;
+}
+
+.eyebrowDark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a3a3a3;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.bulletYellow {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #facc15;
+  display: inline-block;
+}
+
+.roadmapContentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 64px;
+  margin-bottom: 48px;
+}
+
+.phaseTitleCol {
+  flex: 1;
+}
+
+.phaseMainTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.phaseSubtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: #8c8c8c;
+  display: block;
+}
+
+.phaseDescCol {
+  flex: 1.2;
+}
+
+.phaseDescription {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: #d1d1d1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Phase Selector Tabs */
+.phaseTabs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.phaseTabBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #888888;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.phaseTabBtn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.phaseTabBtnActive {
+  background-color: #ffffff;
+  color: #0c0c0c;
+  border-color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .valuesContainer,
+  .roadmapContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .roadmapContentRow {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

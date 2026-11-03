@@ -1,0 +1,231 @@
+/* ==========================================================================
+   AboutStoryProblem.module.css — Precision Styling for Story & Problem/Solution
+   ========================================================================== */
+
+.storySection {
+  position: relative;
+  width: 100%;
+  background-color: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 52px 64px 52px;
+  box-sizing: border-box;
+}
+
+/* Eyebrows with yellow bullet */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a3a3a3;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #facc15;
+  display: inline-block;
+}
+
+/* Top Part: Story Narrative & Visual */
+.storyBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 56px;
+  margin-bottom: 64px;
+}
+
+.storyTextCol {
+  flex: 1.1;
+}
+
+.sectionHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 28px 0;
+}
+
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.paragraphs p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #c5c5c5;
+  margin: 0;
+}
+
+.storyImageCol {
+  flex: 0.9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: #141414;
+}
+
+.riderImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Hairline Divider */
+.hairlineDivider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 0 0 56px 0;
+}
+
+/* Bottom Part: The Problem & The Solution */
+.problemSolutionBlock {
+  width: 100%;
+}
+
+.splitCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.card {
+  position: relative;
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 36px 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.watermarkWrapper {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 110px;
+  height: 110px;
+  opacity: 0.12;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watermarkIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(200%);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  max-width: 82%;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a3a3a3;
+  margin: 0;
+}
+
+/* Hatched Divider Bar */
+.hatchedDivider {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.12) 0px,
+    rgba(255, 255, 255, 0.12) 1.5px,
+    transparent 1.5px,
+    transparent 10px
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    padding: 48px 24px;
+  }
+
+  .storyBlock {
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: 48px;
+  }
+
+  .storyImageCol {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .imageCard {
+    max-width: 100%;
+  }
+
+  .splitCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cardContent {
+    max-width: 100%;
+  }
+}
