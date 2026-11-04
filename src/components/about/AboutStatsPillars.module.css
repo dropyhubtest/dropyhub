@@ -138,20 +138,20 @@
 
 .pillarCard {
   background-color: #ffffff;
-  border: 1px solid #e8e8e8;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   padding: 38px 34px 42px 34px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   min-height: 290px;
 }
 
 .pillarCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .eyebrow {

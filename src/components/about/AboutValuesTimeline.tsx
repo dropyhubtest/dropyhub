@@ -13,32 +13,30 @@ interface ValueCard {
 
 const VALUES_DATA: ValueCard[] = [
   {
-    id: 'people-first',
-    title: 'People-Matter First',
-    description:
-      'Every delivery partner is a human being with aspirations, not just a number on a platform dashboard.',
+    id: 'people-matter',
+    title: 'People Matter',
+    description: 'Every delivery network depends on the people behind it.',
     iconSrc: '/assets/About/griddy-icons_users-group.svg',
   },
   {
-    id: 'opportunity',
+    id: 'access-opportunity',
     title: 'Access Creates Opportunity',
-    description:
-      'Removing upfront barriers opens the logistics economy to ambitious riders across India.',
-    iconSrc: '/assets/About/bytesize_flag.svg',
-  },
-  {
-    id: 'mutual-growth',
-    title: 'Growth Cares For Both Sides',
-    description:
-      'Platforms get consistent SLA fulfillment; partners get steady income, reliable housing, and long-term career growth.',
+    description: 'The right resources can help more people take their first step.',
     iconSrc: '/assets/About/iconoven_compound-growth.svg',
   },
   {
-    id: 'sustainability',
-    title: 'Sustainability Drives Progress',
+    id: 'growth-beyond',
+    title: 'Growth Goes Beyond the Job',
     description:
-      'Electric mobility lowers rider operating expenses while helping our platform partners reach aggressive net-zero emissions targets.',
-    iconSrc: '/assets/About/energy-icons_cargo-bike-48.svg',
+      'We want partners to have opportunities to develop skills and explore what comes next.',
+    iconSrc: '/assets/About/bytesize_flag.svg',
+  },
+  {
+    id: 'partnership-progress',
+    title: 'Partnership Drives Progress',
+    description:
+      'Strong relationships between businesses, delivery partners and service providers create lasting value.',
+    iconSrc: '/assets/About/globe.svg',
   },
 ];
 
@@ -92,40 +90,42 @@ export const AboutValuesTimeline: React.FC = () => {
     ROADMAP_PHASES.find((p) => p.id === activePhaseId) || ROADMAP_PHASES[2];
 
   return (
-    <section className={styles.sectionWrapper} aria-label="Core Values and Company Roadmap">
-      {/* 1. Core Values (Light Background) */}
+    <section className={styles.sectionWrapper} aria-label="What We Believe In and Company Roadmap">
+      {/* 1. What We Believe In (Light Background) */}
       <div className={styles.valuesContainer}>
         {/* Continuous Side Rails for Values */}
         <div className={styles.railLeftLight} aria-hidden="true" />
         <div className={styles.railRightLight} aria-hidden="true" />
 
-        <div className={styles.valuesHeader}>
-          <span className={styles.eyebrowLight}>
-            <span className={styles.bulletPink} aria-hidden="true" />
-            CORE VALUES
-          </span>
-          <h2 className={styles.valuesHeading}>
-            The principles that guide every decision, product, and interaction at DropyHub.
-          </h2>
-        </div>
+        <div className={styles.valuesInner}>
+          <div className={styles.valuesHeader}>
+            <span className={styles.eyebrowLight}>
+              <span className={styles.bulletDot} aria-hidden="true" />
+              WHAT WE BELIEVE IN
+            </span>
+            <h2 className={styles.valuesHeading}>
+              The principles that guide every decision, product, and team at DropyHub.
+            </h2>
+          </div>
 
-        <div className={styles.valuesGrid}>
-          {VALUES_DATA.map((val) => (
-            <div key={val.id} className={styles.valueCard}>
-              <div className={styles.iconTile}>
-                <Image
-                  src={val.iconSrc}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className={styles.valueIcon}
-                  aria-hidden="true"
-                />
+          <div className={styles.valuesGrid}>
+            {VALUES_DATA.map((val) => (
+              <div key={val.id} className={styles.valueCard}>
+                <div className={styles.iconWrapper}>
+                  <Image
+                    src={val.iconSrc}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className={styles.valueIcon}
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className={styles.valueTitle}>{val.title}</h3>
+                <p className={styles.valueDescription}>{val.description}</p>
               </div>
-              <h3 className={styles.valueTitle}>{val.title}</h3>
-              <p className={styles.valueDescription}>{val.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
