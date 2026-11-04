@@ -31,8 +31,8 @@ export const AboutHero: React.FC = () => {
           <Image
             src="/assets/About/image-93.png"
             alt="DropyHub Delivery Partner Team in Hyderabad"
-            width={1392}
-            height={696}
+            width={1455}
+            height={728}
             priority
             className={styles.bannerImage}
           />

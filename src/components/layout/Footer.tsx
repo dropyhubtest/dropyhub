@@ -20,6 +20,9 @@ export const Footer: React.FC<FooterProps> = ({ className, showRails = true }) =
         </>
       )}
 
+      {/* Footer Top Divider with small gap on both left and right (does not touch rails) */}
+      <div className={styles.footerTopDivider} aria-hidden="true" />
+
       <div className={styles.container}>
         {/* Footer Navigation Columns */}
         <div className={styles.footerLinksGrid}>

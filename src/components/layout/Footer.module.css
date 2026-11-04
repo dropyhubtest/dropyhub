@@ -1,47 +1,71 @@
 /* ==========================================================================
    Global Unified Footer
    Figma Reference: Frame 1278:20505
-   Surface: #f8f8f8 (Light Surface) with 40px rails and oversized wordmark
+   Surface: #ffffff (White Surface)
+   - Left and right rails extend down past "Our Services" and smoothly fade out
+   - "Dropyhub" wordmark is prominent, wide, and scaled to span the page without clipping
    ========================================================================== */
 
 .footerSection {
   position: relative;
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   color: var(--color-raw-2c2a, #2c2a29);
   overflow: hidden;
   box-sizing: border-box;
-  padding: 64px 0 0 0;
-  border-top: 1px solid var(--color-raw-c3c4c8, #c3c4c8);
+  padding: 0;
 }
 
-/* Continuous Side Rails at 40px */
+/* Continuous Side Rails at 48px:
+   Extends from top of footer down past "Our Services" (~190px)
+   and smoothly fades out to transparent by 260px */
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 0;
-  bottom: 0;
   width: 1.5px;
-  background-color: var(--color-raw-c3c4c8, #c3c4c8);
+  height: 270px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8, #c3c4c8) 0px,
+    var(--color-raw-c3c4c8, #c3c4c8) 190px,
+    transparent 260px
+  );
   pointer-events: none;
   z-index: 5;
 }
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   top: 0;
-  bottom: 0;
   width: 1.5px;
-  background-color: var(--color-raw-c3c4c8, #c3c4c8);
+  height: 270px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-raw-c3c4c8, #c3c4c8) 0px,
+    var(--color-raw-c3c4c8, #c3c4c8) 190px,
+    transparent 260px
+  );
   pointer-events: none;
   z-index: 5;
+}
+
+/* Top Divider: Clean horizontal line above Company/For Partners/Contact
+   Maintains a visible gap on both left and right so it does not contact side rails */
+.footerTopDivider {
+  position: relative;
+  width: calc(100% - 144px);
+  margin: 0 auto;
+  height: 1px;
+  background-color: var(--color-raw-c3c4c8, #c3c4c8);
+  z-index: 6;
 }
 
 .container {
   position: relative;
   width: 100%;
-  padding: 0 64px;
+  padding: 56px 64px 0 64px;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -197,24 +221,29 @@
   max-width: 720px;
 }
 
-/* Full Viewport Width Oversized Outlined Wordmark */
+/* Prominent, Wide Outlined Wordmark stretching across the viewport without clipping */
 .outlinedWordmark {
   width: 100%;
   font-family: var(--font-display);
-  font-size: clamp(140px, 18.5vw, 290px);
+  font-size: clamp(126px, 19.5vw, 310px);
   font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 0.85;
+  letter-spacing: 0.025em;
+  line-height: 0.82;
   color: transparent;
   -webkit-text-stroke: 1.5px rgba(195, 196, 200, 0.45);
   pointer-events: none;
   user-select: none;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin-top: 16px;
+  align-items: flex-end;
+  text-align: center;
+  margin: 20px auto 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  transform: scaleX(1.03);
+  transform-origin: center bottom;
 }
 
 /* Responsive */
@@ -227,8 +256,12 @@
     right: 20px;
   }
 
+  .footerTopDivider {
+    width: calc(100% - 72px);
+  }
+
   .container {
-    padding: 0 32px;
+    padding: 0 24px;
   }
 
   .footerLinksGrid {
@@ -238,5 +271,13 @@
 
   .contactCol {
     max-width: 100%;
+  }
+
+  .outlinedWordmark {
+    font-size: clamp(76px, 17vw, 150px);
+    letter-spacing: 0.015em;
+    padding: 0 12px;
+    line-height: 0.88;
+    transform: none;
   }
 }

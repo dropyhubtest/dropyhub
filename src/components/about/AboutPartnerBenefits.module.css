@@ -9,15 +9,15 @@
   color: #111111;
   overflow: hidden;
   box-sizing: border-box;
-  border-top: 1px solid #eaeaea;
+  border-top: none;
 }
 
-/* Continuous Side Rails at 40px */
+/* Continuous Side Rails at 48px: stops at 40px from bottom (start of white slashed bar) */
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 0;
-  bottom: 0;
+  bottom: 40px;
   width: 1.5px;
   background-color: var(--color-raw-c3c4c8, #c3c4c8);
   pointer-events: none;
@@ -26,46 +26,45 @@
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   top: 0;
-  bottom: 0;
+  bottom: 40px;
   width: 1.5px;
   background-color: var(--color-raw-c3c4c8, #c3c4c8);
   pointer-events: none;
   z-index: 5;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  padding: 64px 64px 72px 64px;
-  box-sizing: border-box;
-}
-
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #ea0066;
+  font-weight: 500;
+  letter-spacing: 1.44px;
+  color: #807f7f;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.bulletPink {
-  width: 6px;
-  height: 6px;
+.bulletDot {
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background-color: #ea0066;
+  background-color: #807f7f;
   display: inline-block;
 }
 
-/* Top Part: Partner Logos Marquee */
-.partnersMarqueeBlock {
-  margin-bottom: 56px;
+/* 1. Partner Logos Section: Aligned within Left & Right Rails */
+.partnersSectionWrapper {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  padding: 56px 24px 44px 24px;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .marqueeHeading {
@@ -83,6 +82,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding-bottom: 8px;
+  cursor: grab;
 }
 
 .marqueeContainer::-webkit-scrollbar {
@@ -102,13 +102,11 @@
   justify-content: center;
   height: 48px;
   padding: 0 12px;
-  filter: grayscale(100%) opacity(0.85);
-  transition: filter 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
   flex-shrink: 0;
 }
 
 .logoItem:hover {
-  filter: grayscale(0%) opacity(1);
   transform: translateY(-2px);
 }
 
@@ -119,17 +117,26 @@
   object-fit: contain;
 }
 
-/* Middle Divider */
+/* Middle Divider: Attaches directly to Left & Right Rails at 48px */
 .dividerLine {
-  width: 100%;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
   height: 1px;
   background-color: #e8e8e8;
-  margin: 0 0 56px 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-/* Bottom Part: What It Does For Our Partners (2x3 Grid) */
-.benefitsBlock {
-  width: 100%;
+/* 2. Why We Are Different Header */
+.benefitsHeaderWrapper {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  padding: 52px 24px 36px 24px;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .benefitsHeading {
@@ -138,19 +145,29 @@
   font-weight: 700;
   color: #111111;
   letter-spacing: -0.02em;
-  margin: 0 0 44px 0;
+  margin: 0;
+}
+
+/* 3. 2x3 Grid Table: Top, middle, and bottom lines connect to Left & Right Rails */
+.benefitsGridWrapper {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  box-sizing: border-box;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  z-index: 2;
 }
 
 .benefitsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-top: 1px solid #e8e8e8;
-  border-left: 1px solid #e8e8e8;
+  width: 100%;
 }
 
 .benefitCell {
-  padding: 36px 32px;
+  padding: 38px 32px 42px 32px;
   border-right: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
   background-color: #ffffff;
@@ -158,45 +175,98 @@
   transition: background-color 0.15s ease;
 }
 
+.benefitCell:nth-child(3n) {
+  border-right: none;
+}
+
+.benefitCell:nth-child(n + 4) {
+  border-bottom: none;
+}
+
 .benefitCell:hover {
   background-color: #fafafa;
 }
 
 .iconWrapper {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background-color: #f5f5f5;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: flex-start;
+  margin-bottom: 24px;
 }
 
 .benefitIcon {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
   opacity: 0.9;
 }
 
 .cellTitle {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   line-height: 1.3;
   color: #111111;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   letter-spacing: -0.01em;
 }
 
 .cellDescription {
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.6;
   color: #555555;
   margin: 0;
+}
+
+/* Bar 3: White horizontal bar with slashes and dotted rail lines before CTA */
+.whiteSlashedDivider {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.whiteSlashedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.7) 13.5px,
+    rgba(195, 196, 200, 0.7) 15px
+  );
+  pointer-events: none;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.brokenRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 15;
 }
 
 /* Responsive */
@@ -204,14 +274,50 @@
   .benefitsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .benefitCell:nth-child(3n) {
+    border-right: 1px solid #e8e8e8;
+  }
+  .benefitCell:nth-child(2n) {
+    border-right: none;
+  }
+  .benefitCell:nth-child(n + 4) {
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .benefitCell:nth-child(n + 5) {
+    border-bottom: none;
+  }
 }
 
 @media (max-width: 640px) {
-  .container {
-    padding: 48px 20px;
+  .partnersSectionWrapper,
+  .dividerLine,
+  .benefitsHeaderWrapper,
+  .benefitsGridWrapper {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .railLeft,
+  .brokenRailLeft {
+    left: 20px;
+  }
+
+  .railRight,
+  .brokenRailRight {
+    right: 20px;
   }
 
   .benefitsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .benefitCell {
+    border-right: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+  }
+
+  .benefitCell:last-child {
+    border-bottom: none !important;
   }
 }

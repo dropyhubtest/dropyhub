@@ -18,7 +18,7 @@
 .contentContainer {
   position: relative;
   width: 100%;
-  padding: 112px 0 16px 0;
+  padding: 112px 0 0 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: 1392px;
+  width: 1455px;
   max-width: 90vw;
   margin: 0 auto 32px auto;
 }
@@ -63,12 +63,12 @@
   margin: 0;
 }
 
-/* Hero Team Image Banner: exactly 1392px width, no border-radius */
+/* Hero Team Image Banner: 1455px width (-5%), touching bottom divider */
 .imageBannerWrapper {
   position: relative;
-  width: 1392px;
+  width: 1455px;
   max-width: 100%;
-  height: clamp(560px, 50vw, 696px);
+  height: clamp(580px, 50vw, 728px);
   margin: 0 auto;
   border-radius: 0;
   overflow: hidden;

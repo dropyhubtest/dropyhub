@@ -1,0 +1,229 @@
+/* ==========================================================================
+   WarehouseShuttle.module.css — Precision Styling for Bus Shuttle Section
+   ========================================================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Continuous Side Rails at 48px: stops before the black spacer bar and white slashed divider */
+.railLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 76px;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  bottom: 76px;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.container {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  padding: 60px 24px 64px 24px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.headerBlock {
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  color: #a3a3a3;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.bulletDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #807f7f;
+  display: inline-block;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* 3 Shuttle Columns */
+.cardsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.busIcon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: brightness(0) invert(1);
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.itemDescription {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #888888;
+  margin: 0;
+}
+
+/* Bar 1: Normal black bar with decreased height and continuous side rails */
+.blackSpacerBar {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  background-color: #0c0c0c;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.blackBarRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.blackBarRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Bar 2: White horizontal bar with slashes and dotted rail lines */
+.whiteSlashedDivider {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.whiteSlashedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.7) 13.5px,
+    rgba(195, 196, 200, 0.7) 15px
+  );
+  pointer-events: none;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.brokenRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 40px 16px 44px 16px;
+  }
+
+  .cardsRow {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .railLeft,
+  .brokenRailLeft {
+    left: 20px;
+  }
+
+  .railRight,
+  .brokenRailRight {
+    right: 20px;
+  }
+}

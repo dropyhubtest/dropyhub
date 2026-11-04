@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './AboutPartnerBenefits.module.css';
 
@@ -18,6 +18,9 @@ const PARTNER_LOGOS = [
   { name: 'Uber', src: '/assets/Home/uber.png', width: 80, height: 32 },
 ];
 
+// Duplicate logos array so the marquee has plenty of runway to glide smoothly
+const DISPLAY_LOGOS = [...PARTNER_LOGOS, ...PARTNER_LOGOS];
+
 interface BenefitBox {
   id: string;
   title: string;
@@ -30,109 +33,215 @@ const BENEFITS_DATA: BenefitBox[] = [
     id: 'multi-platform',
     title: 'Multi-Platform Access',
     description:
-      'Never get stuck on one single delivery platform. DropyHub partners switch smoothly across Swiggy, Zomato, Blinkit, Zepto, and Amazon to maximize daily income and order volume.',
+      'Work with Swiggy, Zomato, Amazon, Blinkit, Zepto, Flipkart, BookMyShow and more — all through a single DropyHub partnership. No more single-company dependency.',
     iconSrc: '/assets/About/energy-icons_monitor-20-bold.svg',
   },
   {
     id: 'weekly-pay',
     title: 'Guaranteed Weekly Pay',
     description:
-      'Weekly payouts credited without delays. Comprehensive incentive schemes, peak delivery bonuses, and transparent performance calculations every Tuesday.',
+      'Your performance bonus is credited every Monday — no delay, no excuse. Base salary is paid monthly with full transparency on every rupee you earn.',
     iconSrc: '/assets/About/fluent_money-20-regular.svg',
   },
   {
     id: 'safe-housing',
-    title: 'Safe Accommodation',
+    title: 'Safe Accommodations',
     description:
-      'Clean, hygienic, furnished partner hostels in tier-1 city hubs so riders arriving from regional districts have a safe, respectable place to rest and recharge.',
+      'DropyHub provides free accommodation with quality food and comfortable sleeping facilities, ensuring our delivery partners feel safe, supported, and cared for.',
     iconSrc: '/assets/About/energy-icons_hotel-20.svg',
   },
   {
     id: 'safety-net',
     title: 'Financial Safety Net',
     description:
-      'Comprehensive accidental cover, emergency medical support, and loan facilities up to ₹10 Lakhs designed specifically to protect partners and their families.',
-    iconSrc: '/assets/About/hugeicons_identity-card.svg',
+      'Loans up to ₹10 Lakhs for any purpose. No moneylenders, no informal borrowing. Professional, licensed lending through our NBFC partnerships.',
+    iconSrc: '/assets/About/carbon_currency-rupee.svg',
   },
   {
     id: 'ev-vehicle',
     title: 'Vehicle Without Ownership',
     description:
-      'Zero down payment EV scooter rentals with scheduled maintenance, battery swapping support, and minimal operating costs per kilometer.',
-    iconSrc: '/assets/About/delivery-bike.svg',
+      'Start earning on day one even if you do not own a vehicle. Our affordable rental programme handles everything — maintenance, insurance, and repairs.',
+    iconSrc: '/assets/About/energy-icons_cargo-bike-48.svg',
   },
   {
     id: 'respect',
     title: 'Recognition & Respect',
     description:
-      'Monthly partner award galas, tenure bonuses, skill certifications, and clear advancement pipelines into supervisory and fleet coordination roles.',
-    iconSrc: '/assets/About/certificate.svg',
+      'Monthly Star Awards, SRH TATA IPL edition prizes, annual ceremonies, and a leadership career track. At DropyHub, your hard work is always seen and celebrated.',
+    iconSrc: '/assets/About/hugeicons_identity-card.svg',
   },
 ];
 
 export const AboutPartnerBenefits: React.FC = () => {
+  const marqueeContainerRef = useRef<HTMLDivElement>(null);
+  const partnersSectionRef = useRef<HTMLDivElement>(null);
+  const hasAutoScrolled = useRef<boolean>(false);
+  const animationFrameId = useRef<number | null>(null);
+
+  useEffect(() => {
+    const section = partnersSectionRef.current;
+    const container = marqueeContainerRef.current;
+    if (!section || !container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAutoScrolled.current) {
+            hasAutoScrolled.current = true;
+
+            const timer = setTimeout(() => {
+              const maxScroll = container.scrollWidth - container.clientWidth;
+              if (maxScroll <= 10) return;
+
+              // Scroll one complete set of logos and then stop
+              const scrollTarget = Math.min(maxScroll, 1600);
+              const startScroll = container.scrollLeft;
+              const distance = scrollTarget - startScroll;
+              const duration = 7500; // 7.5s smooth glide
+              let startTime: number | null = null;
+              let isUserInteracting = false;
+
+              const stopAnimation = () => {
+                isUserInteracting = true;
+                if (animationFrameId.current) {
+                  cancelAnimationFrame(animationFrameId.current);
+                }
+              };
+
+              container.addEventListener('touchstart', stopAnimation, { passive: true });
+              container.addEventListener('wheel', stopAnimation, { passive: true });
+              container.addEventListener('mousedown', stopAnimation, { passive: true });
+
+              const step = (timestamp: number) => {
+                if (isUserInteracting) return;
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // easeOutCubic deceleration for an elegant gentle stop
+                const ease = 1 - Math.pow(1 - progress, 3);
+                container.scrollLeft = startScroll + distance * ease;
+
+                if (progress < 1 && !isUserInteracting) {
+                  animationFrameId.current = requestAnimationFrame(step);
+                } else {
+                  container.removeEventListener('touchstart', stopAnimation);
+                  container.removeEventListener('wheel', stopAnimation);
+                  container.removeEventListener('mousedown', stopAnimation);
+                }
+              };
+
+              animationFrameId.current = requestAnimationFrame(step);
+            }, 300);
+
+            return () => clearTimeout(timer);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
+  }, []);
+
   return (
     <section className={styles.section} aria-label="Partner Platforms and Executive Benefits">
-      {/* Continuous Side Rails at 40px */}
+      {/* Continuous Side Rails at 40px: stops exactly at the top of the white slashed bar */}
       <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
-      <div className={styles.container}>
-        {/* Top Part: Connecting you with India's top marquee */}
-        <div className={styles.partnersMarqueeBlock}>
-          <span className={styles.eyebrow}>
-            <span className={styles.bulletPink} aria-hidden="true" />
-            OUR PARTNERS
-          </span>
-          <h2 className={styles.marqueeHeading}>Connecting you with India&apos;s top</h2>
+      {/* 1. Partner Logos Section */}
+      <div ref={partnersSectionRef} className={styles.partnersSectionWrapper}>
+        <span className={styles.eyebrow}>
+          <span className={styles.bulletDot} aria-hidden="true" />
+          OUR PARTNERS
+        </span>
+        <h2 className={styles.marqueeHeading}>Connecting you with India&apos;s top</h2>
 
-          <div className={styles.marqueeContainer}>
-            <div className={styles.logoRow}>
-              {PARTNER_LOGOS.map((logo) => (
-                <div key={logo.name} className={styles.logoItem}>
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={logo.width}
-                    height={logo.height}
-                    className={styles.brandLogo}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Middle Hairline Divider */}
-        <div className={styles.dividerLine} aria-hidden="true" />
-
-        {/* Bottom Part: And What It Does For Our Partners (2x3 Grid) */}
-        <div className={styles.benefitsBlock}>
-          <span className={styles.eyebrow}>
-            <span className={styles.bulletPink} aria-hidden="true" />
-            WHY WE DO WHAT WE DO
-          </span>
-          <h2 className={styles.benefitsHeading}>And What It Does For Our Partners</h2>
-
-          <div className={styles.benefitsGrid}>
-            {BENEFITS_DATA.map((benefit) => (
-              <div key={benefit.id} className={styles.benefitCell}>
-                <div className={styles.iconWrapper}>
-                  <Image
-                    src={benefit.iconSrc}
-                    alt=""
-                    width={28}
-                    height={28}
-                    className={styles.benefitIcon}
-                    aria-hidden="true"
-                  />
-                </div>
-                <h3 className={styles.cellTitle}>{benefit.title}</h3>
-                <p className={styles.cellDescription}>{benefit.description}</p>
+        <div ref={marqueeContainerRef} className={styles.marqueeContainer}>
+          <div className={styles.logoRow}>
+            {DISPLAY_LOGOS.map((logo, index) => (
+              <div key={`${logo.name}-${index}`} className={styles.logoItem}>
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className={styles.brandLogo}
+                />
               </div>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Middle Hairline Divider: Attaches directly to Left & Right Rails at 40px */}
+      <div className={styles.dividerLine} aria-hidden="true" />
+
+      {/* 2. Why We Are Different Header */}
+      <div className={styles.benefitsHeaderWrapper}>
+        <span className={styles.eyebrow}>
+          <span className={styles.bulletDot} aria-hidden="true" />
+          WHY WE ARE DIFFERENT
+        </span>
+        <h2 className={styles.benefitsHeading}>What We Stand For For Partners</h2>
+      </div>
+
+      {/* 3. 2x3 Grid Table: Top, middle, and bottom lines connect to Left & Right Rails */}
+      <div className={styles.benefitsGridWrapper}>
+        <div className={styles.benefitsGrid}>
+          {BENEFITS_DATA.map((benefit) => (
+            <div key={benefit.id} className={styles.benefitCell}>
+              <div className={styles.iconWrapper}>
+                <Image
+                  src={benefit.iconSrc}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className={styles.benefitIcon}
+                  aria-hidden="true"
+                />
+              </div>
+              <h3 className={styles.cellTitle}>{benefit.title}</h3>
+              <p className={styles.cellDescription}>{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bar 3: White horizontal bar with slashes and dotted rail lines before CTA */}
+      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+        <div className={styles.whiteSlashedPattern} />
+        <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
+          <line
+            x1="1"
+            y1="0"
+            x2="1"
+            y2="40"
+            stroke="#c3c4c8"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+          />
+        </svg>
+        <svg className={styles.brokenRailRight} viewBox="0 0 2 40" preserveAspectRatio="none">
+          <line
+            x1="1"
+            y1="0"
+            x2="1"
+            y2="40"
+            stroke="#c3c4c8"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+          />
+        </svg>
       </div>
     </section>
   );

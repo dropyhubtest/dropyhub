@@ -1,0 +1,213 @@
+/* ==========================================================================
+   WarehouseFeatures.module.css — Precision Styling for Features Section
+   ========================================================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Continuous Side Rails at 48px */
+.railLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Header: Two Columns */
+.headerWrapper {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  padding: 56px 24px 44px 24px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  z-index: 2;
+}
+
+.headerLeftCol {
+  flex: 1.1;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.44px;
+  color: #807f7f;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.bulletDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #807f7f;
+  display: inline-block;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.headerRightCol {
+  flex: 0.9;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 36px;
+}
+
+.headerDescription {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #888888;
+  margin: 0;
+  max-width: 460px;
+}
+
+/* 3-Column Grid Table */
+.gridWrapper {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  box-sizing: border-box;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #2e2e2e;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+.featureCell {
+  padding: 40px 32px 48px 32px;
+  border-right: 1px solid #2e2e2e;
+  background-color: #0c0c0c;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease;
+}
+
+.featureCell:last-child {
+  border-right: none;
+}
+
+.featureCell:hover {
+  background-color: #121212;
+}
+
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.shieldIcon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.cellTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+}
+
+.cellDescription {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #888888;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .headerWrapper {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 16px 32px 16px;
+  }
+
+  .headerRightCol {
+    padding-top: 0;
+  }
+
+  .gridWrapper {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featureCell {
+    border-right: none;
+    border-bottom: 1px solid #2e2e2e;
+  }
+
+  .featureCell:last-child {
+    border-bottom: none;
+  }
+
+  .railLeft {
+    left: 20px;
+  }
+
+  .railRight {
+    right: 20px;
+  }
+}
