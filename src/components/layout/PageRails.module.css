@@ -21,6 +21,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 992px) {
+  .railsOverlay {
+    display: none;
+  }
+}
+
 .railsContainer {
   position: relative;
   width: 100%;

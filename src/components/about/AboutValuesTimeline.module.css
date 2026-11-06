@@ -445,40 +445,182 @@
   pointer-events: none;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .valuesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .historyContainer {
-    flex-direction: column;
-    gap: 28px;
-    min-height: auto;
-  }
-  .historyLeftCol {
-    flex: auto;
-    max-width: 100%;
-  }
-  .historyRightCol {
-    max-width: 100%;
-  }
-  .phaseDescription {
-    font-size: 18px;
-  }
+.mobileHistoryContainer {
+  display: none;
 }
 
-@media (max-width: 640px) {
+/* Responsive */
+@media (max-width: 992px) {
+  .railLeftLight,
+  .railRightLight,
+  .railLeftDark,
+  .railRightDark,
+  .brokenRailLeft,
+  .brokenRailRight,
+  .historyContainer {
+    display: none !important;
+  }
+
+  .valuesContainer {
+    padding: 36px 16px 40px 16px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .valuesInner {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .valuesHeader {
+    margin-bottom: 24px !important;
+    width: 100% !important;
+  }
+
+  .valuesHeading {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    margin-top: 6px !important;
+  }
+
   .valuesGrid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ebebeb !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
   }
-  .historyTitleRow {
-    flex-direction: column;
-    gap: 8px;
+
+  .valueCard {
+    width: 100% !important;
+    padding: 24px 20px !important;
+    background-color: #ffffff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #ebebeb !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    min-height: auto !important;
   }
-  .historyActiveTitle {
-    white-space: normal;
+
+  .valueCard:last-child {
+    border-bottom: none !important;
   }
-  .phaseDescription {
-    font-size: 16px;
+
+  .iconWrapper {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .valueTitle {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .valueDescription {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #666666 !important;
+  }
+
+  .hatchedDivider {
+    display: block !important;
+    width: 100% !important;
+    height: 36px !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  .historySection {
+    padding: 36px 16px 40px 16px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .mobileHistoryContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .mobileHistoryTitle {
+    font-family: var(--font-display) !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 8px 0 4px 0 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .mobileHistorySubtitle {
+    font-family: var(--font-secondary), var(--font-estimator), sans-serif !important;
+    font-size: 13.5px !important;
+    color: #888888 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .mobileHistoryDesc {
+    font-family: var(--font-secondary), var(--font-estimator), sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #a3a3a3 !important;
+    margin: 0 0 24px 0 !important;
+  }
+
+  .mobilePillsScrollTrack {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    padding-bottom: 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .mobilePillsScrollTrack::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .mobilePill {
+    flex-shrink: 0 !important;
+    padding: 7px 12px !important;
+    border-radius: 4px !important;
+    font-family: var(--font-body), sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    background-color: transparent !important;
+    color: #888888 !important;
+    border: 1px solid #2e2e2e !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+  }
+
+  .mobilePillActive {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border-color: #555555 !important;
+    font-weight: 600 !important;
+  }
+
+  .whiteSlashedDivider {
+    display: block !important;
+    width: 100% !important;
+    height: 36px !important;
+    border-left: none !important;
+    border-right: none !important;
   }
 }

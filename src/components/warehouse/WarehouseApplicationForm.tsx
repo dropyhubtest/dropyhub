@@ -73,12 +73,10 @@ export const WarehouseApplicationForm: React.FC = () => {
               JOIN OUR WORKFORCE
             </span>
             <h2 className={styles.heading}>
-              Warehouse &amp; Stores,
-              <br />
-              Application Form
+              Warehouse &amp; Stores Application Form
             </h2>
             <p className={styles.description}>
-              Register now to get placed in top warehouses and darkstores. Start your logistics career
+              Register now to get placed in top warehouses and dark stores. Start your logistics career
               with zero hassle.
             </p>
           </div>
@@ -129,7 +127,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                       name="fullName"
                       type="text"
                       required
-                      placeholder="Enter Your Name"
+                      placeholder="Enter your name"
                       value={formData.fullName}
                       onChange={handleInputChange}
                       className={styles.input}
@@ -145,7 +143,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                       name="mobileNumber"
                       type="tel"
                       required
-                      placeholder="e.g. 9********0"
+                      placeholder="e.g. 9876543210"
                       value={formData.mobileNumber}
                       onChange={handleInputChange}
                       className={styles.input}
@@ -197,7 +195,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                       min="18"
                       max="60"
                       required
-                      placeholder="e.g. 21"
+                      placeholder="e.g. 27"
                       value={formData.age}
                       onChange={handleInputChange}
                       className={styles.input}
@@ -218,7 +216,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                         className={styles.select}
                       >
                         <option value="" disabled>
-                          e.g. 1
+                          Select experience
                         </option>
                         <option value="fresher">Fresher (0 years)</option>
                         <option value="1">1 year</option>

@@ -354,45 +354,86 @@
 
 /* Responsive */
 @media (max-width: 992px) {
+  .railLeft,
+  .railRight {
+    display: none !important;
+  }
+
   .container {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-direction: column;
-    padding: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    padding: 36px 16px 40px 16px !important;
+    box-sizing: border-box !important;
+    flex-direction: column !important;
   }
 
   .leftCol {
-    width: 100%;
-    flex: auto;
-    border-right: none;
-    border-bottom: 1px solid #e8e8e8;
-    padding: 36px 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: auto !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    padding: 0 0 24px 0 !important;
   }
 
   .stickyWrapper {
     position: static;
   }
 
+  .eyebrow {
+    margin-bottom: 10px !important;
+  }
+
+  .heading {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    margin: 6px 0 12px 0 !important;
+  }
+
+  .description {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #666666 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
   .rightCol {
-    width: 100%;
-    flex: auto;
-    padding: 36px 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: auto !important;
+    padding: 0 !important;
   }
 
   .formCard {
-    padding: 28px 20px;
+    width: 100% !important;
+    padding: 24px 18px !important;
+    border: 1px solid #ebebeb !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    background-color: #ffffff !important;
+    box-sizing: border-box !important;
   }
 
   .inputGrid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
 
-  .railLeft {
-    left: 20px;
+  .checkboxGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
   }
 
-  .railRight {
-    right: 20px;
+  .checkboxItem {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
 }

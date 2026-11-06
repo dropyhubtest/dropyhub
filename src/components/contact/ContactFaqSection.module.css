@@ -1,0 +1,298 @@
+/* ==========================================================================
+   Contact Page FAQ Section Styles
+   Matches Figma Image 3 and Image 4 reference mocks:
+   - Clean 2-column layout on white surface (#ffffff)
+   - Left and right rails (1px) stopping before the bottom slashed divider bar (40px)
+   - Only 1px dotted lines inside the slashed bar
+   - Vertical black bar indicator (|) when a question is expanded (like Image 4)
+   - No chevrons on questions
+   ========================================================================== */
+
+.faqSection {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  color: #111111;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Continuous Side Rails at 48px:
+   Stops before the bottom transition bar (40px) so no solid line enters the bar */
+.railLeft {
+  position: absolute;
+  top: 0;
+  bottom: 40px;
+  left: 48px;
+  width: 1.5px;
+  background-color: var(--color-raw-c3c4c8, #c3c4c8);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.railRight {
+  position: absolute;
+  top: 0;
+  bottom: 40px;
+  right: 48px;
+  width: 1.5px;
+  background-color: var(--color-raw-c3c4c8, #c3c4c8);
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .railLeft,
+  .railRight {
+    display: none;
+  }
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 72px 80px 72px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 60px 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 44px 20px;
+  }
+}
+
+/* 2-Column Layout */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 860px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* Left Column */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666666;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #111111;
+  display: inline-block;
+}
+
+.heading {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+}
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 24px;
+  }
+}
+
+.description {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0;
+  max-width: 260px;
+}
+
+/* Right Column: Accordion */
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e5e7eb;
+}
+
+.accordionItem {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.accordionHeader {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.activeBar {
+  width: 2.5px;
+  height: 18px;
+  background-color: #111111;
+  display: inline-block;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.questionText {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #222222;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.questionActive {
+  color: #111111;
+  font-weight: 500;
+}
+
+.accordionHeader:hover .questionText {
+  color: #000000;
+}
+
+@media (max-width: 640px) {
+  .questionText {
+    font-size: 16px;
+  }
+}
+
+.answerBox {
+  overflow: hidden;
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.answerText {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #666666;
+  margin: 0;
+  padding-bottom: 24px;
+  max-width: 680px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* View More Link */
+.viewMoreWrapper {
+  margin-top: 18px;
+}
+
+.viewMoreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.viewMoreLink:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* Bottom Slashed Divider Bar before Footer */
+.whiteSlashedDivider {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.whiteSlashedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #dddddd,
+    #dddddd 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  opacity: 0.9;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.brokenRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .brokenRailLeft,
+  .brokenRailRight {
+    display: none;
+  }
+}

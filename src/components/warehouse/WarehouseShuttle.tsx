@@ -15,19 +15,19 @@ const SHUTTLE_DATA: ShuttleItem[] = [
   {
     id: 'safe-commute',
     title: 'Safe Commute',
-    description: 'Safe, clean, and modern shuttle services for all shifts.',
+    description: 'Secure, clean and reliable shuttle services for every shift.',
     iconSrc: '/assets/warehouse/commute.svg',
   },
   {
     id: 'punctual-dispatch',
     title: 'Punctual Dispatch',
-    description: 'Secure, timely, and dependable transportation schedules.',
+    description: 'Planned pickup routes help teams arrive on time and ready to work.',
     iconSrc: '/assets/warehouse/punctual.svg',
   },
   {
     id: 'gps-tracking',
     title: 'GPS Tracking',
-    description: 'Secure, live, GPS tracking on every route for all shifts.',
+    description: 'Live vehicle tracking keeps every commute visible and accountable.',
     iconSrc: '/assets/warehouse/gps.svg',
   },
 ];
@@ -49,24 +49,29 @@ export const WarehouseShuttle: React.FC = () => {
           <h2 className={styles.heading}>Dedicated Bus Transportation</h2>
         </div>
 
-        {/* 3 Shuttle Columns with inline icons */}
-        <div className={styles.cardsRow}>
-          {SHUTTLE_DATA.map((item) => (
-            <div key={item.id} className={styles.cardItem}>
-              <div className={styles.titleRow}>
-                <Image
-                  src={item.iconSrc}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className={styles.busIcon}
-                  aria-hidden="true"
-                />
-                <h3 className={styles.itemTitle}>{item.title}</h3>
+        {/* 3 Shuttle Columns with left icon and stacked text */}
+        <div className={styles.shuttleContentRow}>
+          <div className={styles.cardsRow}>
+            {SHUTTLE_DATA.map((item) => (
+              <div key={item.id} className={styles.cardItem}>
+                <div className={styles.iconCol}>
+                  <Image
+                    src={item.iconSrc}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className={styles.busIcon}
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className={styles.textCol}>
+                  <h3 className={styles.itemTitle}>{item.title}</h3>
+                  <p className={styles.itemDescription}>{item.description}</p>
+                </div>
               </div>
-              <p className={styles.itemDescription}>{item.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className={styles.sideAccentBar} aria-hidden="true" />
         </div>
       </div>
 

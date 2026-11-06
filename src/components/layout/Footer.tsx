@@ -8,9 +8,14 @@ import styles from './Footer.module.css';
 export interface FooterProps {
   className?: string;
   showRails?: boolean;
+  showTopDivider?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ className, showRails = true }) => {
+export const Footer: React.FC<FooterProps> = ({
+  className,
+  showRails = true,
+  showTopDivider = true,
+}) => {
   return (
     <footer className={`${styles.footerSection} ${className || ''}`} aria-label="Global Footer">
       {showRails && (
@@ -21,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ className, showRails = true }) =
       )}
 
       {/* Footer Top Divider with small gap on both left and right (does not touch rails) */}
-      <div className={styles.footerTopDivider} aria-hidden="true" />
+      {showTopDivider && <div className={styles.footerTopDivider} aria-hidden="true" />}
 
       <div className={styles.container}>
         {/* Footer Navigation Columns */}

@@ -98,6 +98,15 @@
   flex-shrink: 0;
 }
 
+.faqToggleIcon {
+  margin-left: auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: #111111;
+  line-height: 1;
+  padding-left: 12px;
+}
+
 .questionText {
   font-family: var(--font-display);
   font-size: 20px;
@@ -591,4 +600,264 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+
+/* ==========================================================================
+   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   ========================================================================== */
+@media (max-width: 992px) {
+  .section {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .container {
+    position: static;
+    height: auto;
+    width: 100%;
+    padding: 40px 20px 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .railFaqLeft,
+  .railFaqRight,
+  .railCtaLeft,
+  .railCtaRight,
+  .railFooterLeft,
+  .railFooterRight,
+  .railFadeLeft,
+  .railFadeRight,
+  .brokenRailLeft,
+  .brokenRailRight,
+  .footerDivider1,
+  .footerDivider2,
+  .faqDividerBand,
+  .ctaBottomLine {
+    display: none;
+  }
+
+  .faqEyebrow {
+    position: static;
+    left: auto;
+    top: auto;
+    margin-bottom: 6px;
+  }
+
+  .faqHeading {
+    position: static;
+    left: auto;
+    top: auto;
+    font-size: 22px;
+    margin: 4px 0 20px 0;
+  }
+
+  .accordionContainer {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .accordionItem {
+    width: 100%;
+  }
+
+  .accordionButton {
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .activeIndicator {
+    display: none;
+  }
+
+  .activeAnswerMargin {
+    margin-left: 0;
+  }
+
+  .questionText {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .faqToggleIcon {
+    font-size: 22px;
+    font-weight: 300;
+    color: #111111;
+  }
+
+  .answerContent {
+    padding: 0 0 16px 0;
+  }
+
+  .answerText {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #666666;
+  }
+
+  .ctaContainer {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    background-color: #f3f4f6;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .ctaHeading {
+    position: static;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111111;
+  }
+
+  .ctaRight {
+    position: static;
+    width: 100%;
+  }
+
+  .ctaDescription {
+    position: static;
+    width: 100%;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #555555;
+    margin-bottom: 20px;
+  }
+
+  .ctaActions {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .joinNowBtn {
+    width: auto;
+    padding: 0 20px;
+    height: 44px;
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .learnMoreLink {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: underline;
+  }
+
+  .footerLinks {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 16px;
+    margin-bottom: 24px;
+  }
+
+  .desktopOnlyLink {
+    display: none;
+  }
+
+  .footerCol {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .companyCol,
+  .partnersCol {
+    width: 100%;
+  }
+
+  .contactCol {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .addressText {
+    max-width: 100% !important;
+  }
+
+  .colTitle {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .footerLink {
+    font-size: 13.5px;
+  }
+
+  .socialLinks {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .copyrightText {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .footerDescription {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  .outlinedWordmark {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    font-size: clamp(60px, 18vw, 90px);
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  }
 }

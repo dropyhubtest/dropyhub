@@ -23,12 +23,12 @@ const STATS_DATA: StatMetric[] = [
     iconHeight: 32,
   },
   {
-    id: 'earnings',
-    value: '18–32K',
-    label: 'Avg Monthly Earnings',
-    iconSrc: '/assets/icons/rupee.svg',
-    iconWidth: 20,
-    iconHeight: 30,
+    id: 'cities',
+    value: '12⁺',
+    label: 'Cities Covered',
+    iconSrc: '/assets/icons/location.svg',
+    iconWidth: 32,
+    iconHeight: 32,
   },
   {
     id: 'platforms',
@@ -56,7 +56,7 @@ const STATS_DATA: StatMetric[] = [
   },
   {
     id: 'reg-fee',
-    value: '0 Rs',
+    value: '₹0',
     label: 'Registration Fee',
     iconSrc: '/assets/icons/rupee.svg',
     iconWidth: 20,
@@ -65,10 +65,10 @@ const STATS_DATA: StatMetric[] = [
 ];
 
 const WHY_CHOOSE_ITEMS = [
-  'Weekly incentives and partner reward programmes',
-  'Accommodation options and career development support',
-  'Dedicated assistance for delivery partners and businesses',
-  'Flexible EV vehicle rental options',
+  'Weekly incentives and partner rewards',
+  'Accommodation and career support',
+  'Dedicated assistance for partners',
+  'Flexible EV vehicle rentals',
 ];
 
 export const AboutStatsPillars: React.FC = () => {
@@ -127,7 +127,7 @@ export const AboutStatsPillars: React.FC = () => {
               Building India&apos;s Trusted Delivery Ecosystem.
             </h3>
             <p className={styles.pillarDescription}>
-              To build one of India&apos;s most trusted delivery partner ecosystems, Connecting delivery partners, businesses and essential services to create a more rewarding and respected future for delivery work.
+              To build one of India&apos;s most trusted delivery partner ecosystems, connecting partners, businesses and essential services for a more rewarding future.
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export const AboutStatsPillars: React.FC = () => {
               Empowering Every Delivery Partner.
             </h3>
             <p className={styles.pillarDescription}>
-              To empower every delivery partner with meaningful work opportunities, essential resources, financial support and career development, helping them build a stable livelihood and a brighter future.
+              To empower every partner with meaningful work, essential resources, financial support and career development for a stable livelihood.
             </p>
           </div>
 

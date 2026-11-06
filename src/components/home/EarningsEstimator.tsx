@@ -12,11 +12,10 @@ interface CityOption {
 }
 
 const CITIES: CityOption[] = [
-  { id: "hyderabad", name: "Hyderabad (metro)" },
-  { id: "bangalore", name: "Bangalore (metro)" },
-  { id: "chennai", name: "Chennai (metro)" },
-  { id: "ap-cities", name: "Vijayawada and AP cities" },
-  { id: "visakhapatnam", name: "Visakhapatnam" },
+  { id: "hyderabad", name: "Hyderabad" },
+  { id: "bangalore", name: "Bangalore" },
+  { id: "chennai", name: "Chennai" },
+  { id: "vijayawada", name: "Vijayawada" },
 ];
 
 export const EarningsEstimator: React.FC = () => {
@@ -26,14 +25,14 @@ export const EarningsEstimator: React.FC = () => {
   const [workingDays, setWorkingDays] = useState<number>(24);
   const [showStatusNote, setShowStatusNote] = useState<boolean>(false);
 
-  // Reference figures from Figma Node 1278:20631
+  // Reference figures matching PDF
   const referenceFigures = {
-    baseDeliveryFee: "₹30,139",
+    baseDeliveryFee: "₹30,140",
     bonuses: "+₹4,800",
     savings: "+₹3,800",
     savingsLabel: "EV Battery & Fuel Savings",
-    total: "₹38,739",
-    dailyAverage: "Approx. ₹1,490 per working day",
+    total: "₹38,740",
+    dailyAverage: "Approx. ₹1,614 per working day",
   };
 
   const handleCtaClick = () => {
@@ -60,7 +59,7 @@ export const EarningsEstimator: React.FC = () => {
         <div className={styles.headerArea}>
           <span className={styles.eyebrow}>
             <span className={styles.bullet} aria-hidden="true" />
-            INTERACTIVE ESTIMATOR
+            I n t era c t i v e &nbsp; E st i m ato r
           </span>
           <h2 className={styles.sectionTitle}>Calculate Your Monthly Take-Home</h2>
         </div>
@@ -77,7 +76,7 @@ export const EarningsEstimator: React.FC = () => {
                 </h3>
               </div>
               <div className={styles.vehicleRow}>
-                {/* 1. EV Electric Scooter (179 × 46px) */}
+                {/* 1. EV Electric Scooter */}
                 <button
                   type="button"
                   className={`${styles.vehicleBtnBase} ${styles.vehicleBtnEV} ${
@@ -100,7 +99,7 @@ export const EarningsEstimator: React.FC = () => {
                   </span>
                 </button>
 
-                {/* 2. Petrol Bike (Own) (168 × 46px) */}
+                {/* 2. Petrol Bike */}
                 <button
                   type="button"
                   className={`${styles.vehicleBtnBase} ${styles.vehicleBtnPetrol} ${
@@ -119,11 +118,11 @@ export const EarningsEstimator: React.FC = () => {
                     />
                   </div>
                   <span className={vehicle === "petrol" ? styles.vehicleBtnTextActive : styles.vehicleBtnText}>
-                    Petrol Bike (Own)
+                    Petrol Bike
                   </span>
                 </button>
 
-                {/* 3. E-Cycle / Bicycle (163 × 46px) */}
+                {/* 3. E-Cycle */}
                 <button
                   type="button"
                   className={`${styles.vehicleBtnBase} ${styles.vehicleBtnBicycle} ${
@@ -142,7 +141,7 @@ export const EarningsEstimator: React.FC = () => {
                     />
                   </div>
                   <span className={vehicle === "bicycle" ? styles.vehicleBtnTextActive : styles.vehicleBtnText}>
-                    E-Cycle / Bicycle
+                    E-Cycle
                   </span>
                 </button>
               </div>
@@ -280,7 +279,7 @@ export const EarningsEstimator: React.FC = () => {
                 className={styles.ctaButton}
                 onClick={handleCtaClick}
               >
-                Lock In This Rate &amp; Apply Now
+                Lock In This Payout / Apply Now
               </button>
 
               {showStatusNote && (
@@ -290,7 +289,7 @@ export const EarningsEstimator: React.FC = () => {
               )}
 
               <p className={styles.supportingText}>
-                48-hour onboarding • ₹0 security deposit • No paperwork hassle
+                Zero upfront fees • Payouts processed every Tuesday
               </p>
             </div>
           </div>

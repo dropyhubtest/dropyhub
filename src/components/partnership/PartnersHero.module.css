@@ -1,0 +1,424 @@
+/* ==========================================================================
+   PartnersHero.module.css — Precision Partners & SRH Hero Section
+   Surface: #0c0c0c (Dark Surface)
+   ========================================================================== */
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  background-color: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Side rails at 48px (spans down to the bottom transition bars) */
+.railLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 76px;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  bottom: 76px;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heroContentWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Hero Team Image Banner Container (1392px standard, centered) */
+.bannerContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1392px;
+  height: 473px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #0c0c0c;
+}
+
+/* Prominently visible SRH geometric patterned background */
+.bannerBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  filter: contrast(110%) brightness(95%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bannerTeamImg {
+  position: relative;
+  width: 100%;
+  max-width: 1392px;
+  height: auto;
+  max-height: 473px;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  z-index: 3;
+}
+
+/* Hatched Divider Bar Transition after Hero (Increased Height: 56px) */
+.hatchedDivider {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  background-color: #0c0c0c;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hatchedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(46, 46, 46, 0.7) 13.5px,
+    rgba(46, 46, 46, 0.7) 15px
+  );
+  pointer-events: none;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 56px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.brokenRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 56px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Narrative & Perks Container */
+.container {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  padding: 56px 0 0 0;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Header Row: Eyebrow + Title on left, Narrative on right */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 48px;
+  padding: 0 40px 36px 40px;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.headerLeft {
+  flex: 1.2;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.44px;
+  color: #807f7f;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.bulletDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #807f7f;
+  display: inline-block;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.headerRight {
+  flex: 1.4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.headerDesc {
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #888888;
+  margin: 0;
+  max-width: 620px;
+  text-align: right;
+}
+
+/* 4-Card Hero Perks Grid */
+.perksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.perkCard {
+  padding: 34px 32px 38px 32px;
+  border-right: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease;
+}
+
+.perkCard:last-child {
+  border-right: none;
+}
+
+.perkCard:hover {
+  background-color: #121212;
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 22px;
+}
+
+.iconImage {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.perkTitle {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Bar 1: Normal black spacer bar with dotted side rails */
+.blackSpacerBar {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  background-color: #0c0c0c;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.blackBarRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.blackBarRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Bar 2: White Slashed Divider Bar at bottom of dark section */
+.whiteSlashedDivider {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #2e2e2e;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.whiteSlashedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 13.5px,
+    rgba(195, 196, 200, 0.7) 13.5px,
+    rgba(195, 196, 200, 0.7) 15px
+  );
+  pointer-events: none;
+}
+
+.whiteBrokenRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.whiteBrokenRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .perksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .perkCard:nth-child(2) {
+    border-right: none;
+  }
+
+  .perkCard:nth-child(-n + 2) {
+    border-bottom: 1px solid #2e2e2e;
+  }
+}
+
+@media (max-width: 992px) {
+  .railLeft {
+    left: 20px;
+  }
+
+  .railRight {
+    right: 20px;
+  }
+
+  .whiteBrokenRailLeft {
+    left: 20px;
+  }
+
+  .whiteBrokenRailRight {
+    right: 20px;
+  }
+
+  .blackBarRailLeft {
+    left: 20px;
+  }
+
+  .blackBarRailRight {
+    right: 20px;
+  }
+
+  .brokenRailLeft {
+    left: 20px;
+  }
+
+  .brokenRailRight {
+    right: 20px;
+  }
+
+  .container {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0 20px 28px 20px;
+  }
+
+  .headerRight {
+    justify-content: flex-start;
+  }
+
+  .headerDesc {
+    text-align: left;
+  }
+
+  .bannerContainer {
+    height: auto;
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .perksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .perkCard {
+    border-right: none;
+    border-bottom: 1px solid #2e2e2e;
+  }
+
+  .perkCard:last-child {
+    border-bottom: none;
+  }
+}

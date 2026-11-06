@@ -245,7 +245,13 @@ export const TrustPartnersTestimonials: React.FC = () => {
             Section C: Testimonials
             ================================================================== */}
         <div className={styles.testimonialsComponent}>
-          <h3 className={styles.testimonialsTitle}>Testimonials</h3>
+          <div className={styles.testimonialsEyebrow}>
+            <span className={styles.eyebrow}>
+              <span className={styles.bullet} aria-hidden="true" />
+              TESTIMONIALS
+            </span>
+          </div>
+          <h2 className={styles.testimonialsHeading}>What Our Partners Say</h2>
 
           {/* Navigation Controls */}
           <button
@@ -300,6 +306,19 @@ export const TrustPartnersTestimonials: React.FC = () => {
                 <p className={styles.authorName}>{activeTestimonial.name}</p>
                 <p className={styles.authorSubtitle}>{activeTestimonial.subtitle}</p>
               </div>
+            </div>
+
+            {/* Mobile Pagination Dots */}
+            <div className={styles.paginationDots} aria-label="Testimonial pagination">
+              {TESTIMONIALS_DATA.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  className={`${styles.dot} ${index === activeIndex ? styles.dotActive : ""}`}
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

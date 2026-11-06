@@ -171,43 +171,81 @@
 
 /* Responsive */
 @media (max-width: 992px) {
+  .railLeft,
+  .railRight {
+    display: none !important;
+  }
+
   .headerWrapper {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px 16px 32px 16px;
+    width: 100% !important;
+    margin: 0 !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 32px 16px 20px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .heading {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    margin: 6px 0 10px 0 !important;
   }
 
   .headerRightCol {
-    padding-top: 0;
+    padding-top: 0 !important;
+    width: 100% !important;
+  }
+
+  .headerDescription {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #a3a3a3 !important;
+    max-width: 100% !important;
   }
 
   .gridWrapper {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 100% !important;
+    margin: 0 !important;
+    border-top: 1px solid #1a1a1a !important;
+    border-bottom: 1px solid #1a1a1a !important;
+    box-sizing: border-box !important;
   }
 
   .grid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
   .featureCell {
-    border-right: none;
-    border-bottom: 1px solid #2e2e2e;
+    width: 100% !important;
+    padding: 24px 16px !important;
+    border-right: none !important;
+    border-bottom: 1px solid #1a1a1a !important;
+    box-sizing: border-box !important;
   }
 
   .featureCell:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
   }
 
-  .railLeft {
-    left: 20px;
+  .iconWrapper {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 14px !important;
   }
 
-  .railRight {
-    right: 20px;
+  .cellTitle {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 0 8px 0 !important;
+    color: #ffffff !important;
+  }
+
+  .cellDescription {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #888888 !important;
+    margin: 0 !important;
   }
 }

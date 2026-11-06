@@ -595,3 +595,319 @@
   pointer-events: none;
   z-index: 5;
 }
+
+/* ==========================================================================
+   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   ========================================================================== */
+@media (max-width: 992px) {
+  .estimatorSection {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .estimatorContainer {
+    position: static;
+    height: auto;
+    width: 100%;
+    padding: 40px 20px 48px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .railLeft,
+  .railRight,
+  .brokenRailLeft,
+  .brokenRailRight {
+    display: none;
+  }
+
+  .headerArea {
+    position: static;
+    left: auto;
+    top: auto;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
+    margin: 4px 0 0 0;
+  }
+
+  .mainContent {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .leftColumn {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .panelBase {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px 16px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .panelVehicle,
+  .panelCity,
+  .panelDeliveries,
+  .panelDays {
+    position: static;
+    top: auto;
+    height: auto;
+  }
+
+  .panelHeader {
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panelTitle {
+    font-size: 15px;
+  }
+
+  .vehicleRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .vehicleBtnBicycle {
+    grid-column: 1 / -1;
+  }
+
+  .vehicleBtnBase {
+    width: 100%;
+    height: 46px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+  }
+
+  .vehicleBtnActive {
+    border: 1.5px solid #ea0066 !important;
+    background-color: #fff0f5 !important;
+  }
+
+  .vehicleBtnText,
+  .vehicleBtnTextActive {
+    font-size: 12.5px;
+  }
+
+  .cityGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  .cityBtn {
+    width: 100%;
+    height: 42px;
+    font-size: 13px;
+    padding: 0 8px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    color: #444444;
+  }
+
+  .cityBtnActive {
+    border: 1.5px solid #ea0066 !important;
+    background-color: #fff0f5 !important;
+    color: #ea0066 !important;
+    font-weight: 600;
+  }
+
+  .sliderArea {
+    width: 100%;
+  }
+
+  .rangeInput {
+    width: 100%;
+    height: 6px;
+  }
+
+  .sliderLabels {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .sliderLabelText {
+    font-size: 11.5px;
+    color: #777777;
+  }
+
+  .panelValueBadge {
+    font-size: 13px;
+    color: #333333;
+  }
+
+  .boldNumber {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .vehicleBtnEV,
+  .vehicleBtnPetrol,
+  .vehicleBtnBicycle {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .rightColumn {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 16px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .earningsContent {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin: 0;
+    padding: 24px 20px;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .earningsHeading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 20px;
+  }
+
+  .breakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .breakdownRow,
+  .breakdownRowLast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #444444;
+  }
+
+  .positiveValue {
+    color: #16a34a;
+    font-weight: 600;
+  }
+
+  .totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+
+  .totalLabel {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111;
+  }
+
+  .totalAmountArea {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .totalAmount {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111111;
+  }
+
+  .totalPeriod {
+    font-size: 15px;
+    color: #666666;
+  }
+
+  .dailyAverage {
+    font-size: 12px;
+    color: #888888;
+    text-align: right;
+    margin: 4px 0 20px 0;
+  }
+
+  .ctaButton {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 48px;
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .supportingText {
+    font-size: 11px;
+    color: #777777;
+    margin-top: 14px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .bottomDivider {
+    display: none !important;
+  }
+}

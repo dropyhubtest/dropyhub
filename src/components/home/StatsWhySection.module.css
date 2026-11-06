@@ -306,3 +306,165 @@
   color: var(--text-light-secondary);
   margin: 0;
 }
+
+.mobileCardsList {
+  display: none;
+}
+
+/* ==========================================================================
+   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   ========================================================================== */
+@media (max-width: 992px) {
+  .statsBarContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .statsBarFrame {
+    position: static;
+    height: auto;
+    width: 100%;
+  }
+
+  .statsBarFrame .railLeft,
+  .statsBarFrame .railRight,
+  .whySectionFrame .railLeft,
+  .whySectionFrame .railRight,
+  .fullBleedDivider {
+    display: none !important;
+  }
+
+  .statsGrid {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    box-sizing: border-box;
+  }
+
+  .statItem {
+    height: auto;
+    min-height: 86px;
+    padding: 18px 14px;
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .statItem:nth-child(2n) {
+    border-right: none;
+  }
+
+  .statItem:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+
+  .statIconWrapper {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .statValue {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  .statSup {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .statLabel {
+    font-size: 12px;
+    margin-top: 3px;
+    color: #666666;
+  }
+
+  .whySectionContainer {
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  .whySectionFrame {
+    position: static;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headerArea {
+    position: static;
+    left: auto;
+    top: auto;
+    margin-bottom: 24px;
+  }
+
+  .subBadge {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
+    margin: 4px 0 0 0;
+  }
+
+  .cardsColumnLeft,
+  .cardsColumnRight {
+    display: none;
+  }
+
+  .mobileCardsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .card {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 24px 20px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardIconWrapper {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+  }
+
+  .cardHeading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+    margin: 0 0 8px 0;
+  }
+
+  .cardBody {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #666666;
+    margin: 0;
+  }
+}

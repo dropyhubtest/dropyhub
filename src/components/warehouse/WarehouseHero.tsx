@@ -16,7 +16,9 @@ export const WarehouseHero: React.FC = () => {
         <div className={styles.titleRow}>
           <div className={styles.headingCol}>
             <h1 className={styles.mainTitle}>
-              Warehouse Workforce,
+              Warehouse
+              <br />
+              Workforce,
               <br />
               Simplified
             </h1>
@@ -34,11 +36,10 @@ export const WarehouseHero: React.FC = () => {
           <Image
             src="/assets/warehouse/hero.png"
             alt="DropyHub 3D Warehouse Operations and Fleet Hub"
-            width={1455}
-            height={683}
+            width={1392}
+            height={675}
             priority
             className={styles.bannerImage}
-            style={{ width: '1455px', height: '683px', objectFit: 'cover' }}
           />
         </div>
       </div>

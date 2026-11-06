@@ -45,7 +45,7 @@ export const WarehouseCtaFooter: React.FC = () => {
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>
-                Join Our, Hub Network
+                Join Our Hub Network
               </h2>
             </div>
 

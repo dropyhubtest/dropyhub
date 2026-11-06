@@ -480,3 +480,191 @@
   color: var(--color-raw-807f);
   margin: 0;
 }
+
+.testimonialsEyebrow,
+.testimonialsHeading,
+.paginationDots {
+  display: none;
+}
+
+/* ==========================================================================
+   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   ========================================================================== */
+@media (max-width: 992px) {
+  .section {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .container {
+    position: static;
+    height: auto;
+    width: 100%;
+    padding: 40px 20px 48px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topLine,
+  .separatorLine,
+  .railTopLeft,
+  .railTopRight,
+  .railBottomLeft,
+  .railBottomRight,
+  .frame352Divider {
+    display: none;
+  }
+
+  .innovationEyebrow {
+    position: static;
+    margin-bottom: 6px;
+  }
+
+  .innovationHeading {
+    position: static;
+    font-size: 22px;
+    margin: 4px 0 10px 0;
+  }
+
+  .innovationSupportingText {
+    position: static;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .securityChecklist {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .securityItem {
+    gap: 10px;
+  }
+
+  .securityText {
+    font-size: 14px;
+  }
+
+  .partnersEyebrow {
+    position: static;
+    margin-bottom: 6px;
+  }
+
+  .partnersHeading {
+    position: static;
+    font-size: 22px;
+    margin: 4px 0 16px 0;
+    width: 100%;
+  }
+
+  .partnersLogoStrip {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 36px;
+  }
+
+  .testimonialsComponent {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonialsEyebrow {
+    display: block;
+    position: static;
+    margin-bottom: 6px;
+  }
+
+  .testimonialsHeading {
+    display: block;
+    position: static;
+    font-size: 22px;
+    font-weight: 600;
+    color: #111111;
+    margin: 4px 0 20px 0;
+  }
+
+  .testimonialsTitle {
+    display: none;
+  }
+
+  .navArrowBtn {
+    display: none;
+  }
+
+  .testimonialContentArea {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+  }
+
+  .quoteText {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .authorProfile {
+    margin-top: 18px;
+    gap: 14px;
+  }
+
+  .avatarWrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .avatarImg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .authorName {
+    font-size: 16px;
+  }
+
+  .authorSubtitle {
+    font-size: 13px;
+  }
+
+  .paginationDots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .dotActive {
+    background-color: #111111;
+  }
+}

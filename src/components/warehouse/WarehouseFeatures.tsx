@@ -16,21 +16,21 @@ const FEATURES_DATA: FeatureCard[] = [
     id: 'workforce-deployment',
     title: 'Workforce Deployment',
     description:
-      'Strategic manpower supply for major logistics giants. We bridge the gap between skilled labor and the gross fulfilment centers like Flipkart and Amazon.',
+      'Strategic manpower supply for major logistics giants. We bridge skilled labor with global fulfillment centers like Flipkart and Amazon.',
     iconType: 'users',
   },
   {
     id: 'real-time-operations',
     title: 'Real-time Operations',
     description:
-      'Our employees are trained to handle complex warehouse management systems, ensuring seamless inventory flow and accurate dispatching.',
+      'Our employees handle complex warehouse management systems, ensuring seamless inventory flow and accurate dispatching.',
     iconType: 'clock',
   },
   {
     id: 'safe-standards',
     title: 'Safe Standards',
     description:
-      'Safety is our priority. Every employee we supply is vetted and adheres to the highest safety standards required by Tier 1 logistics hubs.',
+      'Every employee is vetted and follows the highest safety standards required by tier-1 logistics hubs.',
     iconType: 'shield',
   },
 ];
@@ -47,7 +47,7 @@ export const WarehouseFeatures: React.FC = () => {
         <div className={styles.headerLeftCol}>
           <span className={styles.eyebrow}>
             <span className={styles.bulletDot} aria-hidden="true" />
-            TIER 1 PARTNERSHIPS
+            TIER-1 PARTNERSHIPS
           </span>
           <h2 className={styles.heading}>Fueling the Engines of E-Commerce</h2>
         </div>
@@ -55,8 +55,8 @@ export const WarehouseFeatures: React.FC = () => {
         <div className={styles.headerRightCol}>
           <p className={styles.headerDescription}>
             DropyHub is a trusted partner for leaders like Flipkart and Amazon. We don&apos;t just
-            supply labor, we build the specialized workforce that keeps the modern logistics supply
-            chain moving efficiently.
+            supply labor; we build the specialized workforce that keeps the world&apos;s largest supply
+            chains moving efficiently.
           </p>
         </div>
       </div>

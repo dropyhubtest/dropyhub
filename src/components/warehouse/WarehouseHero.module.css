@@ -113,19 +113,63 @@
 /* Responsive */
 @media (max-width: 992px) {
   .contentContainer {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 32px 16px 36px 16px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 88px 16px 20px 16px !important;
+    box-sizing: border-box !important;
+    align-items: flex-start !important;
   }
 
   .titleRow {
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 32px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 20px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .headingCol {
+    width: 100% !important;
+    flex: auto !important;
+  }
+
+  .mainTitle {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
   }
 
   .descCol {
-    padding-top: 0;
+    width: 100% !important;
+    flex: auto !important;
+    padding: 0 !important;
+  }
+
+  .description {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #a3a3a3 !important;
+    max-width: 100% !important;
+  }
+
+  .imageBannerWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 8px 0 0 0 !important;
+    overflow: hidden !important;
+  }
+
+  .bannerImage {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1392 / 675 !important;
+    object-fit: contain !important;
+  }
+
+  .hatchedDivider {
+    display: none !important;
   }
 }

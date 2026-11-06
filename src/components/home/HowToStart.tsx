@@ -142,30 +142,30 @@ export const HowToStart: React.FC = () => {
       <div className={styles.leftColumn}>
         <span className={styles.eyebrow}>
           <span className={styles.bullet} aria-hidden="true" />
-          How to start?
+          H ow to start?
         </span>
-        <h3 className={styles.heading}>Simple, Fast & Effective Partnership</h3>
+        <h3 className={styles.heading}>Simple, Fast &amp; Effective Partnership</h3>
         <p className={styles.description}>
           Follow these simple steps to join DropyHub and start earning fast.
         </p>
       </div>
 
-      {/* Five Onboarding Items (x = 15px, y = 162px, width = 293px, height = 348px) */}
+      {/* Desktop Onboarding Items (x = 15px, y = 162px) */}
       <div className={styles.stepsList} aria-label="Onboarding steps">
         {STEPS_DATA.map((step) => (
           <div
             key={step.id}
             className={`${styles.stepButton} ${step.isActive ? styles.stepButtonActive : ""}`}
           >
+            <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
             <span className={styles.stepIcon}>{step.icon()}</span>
             <span className={styles.stepTitle}>{step.title}</span>
           </div>
         ))}
       </div>
 
-      {/* Right Image & Content Panel (x = 602px, y = 27px, 624 × 469px) */}
+      {/* Desktop Image & Content Panel (x = 602px, y = 27px) */}
       <div className={styles.rightPanel}>
-        {/* Clipped image: x = -23px, y = 0, width = 670px, height = 279px */}
         <div className={styles.imageContainer}>
           <Image
             src="/assets/About/image-102.png"
@@ -177,17 +177,14 @@ export const HowToStart: React.FC = () => {
           />
         </div>
 
-        {/* Heading: x = 19px, y = 299px */}
         <h4 className={styles.contentTitle}>Join DropyHub</h4>
 
-        {/* Description: x = 19px, y = 350px, width = 256px */}
         <p className={styles.contentText}>
           Tell us a little about yourself and where you want to work. Our team
           helps you understand the available opportunities and what you need to
           get started.
         </p>
 
-        {/* Three Supporting Points: x = 939px (337px rel to panel), y = 373px (346px rel to panel) */}
         <ul className={styles.contentBullets}>
           {SUPPORTING_BULLETS.map((bullet, index) => (
             <li key={index} className={styles.bulletItem}>
@@ -196,6 +193,45 @@ export const HowToStart: React.FC = () => {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Mobile Flow (Matches PDF Exactly) */}
+      <div className={styles.mobileStepsFlow}>
+        {/* Step 1 Active Button */}
+        <div className={`${styles.stepButton} ${styles.stepButtonActive}`}>
+          <span className={styles.stepNumberBadge}>01</span>
+          <span className={styles.stepIcon}>{STEPS_DATA[0].icon()}</span>
+          <span className={styles.stepTitle}>{STEPS_DATA[0].title}</span>
+        </div>
+
+        {/* Step 1 Expanded White Card */}
+        <div className={styles.mobileCard}>
+          <div className={styles.mobileImageContainer}>
+            <Image
+              src="/assets/About/image-102.png"
+              alt="DropyHub delivery partners"
+              width={600}
+              height={220}
+              className={styles.mobilePanelImage}
+              priority
+            />
+          </div>
+          <div className={styles.mobileCardContent}>
+            <h4 className={styles.mobileContentTitle}>Join DropyHub</h4>
+            <p className={styles.mobileContentText}>
+              Tell us a little about yourself and where you want to work. Our team helps you understand the available opportunities and what you need to get started.
+            </p>
+          </div>
+        </div>
+
+        {/* Steps 2-5 Collapsed Buttons */}
+        {STEPS_DATA.slice(1).map((step) => (
+          <div key={`m-${step.id}`} className={styles.stepButton}>
+            <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
+            <span className={styles.stepIcon}>{step.icon()}</span>
+            <span className={styles.stepTitle}>{step.title}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

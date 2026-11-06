@@ -16,7 +16,7 @@ const FAQ_DATA: FaqItem[] = [
     id: "free-registration",
     question: "Is registration really free?",
     answer:
-      "Yes. Always. There is no registration fee, no deposit, and no documentation charge — ever. DropyHub was founded on the principle that cost should never be a barrier for a delivery executive wanting to build a better life. We make 100% of our income from our platform partnerships, not from you.",
+      "Yes. Always. There is no registration fee, deposit or documentation charge. DropyHub earns through platform partnerships, not from delivery executives.",
   },
   {
     id: "quick-start",
@@ -118,6 +118,9 @@ export const FaqFooterSection: React.FC = () => {
                 >
                   {isExpanded && <span className={styles.activeIndicator} aria-hidden="true" />}
                   <h3 className={styles.questionText}>{item.question}</h3>
+                  <span className={styles.faqToggleIcon} aria-hidden="true">
+                    {isExpanded ? "−" : "+"}
+                  </span>
                 </button>
 
                 {isExpanded && (
@@ -186,7 +189,7 @@ export const FaqFooterSection: React.FC = () => {
               </li>
               <li>
                 <Link href="/warehouse" className={styles.footerLink}>
-                  Warehouse
+                  Wearhouse
                 </Link>
               </li>
               <li>
@@ -199,12 +202,12 @@ export const FaqFooterSection: React.FC = () => {
                   How it work
                 </Link>
               </li>
-              <li>
+              <li className={styles.desktopOnlyLink}>
                 <Link href="/benefits" className={styles.footerLink}>
-                  Career Development
+                  Benefits
                 </Link>
               </li>
-              <li>
+              <li className={styles.desktopOnlyLink}>
                 <Link href="/partnership" className={styles.footerLink}>
                   SRH Partnership
                 </Link>
@@ -236,7 +239,7 @@ export const FaqFooterSection: React.FC = () => {
                   Weekly bonuses
                 </Link>
               </li>
-              <li>
+              <li className={styles.desktopOnlyLink}>
                 <Link href="/benefits" className={styles.footerLink}>
                   IT Training
                 </Link>

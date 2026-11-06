@@ -355,3 +355,133 @@
   pointer-events: none;
   z-index: 5;
 }
+
+/* ==========================================================================
+   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   ========================================================================== */
+@media (max-width: 992px) {
+  .aboutSection {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .aboutContainer {
+    position: static;
+    height: auto;
+    width: 100%;
+    padding: 40px 20px 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .railLeft,
+  .railRight,
+  .brokenRailLeft,
+  .brokenRailRight,
+  .horizontalDivider,
+  .verticalDivider,
+  .divider4FullBleed {
+    display: none;
+  }
+
+  .topIntro {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .mainHeading {
+    font-size: 22px;
+    margin: 4px 0 0 0;
+  }
+
+  .aboutDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #999999;
+  }
+
+  .ecosystemIntro {
+    position: static;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .ecosystemHeading {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .ecosystemDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #999999;
+  }
+
+  .card,
+  .cardR1C1,
+  .cardR1C2,
+  .cardR2C1,
+  .cardR2C2,
+  .cardR3C1,
+  .cardR3C2 {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    min-height: 90px;
+    margin-bottom: 14px;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #141414;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .topIntroLeft {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .topIntroRight {
+    width: 100%;
+    flex-shrink: 1;
+  }
+
+  .iconTile {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .cardDescription {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #888888;
+  }
+
+  .aboutBottomDivider {
+    display: none !important;
+  }
+}

@@ -1,0 +1,536 @@
+/* ==========================================================================
+   ContactHeroForm.module.css — Precision Contact / Application Form Section
+   Surface: #0c0c0c (Dark Surface)
+   Matches Image 2 reference mock exactly.
+   ========================================================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: calc(100% - 96px);
+  margin-left: 48px;
+  margin-right: 48px;
+  padding: 100px 48px 80px 48px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 70px 32px 60px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 40px 20px 40px 20px;
+  }
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* ==========================================================================
+   Left Column: Narrative, Value Checklist, Contact Details
+   ========================================================================== */
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: inline-block;
+}
+
+.heading {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 32px;
+  }
+}
+
+.subtitle {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #999999;
+  margin: 0 0 32px 0;
+  max-width: 480px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.tickIconWrapper {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tickIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid #1e1e1e;
+  max-width: 440px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #888888;
+}
+
+.contactIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #888888;
+}
+
+.contactItemLink {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactItemLink:hover {
+  color: #cccccc;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Right Column: Application Form Card (Image 2 Exact Spec)
+   ========================================================================== */
+
+.formCard {
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formHeader {
+  margin-bottom: 24px;
+}
+
+.formTitle {
+  font-size: 19px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.formSubtitle {
+  font-size: 12.5px;
+  color: #888888;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e5e5e5;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.requiredStar {
+  color: #e5e5e5;
+  font-size: 12px;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  background-color: #0b0b0b;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  padding: 0 14px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #555555;
+}
+
+.input::placeholder {
+  color: #555555;
+}
+
+/* Number input age spinner styling */
+.input[type='number'] {
+  appearance: auto;
+  -moz-appearance: number-input;
+}
+
+/* Radio Group */
+.radioRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 2px;
+}
+
+.radioOption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #cccccc;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radioInput {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  margin: 0;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease;
+}
+
+.radioInput::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: #ffffff;
+}
+
+.radioInput:checked::before {
+  transform: scale(1);
+}
+
+/* Checkbox Grids */
+.preferredGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 14px;
+  padding-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .preferredGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.jobTypeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 2px;
+}
+
+.jobTypeRow {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.checkboxOption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #cccccc;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxInput {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #ffffff;
+  border-radius: 2px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.checkboxInput:checked {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Select Dropdowns with Caret */
+.select {
+  width: 100%;
+  height: 42px;
+  background-color: #0b0b0b;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  padding: 0 36px 0 14px;
+  color: #888888;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23888888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.select:focus {
+  border-color: #555555;
+}
+
+.select option {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Textarea */
+.textarea {
+  width: 100%;
+  background-color: #0b0b0b;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 84px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.textarea:focus {
+  border-color: #555555;
+}
+
+.textarea::placeholder {
+  color: #555555;
+}
+
+/* Submit Button */
+.submitBtn {
+  width: 100%;
+  height: 44px;
+  background-color: #383838;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.submitBtn:hover {
+  background-color: #4a4a4a;
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: #666666;
+  margin: 6px 0 0 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.successMessage {
+  background-color: #0d2818;
+  border: 1px solid #1b4d2e;
+  color: #4ade80;
+  padding: 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Transition: Slashed Divider Bar at Bottom of Hero
+   ========================================================================== */
+
+.whiteSlashedDivider {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.whiteSlashedPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #dddddd,
+    #dddddd 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  opacity: 0.9;
+}
+
+.brokenRailLeft {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.brokenRailRight {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .brokenRailLeft,
+  .brokenRailRight {
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
 /* ==========================================================================
    Global Unified Navbar
-   Figma Reference: Frame 402 / Frame 334 Header
+   Figma Reference: Frame 402 / Frame 334 Header + Mobile Menu (Image 2)
    ========================================================================== */
 
 .header {
@@ -94,14 +94,194 @@
   transform: translateY(-1px);
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   Mobile Hamburger Toggle Button (Hidden on Desktop)
+   ========================================================================== */
+
+.hamburgerButton {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  z-index: 52;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+
+/* ==========================================================================
+   Mobile Navigation Popover (Matches Figma Reference Exactly)
+   - Dimmed backdrop behind popover
+   - Top-right anchored floating white card (16px border-radius)
+   - Sharp rectangular bordered link boxes (0px border-radius)
+   - Thick '✕' close icon at top right
+   - 'Join Us Now' in solid black button
+   ========================================================================== */
+
+.mobileBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+  animation: backdropFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mobileDrawer {
+  position: fixed;
+  top: 110px;
+  right: 20px;
+  width: 236px;
+  max-width: calc(100vw - 40px);
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px 18px 16px;
+  box-sizing: border-box;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top right;
+  animation: popoverScale 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popoverScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.15);
+}
+
+.mobileNavContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.mobileNavItem {
+  width: 100%;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 42px;
+  background-color: #ffffff;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease;
+}
+
+.mobileNavLink:hover {
+  background-color: #f5f5f5;
+}
+
+.mobileJoinButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 42px;
+  background-color: #111111;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: opacity 0.15s ease;
+}
+
+.mobileJoinButton:hover {
+  opacity: 0.88;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
 @media (max-width: 992px) {
   .header {
-    padding: 0 24px;
+    padding: 0 20px;
     height: 72px;
+  }
+
+  .logoImage {
+    width: 76px;
+    height: 46px;
   }
 
   .navigation {
     display: none;
+  }
+
+  .hamburgerButton {
+    display: flex;
   }
 }

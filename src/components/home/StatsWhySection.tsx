@@ -70,14 +70,14 @@ const STATS_DATA: StatItemData[] = [
   {
     id: "registration-fee",
     icon: "/assets/icons/rupee.svg",
-    value: "0 Rs",
+    value: "₹0",
     label: "Registration Fee",
     iconWidth: 22,
     iconHeight: 33,
   },
 ];
 
-const LEFT_CARDS: WhyCardData[] = [
+const WHY_CARDS: WhyCardData[] = [
   {
     id: "zero-reg",
     icon: "/assets/icons/zero_reg.svg",
@@ -85,19 +85,16 @@ const LEFT_CARDS: WhyCardData[] = [
     body: "Start your journey with no financial burden. Completely free to join, always.",
   },
   {
-    id: "earn-more",
-    icon: "/assets/icons/earn.svg",
-    title: "Earn More, Grow More",
-    body: "Salary + weekly bonuses + monthly awards. We invest in your success.",
-  },
-];
-
-const RIGHT_CARDS: WhyCardData[] = [
-  {
     id: "vehicle-support",
     icon: "/assets/icons/vehicle.svg",
     title: "Vehicle Rental Support",
     body: "Affordable 2W & 3W rentals with full maintenance. No ownership stress.",
+  },
+  {
+    id: "earn-more",
+    icon: "/assets/icons/earn.svg",
+    title: "Earn More, Grow More",
+    body: "Salary + weekly bonuses + monthly awards. We invest in your success.",
   },
   {
     id: "hostel-acc",
@@ -106,6 +103,9 @@ const RIGHT_CARDS: WhyCardData[] = [
     body: "We provide safe and affordable hostel accommodation.",
   },
 ];
+
+const LEFT_CARDS: WhyCardData[] = [WHY_CARDS[0], WHY_CARDS[2]];
+const RIGHT_CARDS: WhyCardData[] = [WHY_CARDS[1], WHY_CARDS[3]];
 
 export const StatsWhySection: React.FC = () => {
   return (
@@ -144,7 +144,6 @@ export const StatsWhySection: React.FC = () => {
       <div className={styles.fullBleedDivider} aria-hidden="true">
         <div className={styles.dividerPattern} />
         <div className={styles.dividerInner}>
-          {/* Visible low-frequency breaked/dashed rail transitions */}
           <div className={styles.dottedRailLeft}>
             <svg width="2" height="40" viewBox="0 0 2 40" fill="none" style={{ display: "block" }}>
               <line
@@ -174,23 +173,23 @@ export const StatsWhySection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Why DropyHub Content Area (Centered 1440px frame) */}
+      {/* 3. Why DropyHub Content Area */}
       <div className={styles.whySectionContainer}>
         <div className={styles.whySectionFrame}>
           <div className={styles.railLeft} aria-hidden="true" />
           <div className={styles.railRight} aria-hidden="true" />
-          {/* Why DropyHub Heading (x=100px, y=215px) */}
+          {/* Why DropyHub Heading */}
           <div className={styles.headerArea}>
             <span className={styles.subBadge}>
               <span className={styles.bullet} aria-hidden="true" />
-              WHY DROPYHUB
+              W h y &nbsp; D r o p y H u b
             </span>
             <h2 className={styles.sectionTitle}>
               The Smarter Way to Deliver &amp; Earn
             </h2>
           </div>
 
-          {/* Left Column Feature Cards (x=125px, y=321px, width=359px) */}
+          {/* Desktop Left Column Feature Cards */}
           <div className={styles.cardsColumnLeft}>
             {LEFT_CARDS.map((card) => (
               <div key={card.id} className={styles.card}>
@@ -209,10 +208,29 @@ export const StatsWhySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Right Column Feature Cards (x=951px, y=321px, width=359px) */}
+          {/* Desktop Right Column Feature Cards */}
           <div className={styles.cardsColumnRight}>
             {RIGHT_CARDS.map((card) => (
               <div key={card.id} className={styles.card}>
+                <div className={styles.cardIconWrapper}>
+                  <Image
+                    src={card.icon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className={styles.cardHeading}>{card.title}</h3>
+                <p className={styles.cardBody}>{card.body}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Single-Column In-Order Cards List (1 -> 2 -> 3 -> 4) */}
+          <div className={styles.mobileCardsList}>
+            {WHY_CARDS.map((card) => (
+              <div key={`m-${card.id}`} className={styles.card}>
                 <div className={styles.cardIconWrapper}>
                   <Image
                     src={card.icon}

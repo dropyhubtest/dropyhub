@@ -73,14 +73,14 @@ export const Hero: React.FC = () => {
           </p>
 
           <div className={styles.ctaGroup}>
-            <Link href="#join" className={styles.primaryCta}>
+            <Link href="/apply" className={styles.primaryCta}>
               <span>Join As Delivery Partner</span>
               <span className={styles.ctaArrow} aria-hidden="true">
                 ↗
               </span>
             </Link>
 
-            <Link href="#learn-more" className={styles.secondaryCta}>
+            <Link href="/services" className={styles.secondaryCta}>
               Learn More
             </Link>
           </div>

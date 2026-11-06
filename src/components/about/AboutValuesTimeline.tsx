@@ -28,15 +28,15 @@ const VALUES_DATA: ValueCard[] = [
     id: 'growth-beyond',
     title: 'Growth Goes Beyond the Job',
     description:
-      'We want partners to have opportunities to develop skills and explore what comes next.',
+      'We want partners to develop skills and explore what comes next.',
     iconSrc: '/assets/About/bytesize_flag.svg',
   },
   {
     id: 'partnership-progress',
     title: 'Partnership Drives Progress',
     description:
-      'Strong relationships between businesses, delivery partners and service providers create lasting value.',
-    iconSrc: '/assets/About/globe.svg',
+      'Strong relationships between businesses, partners and providers create lasting value.',
+    iconSrc: '/assets/About/fluent_handshake-20-regular.svg',
   },
 ];
 
@@ -60,17 +60,45 @@ const HISTORY_PHASES: HistoryPhase[] = [
     year: '2025',
     phaseLabel: 'Phase 1',
     description:
-      'Scaled to 5 major South Indian cities, launched EV rental partnership programs, opened safe partner hostel facilities, and signed the official Sunrisers Hyderabad IPL 2025 partnership.',
+      'Scaled to 5 major South Indian cities, launched EV rental partnership programs, and expanded cross-platform dispatch.',
   },
   {
-    id: '2024-foundation',
-    year: '2024',
-    phaseLabel: 'Foundation',
+    id: '2025-p2',
+    year: '2025',
+    phaseLabel: 'Phase 2',
     description:
-      'Established Hyderabad headquarters and launched initial pilot operations with Swiggy and Zomato, onboarding our first 500 delivery executives with zero deposit.',
+      'Opened safe partner hostel facilities and signed the official Sunrisers Hyderabad IPL 2025 partnership.',
   },
   {
-    id: '2020-inception',
+    id: '2024-p1',
+    year: '2024',
+    phaseLabel: 'Phase 1',
+    description:
+      'Established Hyderabad headquarters and launched initial pilot operations with Swiggy and Zomato.',
+  },
+  {
+    id: '2024-p2',
+    year: '2024',
+    phaseLabel: 'Phase 2',
+    description:
+      'Scaled fleet onboarding to 2,500+ active partners with zero registration fees and institutional EV bike rentals.',
+  },
+  {
+    id: '2024-p3',
+    year: '2024',
+    phaseLabel: 'Phase 3',
+    description:
+      'Reached 5,000+ active partners and launched an IT Training Programme for delivery executives moving into tech careers.',
+  },
+  {
+    id: '2023',
+    year: '2023',
+    phaseLabel: 'Growth',
+    description:
+      'Expanded network across Andhra Pradesh and Telangana, launching dedicated partner support centres.',
+  },
+  {
+    id: '2020',
     year: '2020',
     phaseLabel: 'Inception',
     description:
@@ -81,7 +109,7 @@ const HISTORY_PHASES: HistoryPhase[] = [
 const CARD_HEIGHT = 220;
 
 export const AboutValuesTimeline: React.FC = () => {
-  const [activePhaseIndex, setActivePhaseIndex] = useState<number>(0);
+  const [activePhaseIndex, setActivePhaseIndex] = useState<number>(5);
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollTrackRef = useRef<HTMLDivElement>(null);
 
@@ -163,7 +191,7 @@ export const AboutValuesTimeline: React.FC = () => {
               WHAT WE BELIEVE IN
             </span>
             <h2 className={styles.valuesHeading}>
-              The principles that guide every decision, product, and team at DropyHub.
+              The principles that guide every decision, product and team at DropyHub.
             </h2>
           </div>
 
@@ -290,6 +318,37 @@ export const AboutValuesTimeline: React.FC = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Mobile History View (matches Figma mobile design) */}
+        <div className={styles.mobileHistoryContainer}>
+          <span className={styles.eyebrowDark}>
+            <span className={styles.bulletDotDark} aria-hidden="true" />
+            OUR HISTORY
+          </span>
+
+          <h2 className={styles.mobileHistoryTitle}>
+            {activePhase.year} • {activePhase.phaseLabel}
+          </h2>
+          <span className={styles.mobileHistorySubtitle}>Our footprints since 2020</span>
+
+          <p className={styles.mobileHistoryDesc}>{activePhase.description}</p>
+
+          <div className={styles.mobilePillsScrollTrack}>
+            {HISTORY_PHASES.map((phase, idx) => (
+              <button
+                key={phase.id}
+                type="button"
+                onClick={() => setActivePhaseIndex(idx)}
+                className={`${styles.mobilePill} ${idx === activePhaseIndex ? styles.mobilePillActive : ''}`}
+              >
+                {phase.year}
+                {phase.phaseLabel !== 'Growth' && phase.phaseLabel !== 'Inception'
+                  ? ` • ${phase.phaseLabel}`
+                  : ''}
+              </button>
+            ))}
           </div>
         </div>
       </div>

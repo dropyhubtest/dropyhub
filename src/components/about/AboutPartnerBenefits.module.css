@@ -270,54 +270,110 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .benefitsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .benefitCell:nth-child(3n) {
-    border-right: 1px solid #e8e8e8;
-  }
-  .benefitCell:nth-child(2n) {
-    border-right: none;
-  }
-  .benefitCell:nth-child(n + 4) {
-    border-bottom: 1px solid #e8e8e8;
-  }
-  .benefitCell:nth-child(n + 5) {
-    border-bottom: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .partnersSectionWrapper,
-  .dividerLine,
-  .benefitsHeaderWrapper,
-  .benefitsGridWrapper {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
+@media (max-width: 992px) {
   .railLeft,
-  .brokenRailLeft {
-    left: 20px;
+  .railRight,
+  .brokenRailLeft,
+  .brokenRailRight,
+  .whiteSlashedDivider {
+    display: none !important;
   }
 
-  .railRight,
-  .brokenRailRight {
-    right: 20px;
+  .partnersSectionWrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 32px 16px 20px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .marqueeHeading {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+    margin: 6px 0 20px 0 !important;
+  }
+
+  .marqueeContainer {
+    width: 100% !important;
+    overflow: hidden !important;
+    padding-bottom: 8px !important;
+  }
+
+  .dividerLine {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    height: 1px !important;
+    background-color: #e8e8e8 !important;
+  }
+
+  .benefitsHeaderWrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 28px 16px 16px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .benefitsHeading {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    margin-top: 6px !important;
+  }
+
+  .benefitsGridWrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 16px 40px 16px !important;
+    box-sizing: border-box !important;
+    border: none !important;
   }
 
   .benefitsGrid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ebebeb !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
   }
 
   .benefitCell {
-    border-right: none !important;
-    border-bottom: 1px solid #e8e8e8 !important;
+    width: 100% !important;
+    padding: 24px 20px !important;
+    background-color: #ffffff !important;
+    border: none !important;
+    border-bottom: 1px solid #ebebeb !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
   }
 
   .benefitCell:last-child {
     border-bottom: none !important;
+  }
+
+  .iconWrapper {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background-color: #f6f6f6 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 18px !important;
+  }
+
+  .cellTitle {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .cellDescription {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #666666 !important;
   }
 }

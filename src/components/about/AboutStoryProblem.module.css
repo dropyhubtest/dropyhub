@@ -315,50 +315,107 @@
    Responsive Adaptations
    ========================================================================== */
 @media (max-width: 992px) {
-  .railLeft {
-    left: 20px;
-  }
-
-  .railRight {
-    right: 20px;
-  }
-
-  .whyWeExistWrapper {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: calc(100% - 40px);
+  .railLeft,
+  .railRight,
+  .blackBarRailLeft,
+  .blackBarRailRight,
+  .topDividerLine,
+  .bottomDividerLine,
+  .blackSpacerBar,
+  .brokenRailLeft,
+  .brokenRailRight {
+    display: none !important;
   }
 
   .storyContainer {
-    padding: 40px 24px 44px 24px;
+    padding: 32px 16px 28px 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .storyBlock {
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 24px;
+    width: 100%;
   }
 
-  .storyTextCol,
+  .storyTextCol {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sectionHeading {
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 8px 0 16px 0;
+  }
+
+  .paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .paragraphs p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #a3a3a3;
+  }
+
   .storyImageCol,
   .imageCard {
     max-width: 100%;
     width: 100%;
     height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .riderImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .whyWeExistWrapper {
+    margin: 0;
+    width: 100%;
+    padding: 24px 16px;
+    box-sizing: border-box;
   }
 
   .twoColumnGrid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
   }
 
-  .problemColumn {
-    padding: 28px 16px;
-  }
-
+  .problemColumn,
   .solutionColumn {
-    border-left: none;
-    border-top: 1px solid #2e2e2e;
-    padding: 28px 16px;
+    padding: 0;
+    border: none;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .columnContent {
+    max-width: calc(100% - 75px);
+  }
+
+  .columnTitle {
+    font-size: 20px;
+    margin: 4px 0 10px 0;
+  }
+
+  .columnDescription {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #807f7f;
   }
 
   .eyebrowSpacer {
@@ -366,18 +423,17 @@
   }
 
   .watermarkWrapper {
-    width: 120px;
-    height: 120px;
-    opacity: 0.6;
-    right: 12px;
-    top: 24px;
+    width: 64px;
+    height: 64px;
+    opacity: 0.9;
+    right: 0;
+    top: 8px;
+    position: absolute;
   }
 
-  .brokenRailLeft {
-    left: 20px;
-  }
-
-  .brokenRailRight {
-    right: 20px;
+  .whiteSlashedBar {
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
   }
 }
