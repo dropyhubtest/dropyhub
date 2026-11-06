@@ -18,9 +18,9 @@ export const ServicesCtaFooter: React.FC = () => {
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>
-                Access All These Services At
+                Access All These Services
                 <br />
-                Zero Cost
+                At Zero Cost
               </h2>
             </div>
 

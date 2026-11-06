@@ -35,9 +35,9 @@ const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'vouchers',
-    title: 'BookMyVouchers',
+    title: 'BookMyShow Vouchers',
     description:
-      'Special purchasing vouchers and discount coupons redeemable at partner brands, adding real value beyond salary.',
+      'Special purchasing vouchers and discount coupons redeemable at partner brands add real value beyond salary.',
     iconSrc: '/assets/services/f7_tickets.svg',
   },
 ];
@@ -61,9 +61,7 @@ export const ServicesSupportGrid: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              DropyHub provides end-to-end professional support — from your very first day on the road
-              to the peak of your career. Every service below is available to all registered DropyHub
-              partners at zero registration cost.
+              DropyHub provides end-to-end professional support — from your first day on the road to the peak of your career. Every service is available at zero registration cost.
             </p>
           </div>
         </div>

@@ -95,14 +95,32 @@
 /* Responsive */
 @media (max-width: 992px) {
   .contentContainer {
-    padding-top: 80px;
+    padding-top: 88px !important;
   }
 
-  .brokenRailLeft {
-    left: 20px;
+  .imageBannerWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
+  .bannerImage {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    aspect-ratio: 1439 / 516 !important;
+    object-fit: contain !important;
+  }
+
+  .hatchedDivider {
+    height: 36px !important;
+  }
+
+  .brokenRailLeft,
   .brokenRailRight {
-    right: 20px;
+    display: none !important;
   }
 }

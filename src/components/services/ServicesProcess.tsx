@@ -75,14 +75,17 @@ export const ServicesProcess: React.FC = () => {
         <div className={styles.processGrid}>
           {PROCESS_STEPS.map((step) => (
             <div key={step.id} className={styles.stepCard}>
-              <div className={styles.iconBox} aria-hidden="true">
-                <Image
-                  src={step.iconSrc}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className={styles.iconImage}
-                />
+              <div className={styles.stepTopRow}>
+                <div className={styles.iconBox} aria-hidden="true">
+                  <Image
+                    src={step.iconSrc}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className={styles.iconImage}
+                  />
+                </div>
+                <span className={styles.stepNumber}>{step.stepNumber}</span>
               </div>
               <h3 className={styles.stepTitle}>{step.title}</h3>
               <p className={styles.stepDesc}>{step.description}</p>
