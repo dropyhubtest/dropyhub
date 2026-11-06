@@ -16,42 +16,42 @@ const PARTNER_BENEFITS: PartnerBenefit[] = [
     id: 'bonuses',
     title: 'Weekly Performance Bonuses',
     description:
-      'Eligible delivery executives can earn weekly bonuses based on the active incentive programmes, completed orders and applicable performance criteria.',
-    iconSrc: '/assets/icons/material-symbols-light_featured-seasonal-and-gifts-rounded.svg',
+      'Eligible delivery executives earn weekly bonuses based on active incentive programmes, completed orders and performance criteria.',
+    iconSrc: '/assets/icons/fluent_reward-20-regular.svg',
   },
   {
     id: 'awards',
     title: 'Monthly & Annual Awards',
     description:
-      'Recognition & celebrations every month and year for top performing partners. Winners receive cash prizes, vouchers, trophies, and during TATA IPL season — exclusive SRH match tickets.',
-    iconSrc: '/assets/icons/fluent_reward-20-regular.svg',
+      'Top-performing partners receive cash prizes, vouchers, trophies and exclusive SRH match tickets.',
+    iconSrc: '/assets/icons/material-symbols-light_featured-seasonal-and-gifts-rounded.svg',
   },
   {
     id: 'insurance',
     title: 'Full Insurance Coverage',
     description:
-      'Comprehensive accidental insurance from day one at zero deduction. Covers medical treatment, temporary disability, and vehicle damage. Plus 24/7 SOS emergency helpline through the app.',
+      'Comprehensive accidental insurance from day one, plus a 24/7 SOS emergency helpline through our app.',
     iconSrc: '/assets/icons/akar-icons_file.svg',
   },
   {
     id: 'ev-bike',
     title: 'EV Bike Access',
     description:
-      "Access EV bikes through DropyHub's vehicle rental programmes, subject to availability, eligibility, and rental terms.",
+      "Access EV bikes through DropyHub's support programme, subject to availability, eligibility and rental terms.",
     iconSrc: '/assets/icons/energy-icons_cargo-bike-20.svg',
   },
   {
     id: 'safety',
     title: 'Safety Gear & Uniform',
     description:
-      'Professional DropyHub uniform, branded helmet, reflective jacket, and complete safety equipment provided and maintained. Look professional, stay safe, at zero cost to you.',
+      'Professional uniform, branded helmet, reflective jacket and complete safety equipment are provided and maintained.',
     iconSrc: '/assets/icons/healthicons_construction-worker-outline.svg',
   },
   {
     id: 'support',
     title: '24/7 Partner Support',
     description:
-      'Dedicated helpdesk available around the clock for queries, grievances, and emergencies. Multilingual support in Telugu, Hindi, Tamil, and English. Average resolution time under 15 minutes.',
+      'A multilingual helpdesk is available around the clock for questions, grievances and emergencies.',
     iconSrc: '/assets/icons/hugeicons_customer-support.svg',
   },
 ];
@@ -77,8 +77,7 @@ export const BenefitsPartnerGrid: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              DropyHub is not just a delivery platform; it is a complete 360-degree support system for
-              every delivery executive who joins our family.
+              DropyHub is more than a delivery platform. It is a complete life and career support system for every delivery executive who joins our family.
             </p>
           </div>
         </div>

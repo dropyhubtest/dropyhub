@@ -134,21 +134,45 @@
 /* Responsive */
 @media (max-width: 992px) {
   .contentContainer {
-    padding: 100px 20px 0 20px;
+    padding: 88px 16px 20px 16px !important;
   }
 
   .titleRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
-    margin-bottom: 24px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .mainTitle {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .description {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #999999 !important;
   }
 
   .imageBannerWrapper {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 1392 / 638;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 20px 0 0 0 !important;
+  }
+
+  .bannerImage {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    aspect-ratio: 1462 / 670 !important;
+    object-fit: contain !important;
+  }
+
+  .hatchedDivider {
+    display: none !important;
   }
 }

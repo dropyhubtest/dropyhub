@@ -163,43 +163,86 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-  .railLeft {
-    left: 20px;
+  .railLeft,
+  .railRight,
+  .brokenRailLeft,
+  .brokenRailRight,
+  .whiteSlashedDivider {
+    display: none !important;
   }
 
-  .railRight {
-    right: 20px;
-  }
-
-  .brokenRailLeft {
-    left: 20px;
-  }
-
-  .brokenRailRight {
-    right: 20px;
+  .section {
+    background-color: #ffffff !important;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(195, 196, 200, 0.45) 13.5px,
+      rgba(195, 196, 200, 0.45) 15px
+    ) !important;
   }
 
   .container {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
   }
 
   .cardsGrid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
   .cardItem {
-    border-right: none;
-    border-bottom: 1px solid #e8e8e8;
-    padding: 32px 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 24px 16px !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    background-color: transparent !important;
+    box-sizing: border-box !important;
   }
 
   .cardItem:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
   }
 
   .emptyCell {
-    display: none;
+    display: none !important;
+  }
+
+  .iconWrapper {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .iconImage {
+    width: 24px !important;
+    height: 24px !important;
+    opacity: 0.65 !important;
+  }
+
+  .cardTitle {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: #111111 !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .cardDesc {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #555555 !important;
+    margin: 0 !important;
   }
 }

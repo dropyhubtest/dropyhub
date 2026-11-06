@@ -44,13 +44,14 @@ export const BenefitsCtaFooter: React.FC = () => {
         <div className={styles.container}>
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
-              <h2 className={styles.ctaTitle}>Unlock All Benefits - Join Free Today</h2>
+              <h2 className={styles.ctaTitle}>
+                Unlock All Benefits — Join Free Today
+              </h2>
             </div>
 
             <div className={styles.ctaRightCol}>
               <p className={styles.ctaDescription}>
-                Every benefit is built to protect and elevate your journey. Zero registration fee. Start
-                earning without waiting period.
+                Every benefit listed is available from day one. Zero registration fee, zero waiting period.
               </p>
               <div className={styles.ctaBtnRow}>
                 <Link href="/apply" className={styles.primaryBtn}>

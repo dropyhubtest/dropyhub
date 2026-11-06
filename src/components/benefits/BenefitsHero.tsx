@@ -16,7 +16,9 @@ export const BenefitsHero: React.FC = () => {
         <div className={styles.titleRow}>
           <div className={styles.headingCol}>
             <h1 className={styles.mainTitle}>
-              More Benefits. More
+              More Benefits.
+              <br />
+              More
               <br />
               Possibilities.
             </h1>
@@ -39,7 +41,6 @@ export const BenefitsHero: React.FC = () => {
             height={670}
             priority
             className={styles.bannerImage}
-            style={{ width: '1462px', height: '670px', objectFit: 'cover' }}
           />
         </div>
       </div>

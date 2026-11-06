@@ -16,35 +16,35 @@ const PROGRAM_CARDS: ProgramCard[] = [
     id: 'loans',
     title: 'Financial Loans up to ₹10L',
     description:
-      'Quick-disbursement loans for personal, medical, vehicle, or business needs. Partnered with licensed NBFCs for fast approval, minimal paperwork. Exclusively for DropyHub partners.',
+      'Quick-disbursement loans for personal, medical, vehicle or business needs through licensed NBFC partners.',
     iconSrc: '/assets/benefits/carbon_currency-rupee.svg',
   },
   {
     id: 'vouchers',
     title: 'BookMyShow Vouchers',
     description:
-      'Exclusive discount vouchers and free movie passes on partner brands including BookMyShow, Amazon, and more. Rewards that go beyond your monthly salary.',
+      'Exclusive discount vouchers for BookMyShow, Amazon and other partner brands.',
     iconSrc: '/assets/benefits/f7_tickets.svg',
   },
   {
     id: 'referral',
     title: 'Refer & Earn Programme',
     description:
-      'Invite friends to join DropyHub and earn a cash bonus for every successful referral who completes their first month. Unlimited referrals, unlimited earning potential.',
+      'Invite friends and earn a cash bonus for every successful referral completing their first month.',
     iconSrc: '/assets/benefits/iconmind_refer-friend-outline-thin.svg',
   },
   {
     id: 'hostel',
     title: 'Hostel Accommodation',
     description:
-      'Accommodation options help delivery executives who need a place to stay near their work area. Availability and charges depend on the location and programme.',
+      'Accommodation options help delivery executives stay close to their work area.',
     iconSrc: '/assets/benefits/energy-icons_hotel-20.svg',
   },
   {
     id: 'growth',
     title: 'Career Growth Pathway',
     description:
-      'Merit-based promotion tracks from delivery executive to team lead, city coordinator, and operations manager. DropyHub grows with you — not just around you.',
+      'Merit-based promotion tracks lead from executive to team lead, city coordinator and operations manager.',
     iconSrc: '/assets/benefits/fluent_arrow-trending-lines-24-regular.svg',
   },
 ];
