@@ -161,9 +161,22 @@
   padding: 22px 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   text-align: left;
   transition: opacity 0.2s ease;
+  box-sizing: border-box;
+}
+
+.faqToggleIcon {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  color: #777777;
+  margin-left: 12px;
+  flex-shrink: 0;
+  display: inline-block;
+  user-select: none;
 }
 
 .activeBar {
@@ -290,9 +303,76 @@
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .railLeft,
+  .railRight,
   .brokenRailLeft,
   .brokenRailRight {
-    display: none;
+    display: none !important;
+  }
+
+  .container {
+    width: 100% !important;
+    padding: 36px 16px 36px 16px !important;
+  }
+
+  .layoutGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .heading {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .description {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #666666 !important;
+    max-width: 100% !important;
+  }
+
+  .accordionList {
+    width: 100% !important;
+    border-top: 1px solid #e5e7eb !important;
+  }
+
+  .accordionHeader {
+    padding: 16px 0 !important;
+  }
+
+  .questionText {
+    font-size: 15.5px !important;
+    line-height: 1.35 !important;
+    color: #222222 !important;
+  }
+
+  .faqToggleIcon {
+    font-size: 20px !important;
+    color: #777777 !important;
+  }
+
+  .answerText {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    color: #666666 !important;
+    padding-bottom: 16px !important;
+  }
+
+  .viewMoreWrapper {
+    margin-top: 14px !important;
+  }
+
+  .whiteSlashedDivider {
+    height: 36px !important;
   }
 }

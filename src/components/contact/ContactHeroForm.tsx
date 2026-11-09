@@ -103,13 +103,12 @@ export const ContactHeroForm: React.FC = () => {
             </span>
 
             <h1 className={styles.title}>
-              START YOUR JOURNEY
-              <span className={styles.titleHighlight}>TODAY. FOR FREE.</span>
+              START YOUR<br />JOURNEY<br />TODAY. FOR FREE.
             </h1>
 
             <p className={styles.narrative}>
               Register as a DropyHub delivery partner and unlock a world of earning
-              potential, career support, and financial empowerment — at absolutely zero
+              potential, career support, and financial empowerment - at absolutely zero
               cost.
             </p>
 
@@ -222,7 +221,7 @@ export const ContactHeroForm: React.FC = () => {
                       name="mobileNumber"
                       type="tel"
                       required
-                      placeholder="e.g. *********65"
+                      placeholder="e.g, ********65"
                       className={styles.input}
                       value={formData.mobileNumber}
                       onChange={handleInputChange}
@@ -240,7 +239,7 @@ export const ContactHeroForm: React.FC = () => {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="e.g. Hyderabad"
+                      placeholder="e.g, you@email.com"
                       className={styles.input}
                       value={formData.email}
                       onChange={handleInputChange}
@@ -258,7 +257,7 @@ export const ContactHeroForm: React.FC = () => {
                       required
                       min={18}
                       max={65}
-                      placeholder="e.g. 27"
+                      placeholder="e.g, 27"
                       className={styles.input}
                       value={formData.age}
                       onChange={handleInputChange}
@@ -277,7 +276,7 @@ export const ContactHeroForm: React.FC = () => {
                       name="city"
                       type="text"
                       required
-                      placeholder="e.g. Miyapur"
+                      placeholder="e.g, Hyderabad"
                       className={styles.input}
                       value={formData.city}
                       onChange={handleInputChange}
@@ -293,7 +292,7 @@ export const ContactHeroForm: React.FC = () => {
                       name="area"
                       type="text"
                       required
-                      placeholder="e.g. Miyapur"
+                      placeholder="e.g, Miyapur"
                       className={styles.input}
                       value={formData.area}
                       onChange={handleInputChange}
@@ -441,7 +440,7 @@ export const ContactHeroForm: React.FC = () => {
                       value={formData.experience}
                       onChange={handleInputChange}
                     >
-                      <option value="">e.g. 1</option>
+                      <option value="">e.g, 1</option>
                       <option value="Fresher">Fresher (No experience)</option>
                       <option value="0-6 Months">0 - 6 Months</option>
                       <option value="6-12 Months">6 - 12 Months</option>
@@ -461,7 +460,8 @@ export const ContactHeroForm: React.FC = () => {
                       value={formData.employmentStatus}
                       onChange={handleInputChange}
                     >
-                      <option value="">e.g. 1</option>
+                      <option value="">e.g, Working</option>
+                      <option value="Working">Working</option>
                       <option value="Unemployed">Unemployed</option>
                       <option value="Employed Full-time">Employed Full-time</option>
                       <option value="Employed Part-time">Employed Part-time</option>
@@ -488,8 +488,7 @@ export const ContactHeroForm: React.FC = () => {
 
                 {/* Submit Button */}
                 <button type="submit" className={styles.submitBtn}>
-                  Submit
-                  <span aria-hidden="true">↗</span>
+                  Submit &rarr;
                 </button>
 
                 {/* Disclaimer */}

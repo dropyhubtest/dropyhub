@@ -39,8 +39,8 @@ const FAQ_LIST: FaqItem[] = [
 ];
 
 export const ContactFaqSection: React.FC = () => {
-  // First item expanded by default per Image 4 reference mock
-  const [expandedId, setExpandedId] = useState<string | null>('free-registration');
+  // Collapsed by default matching Figma
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleFaq = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -67,7 +67,7 @@ export const ContactFaqSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Right Column: Accordion (matches Image 3 & Image 4) */}
+            {/* Right Column: Accordion (matches Figma) */}
             <div className={styles.accordionList} role="region" aria-label="FAQ Accordion">
               {FAQ_LIST.map((item) => {
                 const isExpanded = expandedId === item.id;
@@ -80,13 +80,15 @@ export const ContactFaqSection: React.FC = () => {
                       aria-expanded={isExpanded}
                       aria-controls={`faq-answer-${item.id}`}
                     >
-                      {isExpanded && <span className={styles.activeBar} aria-hidden="true" />}
                       <span
                         className={`${styles.questionText} ${
                           isExpanded ? styles.questionActive : ''
                         }`}
                       >
                         {item.question}
+                      </span>
+                      <span className={styles.faqToggleIcon} aria-hidden="true">
+                        {isExpanded ? '−' : '+'}
                       </span>
                     </button>
 
