@@ -182,28 +182,60 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-  .railLeft {
-    left: 20px;
+  .railLeft,
+  .railRight,
+  .brokenRailLeft,
+  .brokenRailRight {
+    display: none !important;
   }
 
-  .railRight {
-    right: 20px;
+  .whiteSlashedDivider {
+    height: 36px !important;
   }
 
   .container {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 48px 20px 40px 20px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 36px 16px 36px 16px !important;
   }
 
   .ctaBanner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 28px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .ctaTitle {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .ctaRightCol {
+    gap: 16px !important;
+    width: 100% !important;
   }
 
   .ctaDescription {
-    max-width: 100%;
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #555555 !important;
+    max-width: 100% !important;
+  }
+
+  .ctaBtnRow {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  .primaryBtn {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
+
+  .secondaryBtn {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
   }
 }

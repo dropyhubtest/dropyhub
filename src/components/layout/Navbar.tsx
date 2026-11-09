@@ -23,7 +23,7 @@ const NAV_ITEMS: NavItem[] = [
 const MOBILE_NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
-  { label: 'warehouse', href: '/warehouse' },
+  { label: 'Warehouse', href: '/warehouse' },
   { label: 'Services', href: '/services' },
   { label: 'Benefits', href: '/benefits' },
   { label: 'Partnership', href: '/partnership' },

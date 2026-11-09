@@ -108,8 +108,8 @@ export const PartnersHero: React.FC = () => {
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
               DropyHub works with delivery and commerce companies that need reliable last-mile
-              fulfilment. Partner teams coordinate order flow; DropyHub helps organize delivery
-              executives and operational support in supported locations.
+              fulfilment. Partner teams coordinate order flow while DropyHub helps organize
+              delivery executives and operational support in supported locations.
             </p>
           </div>
         </div>

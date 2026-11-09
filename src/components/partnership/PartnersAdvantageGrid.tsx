@@ -16,42 +16,42 @@ const ADVANTAGE_ITEMS: AdvantageItem[] = [
     id: 'workforce',
     title: 'Workforce Deployment',
     description:
-      'Dedicated workforce deployment and real-time operations management for large-scale stadium logistics, partner events, and supply networks.',
+      'DropyHub helps coordinate delivery executives and operational support to align people, vehicles and local operations with partner needs.',
     iconSrc: '/assets/partners/fluent_arrow-trending-lines-24-regular.svg',
   },
   {
     id: 'tickets',
     title: 'Match Ticket Rewards',
     description:
-      'Top-performing delivery partners receive exclusive VIP match passes and stadium tickets to watch Sunrisers Hyderabad live in action.',
+      'Top performing delivery partners are rewarded with exclusive SRH match tickets through our incentive programme.',
     iconSrc: '/assets/partners/f7_tickets_2.svg',
   },
   {
     id: 'merchandise',
-    title: 'Exclusive Merchandise',
+    title: 'Branded Merchandise',
     description:
-      'Official co-branded SRH caps, jerseys, and special edition kits awarded to outstanding delivery executives throughout the cricket season.',
+      'Official SRH × DropyHub co branded merchandise is gifted to star partners during special campaigns.',
     iconSrc: '/assets/partners/energy-icons_shirt-48.svg',
   },
   {
     id: 'media',
     title: 'National Media Exposure',
     description:
-      'Unprecedented brand and partner visibility across live broadcasts, digital channels, and national stadium displays reaching millions.',
+      'The partnership receives national TV and digital media coverage during the TATA IPL season.',
     iconSrc: '/assets/partners/bi_tv.svg',
   },
   {
     id: 'community',
-    title: 'Community Activation',
+    title: 'Community & Spirit',
     description:
-      'Ground-level activations and community tournaments uniting delivery fleets and sports enthusiasts across metropolitan hubs.',
+      'We share the SRH spirit of teamwork, performance and rising above challenges, just like our delivery partners.',
     iconSrc: '/assets/partners/fluent_people-community-20-regular.svg',
   },
   {
     id: 'recognition',
     title: 'Partner Recognition',
     description:
-      'Celebrating the Spirit of the Game by honoring high-performing delivery partners alongside Sunrisers Hyderabad leadership.',
+      'Monthly Star Partner awards receive a special SRH edition during the season with exclusive prizes.',
     iconSrc: '/assets/partners/lsicon_hand-shake-outline_2.svg',
   },
 ];
@@ -71,13 +71,14 @@ export const PartnersAdvantageGrid: React.FC = () => {
               <span className={styles.bulletDot} aria-hidden="true" />
               WORKING TOGETHER
             </span>
-            <h2 className={styles.title}>Principles that Guide Our Delivery Platform</h2>
+            <h2 className={styles.title}>A Reliable Last-Mile Delivery Partner</h2>
           </div>
 
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              DropyHub coordinates ground-level logistics, partner brand promotions, and delivery
-              executive engagement in proud synergy with Sunrisers Hyderabad.
+              We make delivery operations easier to coordinate by building a supported
+              delivery-executive network and aligning people, vehicles and local operations with
+              partner needs.
             </p>
           </div>
         </div>

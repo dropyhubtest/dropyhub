@@ -19,13 +19,13 @@ export const PartnersSponsorsSection: React.FC = () => {
               <span className={styles.bulletDot} aria-hidden="true" />
               PARTNER ECOSYSTEM
             </span>
-            <h2 className={styles.title}>Delivery Platform &amp; Partners Platform</h2>
+            <h2 className={styles.title}>Delivery Platforms &amp; Business Partners</h2>
           </div>
 
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              From global leaders to regional front-runners, see the elite network associated with
-              Sunrisers Hyderabad and DropyHub&apos;s operational ecosystem.
+              Our partner network includes food delivery, grocery, e-commerce and other last-mile
+              businesses working together through one connected ecosystem.
             </p>
           </div>
         </div>

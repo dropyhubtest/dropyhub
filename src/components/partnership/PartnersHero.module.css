@@ -334,91 +334,127 @@
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
-  .perksGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .perkCard:nth-child(2) {
-    border-right: none;
-  }
-
-  .perkCard:nth-child(-n + 2) {
-    border-bottom: 1px solid #2e2e2e;
-  }
-}
-
 @media (max-width: 992px) {
-  .railLeft {
-    left: 20px;
-  }
-
-  .railRight {
-    right: 20px;
-  }
-
-  .whiteBrokenRailLeft {
-    left: 20px;
-  }
-
+  .railLeft,
+  .railRight,
+  .brokenRailLeft,
+  .brokenRailRight,
+  .blackBarRailLeft,
+  .blackBarRailRight,
+  .whiteBrokenRailLeft,
   .whiteBrokenRailRight {
-    right: 20px;
+    display: none !important;
   }
 
-  .blackBarRailLeft {
-    left: 20px;
-  }
-
-  .blackBarRailRight {
-    right: 20px;
-  }
-
-  .brokenRailLeft {
-    left: 20px;
-  }
-
-  .brokenRailRight {
-    right: 20px;
-  }
-
-  .container {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .headerRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 0 20px 28px 20px;
-  }
-
-  .headerRight {
-    justify-content: flex-start;
-  }
-
-  .headerDesc {
-    text-align: left;
+  .heroContentWrapper {
+    padding-top: 72px !important;
   }
 
   .bannerContainer {
-    height: auto;
-    min-height: 260px;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    aspect-ratio: 1392 / 473 !important;
+    max-width: 100% !important;
   }
-}
 
-@media (max-width: 640px) {
+  .bannerTeamImg {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 1392 / 473 !important;
+    object-fit: contain !important;
+  }
+
+  /* No hatched divider below hero on mobile */
+  .hatchedDivider {
+    display: none !important;
+  }
+
+  .container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 32px 16px 20px 16px !important;
+    border: none !important;
+  }
+
+  .headerRow {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 0 0 24px 0 !important;
+    border-bottom: 1px solid #222222 !important;
+  }
+
+  .headerRight {
+    justify-content: flex-start !important;
+  }
+
+  .eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .title {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .headerDesc {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #888888 !important;
+    text-align: left !important;
+  }
+
+  /* 4 perks as vertical list of horizontal rows */
   .perksGrid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    grid-template-columns: none !important;
   }
 
   .perkCard {
-    border-right: none;
-    border-bottom: 1px solid #2e2e2e;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 16px 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid #1a1a1a !important;
+    background: transparent !important;
   }
 
   .perkCard:last-child {
-    border-bottom: none;
+    border-bottom: none !important;
+  }
+
+  .iconBox {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .iconImage {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .perkTitle {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Bottom spacer and white slashed divider hidden on mobile between Hero & Working Together */
+  .blackSpacerBar,
+  .whiteSlashedDivider {
+    display: none !important;
   }
 }

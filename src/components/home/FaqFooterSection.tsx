@@ -253,7 +253,7 @@ export const FaqFooterSection: React.FC = () => {
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
                 <Image
-                  src="/assets/Footer/mail.svg"
+                  src="/assets/footer/mail.svg"
                   alt=""
                   width={16}
                   height={13}
@@ -266,7 +266,7 @@ export const FaqFooterSection: React.FC = () => {
               </li>
               <li className={styles.contactItem}>
                 <Image
-                  src="/assets/Footer/location.svg"
+                  src="/assets/footer/location.svg"
                   alt=""
                   width={18}
                   height={18}
@@ -295,7 +295,7 @@ export const FaqFooterSection: React.FC = () => {
             aria-label="YouTube"
           >
             <Image
-              src="/assets/Footer/youtube.svg"
+              src="/assets/footer/youtube.svg"
               alt="YouTube"
               width={20}
               height={14}
@@ -312,7 +312,7 @@ export const FaqFooterSection: React.FC = () => {
             aria-label="Instagram"
           >
             <Image
-              src="/assets/Footer/insta.svg"
+              src="/assets/footer/insta.svg"
               alt="Instagram"
               width={20}
               height={20}
@@ -329,7 +329,7 @@ export const FaqFooterSection: React.FC = () => {
             aria-label="Facebook"
           >
             <Image
-              src="/assets/Footer/facebook.svg"
+              src="/assets/footer/facebook.svg"
               alt="Facebook"
               width={11}
               height={19}
@@ -346,7 +346,7 @@ export const FaqFooterSection: React.FC = () => {
             aria-label="Twitter"
           >
             <Image
-              src="/assets/Footer/twitter.svg"
+              src="/assets/footer/twitter.svg"
               alt="Twitter"
               width={21}
               height={17}

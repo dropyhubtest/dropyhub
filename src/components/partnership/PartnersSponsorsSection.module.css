@@ -151,38 +151,59 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-  .railLeft {
-    left: 20px;
-  }
-
+  .railLeft,
   .railRight {
-    right: 20px;
+    display: none !important;
   }
 
   .container {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 40px 16px 56px 16px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 36px 16px 40px 16px !important;
   }
 
   .headerRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding-bottom: 32px;
-    margin-bottom: 36px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 24px !important;
   }
 
   .headerRight {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
+  }
+
+  .eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .title {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
   }
 
   .headerDesc {
-    text-align: left;
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #555555 !important;
+    text-align: left !important;
+    max-width: 100% !important;
   }
 
   .sponsorsCard {
-    margin-bottom: 36px;
+    width: 100% !important;
+    margin: 0 0 24px 0 !important;
+    border-radius: 8px !important;
+  }
+
+  .partnersPosterWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
   }
 }

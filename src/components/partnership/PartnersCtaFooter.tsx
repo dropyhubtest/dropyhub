@@ -49,8 +49,8 @@ export const PartnersCtaFooter: React.FC = () => {
 
             <div className={styles.ctaRightCol}>
               <p className={styles.ctaDescription}>
-                Experience the pride of delivering alongside India&apos;s champion partners. Free
-                onboarding, structured rewards, and genuine career growth await.
+                Be part of a platform associated with India&apos;s most exciting cricket franchise.
+                Register as a delivery partner today — completely free.
               </p>
               <div className={styles.ctaBtnRow}>
                 <Link href="/apply" className={styles.primaryBtn}>
@@ -59,8 +59,8 @@ export const PartnersCtaFooter: React.FC = () => {
                     ↗
                   </span>
                 </Link>
-                <Link href="/services" className={styles.secondaryBtn}>
-                  View Services
+                <Link href="/benefits" className={styles.secondaryBtn}>
+                  View Benefits
                 </Link>
               </div>
             </div>
