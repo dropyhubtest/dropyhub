@@ -231,16 +231,16 @@ export const MotorcycleScroll: React.FC = () => {
     function getActiveSection(scrollY: number): string {
       const whyEl = document.querySelector('[class*="sectionWrapper"]');
       const estEl = document.querySelector('[class*="estimatorSection"]');
-      const stepsEl = document.querySelector('[class*="stepsList"]');
-      const innovEl = document.querySelector('[class*="securityChecklist"], [class*="checklist"]');
+      const howStartEl = document.querySelector('[class*="howToStartContainer"]') || document.querySelector('[class*="stepsList"]');
+      const innovEl = document.querySelector('section[aria-label*="Innovation"]') || document.querySelector('[class*="innovationEyebrow"]') || document.querySelector('[class*="securityChecklist"]');
       const testEl = document.querySelector('[class*="testimonialsComponent"]');
       const faqEl = document.querySelector('[class*="faqTitle"], [class*="faqHeading"]');
 
       const whyTop = whyEl ? (whyEl.getBoundingClientRect().top + scrollY) : 759;
       const estTop = estEl ? (estEl.getBoundingClientRect().top + scrollY) : 1631;
       const estBottom = estEl ? (estEl.getBoundingClientRect().bottom + scrollY) : 2456;
-      const stepsTop = stepsEl ? (stepsEl.getBoundingClientRect().top + scrollY) : 3567;
-      const innovTop = innovEl ? (innovEl.getBoundingClientRect().top + scrollY) : 4238;
+      const howStartTop = howStartEl ? (howStartEl.getBoundingClientRect().top + scrollY) : 3414;
+      const innovTop = innovEl ? (innovEl.getBoundingClientRect().top + scrollY) : 3960;
       const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4687;
       const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5143;
 
@@ -255,16 +255,18 @@ export const MotorcycleScroll: React.FC = () => {
       if (scrollY < estBottom - 120) return 'estimator';
 
       // 04. About: between Estimator and How to Start
-      if (scrollY < stepsTop - 120) return 'about';
+      // Transitions smoothly to How to Start as soon as onboarding area approaches viewport
+      if (scrollY < howStartTop - 280) return 'about';
 
       // 05. How to Start: between About and Innovation
-      if (scrollY < innovTop - 120) return 'howToStart';
+      // Transitions promptly to Innovation as soon as Innovation section approaches viewport
+      if (scrollY < innovTop - 280) return 'howToStart';
 
       // 06. Innovation: between How to Start and Testimonials
-      if (scrollY < testTop - 120) return 'innovation';
+      if (scrollY < testTop - 220) return 'innovation';
 
       // 07. Testimonials: between Innovation and FAQ
-      if (scrollY < faqTop - 120) return 'testimonials';
+      if (scrollY < faqTop - 200) return 'testimonials';
 
       // 08. FAQ: between Testimonials and Footer
       if (scrollY < faqTop + 450) return 'faq';

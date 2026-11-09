@@ -210,7 +210,7 @@
 
 .headerArea {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 37px;
   display: flex;
   flex-direction: column;
@@ -245,10 +245,10 @@
   margin: 8px 0 0 0;
 }
 
-/* Feature cards columns and central corridor */
+/* Feature cards columns and central corridor (Indented to 108px so cards have clean clearance from 64px rails) */
 .cardsColumnLeft {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 143px;
   width: min(359px, 28vw);
   display: flex;
@@ -258,7 +258,7 @@
 
 .cardsColumnRight {
   position: absolute;
-  right: 64px;
+  right: 108px;
   left: auto;
   top: 143px;
   width: min(359px, 28vw);

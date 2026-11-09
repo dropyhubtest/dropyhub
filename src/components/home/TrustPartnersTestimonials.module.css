@@ -197,13 +197,13 @@
 
 .innovationEyebrow {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 77px;
 }
 
 .innovationHeading {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 104px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -217,7 +217,7 @@
   position: absolute;
   left: 732px;
   top: 88px;
-  width: 648px;
+  width: min(600px, calc(100% - 732px - 108px));
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 14px;
   font-weight: 300;

@@ -28,7 +28,7 @@
    ========================================================================== */
 .headerArea {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 38px;
   display: flex;
   flex-direction: column;
@@ -64,14 +64,14 @@
 }
 
 /* ==========================================================================
-   2. Main Desktop Geometry (Centered within rails)
+   2. Main Desktop Geometry (Centered within rails with clean 108px margin)
    ========================================================================== */
 .mainContent {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 113px;
-  width: min(1252px, calc(100% - 80px));
+  width: min(1220px, calc(100% - 216px));
   height: 633px;
 }
 
