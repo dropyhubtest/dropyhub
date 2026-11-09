@@ -13,7 +13,7 @@
 /* Continuous Side Rails at 48px: stops at 40px from bottom (start of white slashed bar) */
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   bottom: 40px;
   width: 1.5px;
@@ -24,7 +24,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   bottom: 40px;
   width: 1.5px;
@@ -35,9 +35,9 @@
 
 .container {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
   border-top: none;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
@@ -143,7 +143,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -153,7 +153,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;

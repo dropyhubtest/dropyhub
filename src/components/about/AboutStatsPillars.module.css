@@ -12,10 +12,10 @@
   box-sizing: border-box;
 }
 
-/* Continuous Side Rails at 40px */
+/* Continuous Side Rails at 64px */
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -26,7 +26,7 @@
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -35,12 +35,12 @@
   z-index: 5;
 }
 
-/* 1. 6-Metric Stats Bar: Connected to rails at 40px */
+/* 1. 6-Metric Stats Bar: Connected inside rails with 44px clearance */
 .statsBarWrapper {
   position: relative;
-  width: calc(100% - 80px);
-  margin-left: 40px;
-  margin-right: 40px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
   box-sizing: border-box;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
@@ -121,10 +121,10 @@
 /* 2. Pillars Section: Grid of 3 Cards */
 .pillarsWrapper {
   position: relative;
-  width: calc(100% - 80px);
-  margin-left: 40px;
-  margin-right: 40px;
-  padding: 56px 24px 80px 24px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
+  padding: 56px 0 80px 0;
   box-sizing: border-box;
   z-index: 2;
 }

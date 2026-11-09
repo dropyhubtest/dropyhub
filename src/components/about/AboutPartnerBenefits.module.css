@@ -12,10 +12,10 @@
   border-top: none;
 }
 
-/* Continuous Side Rails at 48px: stops at 40px from bottom (start of white slashed bar) */
+/* Continuous Side Rails at 64px: stops at 40px from bottom (start of white slashed bar) */
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   bottom: 40px;
   width: 1.5px;
@@ -26,7 +26,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   bottom: 40px;
   width: 1.5px;
@@ -59,10 +59,10 @@
 /* 1. Partner Logos Section: Aligned within Left & Right Rails */
 .partnersSectionWrapper {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
-  padding: 56px 24px 44px 24px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
+  padding: 56px 0 44px 0;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -117,11 +117,11 @@
   object-fit: contain;
 }
 
-/* Middle Divider: Attaches directly to Left & Right Rails at 48px */
+/* Middle Divider: Attaches directly to Left & Right Rails at 64px */
 .dividerLine {
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
   height: 1px;
   background-color: #e8e8e8;
   margin-top: 0;
@@ -131,10 +131,10 @@
 /* 2. Why We Are Different Header */
 .benefitsHeaderWrapper {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
-  padding: 52px 24px 36px 24px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
+  padding: 52px 0 36px 0;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -151,9 +151,9 @@
 /* 3. 2x3 Grid Table: Top, middle, and bottom lines connect to Left & Right Rails */
 .benefitsGridWrapper {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
   box-sizing: border-box;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
@@ -251,7 +251,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -261,7 +261,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;

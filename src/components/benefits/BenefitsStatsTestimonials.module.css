@@ -13,7 +13,7 @@
 /* Continuous Side Rails at 48px */
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -24,7 +24,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -35,9 +35,9 @@
 
 .container {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
   z-index: 2;
@@ -97,7 +97,7 @@
 
 /* Testimonials Header with dividing line touching rails */
 .testimonialsHeader {
-  padding: 38px 40px 28px 40px;
+  padding: 38px 0 28px 0;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
 }

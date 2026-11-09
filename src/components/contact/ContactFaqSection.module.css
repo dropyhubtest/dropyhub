@@ -17,13 +17,13 @@
   box-sizing: border-box;
 }
 
-/* Continuous Side Rails at 48px:
+/* Continuous Side Rails at 64px:
    Stops before the bottom transition bar (40px) so no solid line enters the bar */
 .railLeft {
   position: absolute;
   top: 0;
   bottom: 40px;
-  left: 48px;
+  left: 64px;
   width: 1.5px;
   background-color: var(--color-raw-c3c4c8, #c3c4c8);
   z-index: 10;
@@ -34,7 +34,7 @@
   position: absolute;
   top: 0;
   bottom: 40px;
-  right: 48px;
+  right: 64px;
   width: 1.5px;
   background-color: var(--color-raw-c3c4c8, #c3c4c8);
   z-index: 10;
@@ -50,10 +50,10 @@
 
 /* Main Container */
 .container {
-  width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 80px 72px 80px 72px;
+  width: calc(100% - 216px);
+  max-width: calc(100% - 216px);
+  margin: 0 108px;
+  padding: 80px 0;
   box-sizing: border-box;
   position: relative;
   z-index: 2;
@@ -285,7 +285,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -295,7 +295,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;

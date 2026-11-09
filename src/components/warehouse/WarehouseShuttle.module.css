@@ -11,10 +11,10 @@
   box-sizing: border-box;
 }
 
-/* Continuous Side Rails at 48px: stops before the black spacer bar and white slashed divider */
+/* Continuous Side Rails at 64px: stops before the black spacer bar and white slashed divider */
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   bottom: 76px;
   width: 1.5px;
@@ -25,7 +25,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   bottom: 76px;
   width: 1.5px;
@@ -36,10 +36,10 @@
 
 .container {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
-  padding: 60px 24px 64px 24px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
+  padding: 60px 0 64px 0;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -161,7 +161,7 @@
 
 .blackBarRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 36px;
@@ -171,7 +171,7 @@
 
 .blackBarRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 36px;
@@ -207,7 +207,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -217,7 +217,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;

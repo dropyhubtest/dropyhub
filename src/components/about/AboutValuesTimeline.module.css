@@ -21,17 +21,17 @@
 
 .valuesInner {
   position: relative;
-  width: calc(100% - 80px);
-  margin-left: 40px;
-  margin-right: 40px;
-  padding: 0 24px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
+  padding: 0;
   box-sizing: border-box;
   z-index: 2;
 }
 
 .railLeftLight {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -42,7 +42,7 @@
 
 .railRightLight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -178,7 +178,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -188,7 +188,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -212,7 +212,7 @@
 
 .railLeftDark {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -223,7 +223,7 @@
 
 .railRightDark {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -234,10 +234,10 @@
 
 .historyContainer {
   position: relative;
-  width: calc(100% - 80px);
-  margin-left: 40px;
-  margin-right: 40px;
-  padding: 0 24px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
+  padding: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -414,7 +414,7 @@
 
 .whiteSlashedDivider .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -424,7 +424,7 @@
 
 .whiteSlashedDivider .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;

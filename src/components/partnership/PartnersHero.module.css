@@ -12,10 +12,10 @@
   box-sizing: border-box;
 }
 
-/* Side rails at 48px (spans down to the bottom transition bars) */
+/* Side rails at 64px (spans down to the bottom transition bars) */
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   bottom: 76px;
   width: 1.5px;
@@ -26,7 +26,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   bottom: 76px;
   width: 1.5px;
@@ -112,7 +112,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 56px;
@@ -122,7 +122,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 56px;
@@ -133,9 +133,9 @@
 /* Narrative & Perks Container */
 .container {
   position: relative;
-  width: calc(100% - 96px);
-  margin-left: 48px;
-  margin-right: 48px;
+  width: calc(100% - 216px);
+  margin-left: 108px;
+  margin-right: 108px;
   padding: 56px 0 0 0;
   box-sizing: border-box;
   z-index: 2;
@@ -147,7 +147,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  padding: 0 40px 36px 40px;
+  padding: 0 0 36px 0;
   border-bottom: 1px solid #2e2e2e;
 }
 
@@ -269,7 +269,7 @@
 
 .blackBarRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 36px;
@@ -279,7 +279,7 @@
 
 .blackBarRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 36px;
@@ -315,7 +315,7 @@
 
 .whiteBrokenRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -325,7 +325,7 @@
 
 .whiteBrokenRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 40px;

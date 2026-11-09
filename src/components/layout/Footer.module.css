@@ -16,12 +16,12 @@
   padding: 0;
 }
 
-/* Continuous Side Rails at 48px:
+/* Continuous Side Rails at 64px:
    Extends from top of footer down past "Our Services" (~190px)
    and smoothly fades out to transparent by 260px */
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 1.5px;
   height: 270px;
@@ -37,7 +37,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   top: 0;
   width: 1.5px;
   height: 270px;
@@ -55,8 +55,8 @@
    Maintains a visible gap on both left and right so it does not contact side rails */
 .footerTopDivider {
   position: relative;
-  width: calc(100% - 144px);
-  margin: 0 auto;
+  width: calc(100% - 216px);
+  margin: 0 108px;
   height: 1px;
   background-color: var(--color-raw-c3c4c8, #c3c4c8);
   z-index: 6;
@@ -65,7 +65,7 @@
 .container {
   position: relative;
   width: 100%;
-  padding: 56px 64px 0 64px;
+  padding: 56px 108px 0 108px;
   box-sizing: border-box;
   z-index: 2;
 }

@@ -12,10 +12,10 @@
   box-sizing: border-box;
 }
 
-/* Continuous Side Rails at 40px (runs down to the white slashed bar) */
+/* Continuous Side Rails at 64px (runs down to the white slashed bar) */
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   bottom: 44px;
   width: 1.5px;
@@ -26,7 +26,7 @@
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   bottom: 44px;
   width: 1.5px;
@@ -39,7 +39,7 @@
 .storyContainer {
   position: relative;
   width: 100%;
-  padding: 60px 64px 56px 64px;
+  padding: 60px 108px 56px 108px;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -129,13 +129,13 @@
 
 /* ==========================================================================
    Part 2: WHY WE EXIST (The Problem & The Solution)
-   Spans from left rail (40px) to right rail (40px) connecting all 4 corners
+   Spans 108px inner content frame with 44px clearance to 64px rails
    ========================================================================== */
 .whyWeExistWrapper {
   position: relative;
-  margin-left: 40px;
-  margin-right: 40px;
-  width: calc(100% - 80px);
+  margin-left: 108px;
+  margin-right: 108px;
+  width: calc(100% - 216px);
   box-sizing: border-box;
   z-index: 2;
 }
@@ -155,7 +155,7 @@
 
 .problemColumn {
   position: relative;
-  padding: 36px 36px 44px 24px;
+  padding: 36px 36px 44px 0;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -166,7 +166,7 @@
 .solutionColumn {
   position: relative;
   border-left: 1px solid #2e2e2e;
-  padding: 36px 24px 44px 48px;
+  padding: 36px 0 44px 48px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -243,7 +243,7 @@
 
 .blackBarRailLeft {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -254,7 +254,7 @@
 
 .blackBarRailRight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -293,7 +293,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 44px;
@@ -303,7 +303,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: 64px;
   top: 0;
   width: 2px;
   height: 44px;

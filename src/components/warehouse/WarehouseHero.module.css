@@ -27,9 +27,9 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: 1455px;
-  max-width: calc(100% - 80px);
-  margin: 0 auto 36px auto;
+  width: calc(100% - 216px);
+  max-width: calc(100% - 216px);
+  margin: 0 108px 36px 108px;
 }
 
 .headingCol {
