@@ -94,11 +94,13 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
             );
           })}
         </ul>
+      </nav>
 
+      <div className={styles.ctaWrapper}>
         <Link href="/apply" className={styles.joinNowButton}>
           JOIN NOW
         </Link>
-      </nav>
+      </div>
 
       {/* Mobile Hamburger Toggle Button */}
       <button
