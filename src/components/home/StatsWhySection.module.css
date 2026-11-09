@@ -33,8 +33,8 @@
 
 .statsGrid {
   position: absolute;
-  left: 48px;
-  right: 48px;
+  left: 64px;
+  right: 64px;
   top: 0;
   height: 138px;
   display: grid;
@@ -143,7 +143,7 @@
 
 .railLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -154,7 +154,7 @@
 
 .railRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   left: auto;
   top: 0;
   bottom: 0;
@@ -166,7 +166,7 @@
 
 .dottedRailLeft {
   position: absolute;
-  left: 48px;
+  left: 64px;
   top: 0;
   width: 2px;
   height: 40px;
@@ -176,7 +176,7 @@
 
 .dottedRailRight {
   position: absolute;
-  right: 48px;
+  right: 64px;
   left: auto;
   top: 0;
   width: 2px;

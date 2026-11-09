@@ -29,11 +29,11 @@
     height: 759px;
   }
 
-  /* Side vertical decorative borders (Page Rails at 48px from viewport sides)
+  /* Side vertical decorative borders (Page Rails at 64px from viewport sides)
      Right border line is intentionally hidden in hero section per specification (starts after hero) */
   .decorativeLine {
     position: absolute;
-    left: 48px;
+    left: 64px;
     top: 88px;
     width: 1.5px;
     height: 671px;
@@ -211,7 +211,7 @@
   /* Sunrisers & IPL Partner Badge (Height increased for enhanced prominence) */
   .partnerBadge {
     position: absolute;
-    left: 64px;
+    left: 80px;
     top: 536px;
     display: inline-flex;
     align-items: center;

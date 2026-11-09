@@ -88,20 +88,30 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: 0,
       };
 
-      // 02. Why DropyHub — center corridor between the 4 cards
-      const whyEl = document.querySelector('[class*="sectionWrapper"]');
-      const whyCards = whyEl ? whyEl.querySelectorAll('article, [class*="Card"], [class*="card"]') : null;
-      let whyDocY = 1360;
-      if (whyCards && whyCards.length >= 2) {
-        const topR = whyCards[0].getBoundingClientRect();
-        const btmR = whyCards[whyCards.length - 1].getBoundingClientRect();
-        whyDocY = (topR.top + btmR.bottom) / 2 + scrollY + 40;
-      } else if (whyEl) {
-        const r = whyEl.getBoundingClientRect();
-        whyDocY = r.top + scrollY + r.height * 0.65;
+      // 02. Why DropyHub — center corridor between the 4 desktop cards
+      const leftCol = document.querySelector('[class*="cardsColumnLeft"]');
+      const rightCol = document.querySelector('[class*="cardsColumnRight"]');
+      let whyDocY = 1283;
+      let whyDocX = centerX;
+      if (leftCol && rightCol) {
+        const leftCards = leftCol.querySelectorAll('[class*="card"]');
+        if (leftCards.length >= 2) {
+          const topR = leftCards[0].getBoundingClientRect();
+          const btmR = leftCards[leftCards.length - 1].getBoundingClientRect();
+          whyDocY = (topR.top + btmR.bottom) / 2 + scrollY;
+        }
+        const lR = leftCol.getBoundingClientRect();
+        const rR = rightCol.getBoundingClientRect();
+        whyDocX = (lR.right + rR.left) / 2;
+      } else {
+        const whyEl = document.querySelector('[class*="sectionWrapper"]');
+        if (whyEl) {
+          const r = whyEl.getBoundingClientRect();
+          whyDocY = r.top + scrollY + r.height * 0.55;
+        }
       }
       const whyAnchor: StateAnchor = {
-        docX: centerX,
+        docX: whyDocX,
         docY: whyDocY,
         rotation: 0,
       };
@@ -234,11 +244,11 @@ export const MotorcycleScroll: React.FC = () => {
       const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4687;
       const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5143;
 
-      // Section trigger thresholds calibrated so bike only advances when next section is prominently in view:
-      // 01. Hero: remains active until Why DropyHub is almost fully scrolled into view (~640px)
-      if (scrollY < whyTop - 120) return 'hero';
+      // Section trigger thresholds calibrated so bike transitions cleanly and stays centered in each section:
+      // 01. Hero: remains active while viewing Hero (< 280px)
+      if (scrollY < whyTop * 0.38) return 'hero';
 
-      // 02. Why DropyHub: firmly rests in corridor between cards until Estimator is almost fully showing (~1480px)
+      // 02. Why DropyHub: firmly rests centered in corridor between cards across entire section until Estimator is prominently visible
       if (scrollY < estTop - 150) return 'why';
 
       // 03. Estimator: remains active while results panel is prominently on screen
@@ -379,9 +389,9 @@ export const MotorcycleScroll: React.FC = () => {
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onResize);
 
-      // Handle user scroll during entrance: allow natural entrance without snapping unless scrolled deeply
+      // Handle user scroll during entrance: allow natural entrance without snapping unless scrolled into next section
       const onScrollInterrupt = () => {
-        if (window.scrollY > 500 && entrancePending) {
+        if (window.scrollY > 150 && entrancePending) {
           window.removeEventListener('scroll', onScrollInterrupt);
           if (entranceTween) {
             entranceTween.kill();
