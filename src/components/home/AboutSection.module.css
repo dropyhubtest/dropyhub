@@ -121,8 +121,8 @@
    ========================================================================== */
 .horizontalDivider {
   position: absolute;
-  left: 40px;
-  right: 40px;
+  left: 48px;
+  right: 48px;
   width: auto;
   height: 1px;
   background-color: var(--color-raw-c3c4c8);
@@ -314,7 +314,7 @@
 
 .railLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -325,7 +325,7 @@
 
 .railRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 0;
   bottom: 0;
@@ -337,7 +337,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 0;
   width: 2px;
   height: 64px;
@@ -347,7 +347,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 0;
   width: 2px;

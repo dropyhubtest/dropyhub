@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   height: 88px;
-  padding: 0 60px;
+  padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +21,7 @@
 .logoWrapper {
   display: flex;
   align-items: center;
+  margin-left: -6px; /* Aligns visible logo pixels precisely above the 48px left rail */
 }
 
 .logoImage {

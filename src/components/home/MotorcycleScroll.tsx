@@ -91,14 +91,14 @@ export const MotorcycleScroll: React.FC = () => {
       // 02. Why DropyHub — center corridor between the 4 cards
       const whyEl = document.querySelector('[class*="sectionWrapper"]');
       const whyCards = whyEl ? whyEl.querySelectorAll('article, [class*="Card"], [class*="card"]') : null;
-      let whyDocY = 1296;
+      let whyDocY = 1360;
       if (whyCards && whyCards.length >= 2) {
         const topR = whyCards[0].getBoundingClientRect();
         const btmR = whyCards[whyCards.length - 1].getBoundingClientRect();
-        whyDocY = (topR.top + btmR.bottom) / 2 + scrollY;
+        whyDocY = (topR.top + btmR.bottom) / 2 + scrollY + 40;
       } else if (whyEl) {
         const r = whyEl.getBoundingClientRect();
-        whyDocY = r.top + scrollY + r.height * 0.60;
+        whyDocY = r.top + scrollY + r.height * 0.65;
       }
       const whyAnchor: StateAnchor = {
         docX: centerX,
@@ -234,28 +234,27 @@ export const MotorcycleScroll: React.FC = () => {
       const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4687;
       const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5143;
 
-      // Section trigger thresholds:
-      // 01. Hero: top of page (< 220px)
-      if (scrollY < whyTop * 0.3) return 'hero';
+      // Section trigger thresholds calibrated so bike only advances when next section is prominently in view:
+      // 01. Hero: remains active until Why DropyHub is almost fully scrolled into view (~640px)
+      if (scrollY < whyTop - 120) return 'hero';
 
-      // 02. Why DropyHub: between Hero and Estimator
-      if (scrollY < (whyTop + estTop) / 2) return 'why';
+      // 02. Why DropyHub: firmly rests in corridor between cards until Estimator is almost fully showing (~1480px)
+      if (scrollY < estTop - 150) return 'why';
 
-      // 03. Estimator: remains active while the results panel is on screen!
-      // Must not exit until the bottom results card has scrolled mostly out of view.
-      if (scrollY < estBottom - 180) return 'estimator';
+      // 03. Estimator: remains active while results panel is prominently on screen
+      if (scrollY < estBottom - 120) return 'estimator';
 
       // 04. About: between Estimator and How to Start
-      if (scrollY < (estBottom + stepsTop) / 2 - 100) return 'about';
+      if (scrollY < stepsTop - 120) return 'about';
 
       // 05. How to Start: between About and Innovation
-      if (scrollY < (stepsTop + innovTop) / 2 - 50) return 'howToStart';
+      if (scrollY < innovTop - 120) return 'howToStart';
 
       // 06. Innovation: between How to Start and Testimonials
-      if (scrollY < (innovTop + testTop) / 2 - 50) return 'innovation';
+      if (scrollY < testTop - 120) return 'innovation';
 
       // 07. Testimonials: between Innovation and FAQ
-      if (scrollY < (testTop + faqTop) / 2 - 50) return 'testimonials';
+      if (scrollY < faqTop - 120) return 'testimonials';
 
       // 08. FAQ: between Testimonials and Footer
       if (scrollY < faqTop + 450) return 'faq';
@@ -380,9 +379,9 @@ export const MotorcycleScroll: React.FC = () => {
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onResize);
 
-      // Handle user scroll interrupt during entrance
+      // Handle user scroll during entrance: allow natural entrance without snapping unless scrolled deeply
       const onScrollInterrupt = () => {
-        if (window.scrollY > 20 && entrancePending) {
+        if (window.scrollY > 500 && entrancePending) {
           window.removeEventListener('scroll', onScrollInterrupt);
           if (entranceTween) {
             entranceTween.kill();
@@ -395,7 +394,7 @@ export const MotorcycleScroll: React.FC = () => {
       };
       window.addEventListener('scroll', onScrollInterrupt, { passive: true });
 
-      // Hero Entrance: Wait exactly 2.0s, then 2.0s smooth downward entrance
+      // Hero Entrance: Wait 2.0s, then 2.0s smooth downward entrance arriving centered in Hero
       entranceTween = gsap.to(entry, {
         y: 0,
         duration: 2.0,

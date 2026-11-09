@@ -29,10 +29,11 @@
     height: 759px;
   }
 
-  /* Side vertical decorative borders (Page Rails at 40px from viewport sides) */
+  /* Side vertical decorative borders (Page Rails at 48px from viewport sides)
+     Right border line is intentionally hidden in hero section per specification (starts after hero) */
   .decorativeLine {
     position: absolute;
-    left: 40px;
+    left: 48px;
     top: 88px;
     width: 1.5px;
     height: 671px;
@@ -42,15 +43,7 @@
   }
 
   .decorativeLineRight {
-    position: absolute;
-    right: 40px;
-    left: auto;
-    top: 88px;
-    width: 1.5px;
-    height: 671px;
-    background-color: #3e3e3e;
-    z-index: 1;
-    pointer-events: none;
+    display: none !important;
   }
 
   /* Header & Navigation (Padding 60px keeps logo and JOIN NOW comfortably inside rails) */
@@ -215,32 +208,32 @@
     object-fit: contain;
   }
 
-  /* Sunrisers & IPL Partner Badge */
+  /* Sunrisers & IPL Partner Badge (Height increased for enhanced prominence) */
   .partnerBadge {
     position: absolute;
     left: 64px;
-    top: 544px;
+    top: 536px;
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     pointer-events: auto;
     z-index: 2;
   }
 
   .badgeFrame {
     position: relative;
-    width: 96px;
-    height: 54px;
-    padding: 3.5px;
+    width: 110px;
+    height: 64px;
+    padding: 4px;
     background-image: url("/assets/Home/SRH_bg.png");
     background-size: cover;
     background-position: center;
-    border-radius: 8px;
+    border-radius: 9px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
     flex-shrink: 0;
   }
 
@@ -248,27 +241,27 @@
     width: 100%;
     height: 100%;
     background-color: #0c0c0c;
-    border-radius: 5px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    padding: 2px 4px;
+    gap: 6px;
+    padding: 3px 6px;
     box-sizing: border-box;
   }
 
   .iplLogo {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
     flex-shrink: 0;
   }
 
   .srhLogo {
     display: block;
-    width: 44px;
-    height: 32px;
+    width: 50px;
+    height: 36px;
     object-fit: contain;
     flex-shrink: 0;
   }

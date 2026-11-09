@@ -175,7 +175,7 @@
 
 .railFaqLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 0;
   height: 446px;
   width: 1.5px;
@@ -186,7 +186,7 @@
 
 .railFaqRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 0;
   height: 446px;
@@ -198,7 +198,7 @@
 
 .brokenRailLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 0;
   width: 2px;
   height: 43px;
@@ -208,7 +208,7 @@
 
 .brokenRailRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 0;
   width: 2px;
@@ -219,7 +219,7 @@
 
 .railCtaLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 489px;
   height: 391px;
   width: 1.5px;
@@ -230,7 +230,7 @@
 
 .railCtaRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 489px;
   height: 391px;
@@ -243,7 +243,7 @@
 /* Rail segment: ctaBottomLine (y=724px) through social links (y=1059px) */
 .railFooterLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 880px;
   height: 170px;
   width: 1.5px;
@@ -254,7 +254,7 @@
 
 .railFooterRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 880px;
   height: 170px;
@@ -267,7 +267,7 @@
 /* Fade segment: starts at "Our Services" level (~1050px), fades to transparent */
 .railFadeLeft {
   position: absolute;
-  left: 40px;
+  left: 48px;
   top: 1050px;
   height: 160px;
   width: 1.5px;
@@ -282,7 +282,7 @@
 
 .railFadeRight {
   position: absolute;
-  right: 40px;
+  right: 48px;
   left: auto;
   top: 1050px;
   height: 160px;
@@ -382,8 +382,8 @@
 /* Horizontal Divider line below CTA at y = 724px */
 .ctaBottomLine {
   position: absolute;
-  left: 40px;
-  right: 40px;
+  left: 48px;
+  right: 48px;
   top: 724px;
   width: auto;
   height: 1px;
