@@ -244,29 +244,29 @@ export const MotorcycleScroll: React.FC = () => {
       const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4687;
       const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5143;
 
-      // Section trigger thresholds calibrated so bike transitions cleanly and stays centered in each section:
-      // 01. Hero: remains active while viewing Hero (< 280px)
-      if (scrollY < whyTop * 0.38) return 'hero';
+      // Section trigger thresholds calibrated 5% faster so bike transitions promptly and arrives cleanly:
+      // 01. Hero: remains active while viewing Hero (< 260px)
+      if (scrollY < whyTop * 0.36) return 'hero';
 
       // 02. Why DropyHub: firmly rests centered in corridor between cards across entire section until Estimator is prominently visible
-      if (scrollY < estTop - 150) return 'why';
+      if (scrollY < estTop - 180) return 'why';
 
       // 03. Estimator: remains active while results panel is prominently on screen
-      if (scrollY < estBottom - 120) return 'estimator';
+      if (scrollY < estBottom - 140) return 'estimator';
 
       // 04. About: between Estimator and How to Start
       // Transitions smoothly to How to Start as soon as onboarding area approaches viewport
-      if (scrollY < howStartTop - 280) return 'about';
+      if (scrollY < howStartTop - 300) return 'about';
 
       // 05. How to Start: between About and Innovation
       // Transitions promptly to Innovation as soon as Innovation section approaches viewport
-      if (scrollY < innovTop - 280) return 'howToStart';
+      if (scrollY < innovTop - 300) return 'howToStart';
 
       // 06. Innovation: between How to Start and Testimonials
-      if (scrollY < testTop - 220) return 'innovation';
+      if (scrollY < testTop - 240) return 'innovation';
 
       // 07. Testimonials: between Innovation and FAQ
-      if (scrollY < faqTop - 200) return 'testimonials';
+      if (scrollY < faqTop - 220) return 'testimonials';
 
       // 08. FAQ: between Testimonials and Footer
       if (scrollY < faqTop + 450) return 'faq';
@@ -299,12 +299,12 @@ export const MotorcycleScroll: React.FC = () => {
         transitionTween = null;
       }
 
-      // Snappy, video-calibrated transition duration (0.95s) with crisp power2.out deceleration
+      // Snappy, video-calibrated transition duration (0.90s, 5% faster) with crisp power2.out deceleration
       transitionTween = gsap.to(animState, {
         docX: targetAnchor.docX,
         docY: targetAnchor.docY,
         rotation: targetAnchor.rotation,
-        duration: 0.95,
+        duration: 0.90,
         ease: 'power2.out',
         overwrite: 'auto',
       });

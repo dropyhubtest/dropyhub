@@ -186,7 +186,7 @@
    ========================================================================== */
 .card {
   position: absolute;
-  width: min(636px, calc(50% - 32px));
+  width: min(600px, calc(50% - 120px));
   height: 146px;
   border-radius: 12px;
   background-color: transparent;

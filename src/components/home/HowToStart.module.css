@@ -6,21 +6,20 @@
 
 .howToStartContainer {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 108px;
+  right: 108px;
   top: 949px;
-  width: min(1220px, calc(100% - 216px));
   height: 533px;
   box-sizing: border-box;
 }
 
 /* ==========================================================================
-   Left Heading and Introduction (x = 15px, y = 23px)
+   Left Heading and Introduction (x = 0, aligned with 108px section margin)
    ========================================================================== */
 
 .leftColumn {
   position: absolute;
-  left: 15px;
+  left: 0;
   top: 23px;
   width: 480px;
   display: flex;
@@ -129,9 +128,10 @@
 
 .rightPanel {
   position: absolute;
-  left: 602px;
+  right: 0;
+  left: auto;
   top: 27px;
-  width: 624px;
+  width: min(624px, calc(50% - 10px));
   height: 469px;
   background-color: #f8f8f8;
   border-radius: 1px;

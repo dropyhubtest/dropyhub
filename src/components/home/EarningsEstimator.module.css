@@ -68,10 +68,9 @@
    ========================================================================== */
 .mainContent {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 108px;
+  right: 108px;
   top: 113px;
-  width: min(1220px, calc(100% - 216px));
   height: 633px;
 }
 
@@ -88,14 +87,15 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 612px;
+  width: min(612px, calc(50% - 18px));
   height: 633px;
 }
 
 .panelBase {
   position: absolute;
   left: 0;
-  width: 612px;
+  width: 100%;
+  max-width: 612px;
   background-color: #ffffff;
   border-radius: 0;
   box-shadow: none;
@@ -347,9 +347,10 @@
    ========================================================================== */
 .rightColumn {
   position: absolute;
-  left: 649px;
+  right: 0;
+  left: auto;
   top: 3px;
-  width: 603px;
+  width: min(603px, calc(50% - 18px));
   height: 630px;
   background-color: #ffffff;
   border-radius: 0;

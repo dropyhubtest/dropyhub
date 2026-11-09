@@ -264,13 +264,13 @@
    ========================================================================== */
 .partnersEyebrow {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 418px;
 }
 
 .partnersHeading {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 445px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -345,9 +345,10 @@
    ========================================================================== */
 .testimonialsComponent {
   position: absolute;
-  left: 59px;
+  left: 108px;
+  right: 108px;
   top: 668px;
-  width: 1321px;
+  width: auto;
   height: 400px;
   background-color: transparent;
   overflow: visible;

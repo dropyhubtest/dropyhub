@@ -30,7 +30,7 @@
    ========================================================================== */
 .faqEyebrow {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 29px;
   display: inline-flex;
   align-items: center;
@@ -53,7 +53,7 @@
 
 .faqHeading {
   position: absolute;
-  left: 64px;
+  left: 108px;
   top: 56px;
   font-family: var(--font-display);
   font-size: 18px;
@@ -68,7 +68,7 @@
   position: absolute;
   left: 508px;
   top: 51px;
-  width: 728px;
+  width: min(728px, calc(100% - 508px - 108px));
   display: flex;
   flex-direction: column;
 }
@@ -301,8 +301,8 @@
    ========================================================================== */
 .ctaContainer {
   position: absolute;
-  left: 64px;
-  right: 64px;
+  left: 108px;
+  right: 108px;
   top: 575px;
   width: auto;
   height: 113px;
@@ -396,8 +396,8 @@
    ========================================================================== */
 .footerLinks {
   position: absolute;
-  left: 64px;
-  right: 64px;
+  left: 108px;
+  right: 108px;
   top: 785px;
   width: auto;
   height: 220px;
@@ -510,7 +510,7 @@
    ========================================================================== */
 .socialLinks {
   position: absolute;
-  left: 109px;
+  left: 108px;
   top: 1059px;
   width: 158px;
   height: 32px;
