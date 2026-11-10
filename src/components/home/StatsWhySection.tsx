@@ -182,7 +182,7 @@ export const StatsWhySection: React.FC = () => {
           <div className={styles.headerArea}>
             <span className={styles.subBadge}>
               <span className={styles.bullet} aria-hidden="true" />
-              W h y &nbsp; D r o p y H u b
+              WHY DROPYHUB
             </span>
             <h2 className={styles.sectionTitle}>
               The Smarter Way to Deliver &amp; Earn

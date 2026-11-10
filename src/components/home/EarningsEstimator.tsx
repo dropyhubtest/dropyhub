@@ -59,7 +59,7 @@ export const EarningsEstimator: React.FC = () => {
         <div className={styles.headerArea}>
           <span className={styles.eyebrow}>
             <span className={styles.bullet} aria-hidden="true" />
-            I n t era c t i v e &nbsp; E st i m ato r
+            INTERACTIVE ESTIMATOR
           </span>
           <h2 className={styles.sectionTitle}>Calculate Your Monthly Take-Home</h2>
         </div>

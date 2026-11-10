@@ -142,7 +142,7 @@ export const HowToStart: React.FC = () => {
       <div className={styles.leftColumn}>
         <span className={styles.eyebrow}>
           <span className={styles.bullet} aria-hidden="true" />
-          H ow to start?
+          HOW TO START?
         </span>
         <h3 className={styles.heading}>Simple, Fast &amp; Effective Partnership</h3>
         <p className={styles.description}>
