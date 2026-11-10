@@ -174,7 +174,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-bottom: 24px;
+  padding-bottom: 64px;
 }
 
 .socialLinks {
@@ -205,18 +205,18 @@
 .copyrightText {
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4;
-  color: var(--color-raw-807f, #807f7f);
+  color: #4a4a4a;
   margin: 0;
 }
 
 .footerDescription {
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 21px;
-  color: var(--color-raw-807f, #807f7f);
+  color: #4a4a4a;
   margin: 0;
   max-width: 720px;
 }
@@ -239,7 +239,7 @@
   justify-content: center;
   align-items: flex-end;
   text-align: center;
-  margin: 20px auto 0 auto;
+  margin: 48px auto 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
   transform: scaleX(1.03);

@@ -182,15 +182,15 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -450, // Facing horizontal right
       };
 
-      // 07. Testimonials — beside quotation & left carousel navigation
+      // 07. Testimonials — beside quotation & left carousel navigation, contained above bottom line
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
-      let testDocX = 230;
-      let testDocY = 4920;
+      let testDocX = 239;
+      let testDocY = 4850;
       if (comp) {
         const compR = comp.getBoundingClientRect();
-        testDocX = compR.left + 160;
-        testDocY = compR.top + scrollY + 205;
+        testDocX = compR.left + 175;
+        testDocY = compR.top + scrollY + 115;
       }
       const testimonialsAnchor: StateAnchor = {
         docX: testDocX,

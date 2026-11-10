@@ -28,14 +28,14 @@ const VALUES_DATA: ValueCard[] = [
     id: 'growth-beyond',
     title: 'Growth Goes Beyond the Job',
     description:
-      'We want partners to develop skills and explore what comes next.',
+      'We want partners to have opportunities to develop skills and explore what comes next.',
     iconSrc: '/assets/About/bytesize_flag.svg',
   },
   {
     id: 'partnership-progress',
     title: 'Partnership Drives Progress',
     description:
-      'Strong relationships between businesses, partners and providers create lasting value.',
+      'Strong relationships between businesses, delivery partners and service providers create lasting value.',
     iconSrc: '/assets/About/fluent_handshake-20-regular.svg',
   },
 ];
@@ -43,7 +43,9 @@ const VALUES_DATA: ValueCard[] = [
 interface HistoryPhase {
   id: string;
   year: string;
-  phaseLabel: string;
+  displayTitle: string;
+  topTag?: string;
+  bottomTag?: string;
   description: string;
 }
 
@@ -51,65 +53,81 @@ const HISTORY_PHASES: HistoryPhase[] = [
   {
     id: '2026-p1',
     year: '2026',
-    phaseLabel: 'Phase 1',
+    displayTitle: '2026 - Phase 1',
+    topTag: undefined,
+    bottomTag: '2025 - Phase 1',
     description:
       'Launched Refer & Earn Programme and Partner Leadership Track creating pathways for top partners to become team leaders and city coordinators.',
   },
   {
     id: '2025-p1',
     year: '2025',
-    phaseLabel: 'Phase 1',
+    displayTitle: '2025 - Phase 1',
+    topTag: '2025 - Phase 1',
+    bottomTag: '2025',
     description:
-      'Scaled to 5 major South Indian cities, launched EV rental partnership programs, and expanded cross-platform dispatch.',
+      'Announced Official Partnership with Sunrisers Hyderabad for TATA IPL 2026 — a national recognition of DropyHub\'s brand strength and community reach.',
   },
   {
     id: '2025-p2',
     year: '2025',
-    phaseLabel: 'Phase 2',
+    displayTitle: '2025 - Phase 2',
+    topTag: '2025',
+    bottomTag: '2024 - Phase 1',
     description:
-      'Opened safe partner hostel facilities and signed the official Sunrisers Hyderabad IPL 2025 partnership.',
+      'Expanded operations into Nellore, Kavali, and Prakasam districts bringing the DropyHub ecosystem to Tier-2 cities across Andhra Pradesh.',
   },
   {
     id: '2024-p1',
     year: '2024',
-    phaseLabel: 'Phase 1',
+    displayTitle: '2024 - Phase 1',
+    topTag: '2024 - Phase 1',
+    bottomTag: '2024 - Phase 2',
     description:
-      'Established Hyderabad headquarters and launched initial pilot operations with Swiggy and Zomato.',
+      'Expanded to 12+ cities across South India including Bangalore, Chennai, Vijayawada, and Visakhapatnam with 3,000+ active delivery partners.',
   },
   {
     id: '2024-p2',
     year: '2024',
-    phaseLabel: 'Phase 2',
+    displayTitle: '2024 - Phase 2',
+    topTag: '2024 - Phase 2',
+    bottomTag: '2024 - Phase 3',
     description:
-      'Scaled fleet onboarding to 2,500+ active partners with zero registration fees and institutional EV bike rentals.',
+      'Launched Vehicle Rental Programme and Financial Loan Services — giving partners access to vehicles and capital that was previously out of reach.',
   },
   {
     id: '2024-p3',
     year: '2024',
-    phaseLabel: 'Phase 3',
+    displayTitle: '2024 - Phase 3',
+    topTag: '2024 - Phase 3',
+    bottomTag: '2023',
     description:
-      'Reached 5,000+ active partners and launched an IT Training Programme for delivery executives moving into tech careers.',
+      'Reached 5,000+ active partners. Launched IT Training Programme enabling delivery executives to transition into tech careers.',
   },
   {
     id: '2023',
     year: '2023',
-    phaseLabel: 'Growth',
+    displayTitle: '2023',
+    topTag: '2023',
+    bottomTag: '2020',
     description:
-      'Expanded network across Andhra Pradesh and Telangana, launching dedicated partner support centres.',
+      'Signed first platform partnerships with Swiggy and Zomato. Onboarded our first 200 delivery partners in Hyderabad within 3 months.',
   },
   {
     id: '2020',
     year: '2020',
-    phaseLabel: 'Inception',
+    displayTitle: '2020',
+    topTag: '2020',
+    bottomTag: undefined,
     description:
-      'Founded in Hyderabad, setting out to build India’s most trusted delivery partner network connecting executives with leading on-demand platforms.',
+      'DropyHub Founded in Hyderabad with a bold vision: to make delivery work dignified, rewarding, and sustainable for every executive in India.',
   },
 ];
 
 const CARD_HEIGHT = 220;
 
 export const AboutValuesTimeline: React.FC = () => {
-  const [activePhaseIndex, setActivePhaseIndex] = useState<number>(5);
+  const [activePhaseIndex, setActivePhaseIndex] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollTrackRef = useRef<HTMLDivElement>(null);
 
@@ -259,7 +277,7 @@ export const AboutValuesTimeline: React.FC = () => {
 
             <div className={styles.historyTitleRow}>
               <h2 className={styles.historyActiveTitle}>
-                {activePhase.year} - {activePhase.phaseLabel}
+                {activePhase.displayTitle}
               </h2>
               <span className={styles.historySubtitle}>Our footprints since 2020</span>
             </div>
@@ -273,22 +291,18 @@ export const AboutValuesTimeline: React.FC = () => {
             onScroll={handleScroll}
           >
             {HISTORY_PHASES.map((phase, index) => {
-              const hasTopLine = index > 0;
-              const hasBottomLine = index < HISTORY_PHASES.length - 1;
-              const nextPhase = hasBottomLine ? HISTORY_PHASES[index + 1] : null;
-
               return (
                 <div key={phase.id} className={styles.historyPhaseCard}>
-                  {/* Top Separator Line (if not first milestone) */}
-                  {hasTopLine ? (
+                  {/* Top Separator Line (if exists) */}
+                  {phase.topTag ? (
                     <button
                       type="button"
                       onClick={() => scrollToPhase(index - 1)}
                       className={styles.separatorLineRow}
-                      aria-label={`Scroll to ${HISTORY_PHASES[index - 1].year} - ${HISTORY_PHASES[index - 1].phaseLabel}`}
+                      aria-label={`Scroll to previous milestone`}
                     >
                       <span className={styles.separatorTag}>
-                        {phase.year} - {phase.phaseLabel}
+                        {phase.topTag}
                       </span>
                       <div className={styles.separatorLine} />
                     </button>
@@ -299,16 +313,16 @@ export const AboutValuesTimeline: React.FC = () => {
                   {/* Description */}
                   <p className={styles.phaseDescription}>{phase.description}</p>
 
-                  {/* Bottom Separator Line (if not last milestone) */}
-                  {hasBottomLine && nextPhase ? (
+                  {/* Bottom Separator Line (if exists) */}
+                  {phase.bottomTag ? (
                     <button
                       type="button"
                       onClick={() => scrollToPhase(index + 1)}
                       className={styles.separatorLineRow}
-                      aria-label={`Scroll to ${nextPhase.year} - ${nextPhase.phaseLabel}`}
+                      aria-label={`Scroll to next milestone`}
                     >
                       <span className={styles.separatorTag}>
-                        {nextPhase.year} - {nextPhase.phaseLabel}
+                        {phase.bottomTag}
                       </span>
                       <div className={styles.separatorLine} />
                     </button>
@@ -329,7 +343,7 @@ export const AboutValuesTimeline: React.FC = () => {
           </span>
 
           <h2 className={styles.mobileHistoryTitle}>
-            {activePhase.year} • {activePhase.phaseLabel}
+            {activePhase.displayTitle}
           </h2>
           <span className={styles.mobileHistorySubtitle}>Our footprints since 2020</span>
 
@@ -340,13 +354,13 @@ export const AboutValuesTimeline: React.FC = () => {
               <button
                 key={phase.id}
                 type="button"
-                onClick={() => setActivePhaseIndex(idx)}
+                onClick={() => {
+                  setActivePhaseIndex(idx);
+                  scrollToPhase(idx);
+                }}
                 className={`${styles.mobilePill} ${idx === activePhaseIndex ? styles.mobilePillActive : ''}`}
               >
-                {phase.year}
-                {phase.phaseLabel !== 'Growth' && phase.phaseLabel !== 'Inception'
-                  ? ` • ${phase.phaseLabel}`
-                  : ''}
+                {phase.displayTitle}
               </button>
             ))}
           </div>

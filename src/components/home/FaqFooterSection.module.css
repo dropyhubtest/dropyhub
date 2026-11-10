@@ -8,7 +8,7 @@
 .section {
   position: relative;
   width: 100%;
-  height: 1501px;
+  height: 725px;
   background-color: #f8f8f8;
   color: var(--color-raw-2c2a);
   display: flex;
@@ -21,7 +21,7 @@
 .container {
   position: relative;
   width: 100%;
-  height: 1501px;
+  height: 725px;
   box-sizing: border-box;
 }
 
@@ -221,7 +221,7 @@
   position: absolute;
   left: 64px;
   top: 489px;
-  height: 391px;
+  height: 235px;
   width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
   pointer-events: none;
@@ -233,65 +233,9 @@
   right: 64px;
   left: auto;
   top: 489px;
-  height: 391px;
+  height: 235px;
   width: 1.5px;
   background-color: var(--color-raw-c3c4c8);
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Rail segment: ctaBottomLine (y=724px) through social links (y=1059px) */
-.railFooterLeft {
-  position: absolute;
-  left: 64px;
-  top: 880px;
-  height: 170px;
-  width: 1.5px;
-  background-color: var(--color-raw-c3c4c8);
-  pointer-events: none;
-  z-index: 5;
-}
-
-.railFooterRight {
-  position: absolute;
-  right: 64px;
-  left: auto;
-  top: 880px;
-  height: 170px;
-  width: 1.5px;
-  background-color: var(--color-raw-c3c4c8);
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Fade segment: starts at "Our Services" level (~1050px), fades to transparent */
-.railFadeLeft {
-  position: absolute;
-  left: 64px;
-  top: 1050px;
-  height: 160px;
-  width: 1.5px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-raw-c3c4c8),
-    rgba(195, 196, 200, 0)
-  );
-  pointer-events: none;
-  z-index: 5;
-}
-
-.railFadeRight {
-  position: absolute;
-  right: 64px;
-  left: auto;
-  top: 1050px;
-  height: 160px;
-  width: 1.5px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-raw-c3c4c8),
-    rgba(195, 196, 200, 0)
-  );
   pointer-events: none;
   z-index: 5;
 }
@@ -377,230 +321,6 @@
 
 .learnMoreLink:hover {
   text-decoration: underline;
-}
-
-/* Horizontal Divider line below CTA at y = 724px */
-.ctaBottomLine {
-  position: absolute;
-  left: 64px;
-  right: 64px;
-  top: 724px;
-  width: auto;
-  height: 1px;
-  background-color: var(--color-raw-c3c4c8);
-  pointer-events: none;
-}
-
-/* ==========================================================================
-   D. Footer Links (Full Width Grid)
-   ========================================================================== */
-.footerLinks {
-  position: absolute;
-  left: 108px;
-  right: 108px;
-  top: 785px;
-  width: auto;
-  height: 220px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.footerCol {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.companyCol {
-  width: 240px;
-}
-
-.partnersCol {
-  width: 240px;
-}
-
-.contactCol {
-  width: 320px;
-}
-
-.colTitle {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: var(--color-raw-2c2a);
-  text-transform: uppercase;
-  margin: 0 0 18px 0;
-}
-
-.linkList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.footerLink {
-  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  color: var(--color-raw-807f);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.footerLink:hover {
-  color: var(--color-raw-2c2a);
-}
-
-.contactList {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.contactItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  color: var(--color-raw-807f);
-}
-
-.contactIcon {
-  width: 16px;
-  height: 13px;
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.contactIconLocation {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.contactLink {
-  color: var(--color-raw-807f);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.contactLink:hover {
-  color: var(--color-raw-2c2a);
-}
-
-.addressText {
-  max-width: 220px;
-  line-height: 21px;
-}
-
-/* ==========================================================================
-   E. Social Links, Copyright & Description (y = 1059px)
-   ========================================================================== */
-.socialLinks {
-  position: absolute;
-  left: 108px;
-  top: 1059px;
-  width: 158px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 5;
-}
-
-.socialIconBtn {
-  color: var(--color-raw-2c2a);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-  text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.15s ease;
-}
-
-.socialIconBtn:hover {
-  opacity: 0.7;
-  transform: translateY(-1px);
-}
-
-.socialIconImg {
-  display: block;
-}
-
-.socialIcons {
-  position: absolute;
-  left: 108px;
-  top: 1059px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.copyrightText {
-  position: absolute;
-  left: 108px;
-  top: 1106px;
-  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.4;
-  color: var(--color-raw-807f);
-  margin: 0;
-  z-index: 5;
-}
-
-.footerDescription {
-  position: absolute;
-  left: 108px;
-  right: 108px;
-  top: 1140px;
-  width: auto;
-  max-width: 720px;
-  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 21px;
-  color: var(--color-raw-807f);
-  margin: 0;
-  z-index: 5;
-}
-
-/* ==========================================================================
-   F. Oversized Outlined Wordmark (Full Viewport Width)
-   ========================================================================== */
-.outlinedWordmark {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 1140px;
-  height: 361px;
-  font-family: var(--font-display);
-  font-size: clamp(160px, 21.1vw, 304px);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(195, 196, 200, 0.45);
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 /* ==========================================================================
@@ -770,95 +490,5 @@
     font-weight: 500;
     color: #111111;
     text-decoration: underline;
-  }
-
-  .footerLinks {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px 16px;
-    margin-bottom: 24px;
-  }
-
-  .desktopOnlyLink {
-    display: none;
-  }
-
-  .footerCol {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  .companyCol,
-  .partnersCol {
-    width: 100%;
-  }
-
-  .contactCol {
-    grid-column: 1 / -1;
-    width: 100%;
-  }
-
-  .addressText {
-    max-width: 100% !important;
-  }
-
-  .colTitle {
-    font-size: 14px;
-    margin-bottom: 14px;
-  }
-
-  .footerLink {
-    font-size: 13.5px;
-  }
-
-  .socialLinks {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    width: auto !important;
-    height: auto !important;
-    margin-top: 16px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: flex-start;
-  }
-
-  .copyrightText {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-
-  .footerDescription {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 30px;
-  }
-
-  .outlinedWordmark {
-    position: static;
-    left: auto;
-    top: auto;
-    width: 100%;
-    height: auto;
-    font-size: clamp(60px, 18vw, 90px);
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
   }
 }

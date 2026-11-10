@@ -33,42 +33,42 @@ const BENEFITS_DATA: BenefitBox[] = [
     id: 'multi-platform',
     title: 'Multi-Platform Access',
     description:
-      'Work with Swiggy, Zomato, Amazon, Blinkit, Zepto, Flipkart, BookMyShow and more through one partnership.',
+      'Work with Swiggy, Zomato, Amazon, Blinkit, Zepto, Flipkart, BookMyShow and more — all through a single DropyHub partnership. No more single-company dependency.',
     iconSrc: '/assets/About/energy-icons_monitor-20-bold.svg',
   },
   {
     id: 'weekly-pay',
     title: 'Guaranteed Weekly Pay',
     description:
-      'Performance bonuses are credited every Monday and base salary is paid monthly with complete transparency.',
+      'Your performance bonus is credited every Monday — no delay, no excuse. Base salary is paid monthly with full transparency on every rupee you earn.',
     iconSrc: '/assets/About/fluent_money-20-regular.svg',
+  },
+  {
+    id: 'safe-housing',
+    title: 'Safe Accommodations',
+    description:
+      'DropyHub provides free accommodation with quality food and comfortable sleeping facilities, ensuring our delivery partners feel safe, supported, and cared for.',
+    iconSrc: '/assets/About/energy-icons_hotel-20.svg',
   },
   {
     id: 'safety-net',
     title: 'Financial Safety Net',
     description:
-      'Loans up to ₹10 lakhs through professional, licensed lending from our NBFC partnerships.',
+      'Loans up to ₹10 Lakhs for any purpose. No moneylenders, no informal borrowing. Professional, licensed lending through our NBFC partnerships.',
     iconSrc: '/assets/About/carbon_currency-rupee.svg',
   },
   {
     id: 'ev-vehicle',
     title: 'Vehicle Without Ownership',
     description:
-      'Start earning without owning a vehicle. Rentals include maintenance, insurance and repairs.',
+      'Start earning on day one even if you do not own a vehicle. Our affordable rental programme handles everything — maintenance, insurance, and repairs.',
     iconSrc: '/assets/About/energy-icons_cargo-bike-48.svg',
-  },
-  {
-    id: 'safe-housing',
-    title: 'Safe Accommodation',
-    description:
-      'Quality food and comfortable sleeping facilities help our partners feel safe and supported.',
-    iconSrc: '/assets/About/energy-icons_hotel-20.svg',
   },
   {
     id: 'respect',
     title: 'Recognition & Respect',
     description:
-      'Monthly Star Awards, special prizes, annual ceremonies and a leadership career track celebrate hard work.',
+      'Monthly Star Awards, SRH TATA IPL edition prizes, annual ceremonies, and a leadership career track. At DropyHub, your hard work is always seen and celebrated.',
     iconSrc: '/assets/About/hugeicons_identity-card.svg',
   },
 ];

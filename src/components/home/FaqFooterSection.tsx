@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Footer from "@/components/layout/Footer";
 import styles from "./FaqFooterSection.module.css";
 
 interface FaqItem {
@@ -47,7 +47,8 @@ export const FaqFooterSection: React.FC = () => {
   };
 
   return (
-    <section className={styles.section} aria-label="FAQ, Signup and Footer">
+    <>
+      <section className={styles.section} aria-label="FAQ and Signup">
       {/* ==================================================================
           B. Full-Width FAQ Divider Band (y = 446px, h = 43px)
           ================================================================== */}
@@ -84,15 +85,11 @@ export const FaqFooterSection: React.FC = () => {
       </div>
 
       <div className={styles.container}>
-        {/* Continuous desktop rails across FAQ, CTA, and Footer */}
+        {/* Continuous desktop rails across FAQ and CTA */}
         <div className={styles.railFaqLeft} aria-hidden="true" />
         <div className={styles.railFaqRight} aria-hidden="true" />
         <div className={styles.railCtaLeft} aria-hidden="true" />
         <div className={styles.railCtaRight} aria-hidden="true" />
-        <div className={styles.railFooterLeft} aria-hidden="true" />
-        <div className={styles.railFooterRight} aria-hidden="true" />
-        <div className={styles.railFadeLeft} aria-hidden="true" />
-        <div className={styles.railFadeRight} aria-hidden="true" />
 
         {/* ================================================================
             A. FAQ Section
@@ -170,207 +167,12 @@ export const FaqFooterSection: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Horizontal Divider Line below CTA at y = 724px */}
-        <div className={styles.ctaBottomLine} aria-hidden="true" />
-
-        {/* ================================================================
-            D. Footer Links (y = 785px)
-            ================================================================ */}
-        <div className={styles.footerLinks}>
-          {/* Company */}
-          <div className={`${styles.footerCol} ${styles.companyCol}`}>
-            <h4 className={styles.colTitle}>Company</h4>
-            <ul className={styles.linkList}>
-              <li>
-                <Link href="/about" className={styles.footerLink}>
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link href="/warehouse" className={styles.footerLink}>
-                  Wearhouse
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className={styles.footerLink}>
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#how-it-works" className={styles.footerLink}>
-                  How it work
-                </Link>
-              </li>
-              <li className={styles.desktopOnlyLink}>
-                <Link href="/benefits" className={styles.footerLink}>
-                  Benefits
-                </Link>
-              </li>
-              <li className={styles.desktopOnlyLink}>
-                <Link href="/partnership" className={styles.footerLink}>
-                  SRH Partnership
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* For Partners */}
-          <div className={`${styles.footerCol} ${styles.partnersCol}`}>
-            <h4 className={styles.colTitle}>For Partners</h4>
-            <ul className={styles.linkList}>
-              <li>
-                <Link href="/apply" className={styles.footerLink}>
-                  Apply Now
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className={styles.footerLink}>
-                  Vehicle Rental
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className={styles.footerLink}>
-                  Financial Loan
-                </Link>
-              </li>
-              <li>
-                <Link href="/benefits" className={styles.footerLink}>
-                  Weekly bonuses
-                </Link>
-              </li>
-              <li className={styles.desktopOnlyLink}>
-                <Link href="/benefits" className={styles.footerLink}>
-                  IT Training
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className={`${styles.footerCol} ${styles.contactCol}`}>
-            <h4 className={styles.colTitle}>Contact</h4>
-            <ul className={styles.contactList}>
-              <li className={styles.contactItem}>
-                <Image
-                  src="/assets/footer/mail.svg"
-                  alt=""
-                  width={16}
-                  height={13}
-                  className={styles.contactIcon}
-                  aria-hidden="true"
-                />
-                <a href="mailto:contact@dropyhub.com" className={styles.contactLink}>
-                  contact@dropyhub.com
-                </a>
-              </li>
-              <li className={styles.contactItem}>
-                <Image
-                  src="/assets/footer/location.svg"
-                  alt=""
-                  width={18}
-                  height={18}
-                  className={styles.contactIconLocation}
-                  aria-hidden="true"
-                />
-                <span className={styles.addressText}>
-                  3rd Floor, plot no. 11, Sector 3, HUDA Techno Enclave, Madhapur, Hyderabad,
-                  Telangana 500081
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* ================================================================
-            E. Social Links, Copyright & Footer Description
-            ================================================================ */}
-        <div className={styles.socialLinks}>
-          {/* YouTube */}
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialIconBtn}
-            aria-label="YouTube"
-          >
-            <Image
-              src="/assets/footer/youtube.svg"
-              alt="YouTube"
-              width={20}
-              height={14}
-              className={styles.socialIconImg}
-            />
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/dropy_hub"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialIconBtn}
-            aria-label="Instagram"
-          >
-            <Image
-              src="/assets/footer/insta.svg"
-              alt="Instagram"
-              width={20}
-              height={20}
-              className={styles.socialIconImg}
-            />
-          </a>
-
-          {/* Facebook */}
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialIconBtn}
-            aria-label="Facebook"
-          >
-            <Image
-              src="/assets/footer/facebook.svg"
-              alt="Facebook"
-              width={11}
-              height={19}
-              className={styles.socialIconImg}
-            />
-          </a>
-
-          {/* Twitter / X */}
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialIconBtn}
-            aria-label="Twitter"
-          >
-            <Image
-              src="/assets/footer/twitter.svg"
-              alt="Twitter"
-              width={21}
-              height={17}
-              className={styles.socialIconImg}
-            />
-          </a>
-        </div>
-
-        <p className={styles.copyrightText}>&copy; 2026 DropyHub. All rights reserved.</p>
-
-        <p className={styles.footerDescription}>
-          India&apos;s premier delivery partner platform - empowering executives with zero
-          registration fee, career growth, and financial support.
-        </p>
-
-      </div>
-
-      {/* ================================================================
-          F. Full Viewport Width Oversized Outlined Wordmark (y = 1140px)
-          ================================================================ */}
-      <div className={styles.outlinedWordmark} aria-hidden="true">
-        Dropyhub
       </div>
     </section>
+
+    {/* Shared Global Footer (Used identically across all internal pages) */}
+    <Footer showRails={true} showTopDivider={true} />
+    </>
   );
 };
 

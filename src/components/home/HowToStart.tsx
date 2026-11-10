@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./HowToStart.module.css";
 
@@ -53,11 +53,11 @@ const STEPS_DATA: StepItem[] = [
     title: "Complete verification",
     contentTitle: "Complete verification",
     description:
-      "Submit your KYC documents swiftly online or in person at our local hub. Our streamlined verification process ensures you are fully approved within 24 to 48 hours.",
+      "We guide you through the required documents and onboarding steps, so you know what is needed before you begin.",
     bullets: [
-      "Aadhaar card & PAN card submission",
-      "Valid driving licence verification",
-      "Quick background check & swift approval",
+      "Submit required identity and driving documents",
+      "Complete the onboarding checks",
+      "Get clarity on your role and expectations",
     ],
     imageSrc: "/assets/Home/verification.png",
     imageAlt: "Verification and document approval",
@@ -89,11 +89,11 @@ const STEPS_DATA: StepItem[] = [
     title: "Get the right setup",
     contentTitle: "Get the right setup",
     description:
-      "Collect your official DropyHub partner kit including branded gear, delivery bag, and choose your preferred vehicle rental or bring your own vehicle.",
+      "Need a vehicle or a place to stay? Explore the support available to eligible partners and find a setup that works for you.",
     bullets: [
-      "Branded delivery kit & safety gear",
-      "EV scooter or petrol bike rental options",
-      "Delivery partner app setup & orientation",
+      "Explore available bike rental options",
+      "Ask about accommodation support",
+      "Understand applicable terms and costs",
     ],
     imageSrc: "/assets/Home/right_setup.png",
     imageAlt: "Vehicle rental and partner kit setup",
@@ -119,11 +119,11 @@ const STEPS_DATA: StepItem[] = [
     title: "Prepare for your first ride",
     contentTitle: "Prepare for your first ride",
     description:
-      "Go through a quick safety briefing and navigation tutorial. Our local hub managers and experienced mentors guide you through your initial deliveries with confidence.",
+      "Get familiar with the delivery platform, safety basics and the day-to-day process before heading out.",
     bullets: [
-      "Partner app tutorial & route navigation",
-      "Safety protocols & delivery standards",
-      "Dedicated hub mentor guidance",
+      "Understand app and order workflows",
+      "Review road safety and operating guidelines",
+      "Know where to go for help",
     ],
     imageSrc: "/assets/Home/first_ride.png",
     imageAlt: "Rider briefing and first ride preparation",
@@ -156,11 +156,11 @@ const STEPS_DATA: StepItem[] = [
     title: "Deliver. Earn. Grow.",
     contentTitle: "Deliver. Earn. Grow.",
     description:
-      "Start accepting high-volume orders across leading delivery platforms. Receive reliable weekly bank payouts, earn surge bonuses, and unlock low-interest financial loans.",
+      "Start delivering with access to the support and partner benefits available through DropyHub. Keep building your experience and explore opportunities to grow.",
     bullets: [
-      "Multi-platform delivery flexibility",
-      "Direct bank payouts every Monday",
-      "Weekly bonuses, awards & career growth",
+      "Start accepting eligible delivery work",
+      "Get help when you need it",
+      "Explore bonuses, recognition and growth programmes when available",
     ],
     imageSrc: "/assets/Home/deliver.png",
     imageAlt: "Earning and delivering with DropyHub",
@@ -182,11 +182,29 @@ const STEPS_DATA: StepItem[] = [
 
 export const HowToStart: React.FC = () => {
   const [activeStepId, setActiveStepId] = useState<string>("join");
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveStepId((currentId) => {
+        const currentIndex = STEPS_DATA.findIndex((s) => s.id === currentId);
+        const nextIndex = (currentIndex + 1) % STEPS_DATA.length;
+        return STEPS_DATA[nextIndex].id;
+      });
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const activeStep = STEPS_DATA.find((s) => s.id === activeStepId) || STEPS_DATA[0];
 
   return (
-    <div className={styles.howToStartContainer} aria-label="How to Start Onboarding">
+    <div
+      className={styles.howToStartContainer}
+      aria-label="How to Start Onboarding"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Left Column: Eyebrow, Heading, Description */}
       <div className={styles.leftColumn}>
         <span className={styles.eyebrow}>
@@ -210,6 +228,7 @@ export const HowToStart: React.FC = () => {
               role="tab"
               aria-selected={isSelected}
               onClick={() => setActiveStepId(step.id)}
+              onMouseEnter={() => setActiveStepId(step.id)}
               className={`${styles.stepButton} ${isSelected ? styles.stepButtonActive : ""}`}
             >
               <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>

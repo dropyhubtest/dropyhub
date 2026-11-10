@@ -186,48 +186,62 @@
    ========================================================================== */
 .card {
   position: absolute;
-  width: min(600px, calc(50% - 120px));
-  height: 146px;
-  border-radius: 12px;
   background-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
+  padding: 16px 24px;
+  border-radius: 12px;
+  transition: background-color 0.25s ease;
+  cursor: default;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.055);
 }
 
 /* Card Positions */
 .cardR1C1 {
+  left: 76px;
   right: calc(50% + 12px);
-  left: auto;
-  top: 393px;
+  top: 391px;
+  height: 150px;
 }
 
 .cardR1C2 {
   left: calc(50% + 12px);
-  top: 393px;
+  right: 76px;
+  top: 391px;
+  height: 150px;
 }
 
 .cardR2C1 {
+  left: 76px;
   right: calc(50% + 12px);
-  left: auto;
-  top: 562px;
+  top: 561px;
+  height: 148px;
 }
 
 .cardR2C2 {
   left: calc(50% + 12px);
-  top: 562px;
+  right: 76px;
+  top: 561px;
+  height: 148px;
 }
 
 .cardR3C1 {
+  left: 76px;
   right: calc(50% + 12px);
-  left: auto;
-  top: 731px;
+  top: 729px;
+  height: 161px;
 }
 
 .cardR3C2 {
   left: calc(50% + 12px);
-  top: 731px;
+  right: 76px;
+  top: 729px;
+  height: 161px;
 }
 
 /* Icon Tile: 130 × 86px, #565555 background, 1px border-radius */

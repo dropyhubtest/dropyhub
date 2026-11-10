@@ -345,19 +345,19 @@
    ========================================================================== */
 .testimonialsComponent {
   position: absolute;
-  left: 108px;
-  right: 108px;
-  top: 668px;
+  left: 64px;
+  right: 64px;
+  top: 735px;
   width: auto;
-  height: 380px;
+  height: 330px;
   background-color: transparent;
   overflow: visible;
 }
 
 .testimonialsCategoryLabel {
   position: absolute;
-  left: 0;
-  top: 14px;
+  left: 44px;
+  top: 18px;
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 600;
@@ -368,10 +368,10 @@
 
 .quoteSliderViewport {
   position: absolute;
-  left: 335px;
-  right: 56px;
+  left: 360px;
+  right: 60px;
   width: auto;
-  height: 330px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -403,7 +403,7 @@
 
 .navArrowBtn {
   position: absolute;
-  top: 130px;
+  top: 125px;
   width: 32px;
   height: 32px;
   border: none;
@@ -428,7 +428,7 @@
 }
 
 .leftArrow {
-  left: 275px;
+  left: 310px;
   transform: rotate(180deg);
 }
 
@@ -441,7 +441,7 @@
 }
 
 .rightArrow {
-  right: 6px;
+  right: 12px;
   left: auto;
 }
 

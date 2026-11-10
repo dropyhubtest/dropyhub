@@ -141,7 +141,8 @@
 }
 
 .topDividerLine {
-  width: 100%;
+  margin-left: -44px;
+  width: calc(100% + 88px);
   height: 1px;
   background-color: #2e2e2e;
 }
@@ -225,7 +226,8 @@
 }
 
 .bottomDividerLine {
-  width: 100%;
+  margin-left: -44px;
+  width: calc(100% + 88px);
   height: 1px;
   background-color: #2e2e2e;
 }
@@ -385,6 +387,12 @@
     width: 100%;
     padding: 24px 16px;
     box-sizing: border-box;
+  }
+
+  .topDividerLine,
+  .bottomDividerLine {
+    margin-left: 0;
+    width: 100%;
   }
 
   .twoColumnGrid {
