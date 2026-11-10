@@ -59,7 +59,7 @@ const STEPS_DATA: StepItem[] = [
       "Valid driving licence verification",
       "Quick background check & swift approval",
     ],
-    imageSrc: "/assets/About/image-102.png",
+    imageSrc: "/assets/Home/verification.png",
     imageAlt: "Verification and document approval",
     icon: (className) => (
       <svg
@@ -95,7 +95,7 @@ const STEPS_DATA: StepItem[] = [
       "EV scooter or petrol bike rental options",
       "Delivery partner app setup & orientation",
     ],
-    imageSrc: "/assets/About/image-102.png",
+    imageSrc: "/assets/Home/right_setup.png",
     imageAlt: "Vehicle rental and partner kit setup",
     icon: (className) => (
       <svg
@@ -125,7 +125,7 @@ const STEPS_DATA: StepItem[] = [
       "Safety protocols & delivery standards",
       "Dedicated hub mentor guidance",
     ],
-    imageSrc: "/assets/About/image-102.png",
+    imageSrc: "/assets/Home/first_ride.png",
     imageAlt: "Rider briefing and first ride preparation",
     icon: (className) => (
       <svg
@@ -162,7 +162,7 @@ const STEPS_DATA: StepItem[] = [
       "Direct bank payouts every Monday",
       "Weekly bonuses, awards & career growth",
     ],
-    imageSrc: "/assets/About/image-102.png",
+    imageSrc: "/assets/Home/deliver.png",
     imageAlt: "Earning and delivering with DropyHub",
     icon: (className) => (
       <svg

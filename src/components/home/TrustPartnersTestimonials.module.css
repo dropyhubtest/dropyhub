@@ -86,7 +86,7 @@
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
-    45deg,
+    -45deg,
     transparent,
     transparent 13.5px,
     rgba(195, 196, 200, 0.5) 13.5px,
@@ -368,10 +368,10 @@
 
 .quoteSliderViewport {
   position: absolute;
-  left: 345px;
-  top: 10px;
-  width: min(660px, 46vw);
-  height: 320px;
+  left: 335px;
+  right: 56px;
+  width: auto;
+  height: 330px;
   overflow: hidden;
 }
 
@@ -428,7 +428,7 @@
 }
 
 .leftArrow {
-  left: 280px;
+  left: 275px;
   transform: rotate(180deg);
 }
 
@@ -441,7 +441,8 @@
 }
 
 .rightArrow {
-  left: min(1045px, calc(345px + min(660px, 46vw) + 24px));
+  right: 6px;
+  left: auto;
 }
 
 .navIcon {
@@ -452,9 +453,9 @@
 
 .testimonialContentArea {
   position: absolute;
-  left: 345px;
-  top: 10px;
-  width: min(660px, 46vw);
+  left: 335px;
+  right: 56px;
+  width: auto;
   display: flex;
   flex-direction: column;
   overflow: visible;
@@ -462,7 +463,7 @@
 
 .quoteText {
   font-family: var(--font-secondary), var(--font-estimator), sans-serif;
-  font-size: clamp(19px, 1.6vw, 22px);
+  font-size: clamp(21px, 1.8vw, 26px);
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.01em;
