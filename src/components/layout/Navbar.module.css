@@ -54,7 +54,7 @@
 
 .navLink {
   font-family: var(--font-body), sans-serif;
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 500;
   color: #a3a3a3;
   text-decoration: none;
@@ -91,7 +91,7 @@
   background-color: #272727;
   color: #ffffff;
   font-family: var(--font-body), sans-serif;
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-decoration: none;

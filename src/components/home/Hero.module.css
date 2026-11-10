@@ -21,12 +21,12 @@
    ========================================================================== */
 @media (min-width: 1200px) {
   .heroSection {
-    min-height: 759px;
+    min-height: 800px;
   }
 
   .heroFrame {
     width: 100%;
-    height: 759px;
+    height: 800px;
   }
 
   /* Side vertical decorative borders (Page Rails at 64px from viewport sides)
@@ -36,7 +36,7 @@
     left: 64px;
     top: 88px;
     width: 1.5px;
-    height: 671px;
+    height: 712px;
     background-color: #3e3e3e;
     z-index: 1;
     pointer-events: none;
@@ -49,12 +49,12 @@
   /* Tagline */
   .tagline {
     position: absolute;
-    left: calc(50% - 425px);
-    top: 215px;
+    left: 294px;
+    top: 212px;
     font-family: var(--font-tagline);
     font-style: italic;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 0.01em;
     color: #9797aa;
     white-space: nowrap;
@@ -72,10 +72,10 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 251px;
+    top: 250px;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(100px, 11vw, 160px);
+    font-size: 160px;
     line-height: 0.9;
     letter-spacing: -0.04em;
     white-space: nowrap;
@@ -87,10 +87,10 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 425px;
+    top: 423px;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(100px, 11vw, 160px);
+    font-size: 160px;
     line-height: 0.9;
     letter-spacing: -0.04em;
     white-space: nowrap;
@@ -116,11 +116,11 @@
     object-fit: contain;
   }
 
-  /* Sunrisers & IPL Partner Badge (Height increased for enhanced prominence) */
+  /* Sunrisers & IPL Partner Badge */
   .partnerBadge {
     position: absolute;
-    left: 108px;
-    top: 536px;
+    left: 104px;
+    top: 546px;
     display: inline-flex;
     align-items: center;
     gap: 16px;
@@ -130,8 +130,8 @@
 
   .badgeFrame {
     position: relative;
-    width: 118px;
-    height: 74px;
+    width: 116px;
+    height: 64px;
     padding: 4px;
     background-image: url("/assets/Home/SRH_bg.png");
     background-size: cover;
@@ -183,7 +183,7 @@
 
   .badgeTitle {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.2;
@@ -192,7 +192,7 @@
 
   .badgeSubtitle {
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 8.5px;
     font-weight: 400;
     color: #9c9ca4;
     line-height: 1.2;
@@ -210,13 +210,13 @@
 
   .description {
     position: absolute;
-    left: 108px;
-    top: 621px;
-    width: min(494px, 38vw);
+    left: 104px;
+    top: 620px;
+    width: 494px;
     font-family: var(--font-body);
-    font-size: 14.5px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.55;
+    line-height: 1.5;
     color: #c5c5c5;
     margin: 0;
     pointer-events: auto;
@@ -225,12 +225,12 @@
 
   .ctaGroup {
     position: absolute;
-    right: 108px;
+    right: 104px;
     left: auto;
     top: 627px;
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
     pointer-events: auto;
     z-index: 2;
   }
@@ -245,7 +245,7 @@
     background-color: #404040;
     color: #ffffff;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 0;
@@ -264,7 +264,7 @@
 
   .secondaryCta {
     font-family: var(--font-body);
-    font-size: 14.5px;
+    font-size: 16px;
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
