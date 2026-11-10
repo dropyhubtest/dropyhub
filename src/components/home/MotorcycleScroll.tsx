@@ -4,23 +4,21 @@
  * MotorcycleScroll — Master Motorcycle Animation (Precision Video-Calibrated Engine)
  *
  * Section-by-Section Precision Architecture:
- * 1. Independent Section-Triggered Transitions:
- *    - Predefined resting anchor for each section calibrated directly from reference video VID-20261030-WA0001.mp4.
- *    - Entering a new section triggers an independent, snappy GSAP transition (~0.85s, power2.out).
- *    - Once settled, the bike remains firmly locked in document space relative to that section's element.
- * 2. 100% Uniform Proportional Scale (Zero Shrinking):
- *    - Exactly uniform scale across all 9 sections (no arbitrary 0.85x multipliers).
- * 3. Document-Anchored Viewport Projection:
- *    - Coordinates tracked in document space (docX, docY) and projected onto viewport:
- *      viewportY = animState.docY - window.scrollY - BIKE_H / 2
- *    - Natural 1:1 scrolling within section cards, preventing premature departure.
- * 4. Calibrated Section Anchors:
- *    - 01. Hero: Center 50vw, ~42vh, rot: 0°
- *    - 02. Why DropyHub: Central corridor between 4 cards, rot: 0°
+ * 1. Dedicated Hero Entrance & Resting State:
+ *    - On page load, motorcycle smoothly glides down from above (1.2s, power2.out)
+ *    - Stops firmly in Hero center (docX: 50vw, docY ≈ 380px, rot: 0°).
+ *    - While at the top of the page, the bike remains firmly parked and resting in Hero.
+ * 2. Rock-Solid Continuous Section-by-Section Triggers:
+ *    - Every section has a defined, contiguous document-scroll window.
+ *    - Moving between sections triggers a crisp, snappy GSAP transition (0.75s, power2.out).
+ *    - Within each section, motorcycle moves 1:1 with document scroll, resting beside that section's content.
+ * 3. Video-Calibrated Section Anchors:
+ *    - 01. Hero: Center 50vw, upper-middle display area (~380px), rot: 0° (facing down)
+ *    - 02. Why DropyHub: Central corridor between 4 cards, rot: 0° (facing down)
  *    - 03. Estimator: Lower whitespace of results card below onboarding line, rot: -90° (facing right)
  *    - 04. About: Right column directly below intro paragraph, rot: -270° (facing left)
  *    - 05. How to Start: Corridor between steps list & photo card, rot: -360° (facing down)
- *    - 06. Innovation: Left of security checklist, level with SOS Support, rot: -450° (facing right)
+ *    - 06. Innovation: Left of security checklist, rot: -450° (facing right)
  *    - 07. Testimonials: Left column beside quotation & left arrow, rot: -360° (facing down)
  *    - 08. FAQ: Left column centered under "Common Questions", rot: -360° (facing down)
  *    - 09. Footer: Over outlined "Dropyhub" wordmark, rot: -450° (facing right)
@@ -35,7 +33,7 @@ import styles from './MotorcycleScroll.module.css';
 const BIKE_W = 262.55;
 const BIKE_H = 393.83;
 const BASE_VIEWPORT_W = 1600;
-const CALIBRATED_WIDTH_1600 = 280; // Increased bike size across every section (280px at 1600px viewport)
+const CALIBRATED_WIDTH_1600 = 280; // 280px bike width at 1600px viewport
 
 export interface StateAnchor {
   docX: number;
@@ -65,7 +63,9 @@ export const MotorcycleScroll: React.FC = () => {
     const glow     = glowRef.current;
     if (!entry || !assembly || !glow) return;
 
+    let entranceTween: gsap.core.Tween | null = null;
     let transitionTween: gsap.core.Tween | null = null;
+    let entrancePending = true;
 
     function getBaseScale(): number {
       const vw = window.innerWidth;
@@ -79,10 +79,10 @@ export const MotorcycleScroll: React.FC = () => {
       const scrollY = window.scrollY;
       const centerX = vw / 2;
 
-      // 01. Hero — off-screen above canvas so Hero remains pristine matching video
+      // 01. Hero — centered horizontally, upper-middle display area
       const heroAnchor: StateAnchor = {
         docX: centerX,
-        docY: -700,
+        docY: Math.min(vh * 0.46, 380),
         rotation: 0,
       };
 
@@ -90,7 +90,7 @@ export const MotorcycleScroll: React.FC = () => {
       const whyContainer = document.querySelector('[class*="whySectionContainer"]');
       const leftCol = document.querySelector('[class*="cardsColumnLeft"]');
       const rightCol = document.querySelector('[class*="cardsColumnRight"]');
-      let whyDocY = 1298;
+      let whyDocY = 1315;
       let whyDocX = centerX;
       if (leftCol && rightCol) {
         const lR = leftCol.getBoundingClientRect();
@@ -116,15 +116,15 @@ export const MotorcycleScroll: React.FC = () => {
       const panel = document.querySelector('[class*="rightColumn"]');
       const note = document.querySelector('[class*="supportingText"]');
       let estDocX = centerX + 260;
-      let estDocY = 2410;
+      let estDocY = 2370;
       if (panel) {
         const pR = panel.getBoundingClientRect();
-        estDocX = pR.left + pR.width * 0.54;
+        estDocX = pR.left + pR.width * 0.52;
         if (note) {
           const nR = note.getBoundingClientRect();
-          estDocY = nR.bottom + scrollY + 138;
+          estDocY = nR.bottom + scrollY + 115;
         } else {
-          estDocY = pR.top + scrollY + pR.height * 0.98;
+          estDocY = pR.top + scrollY + pR.height * 0.88;
         }
       }
       const estimatorAnchor: StateAnchor = {
@@ -133,26 +133,26 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -90, // Facing horizontal right
       };
 
-      // 04. About DropyHub — right side tilted diagonally up-left matching video
+      // 04. About DropyHub — right side directly below intro paragraph
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
       let aboutDocX = centerX + 260;
       let aboutDocY = 2760;
       if (desc) {
         const dR = desc.getBoundingClientRect();
         aboutDocX = dR.left + dR.width / 2;
-        aboutDocY = dR.bottom + scrollY + 95;
+        aboutDocY = dR.bottom + scrollY + 115;
       }
       const aboutAnchor: StateAnchor = {
         docX: aboutDocX,
         docY: aboutDocY,
-        rotation: -225, // Tilted diagonally up-left matching ref_04_about_18s.png
+        rotation: -270, // Facing horizontal left
       };
 
       // 05. How to Start — central corridor between steps list & photo panel
       const steps = document.querySelector('[class*="stepsList"]');
       const howPanel = document.querySelector('[class*="rightPanel"]');
       let howDocX = centerX - 120;
-      let howDocY = 3650;
+      let howDocY = 3680;
       if (steps && howPanel) {
         const stepR = steps.getBoundingClientRect();
         const pR2 = howPanel.getBoundingClientRect();
@@ -184,11 +184,11 @@ export const MotorcycleScroll: React.FC = () => {
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
       let testDocX = 230;
-      let testDocY = 4850;
+      let testDocY = 4880;
       if (comp) {
         const compR = comp.getBoundingClientRect();
-        testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 60) : (compR.left + 185);
-        testDocY = compR.top + scrollY + 215;
+        testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 60) : (compR.left + 160);
+        testDocY = compR.top + scrollY + 180;
       }
       const testimonialsAnchor: StateAnchor = {
         docX: testDocX,
@@ -199,11 +199,11 @@ export const MotorcycleScroll: React.FC = () => {
       // 08. FAQ — left column centered under "Common Questions"
       const title = document.querySelector('[class*="faqHeading"], [class*="faqTitle"]');
       let faqDocX = 310;
-      let faqDocY = 5420;
+      let faqDocY = 5400;
       if (title) {
         const tR = title.getBoundingClientRect();
         faqDocX = tR.left + tR.width / 2;
-        faqDocY = tR.bottom + scrollY + 215;
+        faqDocY = tR.bottom + scrollY + 180;
       }
       const faqAnchor: StateAnchor = {
         docX: faqDocX,
@@ -239,35 +239,54 @@ export const MotorcycleScroll: React.FC = () => {
       };
     }
 
-    // Resolves current active section based on actual section viewport presence
-    // When a section commands ~55-65% of the viewport, the bike transitions smoothly into it
-    function getActiveSection(): string {
+    // Resolves current active section state based on DOM scroll position
+    function getActiveSection(scrollY: number): string {
       const vh = window.innerHeight;
-      const scrollY = window.scrollY;
 
-      // When at the very top of Hero, keep bike parked offscreen above
-      if (scrollY < 80) return 'hero';
-
-      const footEl = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
-      const faqEl = document.querySelector('[class*="faqHeading"], [class*="faqTitle"], [class*="faqDividerBand"]');
-      const testEl = document.querySelector('[class*="testimonialsComponent"]');
-      const innovEl = document.querySelector('[class*="innovationEyebrow"], [class*="securityChecklist"]');
-      const howStartEl = document.querySelector('[class*="howToStartContainer"], [class*="stepsList"]');
-      const aboutEl = document.querySelector('[class*="aboutSection"]');
-      const estEl = document.querySelector('[class*="estimatorSection"]');
       const whyEl = document.querySelector('[class*="whySectionContainer"], [class*="sectionWrapper"]');
+      const estEl = document.querySelector('[class*="estimatorSection"]');
+      const aboutEl = document.querySelector('[class*="aboutSection"]');
+      const howStartEl = document.querySelector('[class*="howToStartContainer"], [class*="stepsList"]');
+      const innovEl = document.querySelector('[class*="innovationEyebrow"], [class*="securityChecklist"]');
+      const testEl = document.querySelector('[class*="testimonialsComponent"]');
+      const faqEl = document.querySelector('[class*="faqHeading"], [class*="faqTitle"]');
+      const footEl = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
 
-      // Evaluated bottom-to-top so the latest entering section claims the bike
-      if (footEl && footEl.getBoundingClientRect().top <= vh * 0.72) return 'footer';
-      if (faqEl && faqEl.getBoundingClientRect().top <= vh * 0.58) return 'faq';
-      if (testEl && testEl.getBoundingClientRect().top <= vh * 0.58) return 'testimonials';
-      if (innovEl && innovEl.getBoundingClientRect().top <= vh * 0.68) return 'innovation';
-      if (howStartEl && howStartEl.getBoundingClientRect().top <= vh * 0.68) return 'howToStart';
-      if (aboutEl && aboutEl.getBoundingClientRect().top <= vh * 0.55) return 'about';
-      if (estEl && estEl.getBoundingClientRect().top <= vh * 0.58) return 'estimator';
-      if (whyEl && whyEl.getBoundingClientRect().top <= vh * 0.60) return 'why';
+      const whyTop = whyEl ? (whyEl.getBoundingClientRect().top + scrollY) : 978;
+      const estTop = estEl ? (estEl.getBoundingClientRect().top + scrollY) : 1672;
+      const aboutTop = aboutEl ? (aboutEl.getBoundingClientRect().top + scrollY) : 2497;
+      const howTop = howStartEl ? (howStartEl.getBoundingClientRect().top + scrollY) : 3446;
+      const innovTop = innovEl ? (innovEl.getBoundingClientRect().top + scrollY) : 4137;
+      const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4728;
+      const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5184;
+      const footTop = footEl ? (footEl.getBoundingClientRect().top + scrollY) : 6000;
 
-      return 'hero';
+      // 01. Hero: active from top of page until user scrolls down towards Why section
+      if (scrollY < whyTop - vh * 0.65) return 'hero';
+
+      // 02. Why DropyHub: active while viewing Why feature cards
+      if (scrollY < estTop - vh * 0.55) return 'why';
+
+      // 03. Estimator: active while viewing earnings estimator
+      if (scrollY < aboutTop - vh * 0.52) return 'estimator';
+
+      // 04. About: active while viewing About intro & 6 value cards
+      if (scrollY < howTop - vh * 0.58) return 'about';
+
+      // 05. How to Start: active while viewing onboarding steps
+      if (scrollY < innovTop - vh * 0.58) return 'howToStart';
+
+      // 06. Innovation: active while viewing security checklist
+      if (scrollY < testTop - vh * 0.55) return 'innovation';
+
+      // 07. Testimonials: active while viewing testimonials carousel
+      if (scrollY < faqTop - vh * 0.55) return 'testimonials';
+
+      // 08. FAQ: active while viewing FAQ accordion questions
+      if (scrollY < footTop - vh * 0.60) return 'faq';
+
+      // 09. Footer: active at page bottom
+      return 'footer';
     }
 
     // Current state machine tracking
@@ -276,13 +295,13 @@ export const MotorcycleScroll: React.FC = () => {
     // Current animated physics state (in document space)
     const animState = {
       docX: window.innerWidth / 2,
-      docY: window.innerHeight * 0.42,
+      docY: window.innerHeight * 0.44,
       rotation: 0,
     };
 
     /**
      * Dedicated GSAP transition to target section state
-     * Provides snappy, elegant movement (~0.85s) matching the reference video.
+     * Snappy, polished movement (0.75s, power2.out).
      */
     function transitionTo(targetSectionName: string) {
       const anchors = getAnchors();
@@ -294,12 +313,11 @@ export const MotorcycleScroll: React.FC = () => {
         transitionTween = null;
       }
 
-      // Snappy, video-calibrated transition duration (0.90s, 5% faster) with crisp power2.out deceleration
       transitionTween = gsap.to(animState, {
         docX: targetAnchor.docX,
         docY: targetAnchor.docY,
         rotation: targetAnchor.rotation,
-        duration: 0.90,
+        duration: 0.75,
         ease: 'power2.out',
         overwrite: 'auto',
       });
@@ -309,12 +327,10 @@ export const MotorcycleScroll: React.FC = () => {
      * Render Frame
      * Runs on every RAF tick (via gsap.ticker) at display refresh rate.
      * Projects document coordinates (animState.docX, animState.docY) into viewport coordinates.
-     * While resting in any section, the motorcycle naturally moves 1:1 with the page scroll.
      */
     function renderFrame() {
       const baseScale = getBaseScale();
 
-      // Project document space coordinates to current viewport coordinates
       const currentViewportX = animState.docX - BIKE_W / 2;
       const currentViewportY = animState.docY - window.scrollY - BIKE_H / 2;
 
@@ -322,13 +338,15 @@ export const MotorcycleScroll: React.FC = () => {
         x: currentViewportX,
         y: currentViewportY,
         rotation: animState.rotation,
-        scale: baseScale, // 100% UNIFORM PROPORTIONAL SCALE ACROSS ALL SECTIONS
+        scale: baseScale,
         transformOrigin: '50% 50%',
       });
     }
 
     function onScroll() {
-      const active = getActiveSection();
+      if (entrancePending) return;
+
+      const active = getActiveSection(window.scrollY);
       if (active !== currentSection) {
         currentSection = active;
         transitionTo(active);
@@ -346,26 +364,76 @@ export const MotorcycleScroll: React.FC = () => {
     }
 
     function init() {
-      gsap.set(entry, { y: 0 });
-      gsap.set(glow, { opacity: 1 });
+      const currentScroll = window.scrollY;
 
-      currentSection = getActiveSection();
+      // Deep-scroll refresh (> 100px): skip entrance animation
+      if (currentScroll > 100) {
+        entrancePending = false;
+        gsap.set(entry, { y: 0 });
+
+        currentSection = getActiveSection(currentScroll);
+        const anchors = getAnchors();
+        const initialAnchor = anchors[currentSection] || anchors.hero;
+
+        animState.docX = initialAnchor.docX;
+        animState.docY = initialAnchor.docY;
+        animState.rotation = initialAnchor.rotation;
+
+        gsap.set(glow, { opacity: 1 });
+        renderFrame();
+        gsap.ticker.add(renderFrame);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+        return;
+      }
+
+      // Fresh page load: set initial placement off-screen above
       const anchors = getAnchors();
-      const initialAnchor = anchors[currentSection] || anchors.hero;
+      const heroTarget = anchors.hero;
+      animState.docX = heroTarget.docX;
+      animState.docY = heroTarget.docY;
+      animState.rotation = heroTarget.rotation;
 
-      animState.docX = initialAnchor.docX;
-      animState.docY = initialAnchor.docY;
-      animState.rotation = initialAnchor.rotation;
-
+      gsap.set(entry, { y: -700 });
+      gsap.set(glow, { opacity: 1 });
       renderFrame();
+
       gsap.ticker.add(renderFrame);
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onResize);
+
+      // Handle user scroll during entrance: allow natural entrance without snapping
+      const onScrollInterrupt = () => {
+        if (window.scrollY > 80 && entrancePending) {
+          window.removeEventListener('scroll', onScrollInterrupt);
+          if (entranceTween) {
+            entranceTween.kill();
+            entranceTween = null;
+          }
+          entrancePending = false;
+          gsap.set(entry, { y: 0 });
+          onScroll();
+        }
+      };
+      window.addEventListener('scroll', onScrollInterrupt, { passive: true });
+
+      // Hero Entrance: Wait 0.3s, then 1.2s smooth downward glide arriving and STOPPING in Hero
+      entranceTween = gsap.to(entry, {
+        y: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: 'power2.out',
+        onComplete: () => {
+          entrancePending = false;
+          window.removeEventListener('scroll', onScrollInterrupt);
+        },
+      });
     }
 
     init();
 
     return () => {
+      if (entranceTween) entranceTween.kill();
       if (transitionTween) transitionTween.kill();
       gsap.ticker.remove(renderFrame);
       window.removeEventListener('scroll', onScroll);
