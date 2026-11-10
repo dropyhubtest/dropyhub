@@ -81,34 +81,32 @@ export const MotorcycleScroll: React.FC = () => {
       const scrollY = window.scrollY;
       const centerX = vw / 2;
 
-      // 01. Hero
+      // 01. Hero — centered horizontally, upper-middle display text
       const heroAnchor: StateAnchor = {
         docX: centerX,
-        docY: vh * 0.42,
+        docY: Math.min(vh * 0.44, 375),
         rotation: 0,
       };
 
-      // 02. Why DropyHub — center corridor between the 4 desktop cards
+      // 02. Why DropyHub — center corridor between the 4 feature cards
+      const whyContainer = document.querySelector('[class*="whySectionContainer"]');
       const leftCol = document.querySelector('[class*="cardsColumnLeft"]');
       const rightCol = document.querySelector('[class*="cardsColumnRight"]');
-      let whyDocY = 1283;
+      let whyDocY = 1298;
       let whyDocX = centerX;
       if (leftCol && rightCol) {
+        const lR = leftCol.getBoundingClientRect();
+        const rR = rightCol.getBoundingClientRect();
+        whyDocX = (lR.right + rR.left) / 2;
         const leftCards = leftCol.querySelectorAll('[class*="card"]');
         if (leftCards.length >= 2) {
           const topR = leftCards[0].getBoundingClientRect();
           const btmR = leftCards[leftCards.length - 1].getBoundingClientRect();
           whyDocY = (topR.top + btmR.bottom) / 2 + scrollY;
         }
-        const lR = leftCol.getBoundingClientRect();
-        const rR = rightCol.getBoundingClientRect();
-        whyDocX = (lR.right + rR.left) / 2;
-      } else {
-        const whyEl = document.querySelector('[class*="sectionWrapper"]');
-        if (whyEl) {
-          const r = whyEl.getBoundingClientRect();
-          whyDocY = r.top + scrollY + r.height * 0.55;
-        }
+      } else if (whyContainer) {
+        const r = whyContainer.getBoundingClientRect();
+        whyDocY = r.top + scrollY + r.height * 0.52;
       }
       const whyAnchor: StateAnchor = {
         docX: whyDocX,
@@ -116,42 +114,41 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: 0,
       };
 
-      // 03. Estimator — lower area of right results card
+      // 03. Estimator — inside the right results card
       const panel = document.querySelector('[class*="rightColumn"]');
-      const supp = document.querySelector('[class*="supportingText"]');
-      const pR = panel ? panel.getBoundingClientRect() : null;
-      const sR = supp ? supp.getBoundingClientRect() : null;
-
-      const panelLeft = pR ? pR.left : (centerX + 125);
-      const panelWidth = pR ? pR.width : 603;
-      const suppBottomDoc = sR
-        ? sR.bottom + scrollY
-        : (pR ? pR.bottom + scrollY - 145 : 2231);
-      // Precision video calibration: sits centered inside the lower whitespace below the onboarding guarantee
-      const estimatorDocY = suppBottomDoc + 48.5;
-
+      let estDocX = centerX + 300;
+      let estDocY = 2120;
+      if (panel) {
+        const pR = panel.getBoundingClientRect();
+        estDocX = pR.left + pR.width * 0.50;
+        estDocY = pR.top + scrollY + pR.height * 0.58;
+      }
       const estimatorAnchor: StateAnchor = {
-        docX: panelLeft + panelWidth * 0.52,
-        docY: estimatorDocY,
-        rotation: -90, // Facing right
+        docX: estDocX,
+        docY: estDocY,
+        rotation: -90, // Facing horizontal right
       };
 
-      // 04. About DropyHub — right column directly below intro paragraph (facing horizontal left matching user direction arrow)
+      // 04. About DropyHub — right side directly below intro paragraph
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
-      const dR = desc ? desc.getBoundingClientRect() : null;
-      const aboutDocX = dR ? (dR.left + dR.width / 2) : (centerX + 280);
-      const aboutDocY = dR ? (dR.bottom + scrollY + 115) : 2713;
+      let aboutDocX = centerX + 260;
+      let aboutDocY = 2760;
+      if (desc) {
+        const dR = desc.getBoundingClientRect();
+        aboutDocX = dR.left + dR.width / 2;
+        aboutDocY = dR.bottom + scrollY + 115;
+      }
       const aboutAnchor: StateAnchor = {
         docX: aboutDocX,
         docY: aboutDocY,
-        rotation: -270, // Facing horizontal left (pointing west ← along user's red arrow)
+        rotation: -270, // Facing horizontal left
       };
 
-      // 05. How to Start — corridor between steps list & photo panel
+      // 05. How to Start — central corridor between steps list & photo panel
       const steps = document.querySelector('[class*="stepsList"]');
       const howPanel = document.querySelector('[class*="rightPanel"]');
-      let howDocX = centerX - 172;
-      let howDocY = 3720;
+      let howDocX = centerX - 120;
+      let howDocY = 3650;
       if (steps && howPanel) {
         const stepR = steps.getBoundingClientRect();
         const pR2 = howPanel.getBoundingClientRect();
@@ -161,57 +158,68 @@ export const MotorcycleScroll: React.FC = () => {
       const howToStartAnchor: StateAnchor = {
         docX: howDocX,
         docY: howDocY,
-        rotation: -360, // Facing down
+        rotation: -360, // Facing vertically down
       };
 
-      // 06. Innovation — pushed left relative to security checklist
+      // 06. Innovation — left of security checklist
       const checklist = document.querySelector('[class*="securityChecklist"], [class*="checklist"]');
-      const cR = checklist ? checklist.getBoundingClientRect() : null;
-      const innovDocX = cR ? (cR.left - 310) : (centerX - 350);
-      const innovDocY = cR ? (cR.top + scrollY + cR.height / 2) : 4304;
+      let innovDocX = 420;
+      let innovDocY = 4320;
+      if (checklist) {
+        const cR = checklist.getBoundingClientRect();
+        innovDocX = cR.left - 290;
+        innovDocY = cR.top + scrollY + cR.height * 0.48;
+      }
       const innovationAnchor: StateAnchor = {
         docX: innovDocX,
         docY: innovDocY,
-        rotation: -450, // Facing right
+        rotation: -450, // Facing horizontal right
       };
 
-      // 07. Testimonials — shifted right beside quotation & left carousel arrow
+      // 07. Testimonials — beside quotation & left carousel navigation
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
-      const nR = navBtn ? navBtn.getBoundingClientRect() : null;
-      const compR = comp ? comp.getBoundingClientRect() : null;
-      const testDocX = nR ? (nR.left - 60) : (compR ? compR.left + 185 : centerX - 440);
-      const baseScale = getBaseScale();
-      // Position delivery box cleanly 25px below the Testimonials section label
-      const testDocY = compR
-        ? compR.top + scrollY + 45 + (BIKE_H * baseScale) / 2
-        : (nR ? nR.top + scrollY + 90 : 4940);
+      let testDocX = 230;
+      let testDocY = 4850;
+      if (comp) {
+        const compR = comp.getBoundingClientRect();
+        testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 60) : (compR.left + 185);
+        testDocY = compR.top + scrollY + 160;
+      }
       const testimonialsAnchor: StateAnchor = {
         docX: testDocX,
         docY: testDocY,
-        rotation: -360, // Facing down
+        rotation: -360, // Facing vertically down
       };
 
       // 08. FAQ — left column centered under "Common Questions"
-      const title = document.querySelector('[class*="faqTitle"], [class*="faqHeading"]');
-      const tR = title ? title.getBoundingClientRect() : null;
-      const faqDocX = tR ? (tR.left + tR.width / 2) : (centerX - 450);
-      const faqDocY = tR ? (tR.bottom + scrollY + 25 + (BIKE_H * baseScale) / 2) : 5360;
+      const title = document.querySelector('[class*="faqHeading"], [class*="faqTitle"]');
+      let faqDocX = 310;
+      let faqDocY = 5420;
+      if (title) {
+        const tR = title.getBoundingClientRect();
+        faqDocX = tR.left + tR.width / 2;
+        faqDocY = tR.bottom + scrollY + 160;
+      }
       const faqAnchor: StateAnchor = {
         docX: faqDocX,
         docY: faqDocY,
-        rotation: -360, // Facing down
+        rotation: -360, // Facing vertically down
       };
 
-      // 09. Footer — shifted to the left over "Dropyhub" outlined wordmark
+      // 09. Footer — over outlined "Dropyhub" wordmark
       const wordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
-      const wR = wordmark ? wordmark.getBoundingClientRect() : null;
-      const footerDocX = wR ? (wR.left + wR.width * 0.26) : (centerX - 160);
-      const footerDocY = wR ? (wR.top + scrollY + wR.height * 0.52) : 6415;
+      let footerDocX = centerX - 120;
+      let footerDocY = 6380;
+      if (wordmark) {
+        const wR = wordmark.getBoundingClientRect();
+        footerDocX = wR.left + wR.width * 0.28;
+        footerDocY = wR.top + scrollY + wR.height * 0.50;
+      }
       const footerAnchor: StateAnchor = {
         docX: footerDocX,
         docY: footerDocY,
-        rotation: -450, // Facing right
+        rotation: -450, // Facing horizontal right
       };
 
       return {
@@ -227,52 +235,32 @@ export const MotorcycleScroll: React.FC = () => {
       };
     }
 
-    // Resolves current active section state based on DOM scroll position
-    function getActiveSection(scrollY: number): string {
-      const whyEl = document.querySelector('[class*="sectionWrapper"]');
-      const estEl = document.querySelector('[class*="estimatorSection"]');
-      const howStartEl = document.querySelector('[class*="howToStartContainer"]') || document.querySelector('[class*="stepsList"]');
-      const innovEl = document.querySelector('section[aria-label*="Innovation"]') || document.querySelector('[class*="innovationEyebrow"]') || document.querySelector('[class*="securityChecklist"]');
+    // Resolves current active section based on actual section viewport presence
+    // When a section commands ~55-65% of the viewport, the bike transitions smoothly into it
+    function getActiveSection(): string {
+      const vh = window.innerHeight;
+
+      const footEl = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
+      const faqEl = document.querySelector('[class*="faqHeading"], [class*="faqTitle"], [class*="faqDividerBand"]');
       const testEl = document.querySelector('[class*="testimonialsComponent"]');
-      const faqEl = document.querySelector('[class*="faqTitle"], [class*="faqHeading"]');
+      const innovEl = document.querySelector('[class*="innovationEyebrow"], [class*="securityChecklist"]');
+      const howStartEl = document.querySelector('[class*="howToStartContainer"], [class*="stepsList"]');
+      const aboutEl = document.querySelector('[class*="aboutSection"]');
+      const estEl = document.querySelector('[class*="estimatorSection"]');
+      const whyEl = document.querySelector('[class*="whySectionContainer"], [class*="sectionWrapper"]');
 
-      const whyTop = whyEl ? (whyEl.getBoundingClientRect().top + scrollY) : 759;
-      const estTop = estEl ? (estEl.getBoundingClientRect().top + scrollY) : 1631;
-      const estBottom = estEl ? (estEl.getBoundingClientRect().bottom + scrollY) : 2456;
-      const howStartTop = howStartEl ? (howStartEl.getBoundingClientRect().top + scrollY) : 3414;
-      const innovTop = innovEl ? (innovEl.getBoundingClientRect().top + scrollY) : 3960;
-      const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4687;
-      const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5143;
+      // Evaluated bottom-to-top so the latest entering section claims the bike
+      if (footEl && footEl.getBoundingClientRect().top <= vh * 0.72) return 'footer';
+      if (faqEl && faqEl.getBoundingClientRect().top <= vh * 0.58) return 'faq';
+      if (testEl && testEl.getBoundingClientRect().top <= vh * 0.58) return 'testimonials';
+      // 5% faster triggers on Innovation & How to Start as requested
+      if (innovEl && innovEl.getBoundingClientRect().top <= vh * 0.68) return 'innovation';
+      if (howStartEl && howStartEl.getBoundingClientRect().top <= vh * 0.68) return 'howToStart';
+      if (aboutEl && aboutEl.getBoundingClientRect().top <= vh * 0.55) return 'about';
+      if (estEl && estEl.getBoundingClientRect().top <= vh * 0.58) return 'estimator';
+      if (whyEl && whyEl.getBoundingClientRect().top <= vh * 0.60) return 'why';
 
-      // Section trigger thresholds calibrated 5% faster so bike transitions promptly and arrives cleanly:
-      // 01. Hero: remains active while viewing Hero (< 260px)
-      if (scrollY < whyTop * 0.36) return 'hero';
-
-      // 02. Why DropyHub: firmly rests centered in corridor between cards across entire section until Estimator is prominently visible
-      if (scrollY < estTop - 180) return 'why';
-
-      // 03. Estimator: remains active while results panel is prominently on screen
-      if (scrollY < estBottom - 140) return 'estimator';
-
-      // 04. About: between Estimator and How to Start
-      // Transitions smoothly to How to Start as soon as onboarding area approaches viewport
-      if (scrollY < howStartTop - 300) return 'about';
-
-      // 05. How to Start: between About and Innovation
-      // Transitions promptly to Innovation as soon as Innovation section approaches viewport
-      if (scrollY < innovTop - 300) return 'howToStart';
-
-      // 06. Innovation: between How to Start and Testimonials
-      if (scrollY < testTop - 240) return 'innovation';
-
-      // 07. Testimonials: between Innovation and FAQ
-      if (scrollY < faqTop - 220) return 'testimonials';
-
-      // 08. FAQ: between Testimonials and Footer
-      if (scrollY < faqTop + 450) return 'faq';
-
-      // 09. Footer
-      return 'footer';
+      return 'hero';
     }
 
     // Current state machine tracking
@@ -335,7 +323,7 @@ export const MotorcycleScroll: React.FC = () => {
     function onScroll() {
       if (entrancePending) return;
 
-      const active = getActiveSection(window.scrollY);
+      const active = getActiveSection();
       if (active !== currentSection) {
         currentSection = active;
         transitionTo(active);
@@ -360,7 +348,7 @@ export const MotorcycleScroll: React.FC = () => {
         entrancePending = false;
         gsap.set(entry, { y: 0 });
 
-        currentSection = getActiveSection(currentScroll);
+        currentSection = getActiveSection();
         const anchors = getAnchors();
         const initialAnchor = anchors[currentSection] || anchors.hero;
 
@@ -383,7 +371,7 @@ export const MotorcycleScroll: React.FC = () => {
       animState.docY = heroTarget.docY;
       animState.rotation = heroTarget.rotation;
 
-      gsap.set(entry, { y: -800 });
+      gsap.set(entry, { y: -700 });
       gsap.set(glow, { opacity: 1 });
       renderFrame();
 
@@ -393,7 +381,7 @@ export const MotorcycleScroll: React.FC = () => {
 
       // Handle user scroll during entrance: allow natural entrance without snapping unless scrolled into next section
       const onScrollInterrupt = () => {
-        if (window.scrollY > 150 && entrancePending) {
+        if (window.scrollY > 80 && entrancePending) {
           window.removeEventListener('scroll', onScrollInterrupt);
           if (entranceTween) {
             entranceTween.kill();
@@ -406,10 +394,10 @@ export const MotorcycleScroll: React.FC = () => {
       };
       window.addEventListener('scroll', onScrollInterrupt, { passive: true });
 
-      // Hero Entrance: Wait 2.0s, then 2.0s smooth downward entrance arriving centered in Hero
+      // Hero Entrance: Wait 2.0s, then 1.5s smooth downward entrance arriving centered in Hero
       entranceTween = gsap.to(entry, {
         y: 0,
-        duration: 2.0,
+        duration: 1.5,
         delay: 2.0,
         ease: 'power2.out',
         onComplete: () => {

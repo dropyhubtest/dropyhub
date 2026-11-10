@@ -222,8 +222,8 @@
 
   .badgeFrame {
     position: relative;
-    width: 110px;
-    height: 64px;
+    width: 118px;
+    height: 74px;
     padding: 4px;
     background-image: url("/assets/Home/SRH_bg.png");
     background-size: cover;
