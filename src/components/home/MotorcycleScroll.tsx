@@ -183,11 +183,11 @@ export const MotorcycleScroll: React.FC = () => {
       // 07. Testimonials — beside quotation & left carousel navigation
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
-      let testDocX = 230;
+      let testDocX = 135;
       let testDocY = 4880;
       if (comp) {
         const compR = comp.getBoundingClientRect();
-        testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 60) : (compR.left + 160);
+        testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 105) : (compR.left + 28);
         testDocY = compR.top + scrollY + 180;
       }
       const testimonialsAnchor: StateAnchor = {
@@ -262,28 +262,28 @@ export const MotorcycleScroll: React.FC = () => {
       const footTop = footEl ? (footEl.getBoundingClientRect().top + scrollY) : 6000;
 
       // 01. Hero: active from top of page until user scrolls down towards Why section
-      if (scrollY < whyTop - vh * 0.65) return 'hero';
+      if (scrollY < whyTop - vh * 0.40) return 'hero';
 
       // 02. Why DropyHub: active while viewing Why feature cards
-      if (scrollY < estTop - vh * 0.55) return 'why';
+      if (scrollY < estTop - vh * 0.40) return 'why';
 
       // 03. Estimator: active while viewing earnings estimator
-      if (scrollY < aboutTop - vh * 0.52) return 'estimator';
+      if (scrollY < aboutTop - vh * 0.40) return 'estimator';
 
       // 04. About: active while viewing About intro & 6 value cards
-      if (scrollY < howTop - vh * 0.58) return 'about';
+      if (scrollY < howTop - vh * 0.40) return 'about';
 
       // 05. How to Start: active while viewing onboarding steps
-      if (scrollY < innovTop - vh * 0.58) return 'howToStart';
+      if (scrollY < innovTop - vh * 0.40) return 'howToStart';
 
       // 06. Innovation: active while viewing security checklist
-      if (scrollY < testTop - vh * 0.55) return 'innovation';
+      if (scrollY < testTop - vh * 0.40) return 'innovation';
 
       // 07. Testimonials: active while viewing testimonials carousel
-      if (scrollY < faqTop - vh * 0.55) return 'testimonials';
+      if (scrollY < faqTop - vh * 0.40) return 'testimonials';
 
       // 08. FAQ: active while viewing FAQ accordion questions
-      if (scrollY < footTop - vh * 0.60) return 'faq';
+      if (scrollY < footTop - vh * 0.40) return 'faq';
 
       // 09. Footer: active at page bottom
       return 'footer';

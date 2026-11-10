@@ -221,6 +221,7 @@
 }
 
 .stepNumberBadge {
+  display: none;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
@@ -308,6 +309,7 @@
   }
 
   .stepNumberBadge {
+    display: inline-block;
     font-size: 13px;
     font-weight: 700;
     color: #666666;
