@@ -245,18 +245,14 @@ export const TrustPartnersTestimonials: React.FC = () => {
             Section C: Testimonials
             ================================================================== */}
         <div className={styles.testimonialsComponent}>
-          <div className={styles.testimonialsEyebrow}>
-            <span className={styles.eyebrow}>
-              <span className={styles.bullet} aria-hidden="true" />
-              TESTIMONIALS
-            </span>
-          </div>
-          <h2 className={styles.testimonialsHeading}>What Our Partners Say</h2>
+          <div className={styles.testimonialsCategoryLabel}>Testimonials</div>
 
           {/* Navigation Controls */}
           <button
             type="button"
-            className={`${styles.navArrowBtn} ${styles.leftArrow}`}
+            className={`${styles.navArrowBtn} ${styles.leftArrow} ${
+              activeIndex === 0 ? styles.navArrowBtnDisabled : ""
+            }`}
             onClick={handlePrev}
             aria-label="Previous testimonial"
           >
@@ -272,7 +268,9 @@ export const TrustPartnersTestimonials: React.FC = () => {
 
           <button
             type="button"
-            className={`${styles.navArrowBtn} ${styles.rightArrow}`}
+            className={`${styles.navArrowBtn} ${styles.rightArrow} ${
+              activeIndex === TESTIMONIALS_DATA.length - 1 ? styles.navArrowBtnDisabled : ""
+            }`}
             onClick={handleNext}
             aria-label="Next testimonial"
           >
@@ -286,40 +284,54 @@ export const TrustPartnersTestimonials: React.FC = () => {
             />
           </button>
 
-          {/* Main Testimonial Content */}
-          <div className={styles.testimonialContentArea}>
-            <blockquote className={styles.quoteText}>
-              &ldquo;{activeTestimonial.quote}&rdquo;
-            </blockquote>
+          {/* Main Testimonial Sliding Viewport */}
+          <div className={styles.quoteSliderViewport}>
+            <div
+              className={styles.quoteSliderTrack}
+              style={{
+                transform: `translateY(-${activeIndex * 360}px)`,
+              }}
+            >
+              {TESTIMONIALS_DATA.map((item, idx) => (
+                <div
+                  key={item.id}
+                  className={`${styles.quoteSlide} ${idx === activeIndex ? styles.quoteSlideActive : ""}`}
+                >
+                  <blockquote className={styles.quoteText}>
+                    &ldquo;{item.quote}&rdquo;
+                  </blockquote>
 
-            <div className={styles.authorProfile}>
-              <div className={styles.avatarWrapper}>
-                <Image
-                  src={activeTestimonial.avatarSrc}
-                  alt={activeTestimonial.name}
-                  width={62}
-                  height={62}
-                  className={styles.avatarImg}
-                />
-              </div>
-              <div className={styles.authorInfo}>
-                <p className={styles.authorName}>{activeTestimonial.name}</p>
-                <p className={styles.authorSubtitle}>{activeTestimonial.subtitle}</p>
-              </div>
-            </div>
-
-            {/* Mobile Pagination Dots */}
-            <div className={styles.paginationDots} aria-label="Testimonial pagination">
-              {TESTIMONIALS_DATA.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  className={`${styles.dot} ${index === activeIndex ? styles.dotActive : ""}`}
-                  onClick={() => setActiveIndex(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+                  <div className={styles.authorProfile}>
+                    <div className={styles.avatarWrapper}>
+                      <Image
+                        src={item.avatarSrc}
+                        alt={item.name}
+                        width={62}
+                        height={62}
+                        className={styles.avatarImg}
+                      />
+                    </div>
+                    <div className={styles.authorInfo}>
+                      <p className={styles.authorName}>{item.name}</p>
+                      <p className={styles.authorSubtitle}>{item.subtitle}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
+          </div>
+
+          {/* Mobile Pagination Dots */}
+          <div className={styles.paginationDots} aria-label="Testimonial pagination">
+            {TESTIMONIALS_DATA.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`${styles.dot} ${index === activeIndex ? styles.dotActive : ""}`}
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

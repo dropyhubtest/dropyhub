@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HowToStart.module.css";
 
@@ -6,7 +8,11 @@ interface StepItem {
   id: string;
   stepNumber: number;
   title: string;
-  isActive: boolean;
+  contentTitle: string;
+  description: string;
+  bullets: string[];
+  imageSrc: string;
+  imageAlt: string;
   icon: (className?: string) => React.ReactNode;
 }
 
@@ -15,7 +21,16 @@ const STEPS_DATA: StepItem[] = [
     id: "join",
     stepNumber: 1,
     title: "Join DropyHub",
-    isActive: true,
+    contentTitle: "Join DropyHub",
+    description:
+      "Tell us a little about yourself and where you want to work. Our team helps you understand the available opportunities and what you need to get started.",
+    bullets: [
+      "Share your basic details",
+      "Choose your preferred city or area",
+      "Get guidance on the next steps",
+    ],
+    imageSrc: "/assets/About/image-102.png",
+    imageAlt: "DropyHub delivery partners at hub",
     icon: (className) => (
       <svg
         className={className}
@@ -36,7 +51,16 @@ const STEPS_DATA: StepItem[] = [
     id: "verification",
     stepNumber: 2,
     title: "Complete verification",
-    isActive: false,
+    contentTitle: "Complete verification",
+    description:
+      "Submit your KYC documents swiftly online or in person at our local hub. Our streamlined verification process ensures you are fully approved within 24 to 48 hours.",
+    bullets: [
+      "Aadhaar card & PAN card submission",
+      "Valid driving licence verification",
+      "Quick background check & swift approval",
+    ],
+    imageSrc: "/assets/About/image-102.png",
+    imageAlt: "Verification and document approval",
     icon: (className) => (
       <svg
         className={className}
@@ -63,7 +87,16 @@ const STEPS_DATA: StepItem[] = [
     id: "setup",
     stepNumber: 3,
     title: "Get the right setup",
-    isActive: false,
+    contentTitle: "Get the right setup",
+    description:
+      "Collect your official DropyHub partner kit including branded gear, delivery bag, and choose your preferred vehicle rental or bring your own vehicle.",
+    bullets: [
+      "Branded delivery kit & safety gear",
+      "EV scooter or petrol bike rental options",
+      "Delivery partner app setup & orientation",
+    ],
+    imageSrc: "/assets/About/image-102.png",
+    imageAlt: "Vehicle rental and partner kit setup",
     icon: (className) => (
       <svg
         className={className}
@@ -84,7 +117,16 @@ const STEPS_DATA: StepItem[] = [
     id: "ride",
     stepNumber: 4,
     title: "Prepare for your first ride",
-    isActive: false,
+    contentTitle: "Prepare for your first ride",
+    description:
+      "Go through a quick safety briefing and navigation tutorial. Our local hub managers and experienced mentors guide you through your initial deliveries with confidence.",
+    bullets: [
+      "Partner app tutorial & route navigation",
+      "Safety protocols & delivery standards",
+      "Dedicated hub mentor guidance",
+    ],
+    imageSrc: "/assets/About/image-102.png",
+    imageAlt: "Rider briefing and first ride preparation",
     icon: (className) => (
       <svg
         className={className}
@@ -112,7 +154,16 @@ const STEPS_DATA: StepItem[] = [
     id: "deliver",
     stepNumber: 5,
     title: "Deliver. Earn. Grow.",
-    isActive: false,
+    contentTitle: "Deliver. Earn. Grow.",
+    description:
+      "Start accepting high-volume orders across leading delivery platforms. Receive reliable weekly bank payouts, earn surge bonuses, and unlock low-interest financial loans.",
+    bullets: [
+      "Multi-platform delivery flexibility",
+      "Direct bank payouts every Monday",
+      "Weekly bonuses, awards & career growth",
+    ],
+    imageSrc: "/assets/About/image-102.png",
+    imageAlt: "Earning and delivering with DropyHub",
     icon: (className) => (
       <svg
         className={className}
@@ -129,13 +180,11 @@ const STEPS_DATA: StepItem[] = [
   },
 ];
 
-const SUPPORTING_BULLETS = [
-  "Share your basic details",
-  "Choose your preferred city or area",
-  "Get guidance on the next steps",
-];
-
 export const HowToStart: React.FC = () => {
+  const [activeStepId, setActiveStepId] = useState<string>("join");
+
+  const activeStep = STEPS_DATA.find((s) => s.id === activeStepId) || STEPS_DATA[0];
+
   return (
     <div className={styles.howToStartContainer} aria-label="How to Start Onboarding">
       {/* Left Column: Eyebrow, Heading, Description */}
@@ -151,25 +200,32 @@ export const HowToStart: React.FC = () => {
       </div>
 
       {/* Desktop Onboarding Items (x = 15px, y = 162px) */}
-      <div className={styles.stepsList} aria-label="Onboarding steps">
-        {STEPS_DATA.map((step) => (
-          <div
-            key={step.id}
-            className={`${styles.stepButton} ${step.isActive ? styles.stepButtonActive : ""}`}
-          >
-            <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
-            <span className={styles.stepIcon}>{step.icon()}</span>
-            <span className={styles.stepTitle}>{step.title}</span>
-          </div>
-        ))}
+      <div className={styles.stepsList} aria-label="Onboarding steps" role="tablist">
+        {STEPS_DATA.map((step) => {
+          const isSelected = step.id === activeStepId;
+          return (
+            <button
+              key={step.id}
+              type="button"
+              role="tab"
+              aria-selected={isSelected}
+              onClick={() => setActiveStepId(step.id)}
+              className={`${styles.stepButton} ${isSelected ? styles.stepButtonActive : ""}`}
+            >
+              <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
+              <span className={styles.stepIcon}>{step.icon()}</span>
+              <span className={styles.stepTitle}>{step.title}</span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Desktop Image & Content Panel (x = 602px, y = 27px) */}
-      <div className={styles.rightPanel}>
+      <div className={styles.rightPanel} role="tabpanel" aria-label={activeStep.contentTitle}>
         <div className={styles.imageContainer}>
           <Image
-            src="/assets/About/image-102.png"
-            alt="DropyHub delivery partners at hub"
+            src={activeStep.imageSrc}
+            alt={activeStep.imageAlt}
             width={670}
             height={279}
             className={styles.panelImage}
@@ -177,16 +233,12 @@ export const HowToStart: React.FC = () => {
           />
         </div>
 
-        <h4 className={styles.contentTitle}>Join DropyHub</h4>
+        <h4 className={styles.contentTitle}>{activeStep.contentTitle}</h4>
 
-        <p className={styles.contentText}>
-          Tell us a little about yourself and where you want to work. Our team
-          helps you understand the available opportunities and what you need to
-          get started.
-        </p>
+        <p className={styles.contentText}>{activeStep.description}</p>
 
         <ul className={styles.contentBullets}>
-          {SUPPORTING_BULLETS.map((bullet, index) => (
+          {activeStep.bullets.map((bullet, index) => (
             <li key={index} className={styles.bulletItem}>
               <span className={styles.bulletDot} aria-hidden="true" />
               <span>{bullet}</span>
@@ -195,43 +247,51 @@ export const HowToStart: React.FC = () => {
         </ul>
       </div>
 
-      {/* Mobile Flow (Matches PDF Exactly) */}
+      {/* Mobile Flow */}
       <div className={styles.mobileStepsFlow}>
-        {/* Step 1 Active Button */}
-        <div className={`${styles.stepButton} ${styles.stepButtonActive}`}>
-          <span className={styles.stepNumberBadge}>01</span>
-          <span className={styles.stepIcon}>{STEPS_DATA[0].icon()}</span>
-          <span className={styles.stepTitle}>{STEPS_DATA[0].title}</span>
-        </div>
+        {STEPS_DATA.map((step) => {
+          const isSelected = step.id === activeStepId;
+          return (
+            <React.Fragment key={`m-${step.id}`}>
+              <button
+                type="button"
+                onClick={() => setActiveStepId(step.id)}
+                className={`${styles.stepButton} ${isSelected ? styles.stepButtonActive : ""}`}
+              >
+                <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
+                <span className={styles.stepIcon}>{step.icon()}</span>
+                <span className={styles.stepTitle}>{step.title}</span>
+              </button>
 
-        {/* Step 1 Expanded White Card */}
-        <div className={styles.mobileCard}>
-          <div className={styles.mobileImageContainer}>
-            <Image
-              src="/assets/About/image-102.png"
-              alt="DropyHub delivery partners"
-              width={600}
-              height={220}
-              className={styles.mobilePanelImage}
-              priority
-            />
-          </div>
-          <div className={styles.mobileCardContent}>
-            <h4 className={styles.mobileContentTitle}>Join DropyHub</h4>
-            <p className={styles.mobileContentText}>
-              Tell us a little about yourself and where you want to work. Our team helps you understand the available opportunities and what you need to get started.
-            </p>
-          </div>
-        </div>
-
-        {/* Steps 2-5 Collapsed Buttons */}
-        {STEPS_DATA.slice(1).map((step) => (
-          <div key={`m-${step.id}`} className={styles.stepButton}>
-            <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
-            <span className={styles.stepIcon}>{step.icon()}</span>
-            <span className={styles.stepTitle}>{step.title}</span>
-          </div>
-        ))}
+              {isSelected && (
+                <div className={styles.mobileCard}>
+                  <div className={styles.mobileImageContainer}>
+                    <Image
+                      src={step.imageSrc}
+                      alt={step.imageAlt}
+                      width={600}
+                      height={220}
+                      className={styles.mobilePanelImage}
+                      priority
+                    />
+                  </div>
+                  <div className={styles.mobileCardContent}>
+                    <h4 className={styles.mobileContentTitle}>{step.contentTitle}</h4>
+                    <p className={styles.mobileContentText}>{step.description}</p>
+                    <ul className={styles.mobileBullets}>
+                      {step.bullets.map((b, i) => (
+                        <li key={i} className={styles.mobileBulletItem}>
+                          <span className={styles.bulletDot} aria-hidden="true" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
+          );
+        })}
       </div>
     </div>
   );

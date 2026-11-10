@@ -39,6 +39,7 @@ export interface StateAnchor {
   docX: number;
   docY: number;
   rotation: number;
+  opacity?: number;
 }
 
 const subscribeClient = () => () => {};
@@ -65,6 +66,7 @@ export const MotorcycleScroll: React.FC = () => {
 
     let entranceTween: gsap.core.Tween | null = null;
     let transitionTween: gsap.core.Tween | null = null;
+    let footerTimeline: gsap.core.Timeline | null = null;
     let entrancePending = true;
 
     function getBaseScale(): number {
@@ -165,13 +167,13 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing vertically down
       };
 
-      // 06. Innovation — left of security checklist
+      // 06. Innovation — left of security checklist (shifted left by 20% per user instruction)
       const checklist = document.querySelector('[class*="securityChecklist"], [class*="checklist"]');
-      let innovDocX = 420;
+      let innovDocX = 220;
       let innovDocY = 4320;
       if (checklist) {
         const cR = checklist.getBoundingClientRect();
-        innovDocX = cR.left - 290;
+        innovDocX = Math.max(160, cR.left - 500);
         innovDocY = cR.top + scrollY + cR.height * 0.48;
       }
       const innovationAnchor: StateAnchor = {
@@ -184,11 +186,11 @@ export const MotorcycleScroll: React.FC = () => {
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
       let testDocX = 135;
-      let testDocY = 4880;
+      let testDocY = 4920;
       if (comp) {
         const compR = comp.getBoundingClientRect();
         testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 105) : (compR.left + 28);
-        testDocY = compR.top + scrollY + 180;
+        testDocY = compR.top + scrollY + 235;
       }
       const testimonialsAnchor: StateAnchor = {
         docX: testDocX,
@@ -211,19 +213,20 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing vertically down
       };
 
-      // 09. Footer — over outlined "Dropyhub" wordmark
+      // 09. Footer — start at left side of outlined wordmark before moving right & vanishing
       const wordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
-      let footerDocX = centerX - 120;
+      let footerDocX = 180;
       let footerDocY = 6380;
       if (wordmark) {
         const wR = wordmark.getBoundingClientRect();
-        footerDocX = wR.left + wR.width * 0.28;
+        footerDocX = wR.left + 80;
         footerDocY = wR.top + scrollY + wR.height * 0.50;
       }
       const footerAnchor: StateAnchor = {
         docX: footerDocX,
         docY: footerDocY,
         rotation: -450, // Facing horizontal right
+        opacity: 1,
       };
 
       return {
@@ -283,7 +286,10 @@ export const MotorcycleScroll: React.FC = () => {
       if (scrollY < faqTop - vh * 0.40) return 'testimonials';
 
       // 08. FAQ: active while viewing FAQ accordion questions
-      if (scrollY < footTop - vh * 0.40) return 'faq';
+      const maxScroll = typeof document !== 'undefined'
+        ? (document.documentElement.scrollHeight - vh)
+        : 5800;
+      if (scrollY < footTop - vh * 0.75 && scrollY < maxScroll - 120) return 'faq';
 
       // 09. Footer: active at page bottom
       return 'footer';
@@ -297,6 +303,7 @@ export const MotorcycleScroll: React.FC = () => {
       docX: window.innerWidth / 2,
       docY: window.innerHeight * 0.44,
       rotation: 0,
+      opacity: 1,
     };
 
     /**
@@ -304,19 +311,54 @@ export const MotorcycleScroll: React.FC = () => {
      * Snappy, polished movement (0.75s, power2.out).
      */
     function transitionTo(targetSectionName: string) {
-      const anchors = getAnchors();
-      const targetAnchor = anchors[targetSectionName];
-      if (!targetAnchor) return;
-
       if (transitionTween) {
         transitionTween.kill();
         transitionTween = null;
       }
+      if (footerTimeline) {
+        footerTimeline.kill();
+        footerTimeline = null;
+      }
+
+      const anchors = getAnchors();
+
+      if (targetSectionName === 'footer') {
+        const footAnchor = anchors.footer;
+        const wordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
+        let exitX = window.innerWidth + 300;
+        if (wordmark) {
+          const wR = wordmark.getBoundingClientRect();
+          exitX = Math.max(wR.right + 250, window.innerWidth + 300);
+        }
+
+        footerTimeline = gsap.timeline();
+        // 1. Bike comes to the starting point at the left side
+        footerTimeline.to(animState, {
+          docX: footAnchor.docX,
+          docY: footAnchor.docY,
+          rotation: -450,
+          opacity: 1,
+          duration: 0.65,
+          ease: 'power2.out',
+        })
+        // 2. Then after coming, the bike moves towards right side and vanishes
+        .to(animState, {
+          docX: exitX,
+          opacity: 0,
+          duration: 1.4,
+          ease: 'power1.in',
+        });
+        return;
+      }
+
+      const targetAnchor = anchors[targetSectionName];
+      if (!targetAnchor) return;
 
       transitionTween = gsap.to(animState, {
         docX: targetAnchor.docX,
         docY: targetAnchor.docY,
         rotation: targetAnchor.rotation,
+        opacity: 1,
         duration: 0.75,
         ease: 'power2.out',
         overwrite: 'auto',
@@ -339,6 +381,7 @@ export const MotorcycleScroll: React.FC = () => {
         y: currentViewportY,
         rotation: animState.rotation,
         scale: baseScale,
+        opacity: animState.opacity !== undefined ? animState.opacity : 1,
         transformOrigin: '50% 50%',
       });
     }
@@ -435,6 +478,7 @@ export const MotorcycleScroll: React.FC = () => {
     return () => {
       if (entranceTween) entranceTween.kill();
       if (transitionTween) transitionTween.kill();
+      if (footerTimeline) footerTimeline.kill();
       gsap.ticker.remove(renderFrame);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
