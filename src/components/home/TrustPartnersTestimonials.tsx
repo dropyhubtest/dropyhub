@@ -52,7 +52,7 @@ const TESTIMONIALS_DATA: TestimonialItem[] = [
     subtitle: "Star Partner · Vijayawada · 2 yrs",
     quote:
       "The vehicle rental programme is a lifesaver. I do not own a bike and the daily rental is affordable with full maintenance taken care of. No breakdown stress, no repair costs. I focus solely on delivering and earning. DropyHub truly handles everything so I can focus on what matters.",
-    avatarSrc: "/assets/Home/profile.png",
+    avatarSrc: "/assets/benefits/profile_1.png",
   },
   {
     id: "ramesh-kumar",
@@ -60,7 +60,7 @@ const TESTIMONIALS_DATA: TestimonialItem[] = [
     subtitle: "Delivery Partner · Hyderabad · 2 yrs",
     quote:
       "DropyHub completely changed my life. Before joining, I was stuck with one company earning ₹12,000 a month. Now I work across Swiggy, Zomato, and Blinkit simultaneously and earn ₹28,000+ every month. The weekly bonuses are real and on time. I even got a ₹3 lakh loan to buy a new bike without any paperwork headaches.",
-    avatarSrc: "/assets/Home/profile.png",
+    avatarSrc: "/assets/benefits/profile_2.jpg",
   },
   {
     id: "md-saleem",
@@ -68,7 +68,7 @@ const TESTIMONIALS_DATA: TestimonialItem[] = [
     subtitle: "Delivery Executive · Nellore · 1 yr",
     quote:
       "I joined DropyHub in Nellore after hearing from a friend. The onboarding was completed in just 2 days — uniform, ID card, everything. I now earn more than I ever did at my previous factory job. The insurance coverage gives my family peace of mind. Best decision I ever made.",
-    avatarSrc: "/assets/Home/profile.png",
+    avatarSrc: "/assets/benefits/profile_3.jpg",
   },
 ];
 
@@ -289,7 +289,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
             <div
               className={styles.quoteSliderTrack}
               style={{
-                transform: `translateY(-${activeIndex * 360}px)`,
+                transform: `translateY(-${activeIndex * 100}%)`,
               }}
             >
               {TESTIMONIALS_DATA.map((item, idx) => (

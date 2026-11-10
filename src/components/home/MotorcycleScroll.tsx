@@ -167,13 +167,13 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing vertically down
       };
 
-      // 06. Innovation — left of security checklist (shifted left by 20% per user instruction)
+      // 06. Innovation — left of security checklist (shifted right by 5% per user instruction)
       const checklist = document.querySelector('[class*="securityChecklist"], [class*="checklist"]');
-      let innovDocX = 220;
+      let innovDocX = 285;
       let innovDocY = 4320;
       if (checklist) {
         const cR = checklist.getBoundingClientRect();
-        innovDocX = Math.max(160, cR.left - 500);
+        innovDocX = Math.max(220, cR.left - 428);
         innovDocY = cR.top + scrollY + cR.height * 0.48;
       }
       const innovationAnchor: StateAnchor = {
@@ -185,12 +185,12 @@ export const MotorcycleScroll: React.FC = () => {
       // 07. Testimonials — beside quotation & left carousel navigation
       const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
       const comp = document.querySelector('[class*="testimonialsComponent"]');
-      let testDocX = 135;
+      let testDocX = 230;
       let testDocY = 4920;
       if (comp) {
         const compR = comp.getBoundingClientRect();
-        testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 105) : (compR.left + 28);
-        testDocY = compR.top + scrollY + 235;
+        testDocX = compR.left + 160;
+        testDocY = compR.top + scrollY + 205;
       }
       const testimonialsAnchor: StateAnchor = {
         docX: testDocX,
@@ -213,13 +213,13 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing vertically down
       };
 
-      // 09. Footer — start at left side of outlined wordmark before moving right & vanishing
+      // 09. Footer — start at left side of outlined wordmark before moving right across
       const wordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
-      let footerDocX = 180;
+      let footerDocX = 260;
       let footerDocY = 6380;
       if (wordmark) {
         const wR = wordmark.getBoundingClientRect();
-        footerDocX = wR.left + 80;
+        footerDocX = Math.max(260, wR.left + 240);
         footerDocY = wR.top + scrollY + wR.height * 0.50;
       }
       const footerAnchor: StateAnchor = {
@@ -332,7 +332,7 @@ export const MotorcycleScroll: React.FC = () => {
         }
 
         footerTimeline = gsap.timeline();
-        // 1. Bike comes to the starting point at the left side
+        // 1. Bike comes to the starting point at the left side of the wordmark
         footerTimeline.to(animState, {
           docX: footAnchor.docX,
           docY: footAnchor.docY,
@@ -341,11 +341,11 @@ export const MotorcycleScroll: React.FC = () => {
           duration: 0.65,
           ease: 'power2.out',
         })
-        // 2. Then after coming, the bike moves towards right side and vanishes
+        // 2. Then after arriving, the bike drives rightward off-screen without fading out
         .to(animState, {
           docX: exitX,
-          opacity: 0,
-          duration: 1.4,
+          opacity: 1,
+          duration: 1.6,
           ease: 'power1.in',
         });
         return;

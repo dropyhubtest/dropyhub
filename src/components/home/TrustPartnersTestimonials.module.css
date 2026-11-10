@@ -349,58 +349,61 @@
   right: 108px;
   top: 668px;
   width: auto;
-  height: 400px;
+  height: 380px;
   background-color: transparent;
   overflow: visible;
 }
 
 .testimonialsCategoryLabel {
   position: absolute;
-  left: 14px;
-  top: 10px;
-  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #666666;
-  letter-spacing: 0.02em;
+  left: 0;
+  top: 14px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-raw-2c2a);
+  letter-spacing: -0.01em;
 }
 
 .quoteSliderViewport {
   position: absolute;
-  left: 263px;
-  top: 16px;
-  width: 795px;
-  height: 360px;
+  left: 345px;
+  top: 10px;
+  width: min(660px, 46vw);
+  height: 320px;
   overflow: hidden;
 }
 
 .quoteSliderTrack {
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
 }
 
 .quoteSlide {
-  height: 360px;
-  min-height: 360px;
-  flex-shrink: 0;
+  height: 100%;
+  flex: 0 0 100%;
+  max-height: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   box-sizing: border-box;
-  padding-top: 4px;
+  padding: 4px 0 8px 0;
 }
 
 .navArrowBtnDisabled {
-  opacity: 0.35 !important;
+  opacity: 0.3 !important;
   cursor: not-allowed !important;
   pointer-events: none;
 }
 
 .navArrowBtn {
   position: absolute;
-  top: 156px;
+  top: 130px;
   width: 32px;
   height: 32px;
   border: none;
@@ -425,7 +428,7 @@
 }
 
 .leftArrow {
-  left: 128px;
+  left: 280px;
   transform: rotate(180deg);
 }
 
@@ -438,7 +441,7 @@
 }
 
 .rightArrow {
-  left: 1204px;
+  left: min(1045px, calc(345px + min(660px, 46vw) + 24px));
 }
 
 .navIcon {
@@ -449,19 +452,20 @@
 
 .testimonialContentArea {
   position: absolute;
-  left: 263px;
-  top: 16px;
-  width: 795px;
+  left: 345px;
+  top: 10px;
+  width: min(660px, 46vw);
   display: flex;
   flex-direction: column;
   overflow: visible;
 }
 
 .quoteText {
-  font-family: var(--font-display);
-  font-size: 32px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: clamp(19px, 1.6vw, 22px);
   font-weight: 500;
-  line-height: 40px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
   color: var(--color-raw-2c2a);
   margin: 0;
 }
@@ -469,45 +473,45 @@
 .authorProfile {
   display: flex;
   align-items: center;
-  gap: 23px;
-  margin-top: 24px;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .avatarWrapper {
-  width: 62px;
-  height: 62px;
+  width: 54px;
+  height: 54px;
   border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
   background-color: #d1d5db;
+  border: 1px solid #e0e0e0;
 }
 
 .avatarImg {
-  width: 62px;
-  height: 62px;
+  width: 54px;
+  height: 54px;
   object-fit: cover;
   display: block;
-  filter: grayscale(100%);
 }
 
 .authorInfo {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
 }
 
 .authorName {
   font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--color-raw-2c2a);
   margin: 0;
 }
 
 .authorSubtitle {
-  font-family: var(--font-display);
-  font-size: 20px;
+  font-family: var(--font-secondary), var(--font-estimator), sans-serif;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.25;
   color: var(--color-raw-807f);
