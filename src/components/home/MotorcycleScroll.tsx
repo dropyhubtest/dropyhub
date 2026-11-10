@@ -65,9 +65,7 @@ export const MotorcycleScroll: React.FC = () => {
     const glow     = glowRef.current;
     if (!entry || !assembly || !glow) return;
 
-    let entranceTween: gsap.core.Tween | null = null;
     let transitionTween: gsap.core.Tween | null = null;
-    let entrancePending = true;
 
     function getBaseScale(): number {
       const vw = window.innerWidth;
@@ -81,10 +79,10 @@ export const MotorcycleScroll: React.FC = () => {
       const scrollY = window.scrollY;
       const centerX = vw / 2;
 
-      // 01. Hero — centered horizontally, upper-middle display text
+      // 01. Hero — off-screen above canvas so Hero remains pristine matching video
       const heroAnchor: StateAnchor = {
         docX: centerX,
-        docY: Math.min(vh * 0.44, 375),
+        docY: -700,
         rotation: 0,
       };
 
@@ -114,14 +112,20 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: 0,
       };
 
-      // 03. Estimator — inside the right results card
+      // 03. Estimator — resting in the lower whitespace of the results card below the 48-hour onboarding line
       const panel = document.querySelector('[class*="rightColumn"]');
-      let estDocX = centerX + 300;
-      let estDocY = 2120;
+      const note = document.querySelector('[class*="supportingText"]');
+      let estDocX = centerX + 260;
+      let estDocY = 2410;
       if (panel) {
         const pR = panel.getBoundingClientRect();
-        estDocX = pR.left + pR.width * 0.50;
-        estDocY = pR.top + scrollY + pR.height * 0.58;
+        estDocX = pR.left + pR.width * 0.54;
+        if (note) {
+          const nR = note.getBoundingClientRect();
+          estDocY = nR.bottom + scrollY + 138;
+        } else {
+          estDocY = pR.top + scrollY + pR.height * 0.98;
+        }
       }
       const estimatorAnchor: StateAnchor = {
         docX: estDocX,
@@ -129,19 +133,19 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -90, // Facing horizontal right
       };
 
-      // 04. About DropyHub — right side directly below intro paragraph
+      // 04. About DropyHub — right side tilted diagonally up-left matching video
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
       let aboutDocX = centerX + 260;
       let aboutDocY = 2760;
       if (desc) {
         const dR = desc.getBoundingClientRect();
         aboutDocX = dR.left + dR.width / 2;
-        aboutDocY = dR.bottom + scrollY + 115;
+        aboutDocY = dR.bottom + scrollY + 95;
       }
       const aboutAnchor: StateAnchor = {
         docX: aboutDocX,
         docY: aboutDocY,
-        rotation: -270, // Facing horizontal left
+        rotation: -225, // Tilted diagonally up-left matching ref_04_about_18s.png
       };
 
       // 05. How to Start — central corridor between steps list & photo panel
@@ -184,7 +188,7 @@ export const MotorcycleScroll: React.FC = () => {
       if (comp) {
         const compR = comp.getBoundingClientRect();
         testDocX = navBtn ? (navBtn.getBoundingClientRect().left - 60) : (compR.left + 185);
-        testDocY = compR.top + scrollY + 160;
+        testDocY = compR.top + scrollY + 215;
       }
       const testimonialsAnchor: StateAnchor = {
         docX: testDocX,
@@ -199,7 +203,7 @@ export const MotorcycleScroll: React.FC = () => {
       if (title) {
         const tR = title.getBoundingClientRect();
         faqDocX = tR.left + tR.width / 2;
-        faqDocY = tR.bottom + scrollY + 160;
+        faqDocY = tR.bottom + scrollY + 215;
       }
       const faqAnchor: StateAnchor = {
         docX: faqDocX,
@@ -239,6 +243,10 @@ export const MotorcycleScroll: React.FC = () => {
     // When a section commands ~55-65% of the viewport, the bike transitions smoothly into it
     function getActiveSection(): string {
       const vh = window.innerHeight;
+      const scrollY = window.scrollY;
+
+      // When at the very top of Hero, keep bike parked offscreen above
+      if (scrollY < 80) return 'hero';
 
       const footEl = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
       const faqEl = document.querySelector('[class*="faqHeading"], [class*="faqTitle"], [class*="faqDividerBand"]');
@@ -253,7 +261,6 @@ export const MotorcycleScroll: React.FC = () => {
       if (footEl && footEl.getBoundingClientRect().top <= vh * 0.72) return 'footer';
       if (faqEl && faqEl.getBoundingClientRect().top <= vh * 0.58) return 'faq';
       if (testEl && testEl.getBoundingClientRect().top <= vh * 0.58) return 'testimonials';
-      // 5% faster triggers on Innovation & How to Start as requested
       if (innovEl && innovEl.getBoundingClientRect().top <= vh * 0.68) return 'innovation';
       if (howStartEl && howStartEl.getBoundingClientRect().top <= vh * 0.68) return 'howToStart';
       if (aboutEl && aboutEl.getBoundingClientRect().top <= vh * 0.55) return 'about';
@@ -321,8 +328,6 @@ export const MotorcycleScroll: React.FC = () => {
     }
 
     function onScroll() {
-      if (entrancePending) return;
-
       const active = getActiveSection();
       if (active !== currentSection) {
         currentSection = active;
@@ -341,76 +346,26 @@ export const MotorcycleScroll: React.FC = () => {
     }
 
     function init() {
-      const currentScroll = window.scrollY;
-
-      // Deep-scroll refresh (> 100px): skip entrance animation
-      if (currentScroll > 100) {
-        entrancePending = false;
-        gsap.set(entry, { y: 0 });
-
-        currentSection = getActiveSection();
-        const anchors = getAnchors();
-        const initialAnchor = anchors[currentSection] || anchors.hero;
-
-        animState.docX = initialAnchor.docX;
-        animState.docY = initialAnchor.docY;
-        animState.rotation = initialAnchor.rotation;
-
-        gsap.set(glow, { opacity: 1 });
-        renderFrame();
-        gsap.ticker.add(renderFrame);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onResize);
-        return;
-      }
-
-      // Fresh page load: set initial placement off-screen above
-      const anchors = getAnchors();
-      const heroTarget = anchors.hero;
-      animState.docX = heroTarget.docX;
-      animState.docY = heroTarget.docY;
-      animState.rotation = heroTarget.rotation;
-
-      gsap.set(entry, { y: -700 });
+      gsap.set(entry, { y: 0 });
       gsap.set(glow, { opacity: 1 });
-      renderFrame();
 
+      currentSection = getActiveSection();
+      const anchors = getAnchors();
+      const initialAnchor = anchors[currentSection] || anchors.hero;
+
+      animState.docX = initialAnchor.docX;
+      animState.docY = initialAnchor.docY;
+      animState.rotation = initialAnchor.rotation;
+
+      renderFrame();
       gsap.ticker.add(renderFrame);
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onResize);
-
-      // Handle user scroll during entrance: allow natural entrance without snapping unless scrolled into next section
-      const onScrollInterrupt = () => {
-        if (window.scrollY > 80 && entrancePending) {
-          window.removeEventListener('scroll', onScrollInterrupt);
-          if (entranceTween) {
-            entranceTween.kill();
-            entranceTween = null;
-          }
-          entrancePending = false;
-          gsap.set(entry, { y: 0 });
-          onScroll();
-        }
-      };
-      window.addEventListener('scroll', onScrollInterrupt, { passive: true });
-
-      // Hero Entrance: Wait 2.0s, then 1.5s smooth downward entrance arriving centered in Hero
-      entranceTween = gsap.to(entry, {
-        y: 0,
-        duration: 1.5,
-        delay: 2.0,
-        ease: 'power2.out',
-        onComplete: () => {
-          entrancePending = false;
-          window.removeEventListener('scroll', onScrollInterrupt);
-        },
-      });
     }
 
     init();
 
     return () => {
-      if (entranceTween) entranceTween.kill();
       if (transitionTween) transitionTween.kill();
       gsap.ticker.remove(renderFrame);
       window.removeEventListener('scroll', onScroll);

@@ -171,8 +171,7 @@
   margin-right: 4px;
 }
 
-/* Vehicle Selection Buttons:
-   179 × 46px, 168 × 46px, 163 × 46px with 12px gap, 4px corner radius */
+/* Vehicle Selection Buttons */
 .vehicleRow {
   display: flex;
   align-items: center;
@@ -189,22 +188,23 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 0 10px;
+  padding: 0 14px;
   transition: all 0.15s ease;
   user-select: none;
   box-sizing: border-box;
+  flex: 1 1 auto;
 }
 
 .vehicleBtnEV {
-  width: 179px;
+  min-width: 175px;
 }
 
 .vehicleBtnPetrol {
-  width: 168px;
+  min-width: 165px;
 }
 
 .vehicleBtnBicycle {
-  width: 163px;
+  min-width: 160px;
 }
 
 /* Active vehicle button: pink border */

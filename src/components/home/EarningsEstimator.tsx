@@ -12,10 +12,11 @@ interface CityOption {
 }
 
 const CITIES: CityOption[] = [
-  { id: "hyderabad", name: "Hyderabad" },
-  { id: "bangalore", name: "Bangalore" },
-  { id: "chennai", name: "Chennai" },
-  { id: "vijayawada", name: "Vijayawada" },
+  { id: "hyderabad", name: "Hyderabad (metro)" },
+  { id: "bangalore", name: "Bangalore (metro)" },
+  { id: "chennai", name: "Chennai (metro)" },
+  { id: "vijayawada", name: "Vijayawada and AP cities" },
+  { id: "visakhapatnam", name: "Visakhapatnam" },
 ];
 
 export const EarningsEstimator: React.FC = () => {
@@ -25,14 +26,14 @@ export const EarningsEstimator: React.FC = () => {
   const [workingDays, setWorkingDays] = useState<number>(24);
   const [showStatusNote, setShowStatusNote] = useState<boolean>(false);
 
-  // Reference figures matching PDF
+  // Exact reference figures matching Figma vector stream
   const referenceFigures = {
-    baseDeliveryFee: "₹30,140",
+    baseDeliveryFee: "₹30,139",
     bonuses: "+₹4,800",
     savings: "+₹3,800",
     savingsLabel: "EV Battery & Fuel Savings",
-    total: "₹38,740",
-    dailyAverage: "Approx. ₹1,614 per working day",
+    total: "₹38,739",
+    dailyAverage: "Approx. ₹1,490 per working day",
   };
 
   const handleCtaClick = () => {
@@ -118,7 +119,7 @@ export const EarningsEstimator: React.FC = () => {
                     />
                   </div>
                   <span className={vehicle === "petrol" ? styles.vehicleBtnTextActive : styles.vehicleBtnText}>
-                    Petrol Bike
+                    Petrol Bike (Own)
                   </span>
                 </button>
 
@@ -141,7 +142,7 @@ export const EarningsEstimator: React.FC = () => {
                     />
                   </div>
                   <span className={vehicle === "bicycle" ? styles.vehicleBtnTextActive : styles.vehicleBtnText}>
-                    E-Cycle
+                    E-Cycle / Bicycle
                   </span>
                 </button>
               </div>
@@ -279,7 +280,7 @@ export const EarningsEstimator: React.FC = () => {
                 className={styles.ctaButton}
                 onClick={handleCtaClick}
               >
-                Lock In This Payout / Apply Now
+                Lock In This Rate &amp; Apply Now
               </button>
 
               {showStatusNote && (
@@ -289,7 +290,7 @@ export const EarningsEstimator: React.FC = () => {
               )}
 
               <p className={styles.supportingText}>
-                Zero upfront fees • Payouts processed every Tuesday
+                48-hour onboarding • ₹0 security deposit • No paperwork hassle
               </p>
             </div>
           </div>
