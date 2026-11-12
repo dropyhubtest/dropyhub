@@ -18,9 +18,7 @@ export const BenefitsHero: React.FC = () => {
             <h1 className={styles.mainTitle}>
               More Benefits.
               <br />
-              More
-              <br />
-              Possibilities.
+              More Possibilities.
             </h1>
           </div>
           <div className={styles.descCol}>

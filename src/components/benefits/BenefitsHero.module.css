@@ -64,10 +64,10 @@
   text-align: left;
 }
 
-/* Hero Isometric Graphic Container: Increased width by 7% on both sides (+14% total) */
+/* Hero Isometric Graphic Container: Adjusted width (+5% on each side) */
 .imageBannerWrapper {
   position: relative;
-  width: calc(100% - 216px + 14vw);
+  width: calc(100% - 216px + 10vw);
   max-width: 100%;
   height: 670px;
   margin: 0 auto;

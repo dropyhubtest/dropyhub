@@ -35,9 +35,9 @@
 
 .container {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
   border-top: none;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
@@ -62,8 +62,13 @@
   transition: background-color 0.2s ease;
 }
 
+.cardItem:nth-child(3n + 1) {
+  padding-left: 44px;
+}
+
 .cardItem:nth-child(3n) {
   border-right: none;
+  padding-right: 44px;
 }
 
 .cardItem:nth-last-child(-n + 3) {
