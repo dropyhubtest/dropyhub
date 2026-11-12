@@ -71,6 +71,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={styles.statIcon}
+              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
             />
             <div className={styles.statInfo}>
@@ -87,6 +88,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
+              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
             />
             <div className={styles.statInfo}>
@@ -103,6 +105,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
+              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
             />
             <div className={styles.statInfo}>
@@ -119,6 +122,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={styles.statIcon}
+              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
             />
             <div className={styles.statInfo}>

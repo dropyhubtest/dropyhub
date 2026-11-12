@@ -124,6 +124,7 @@ export const StatsWhySection: React.FC = () => {
                     alt=""
                     width={stat.iconWidth}
                     height={stat.iconHeight}
+                    style={{ width: "auto", height: "auto" }}
                     aria-hidden="true"
                   />
                 </div>
@@ -199,6 +200,7 @@ export const StatsWhySection: React.FC = () => {
                     alt=""
                     width={32}
                     height={32}
+                    style={{ width: "auto", height: "auto" }}
                     aria-hidden="true"
                   />
                 </div>
@@ -218,6 +220,7 @@ export const StatsWhySection: React.FC = () => {
                     alt=""
                     width={32}
                     height={32}
+                    style={{ width: "auto", height: "auto" }}
                     aria-hidden="true"
                   />
                 </div>
@@ -237,6 +240,7 @@ export const StatsWhySection: React.FC = () => {
                     alt=""
                     width={32}
                     height={32}
+                    style={{ width: "auto", height: "auto" }}
                     aria-hidden="true"
                   />
                 </div>

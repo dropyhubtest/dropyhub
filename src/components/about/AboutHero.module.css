@@ -31,9 +31,9 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: calc(100% - 216px);
-  max-width: calc(100% - 216px);
-  margin: 0 108px 32px 108px;
+  width: calc(100% - 128px);
+  max-width: calc(100% - 128px);
+  margin: 0 64px 32px 64px;
 }
 
 .headingCol {
@@ -52,7 +52,9 @@
 
 .descCol {
   flex: 1;
-  max-width: 480px;
+  max-width: 580px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .description {
@@ -61,6 +63,7 @@
   line-height: 1.6;
   color: #a3a3a3;
   margin: 0;
+  text-align: left;
 }
 
 /* Hero Team Image Banner: 1455px width (-5%), touching bottom divider */

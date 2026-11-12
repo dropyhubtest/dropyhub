@@ -27,9 +27,9 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: calc(100% - 216px);
-  max-width: calc(100% - 216px);
-  margin: 0 108px 36px 108px;
+  width: calc(100% - 128px);
+  max-width: calc(100% - 128px);
+  margin: 0 64px 36px 64px;
 }
 
 .headingCol {
@@ -50,7 +50,8 @@
 .descCol {
   flex: 0.9;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
+  justify-content: flex-end;
   padding-bottom: 6px;
 }
 
@@ -60,7 +61,8 @@
   line-height: 1.6;
   color: #888888;
   margin: 0;
-  max-width: 480px;
+  max-width: 580px;
+  text-align: left;
 }
 
 /* Hero Image Banner: exactly 1455px x 683px (-5%), touching bottom divider */

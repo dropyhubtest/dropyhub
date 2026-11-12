@@ -15,8 +15,9 @@
 }
 
 /*
-  entryLayer: receives only the initial time-based vertical entrance translateY.
-  Off-screen above viewport by default until the 2-second entrance timer fires.
+  entryLayer: receives initial entrance animation.
+  Defaults to translateY(0) so motorcycle is immediately visible in Hero
+  even before scripts initialize or if animations are disabled.
 */
 .entryLayer {
   position: absolute;
@@ -27,7 +28,7 @@
   pointer-events: none;
   overflow: visible;
   will-change: transform;
-  transform: translateY(-800px);
+  transform: translateY(0);
 }
 
 /* 

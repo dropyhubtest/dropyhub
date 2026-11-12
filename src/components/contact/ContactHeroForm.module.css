@@ -15,9 +15,9 @@
 
 .container {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
   padding: 100px 0 80px 0;
   box-sizing: border-box;
   z-index: 2;

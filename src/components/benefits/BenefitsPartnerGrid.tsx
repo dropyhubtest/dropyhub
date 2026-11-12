@@ -93,6 +93,7 @@ export const BenefitsPartnerGrid: React.FC = () => {
                   width={28}
                   height={28}
                   className={styles.iconImage}
+                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
               <div className={styles.cardContent}>
