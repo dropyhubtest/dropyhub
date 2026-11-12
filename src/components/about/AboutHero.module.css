@@ -31,13 +31,13 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: calc(100% - 128px);
-  max-width: calc(100% - 128px);
-  margin: 0 64px 32px 64px;
+  width: calc(100% - 64px);
+  max-width: calc(100% - 64px);
+  margin: 0 32px 32px 32px;
 }
 
 .headingCol {
-  flex: 1;
+  flex: 0 0 auto;
 }
 
 .mainTitle {
@@ -51,10 +51,11 @@
 }
 
 .descCol {
-  flex: 1;
-  max-width: 580px;
+  flex: 1.4;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 4px;
 }
 
 .description {
@@ -63,6 +64,7 @@
   line-height: 1.6;
   color: #a3a3a3;
   margin: 0;
+  max-width: 800px;
   text-align: left;
 }
 

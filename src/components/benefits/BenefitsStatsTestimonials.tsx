@@ -71,8 +71,8 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={styles.statIcon}
-              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
+              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
               <span className={styles.statNumber}>12+</span>
@@ -88,8 +88,8 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
-              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
+              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
               <span className={styles.statNumber}>₹500</span>
@@ -105,8 +105,8 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
-              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
+              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
               <span className={styles.statNumber}>₹0</span>
@@ -122,8 +122,8 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               width={38}
               height={38}
               className={styles.statIcon}
-              style={{ width: "auto", height: "auto" }}
               aria-hidden="true"
+              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
               <span className={styles.statNumber}>₹10L</span>

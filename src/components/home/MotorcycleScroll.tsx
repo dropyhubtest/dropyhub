@@ -54,8 +54,8 @@ export const MotorcycleScroll: React.FC = () => {
   useEffect(() => {
     if (!mounted) return;
 
-    // Desktop only (>= 992px)
-    if (window.innerWidth < 992) return;
+    // Desktop only (>= 1200px)
+    if (window.innerWidth < 1200) return;
     // Respect prefers-reduced-motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -397,7 +397,7 @@ export const MotorcycleScroll: React.FC = () => {
     }
 
     function onResize() {
-      if (window.innerWidth < 992) return;
+      if (window.innerWidth < 1200) return;
       const anchors = getAnchors();
       const target = anchors[currentSection];
       if (target && !transitionTween?.isActive()) {
@@ -430,15 +430,14 @@ export const MotorcycleScroll: React.FC = () => {
         return;
       }
 
-      // Fresh page load: set initial placement
+      // Fresh page load: set initial placement off-screen above
       const anchors = getAnchors();
       const heroTarget = anchors.hero;
       animState.docX = heroTarget.docX;
       animState.docY = heroTarget.docY;
       animState.rotation = heroTarget.rotation;
 
-      // Smooth shallow entrance from top
-      gsap.set(entry, { y: -300 });
+      gsap.set(entry, { y: -700 });
       gsap.set(glow, { opacity: 1 });
       renderFrame();
 
@@ -448,7 +447,7 @@ export const MotorcycleScroll: React.FC = () => {
 
       // Handle user scroll during entrance: allow natural entrance without snapping
       const onScrollInterrupt = () => {
-        if (window.scrollY > 20 && entrancePending) {
+        if (window.scrollY > 80 && entrancePending) {
           window.removeEventListener('scroll', onScrollInterrupt);
           if (entranceTween) {
             entranceTween.kill();
@@ -461,11 +460,11 @@ export const MotorcycleScroll: React.FC = () => {
       };
       window.addEventListener('scroll', onScrollInterrupt, { passive: true });
 
-      // Hero Entrance: Wait 0.05s, then 0.9s smooth downward glide arriving and STOPPING in Hero
+      // Hero Entrance: Wait 0.3s, then 1.2s smooth downward glide arriving and STOPPING in Hero
       entranceTween = gsap.to(entry, {
         y: 0,
-        duration: 0.9,
-        delay: 0.05,
+        duration: 1.2,
+        delay: 0.3,
         ease: 'power2.out',
         onComplete: () => {
           entrancePending = false;

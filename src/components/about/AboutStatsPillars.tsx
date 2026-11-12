@@ -90,8 +90,8 @@ export const AboutStatsPillars: React.FC = () => {
                   width={stat.iconWidth}
                   height={stat.iconHeight}
                   className={styles.statIcon}
-                  style={{ width: "auto", height: "auto" }}
                   aria-hidden="true"
+                  style={{ width: 'auto', height: 'auto' }}
                 />
               </div>
               <div className={styles.statText}>

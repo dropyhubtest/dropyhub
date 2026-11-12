@@ -27,13 +27,13 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: calc(100% - 128px);
-  max-width: calc(100% - 128px);
-  margin: 0 64px 36px 64px;
+  width: calc(100% - 64px);
+  max-width: calc(100% - 64px);
+  margin: 0 32px 36px 32px;
 }
 
 .headingCol {
-  flex: 1.4;
+  flex: 1.2;
 }
 
 .mainTitle {
@@ -48,10 +48,10 @@
 }
 
 .descCol {
-  flex: 0.9;
+  flex: 1;
   display: flex;
-  align-items: flex-end;
   justify-content: flex-end;
+  align-items: flex-end;
   padding-bottom: 6px;
 }
 
@@ -61,7 +61,7 @@
   line-height: 1.6;
   color: #888888;
   margin: 0;
-  max-width: 580px;
+  max-width: 535px;
   text-align: left;
 }
 
