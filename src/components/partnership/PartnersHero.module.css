@@ -106,24 +106,52 @@
   z-index: 15;
 }
 
-/* Narrative & Perks Container */
+/* Platform Network Section Wrapper & Rails at 64px */
+.networkSectionWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.railLeft {
+  position: absolute;
+  left: 64px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.railRight {
+  position: absolute;
+  right: 64px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: #2e2e2e;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Narrative & Perks Container: Touching Left & Right Rails */
 .container {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
   padding: 56px 0 0 0;
   box-sizing: border-box;
   z-index: 2;
 }
 
-/* Header Row: Eyebrow + Title on left, Narrative on right */
+/* Header Row: Dividing line connects directly to Left & Right Rails */
 .headerRow {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  padding: 0 0 36px 0;
+  padding: 0 44px 36px 44px;
   border-bottom: 1px solid #2e2e2e;
 }
 
@@ -196,8 +224,13 @@
   transition: background-color 0.2s ease;
 }
 
+.perkCard:first-child {
+  padding-left: 44px;
+}
+
 .perkCard:last-child {
   border-right: none;
+  padding-right: 44px;
 }
 
 .perkCard:hover {

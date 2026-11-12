@@ -195,19 +195,19 @@
 }
 
 .formHeader {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .formTitle {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   letter-spacing: -0.01em;
 }
 
 .formSubtitle {
-  font-size: 12.5px;
+  font-size: 13px;
   color: #888888;
   margin: 0;
 }
@@ -215,37 +215,39 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 26px;
   width: 100%;
 }
 
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 22px;
 }
 
 @media (max-width: 600px) {
   .formRow {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
 .fieldGroup {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 9px;
   width: 100%;
 }
 
 .fieldLabel {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: #e5e5e5;
   letter-spacing: 0.01em;
   display: flex;
   align-items: center;
   gap: 2px;
+  margin-bottom: 2px;
 }
 
 .requiredStar {
@@ -255,13 +257,13 @@
 
 .input {
   width: 100%;
-  height: 42px;
+  height: 46px;
   background-color: #0b0b0b;
   border: 1px solid #222222;
-  border-radius: 6px;
-  padding: 0 14px;
+  border-radius: 8px;
+  padding: 0 16px;
   color: #ffffff;
-  font-size: 13px;
+  font-size: 13.5px;
   outline: none;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
@@ -285,8 +287,8 @@
 .radioRow {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding-top: 2px;
+  gap: 32px;
+  padding: 6px 0 2px 0;
 }
 
 .radioOption {
@@ -334,26 +336,27 @@
 .preferredGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px 14px;
-  padding-top: 2px;
+  gap: 14px 18px;
+  padding: 6px 0 2px 0;
 }
 
 @media (max-width: 640px) {
   .preferredGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px 14px;
   }
 }
 
 .jobTypeContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 2px;
+  gap: 12px;
+  padding: 6px 0 2px 0;
 }
 
 .jobTypeRow {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   flex-wrap: wrap;
 }
 
@@ -395,13 +398,13 @@
 /* Select Dropdowns with Caret */
 .select {
   width: 100%;
-  height: 42px;
+  height: 46px;
   background-color: #0b0b0b;
   border: 1px solid #222222;
-  border-radius: 6px;
-  padding: 0 36px 0 14px;
+  border-radius: 8px;
+  padding: 0 38px 0 16px;
   color: #888888;
-  font-size: 13px;
+  font-size: 13.5px;
   outline: none;
   box-sizing: border-box;
   appearance: none;
@@ -427,14 +430,14 @@
   width: 100%;
   background-color: #0b0b0b;
   border: 1px solid #222222;
-  border-radius: 6px;
-  padding: 12px 14px;
+  border-radius: 8px;
+  padding: 14px 16px;
   color: #ffffff;
-  font-size: 13px;
+  font-size: 13.5px;
   font-family: inherit;
   outline: none;
   resize: vertical;
-  min-height: 84px;
+  min-height: 100px;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
 }
@@ -450,19 +453,19 @@
 /* Submit Button */
 .submitBtn {
   width: 100%;
-  height: 44px;
+  height: 48px;
   background-color: #383838;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 8px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 6px;
+  margin-top: 10px;
   transition: background-color 0.2s ease;
 }
 
@@ -471,10 +474,10 @@
 }
 
 .disclaimer {
-  font-size: 11px;
+  font-size: 11.5px;
   color: #666666;
-  margin: 6px 0 0 0;
-  line-height: 1.4;
+  margin: 10px 0 0 0;
+  line-height: 1.45;
   text-align: left;
 }
 

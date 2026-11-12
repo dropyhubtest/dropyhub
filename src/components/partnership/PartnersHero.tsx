@@ -91,41 +91,47 @@ export const PartnersHero: React.FC = () => {
       </div>
 
       {/* 5. Narrative Header & 4 Perks Grid */}
-      <div className={styles.container}>
-        <div className={styles.headerRow}>
-          <div className={styles.headerLeft}>
-            <span className={styles.eyebrow}>
-              <span className={styles.bulletDot} aria-hidden="true" />
-              DELIVERY PLATFORM NETWORK
-            </span>
-            <h1 className={styles.title}>Partner Companies. One Delivery Network.</h1>
-          </div>
+      <div className={styles.networkSectionWrapper}>
+        {/* Continuous Side Rails at 64px for Platform Network Section */}
+        <div className={styles.railLeft} aria-hidden="true" />
+        <div className={styles.railRight} aria-hidden="true" />
 
-          <div className={styles.headerRight}>
-            <p className={styles.headerDesc}>
-              DropyHub works with delivery and commerce companies that need reliable last-mile
-              fulfilment. Partner teams coordinate order flow while DropyHub helps organize
-              delivery executives and operational support in supported locations.
-            </p>
-          </div>
-        </div>
-
-        <div className={styles.perksGrid}>
-          {HERO_PERKS.map((perk) => (
-            <div key={perk.id} className={styles.perkCard}>
-              <div className={styles.iconBox}>
-                <Image
-                  src={perk.iconSrc}
-                  alt=""
-                  width={38}
-                  height={38}
-                  className={styles.iconImage}
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className={styles.perkTitle}>{perk.title}</h3>
+        <div className={styles.container}>
+          <div className={styles.headerRow}>
+            <div className={styles.headerLeft}>
+              <span className={styles.eyebrow}>
+                <span className={styles.bulletDot} aria-hidden="true" />
+                DELIVERY PLATFORM NETWORK
+              </span>
+              <h1 className={styles.title}>Partner Companies. One Delivery Network.</h1>
             </div>
-          ))}
+
+            <div className={styles.headerRight}>
+              <p className={styles.headerDesc}>
+                DropyHub works with delivery and commerce companies that need reliable last-mile
+                fulfilment. Partner teams coordinate order flow while DropyHub helps organize
+                delivery executives and operational support in supported locations.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.perksGrid}>
+            {HERO_PERKS.map((perk) => (
+              <div key={perk.id} className={styles.perkCard}>
+                <div className={styles.iconBox}>
+                  <Image
+                    src={perk.iconSrc}
+                    alt=""
+                    width={38}
+                    height={38}
+                    className={styles.iconImage}
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 className={styles.perkTitle}>{perk.title}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
