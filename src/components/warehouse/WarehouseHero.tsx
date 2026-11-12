@@ -16,9 +16,7 @@ export const WarehouseHero: React.FC = () => {
         <div className={styles.titleRow}>
           <div className={styles.headingCol}>
             <h1 className={styles.mainTitle}>
-              Warehouse
-              <br />
-              Workforce,
+              Warehouse Workforce,
               <br />
               Simplified
             </h1>

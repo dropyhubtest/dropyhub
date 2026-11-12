@@ -100,12 +100,12 @@
   max-width: 460px;
 }
 
-/* 3-Column Grid Table */
+/* 3-Column Grid Table: Connected directly to Left & Right Rails */
 .gridWrapper {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
   box-sizing: border-box;
   border-top: 1px solid #2e2e2e;
   border-bottom: 1px solid #2e2e2e;
@@ -126,8 +126,13 @@
   transition: background-color 0.15s ease;
 }
 
+.featureCell:first-child {
+  padding-left: 44px;
+}
+
 .featureCell:last-child {
   border-right: none;
+  padding-right: 44px;
 }
 
 .featureCell:hover {

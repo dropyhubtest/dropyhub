@@ -107,7 +107,7 @@
 }
 
 .stepButtonActive {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   color: #2c2a2a;
 }
 
@@ -139,7 +139,7 @@
   top: 27px;
   width: min(624px, calc(50% - 10px));
   height: 469px;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border-radius: 1px;
   overflow: hidden;
   box-sizing: border-box;

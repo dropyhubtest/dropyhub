@@ -33,7 +33,7 @@
 }
 
 .headingCol {
-  flex: 1.2;
+  flex: 1.4;
 }
 
 .mainTitle {
@@ -44,6 +44,7 @@
   letter-spacing: -0.025em;
   color: #ffffff;
   margin: 0;
+  white-space: pre-line;
 }
 
 .descCol {

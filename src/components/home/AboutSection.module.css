@@ -191,8 +191,8 @@
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  padding: 16px 24px;
-  border-radius: 12px;
+  padding: 0 44px;
+  border-radius: 0;
   transition: background-color 0.25s ease;
   cursor: default;
 }
@@ -201,47 +201,47 @@
   background-color: rgba(255, 255, 255, 0.055);
 }
 
-/* Card Positions */
+/* Card Positions: Full-cell bounded by dividers, zero gap to rails and dividers */
 .cardR1C1 {
-  left: 76px;
-  right: calc(50% + 12px);
-  top: 391px;
-  height: 150px;
+  left: 64px;
+  right: 50%;
+  top: 381px;
+  height: 170px;
 }
 
 .cardR1C2 {
-  left: calc(50% + 12px);
-  right: 76px;
-  top: 391px;
-  height: 150px;
+  left: 50%;
+  right: 64px;
+  top: 381px;
+  height: 170px;
 }
 
 .cardR2C1 {
-  left: 76px;
-  right: calc(50% + 12px);
-  top: 561px;
-  height: 148px;
+  left: 64px;
+  right: 50%;
+  top: 551px;
+  height: 168px;
 }
 
 .cardR2C2 {
-  left: calc(50% + 12px);
-  right: 76px;
-  top: 561px;
-  height: 148px;
+  left: 50%;
+  right: 64px;
+  top: 551px;
+  height: 168px;
 }
 
 .cardR3C1 {
-  left: 76px;
-  right: calc(50% + 12px);
-  top: 729px;
-  height: 161px;
+  left: 64px;
+  right: 50%;
+  top: 719px;
+  height: 181px;
 }
 
 .cardR3C2 {
-  left: calc(50% + 12px);
-  right: 76px;
-  top: 729px;
-  height: 161px;
+  left: 50%;
+  right: 64px;
+  top: 719px;
+  height: 181px;
 }
 
 /* Icon Tile: 130 × 86px, #565555 background, 1px border-radius */
