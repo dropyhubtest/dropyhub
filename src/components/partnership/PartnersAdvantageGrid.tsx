@@ -16,42 +16,42 @@ const ADVANTAGE_ITEMS: AdvantageItem[] = [
     id: 'workforce',
     title: 'Workforce Deployment',
     description:
-      'DropyHub helps coordinate delivery executives and operational support to align people, vehicles and local operations with partner needs.',
+      'DropyHub branding appears across all SRH match venues, jerseys, and official digital channels during TATA IPL 2025.',
     iconSrc: '/assets/partners/fluent_arrow-trending-lines-24-regular.svg',
   },
   {
     id: 'tickets',
     title: 'Match Ticket Rewards',
     description:
-      'Top performing delivery partners are rewarded with exclusive SRH match tickets through our incentive programme.',
+      'Top-performing delivery partners are rewarded with exclusive SRH match tickets as part of our incentive programme.',
     iconSrc: '/assets/partners/f7_tickets_2.svg',
   },
   {
     id: 'merchandise',
     title: 'Branded Merchandise',
     description:
-      'Official SRH × DropyHub co branded merchandise is gifted to star partners during special campaigns.',
+      'Official SRH × DropyHub co-branded merchandise gifted to our star partners and during special campaigns.',
     iconSrc: '/assets/partners/energy-icons_shirt-48.svg',
   },
   {
     id: 'media',
     title: 'National Media Exposure',
     description:
-      'The partnership receives national TV and digital media coverage during the TATA IPL season.',
+      'The partnership receives national TV and digital media coverage during the TATA IPL season, elevating the DropyHub brand.',
     iconSrc: '/assets/partners/bi_tv.svg',
   },
   {
     id: 'community',
     title: 'Community & Spirit',
     description:
-      'We share the SRH spirit of teamwork, performance and rising above challenges, just like our delivery partners.',
+      'We share the SRH spirit of teamwork, performance, and rising above challenges - just like our delivery partners.',
     iconSrc: '/assets/partners/fluent_people-community-20-regular.svg',
   },
   {
     id: 'recognition',
     title: 'Partner Recognition',
     description:
-      'Monthly Star Partner awards receive a special SRH edition during the season with exclusive prizes.',
+      'Monthly “Star Partner” awards have a special SRH edition during TATA IPL season with exclusive prizes.',
     iconSrc: '/assets/partners/lsicon_hand-shake-outline_2.svg',
   },
 ];
@@ -76,7 +76,7 @@ export const PartnersAdvantageGrid: React.FC = () => {
 
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              We make delivery operations easier to coordinate by building a supported
+              We aim to make delivery operations easier to coordinate by building a supported
               delivery-executive network and aligning people, vehicles and local operations with
               partner needs.
             </p>

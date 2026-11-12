@@ -24,8 +24,8 @@ export const PartnersSponsorsSection: React.FC = () => {
 
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              Our partner network includes food delivery, grocery, e-commerce and other last-mile
-              businesses working together through one connected ecosystem.
+              Our partner network can include food delivery, grocery, e-commerce and other last-mile
+              businesses. Only confirmed, active partnerships should be displayed as official logos or claims.
             </p>
           </div>
         </div>

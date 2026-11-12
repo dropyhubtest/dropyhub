@@ -35,9 +35,9 @@
 
 .container {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
   padding: 56px 0 0 0;
   box-sizing: border-box;
   z-index: 2;
@@ -49,7 +49,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  padding: 0 0 32px 0;
+  padding: 0 44px 32px 44px;
   margin-bottom: 0;
   border-bottom: 1px solid #e8e8e8;
 }
@@ -125,6 +125,11 @@
 
 .serviceCell:nth-child(odd) {
   border-right: 1px solid #e8e8e8;
+  padding-left: 44px;
+}
+
+.serviceCell:nth-child(even) {
+  padding-right: 44px;
 }
 
 .serviceCell:nth-child(-n + 2) {

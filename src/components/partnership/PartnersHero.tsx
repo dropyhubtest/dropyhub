@@ -40,11 +40,7 @@ export const PartnersHero: React.FC = () => {
       {/* 1. Global Navbar */}
       <Navbar />
 
-      {/* 2. Side Rails at 48px */}
-      <div className={styles.railLeft} aria-hidden="true" />
-      <div className={styles.railRight} aria-hidden="true" />
-
-      {/* 3. Hero Team Lineup Banner (1392px standard) */}
+      {/* 2. Hero Team Lineup Banner */}
       <div className={styles.heroContentWrapper}>
         <div className={styles.bannerContainer}>
           <Image

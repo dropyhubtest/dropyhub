@@ -210,8 +210,8 @@ export const Footer: React.FC<FooterProps> = ({
           <p className={styles.copyrightText}>&copy; 2026 DropyHub. All rights reserved.</p>
 
           <p className={styles.footerDescription}>
-            India&apos;s premier delivery partner platform - empowering executives with zero
-            registration fee, career growth, and financial support.
+            Be part of a platform associated with India&apos;s most exciting cricket franchise.
+            Register as a delivery partner today - completely free.
           </p>
         </div>
       </div>
