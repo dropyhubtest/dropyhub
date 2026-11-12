@@ -152,18 +152,12 @@
 
 .primaryBtn:hover {
   background-color: #222222;
-  transform: translateY(-1px);
 }
 
 .btnArrow {
   font-size: 14px;
   line-height: 1;
   display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.primaryBtn:hover .btnArrow {
-  transform: translate(2px, -2px);
 }
 
 .secondaryBtn {

@@ -306,8 +306,8 @@
 }
 
 .joinNowBtn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  background-color: #272727;
+  opacity: 0.92;
 }
 
 .learnMoreLink {

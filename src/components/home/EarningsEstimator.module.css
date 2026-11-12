@@ -487,13 +487,11 @@
 }
 
 .ctaButton:hover {
-  background-color: #ea0066;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(234, 0, 102, 0.25);
+  background-color: #d4005c;
 }
 
 .ctaButton:active {
-  transform: translateY(0);
+  background-color: #bd0052;
 }
 
 .integrationNote {

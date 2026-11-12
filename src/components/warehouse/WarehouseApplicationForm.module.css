@@ -286,7 +286,6 @@
 
 .submitBtn:hover {
   background-color: #262626;
-  transform: translateY(-1px);
 }
 
 .submitBtn:disabled {

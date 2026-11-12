@@ -41,7 +41,7 @@
 .layoutGrid {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
-  gap: 64px;
+  gap: 88px;
   align-items: flex-start;
 }
 
@@ -70,7 +70,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #888888;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   font-weight: 500;
 }
 
@@ -91,7 +91,7 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   max-width: 500px;
 }
 
@@ -111,17 +111,17 @@
   font-size: 14.5px;
   line-height: 1.6;
   color: #999999;
-  margin: 0 0 32px 0;
+  margin: 0 0 38px 0;
   max-width: 480px;
 }
 
 .checklist {
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0 0 44px 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .checkItem {
@@ -150,8 +150,8 @@
 .contactDetails {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-top: 24px;
+  gap: 20px;
+  padding-top: 32px;
   border-top: 1px solid #1e1e1e;
   max-width: 440px;
 }
@@ -189,7 +189,11 @@
    ========================================================================== */
 
 .formCard {
-  background-color: transparent;
+  background-color: #000000;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 38px 32px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
   width: 100%;
   box-sizing: border-box;
 }
@@ -554,20 +558,20 @@
   .layoutGrid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 36px !important;
+    gap: 48px !important;
   }
 
   .eyebrow {
     font-size: 10px !important;
     letter-spacing: 1.2px !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 14px !important;
   }
 
   .heading,
   .title {
     font-size: 32px !important;
     line-height: 1.15 !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 18px !important;
   }
 
   .subtitle,
@@ -575,12 +579,12 @@
     font-size: 13.5px !important;
     line-height: 1.55 !important;
     color: #888888 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 28px !important;
   }
 
   .checklist {
-    gap: 12px !important;
-    margin-bottom: 24px !important;
+    gap: 16px !important;
+    margin-bottom: 32px !important;
   }
 
   .checkItem {
@@ -590,9 +594,9 @@
   }
 
   .contactDetails {
-    padding: 20px 0 0 0 !important;
+    padding: 24px 0 0 0 !important;
     border-top: 1px solid #1a1a1a !important;
-    gap: 12px !important;
+    gap: 16px !important;
   }
 
   .contactItem {
@@ -601,10 +605,11 @@
   }
 
   .formCard {
-    background-color: #111111 !important;
-    border: 1px solid #222222 !important;
-    border-radius: 12px !important;
-    padding: 24px 16px !important;
+    background-color: #000000 !important;
+    border: 1px solid #1a1a1a !important;
+    border-radius: 14px !important;
+    padding: 28px 20px !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7) !important;
     margin-top: 0 !important;
   }
 

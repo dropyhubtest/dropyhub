@@ -150,7 +150,6 @@
 
 .primaryBtn:hover {
   background-color: #333333;
-  transform: translateY(-1px);
 }
 
 .btnArrow {
