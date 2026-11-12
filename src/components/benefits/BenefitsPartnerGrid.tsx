@@ -16,42 +16,42 @@ const PARTNER_BENEFITS: PartnerBenefit[] = [
     id: 'bonuses',
     title: 'Weekly Performance Bonuses',
     description:
-      'Eligible delivery executives earn weekly bonuses based on active incentive programmes, completed orders and performance criteria.',
-    iconSrc: '/assets/icons/fluent_reward-20-regular.svg',
+      'Eligible delivery executives can earn weekly bonuses based on the active incentive programme, completed orders and applicable performance criteria.',
+    iconSrc: '/assets/About/delivery-bike.svg',
   },
   {
     id: 'awards',
     title: 'Monthly & Annual Awards',
     description:
-      'Top-performing partners receive cash prizes, vouchers, trophies and exclusive SRH match tickets.',
-    iconSrc: '/assets/icons/material-symbols-light_featured-seasonal-and-gifts-rounded.svg',
+      'Recognition-based awards every month and year for top-performing partners. Winners receive cash prizes, vouchers, trophies, and during TATA IPL season — exclusive SRH match tickets.',
+    iconSrc: '/assets/About/mdi_chart-multiline.svg',
   },
   {
     id: 'insurance',
     title: 'Full Insurance Coverage',
     description:
-      'Comprehensive accidental insurance from day one, plus a 24/7 SOS emergency helpline through our app.',
-    iconSrc: '/assets/icons/akar-icons_file.svg',
+      'Comprehensive accidental insurance from day one at zero extra cost. Covers medical treatment, temporary disability, and vehicle damage. Plus 24/7 SOS emergency helpline through our app.',
+    iconSrc: '/assets/About/iconoven_map-pin-lock.svg',
   },
   {
     id: 'ev-bike',
     title: 'EV Bike Access',
     description:
-      "Access EV bikes through DropyHub's support programme, subject to availability, eligibility and rental terms.",
-    iconSrc: '/assets/icons/energy-icons_cargo-bike-20.svg',
+      "Access EV bikes through DropyHub's vehicle support programme, subject to availability, eligibility and rental terms.",
+    iconSrc: '/assets/About/ri_shake-hands-fill.svg',
   },
   {
     id: 'safety',
     title: 'Safety Gear & Uniform',
     description:
-      'Professional uniform, branded helmet, reflective jacket and complete safety equipment are provided and maintained.',
-    iconSrc: '/assets/icons/healthicons_construction-worker-outline.svg',
+      'Professional DropyHub uniform, branded helmet, reflective jacket, and complete safety equipment provided and maintained. Look professional, stay safe, at zero cost to you.',
+    iconSrc: '/assets/About/akar-icons_clock.svg',
   },
   {
     id: 'support',
     title: '24/7 Partner Support',
     description:
-      'A multilingual helpdesk is available around the clock for questions, grievances and emergencies.',
+      'Dedicated helpdesk available around the clock for queries, grievances, or emergencies. Multilingual support in Telugu, Hindi, Tamil, and English. Average response time under 5 minutes.',
     iconSrc: '/assets/icons/hugeicons_customer-support.svg',
   },
 ];
@@ -77,7 +77,7 @@ export const BenefitsPartnerGrid: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <p className={styles.headerDesc}>
-              DropyHub is more than a delivery platform. It is a complete life and career support system for every delivery executive who joins our family.
+              DropyHub is not just a delivery platform it is a complete life and career support system for every delivery executive who joins our family.
             </p>
           </div>
         </div>
@@ -93,7 +93,6 @@ export const BenefitsPartnerGrid: React.FC = () => {
                   width={28}
                   height={28}
                   className={styles.iconImage}
-                  style={{ width: "auto", height: "auto" }}
                 />
               </div>
               <div className={styles.cardContent}>

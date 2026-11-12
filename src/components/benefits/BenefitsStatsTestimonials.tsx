@@ -16,7 +16,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
     quote:
-      '“The vehicle rental programme is a lifesaver. I do not own a bike and the daily rental is affordable with full maintenance taken care of. No breakdown stress, no repair costs. I focus solely on delivering and earning.”',
+      'The vehicle rental programme is a lifesaver. I do not own a bike and the daily rental is affordable with full maintenance taken care of. No breakdown stress, no repair costs. I focus solely on delivering and earning. DropyHub truly handles everything so I can focus on what matters.',
     name: 'Praveen Reddy',
     role: 'Star Partner · Vijayawada · 2 yrs',
     avatarSrc: '/assets/benefits/profile_1.png',
@@ -24,7 +24,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: '2',
     quote:
-      '“DropyHub completely changed my life. Before joining, I was stuck with one company earning ₹12,000 a month. Now I work across Swiggy, Zomato, and Blinkit simultaneously and earn ₹28,000+ every month. The weekly bonuses are real and on time.”',
+      'DropyHub completely changed my life. Before joining, I was stuck with one company earning ₹12,000 a month. Now I work across Swiggy, Zomato, and Blinkit simultaneously and earn ₹28,000+ every month. The weekly bonuses are real and on time. I even got a ₹3 lakh loan to buy a new bike without any paperwork headaches.',
     name: 'Ramesh Kumar',
     role: 'Delivery Partner · Hyderabad · 2 yrs',
     avatarSrc: '/assets/benefits/profile_2.jpg',
@@ -32,7 +32,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: '3',
     quote:
-      '“I joined DropyHub in Nellore after hearing from a friend. The onboarding was completed in just 2 days — uniform, ID card, everything. I now earn more than I ever did at my previous factory job. The insurance coverage gives my family peace of mind.”',
+      'I joined DropyHub in Nellore after hearing from a friend. The onboarding was completed in just 2 days — uniform, ID card, everything. I now earn more than I ever did at my previous factory job. The insurance coverage gives my family peace of mind. Best decision I ever made.',
     name: 'Md. Saleem',
     role: 'Delivery Executive · Nellore · 1 yr',
     avatarSrc: '/assets/benefits/profile_3.jpg',
@@ -72,7 +72,6 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               height={38}
               className={styles.statIcon}
               aria-hidden="true"
-              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
               <span className={styles.statNumber}>12+</span>
@@ -89,10 +88,9 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               height={38}
               className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
               aria-hidden="true"
-              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
-              <span className={styles.statNumber}>₹500</span>
+              <span className={styles.statNumber}>500 Rs</span>
               <span className={styles.statLabel}>Weekly Bonus</span>
             </div>
           </div>
@@ -106,10 +104,9 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               height={38}
               className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
               aria-hidden="true"
-              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
-              <span className={styles.statNumber}>₹0</span>
+              <span className={styles.statNumber}>0 Rs</span>
               <span className={styles.statLabel}>Joining Fee</span>
             </div>
           </div>
@@ -123,11 +120,10 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               height={38}
               className={styles.statIcon}
               aria-hidden="true"
-              style={{ width: 'auto', height: 'auto' }}
             />
             <div className={styles.statInfo}>
               <span className={styles.statNumber}>₹10L</span>
-              <span className={styles.statLabel}>Max Loan Available.</span>
+              <span className={styles.statLabel}>Max Loan Available</span>
             </div>
           </div>
         </div>

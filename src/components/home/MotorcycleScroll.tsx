@@ -505,7 +505,6 @@ export const MotorcycleScroll: React.FC = () => {
               width={190}
               height={162}
               className={styles.glowAsset}
-              style={{ width: "auto", height: "auto" }}
               priority
               draggable={false}
             />
@@ -519,7 +518,6 @@ export const MotorcycleScroll: React.FC = () => {
               width={263}
               height={394}
               className={styles.riderAsset}
-              style={{ width: "auto", height: "auto" }}
               priority
               draggable={false}
             />

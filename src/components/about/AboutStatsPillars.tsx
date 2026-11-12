@@ -91,7 +91,6 @@ export const AboutStatsPillars: React.FC = () => {
                   height={stat.iconHeight}
                   className={styles.statIcon}
                   aria-hidden="true"
-                  style={{ width: 'auto', height: 'auto' }}
                 />
               </div>
               <div className={styles.statText}>
