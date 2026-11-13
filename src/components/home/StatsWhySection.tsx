@@ -245,6 +245,9 @@ export const StatsWhySection: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* Mobile Horizontal Divider Line between Why DropyHub & Interactive Estimator (Not touching left & right viewport) */}
+          <div className={styles.sectionBottomDivider} aria-hidden="true" />
         </div>
       </div>
     </section>

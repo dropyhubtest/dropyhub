@@ -311,6 +311,10 @@
   display: none;
 }
 
+.sectionBottomDivider {
+  display: none;
+}
+
 /* ==========================================================================
    Mobile & Responsive Layout (<= 992px) — Matches Image 1
    ========================================================================== */
@@ -479,5 +483,13 @@
     line-height: 1.5;
     color: #666666;
     margin: 0;
+  }
+
+  .sectionBottomDivider {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 36px auto 0 auto;
+    height: 1px;
+    background-color: #e5e7eb;
   }
 }

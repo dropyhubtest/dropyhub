@@ -12,11 +12,10 @@ interface CityOption {
 }
 
 const CITIES: CityOption[] = [
-  { id: "hyderabad", name: "Hyderabad (metro)" },
-  { id: "bangalore", name: "Bangalore (metro)" },
-  { id: "chennai", name: "Chennai (metro)" },
-  { id: "vijayawada", name: "Vijayawada and AP cities" },
-  { id: "visakhapatnam", name: "Visakhapatnam" },
+  { id: "hyderabad", name: "Hyderabad" },
+  { id: "bangalore", name: "Bangalore" },
+  { id: "chennai", name: "Chennai" },
+  { id: "vijayawada", name: "Vijayawada" },
 ];
 
 export const EarningsEstimator: React.FC = () => {
@@ -26,14 +25,14 @@ export const EarningsEstimator: React.FC = () => {
   const [workingDays, setWorkingDays] = useState<number>(24);
   const [showStatusNote, setShowStatusNote] = useState<boolean>(false);
 
-  // Exact reference figures matching Figma vector stream
+  // Exact reference figures matching user image 2
   const referenceFigures = {
-    baseDeliveryFee: "₹30,139",
+    baseDeliveryFee: "₹30,140",
     bonuses: "+₹4,800",
     savings: "+₹3,800",
     savingsLabel: "EV Battery & Fuel Savings",
-    total: "₹38,739",
-    dailyAverage: "Approx. ₹1,490 per working day",
+    total: "₹38,740",
+    dailyAverage: "Approx. ₹1,614 per working day",
   };
 
   const handleCtaClick = () => {
@@ -119,7 +118,7 @@ export const EarningsEstimator: React.FC = () => {
                     />
                   </div>
                   <span className={vehicle === "petrol" ? styles.vehicleBtnTextActive : styles.vehicleBtnText}>
-                    Petrol Bike (Own)
+                    Petrol Bike
                   </span>
                 </button>
 
@@ -142,7 +141,7 @@ export const EarningsEstimator: React.FC = () => {
                     />
                   </div>
                   <span className={vehicle === "bicycle" ? styles.vehicleBtnTextActive : styles.vehicleBtnText}>
-                    E-Cycle / Bicycle
+                    E-Cycle
                   </span>
                 </button>
               </div>
@@ -179,7 +178,7 @@ export const EarningsEstimator: React.FC = () => {
                   <span className={styles.stepNumber}>3. </span>Expected Deliveries Per Day
                 </h3>
                 <span className={styles.panelValueBadge}>
-                  <strong className={styles.boldNumber}>{ordersPerDay}</strong> Orders per day
+                  <strong className={styles.boldNumber}>{ordersPerDay}</strong> orders
                 </span>
               </div>
               <div className={styles.sliderArea}>
@@ -195,9 +194,9 @@ export const EarningsEstimator: React.FC = () => {
                   aria-label="Expected Deliveries Per Day"
                 />
                 <div className={styles.sliderLabels}>
-                  <span className={styles.sliderLabelText}>Part - time (10-15)</span>
-                  <span className={styles.sliderLabelText}>Standard (20 - 25)</span>
-                  <span className={styles.sliderLabelText}>Peak Earnings (30 - 40)</span>
+                  <span className={styles.sliderLabelText}>Part-time</span>
+                  <span className={styles.sliderLabelText}>Standard</span>
+                  <span className={styles.sliderLabelText}>Peak earnings</span>
                 </div>
               </div>
             </div>
@@ -226,7 +225,7 @@ export const EarningsEstimator: React.FC = () => {
                 />
                 <div className={styles.sliderLabels}>
                   <span className={styles.sliderLabelText}>4 days/week</span>
-                  <span className={styles.sliderLabelText}>5-6 days/week</span>
+                  <span className={styles.sliderLabelText}>5–6 days/week</span>
                   <span className={styles.sliderLabelText}>Full throttle</span>
                 </div>
               </div>
@@ -245,6 +244,7 @@ export const EarningsEstimator: React.FC = () => {
                     {referenceFigures.baseDeliveryFee}
                   </span>
                 </div>
+                <div className={styles.breakdownDivider} />
 
                 <div className={styles.breakdownRow}>
                   <span className={styles.breakdownLabel}>Target &amp; Weekly Bonuses</span>
@@ -252,6 +252,7 @@ export const EarningsEstimator: React.FC = () => {
                     {referenceFigures.bonuses}
                   </span>
                 </div>
+                <div className={styles.breakdownDivider} />
 
                 <div className={styles.breakdownRowLast}>
                   <span className={styles.breakdownLabel}>
@@ -261,19 +262,19 @@ export const EarningsEstimator: React.FC = () => {
                     {referenceFigures.savings}
                   </span>
                 </div>
+                <div className={styles.breakdownDivider} />
               </div>
 
-              <div className={styles.dashedDivider} />
-
               <div className={styles.totalRow}>
-                <span className={styles.totalLabel}>Total</span>
+                <div className={styles.totalLeftCol}>
+                  <span className={styles.totalLabel}>Total</span>
+                  <p className={styles.dailyAverage}>{referenceFigures.dailyAverage}</p>
+                </div>
                 <div className={styles.totalAmountArea}>
                   <span className={styles.totalAmount}>{referenceFigures.total}</span>
                   <span className={styles.totalPeriod}>/ month</span>
                 </div>
               </div>
-
-              <p className={styles.dailyAverage}>{referenceFigures.dailyAverage}</p>
 
               <button
                 type="button"
