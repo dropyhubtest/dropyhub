@@ -81,10 +81,10 @@
 
 .container {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
-  padding: 56px 0 52px 0;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
+  padding: 56px 44px 52px 44px;
   box-sizing: border-box;
   z-index: 2;
 }

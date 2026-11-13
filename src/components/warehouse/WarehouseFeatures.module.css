@@ -37,10 +37,10 @@
 /* Header: Two Columns */
 .headerWrapper {
   position: relative;
-  width: calc(100% - 216px);
-  margin-left: 108px;
-  margin-right: 108px;
-  padding: 56px 0 44px 0;
+  width: calc(100% - 128px);
+  margin-left: 64px;
+  margin-right: 64px;
+  padding: 56px 44px 44px 44px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;

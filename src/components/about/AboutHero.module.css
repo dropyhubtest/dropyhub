@@ -31,9 +31,9 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 48px;
-  width: calc(100% - 128px);
-  max-width: calc(100% - 128px);
-  margin: 0 64px 32px 64px;
+  width: calc(100% - 64px);
+  max-width: calc(100% - 64px);
+  margin: 0 32px 32px 32px;
 }
 
 .headingCol {
@@ -51,7 +51,7 @@
 }
 
 .descCol {
-  flex: 0.9;
+  flex: 1.1;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -63,8 +63,8 @@
   font-size: 14.5px;
   line-height: 1.6;
   color: #a3a3a3;
-  margin: 0 0 0 auto;
-  max-width: 520px;
+  margin: 0;
+  max-width: 580px;
   text-align: left;
 }
 

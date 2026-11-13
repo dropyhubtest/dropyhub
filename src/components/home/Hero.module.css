@@ -307,10 +307,12 @@
     font-family: var(--font-tagline);
     font-style: italic;
     font-weight: 300;
-    font-size: 13.5px;
+    font-size: 11.5px;
     color: #9797aa;
     text-align: left;
-    margin: 0 0 12px 0;
+    max-width: 200px;
+    line-height: 1.35;
+    margin: 0 0 10px 0;
   }
 
   .mainTitle {
@@ -346,11 +348,11 @@
 
   .stickerWrapper {
     position: absolute;
-    top: 92px;
+    top: 76px;
     left: auto !important;
-    right: 16px !important;
-    width: 72px !important;
-    height: 72px !important;
+    right: 18px !important;
+    width: 90px !important;
+    height: 90px !important;
     pointer-events: none;
     z-index: 5;
   }
@@ -368,24 +370,24 @@
     top: auto;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     margin: 0 0 20px 0;
   }
 
   .badgeFrame {
     position: relative;
-    width: 86px;
-    height: 48px;
-    padding: 3px;
+    width: 104px;
+    height: 58px;
+    padding: 6px;
     background-image: url("/assets/Home/SRH_bg.png");
     background-size: cover;
     background-position: center;
-    border-radius: 8px;
+    border-radius: 9px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
     flex-shrink: 0;
   }
 
@@ -397,8 +399,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 2px 4px;
+    gap: 6px;
+    padding: 2px 6px;
     box-sizing: border-box;
   }
 
@@ -474,7 +476,7 @@
     gap: 8px;
     width: 100%;
     height: 48px;
-    background-color: #383838;
+    background-color: #C5C5C542;
     color: #ffffff;
     font-family: var(--font-body);
     font-size: 14px;
@@ -485,7 +487,7 @@
   }
 
   .primaryCta:hover {
-    background-color: #4a4a4a;
+    background-color: #C5C5C560;
   }
 
   .ctaArrow {

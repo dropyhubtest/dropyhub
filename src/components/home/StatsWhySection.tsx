@@ -70,7 +70,7 @@ const STATS_DATA: StatItemData[] = [
   {
     id: "registration-fee",
     icon: "/assets/icons/rupee.svg",
-    value: "0 Rs",
+    value: "₹0",
     label: "Registration Fee",
     iconWidth: 22,
     iconHeight: 33,

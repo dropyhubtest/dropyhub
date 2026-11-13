@@ -330,8 +330,21 @@
   .statsBarFrame .railRight,
   .whySectionFrame .railLeft,
   .whySectionFrame .railRight,
-  .fullBleedDivider {
+  .dottedRailLeft,
+  .dottedRailRight {
     display: none !important;
+  }
+
+  .fullBleedDivider {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 38px !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid #e5e7eb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    overflow: hidden !important;
+    z-index: 5 !important;
   }
 
   .statsGrid {
