@@ -266,13 +266,13 @@ export const EarningsEstimator: React.FC = () => {
               </div>
 
               <div className={styles.totalRow}>
-                <div className={styles.totalLeftCol}>
-                  <span className={styles.totalLabel}>Total</span>
-                  <p className={styles.dailyAverage}>{referenceFigures.dailyAverage}</p>
-                </div>
-                <div className={styles.totalAmountArea}>
-                  <span className={styles.totalAmount}>{referenceFigures.total}</span>
-                  <span className={styles.totalPeriod}>/ month</span>
+                <span className={styles.totalLabel}>Total</span>
+                <div className={styles.totalRightCol}>
+                  <div className={styles.totalAmountArea}>
+                    <span className={styles.totalAmount}>{referenceFigures.total}</span>
+                    <span className={styles.totalPeriod}>/ month</span>
+                  </div>
+                  <span className={styles.dailyAverage}>{referenceFigures.dailyAverage}</span>
                 </div>
               </div>
 

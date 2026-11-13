@@ -25,7 +25,7 @@ const CARDS_DATA: PartnerValueCard[] = [
     positionClass: styles.cardR1C2,
     title: "Low Attrition Rates",
     description:
-      "Our reward systems, insurance, loans, and career development programmes keep partners motivated and loyal giving you a stable workforce.",
+      "Our rewards, insurance, loans and career programmes keep partners motivated and loyal.",
     iconSrc: "/assets/About/mdi_chart-multiline.svg",
   },
   {
@@ -33,7 +33,7 @@ const CARDS_DATA: PartnerValueCard[] = [
     positionClass: styles.cardR2C1,
     title: "Pan-India Reach",
     description:
-      "12+ City Reach Active in Hyderabad, Bangalore, Chennai, Vijayawada, Nellore, Kavali, Ongole, Visakhapatnam, Guntur, Tirupati, and expanding every quarter.",
+      "Active across 12+ cities including Hyderabad, Bangalore, Chennai, Vijayawada and Visakhapatnam.",
     iconSrc: "/assets/About/iconoven_map-pin-lock.svg",
   },
   {
@@ -41,7 +41,7 @@ const CARDS_DATA: PartnerValueCard[] = [
     positionClass: styles.cardR2C2,
     title: "End-to-End Workforce Management",
     description:
-      "From recruitment and onboarding to daily performance tracking and grievance resolution DropyHub manages everything so you can focus on your business.",
+      "From recruitment and onboarding to tracking and grievance resolution, DropyHub manages everything.",
     iconSrc: "/assets/About/ri_shake-hands-fill.svg",
   },
   {
@@ -49,16 +49,16 @@ const CARDS_DATA: PartnerValueCard[] = [
     positionClass: styles.cardR3C1,
     title: "48-Hour Deployment",
     description:
-      "Need delivery staff urgently? We can onboard and deploy verified riders to your zone within 48 hours no delays, no bureaucracy.",
+      "We onboard and deploy verified riders to your zone within 48 hours, without delays.",
     iconSrc: "/assets/About/akar-icons_clock.svg",
   },
   {
     id: "srh-official-partner",
     positionClass: styles.cardR3C2,
-    title: "SRH Official partner 2025",
+    title: "SRH Official Partner 2025",
     description:
-      "DropyHub is the Official Partner of Sunrisers Hyderabad for TATA IPL 2025 a testament to our national credibility, brand strength, and operational scale.",
-    iconSrc: "/assets/About/maki_cricket.svg",
+      "Our TATA IPL 2025 partnership reflects our national credibility, brand strength and scale.",
+    iconSrc: "/assets/icons/hugeicons_customer-support.svg",
   },
 ];
 
@@ -81,9 +81,9 @@ export const AboutSection: React.FC = () => {
           </div>
           <div className={styles.topIntroRight}>
             <p className={styles.aboutDescription}>
-              Founded in 2020 and based in Hyderabad, Telangana, DropyHub connects delivery
+              Founded in 2020 and based in Hyderabad, DropyHub connects delivery
               executives with leading platforms like Swiggy, Zomato, Blinkit, Amazon, Zepto,
-              Flipkart, BookMyShow, and Uber through one free-to-join partnership.
+              Flipkart, BookMyShow and Uber through one free-to-join partnership.
             </p>
           </div>
         </div>
@@ -91,15 +91,17 @@ export const AboutSection: React.FC = () => {
         {/* 2. Partner Ecosystem Introduction (x = 100px, y = 225px) */}
         <div className={styles.ecosystemIntro}>
           <h3 className={styles.ecosystemHeading}>
-            Than Staffing. A Complete Partner Ecosystem.
+            More Than Staffing. A Complete Partner Ecosystem.
           </h3>
           <p className={styles.ecosystemDescription}>
-            Beyond job placement, DropyHub supports 5,000+ active delivery partners across 12+
-            Indian cities with vehicle rentals, loans up to ₹10 lakhs, comprehensive insurance,
-            weekly bonuses, monthly awards, and 24/7 partner support empowering them to grow
-            their careers and improve their livelihoods.
+            Beyond job placement, DropyHub supports 5,000+ active partners with vehicle
+            rentals, loans up to ₹10 lakhs, insurance, weekly bonuses, monthly awards and
+            24/7 support.
           </p>
         </div>
+
+        {/* Mobile Divider below Ecosystem Intro */}
+        <div className={styles.ecosystemDivider} aria-hidden="true" />
 
         {/* 3. Section Specific Dividers */}
         {/* Horizontal line 1: y = 381px */}
@@ -136,6 +138,9 @@ export const AboutSection: React.FC = () => {
 
         {/* 5. How to Start? Onboarding Section */}
         <HowToStart />
+
+        {/* Mobile Black Bar after How to Start */}
+        <div className={styles.howToStartBlackBar} aria-hidden="true" />
       </div>
 
       {/* Horizontal line 4: Full-Viewport Width divider at y = 900px */}

@@ -371,6 +371,11 @@
   z-index: 5;
 }
 
+.ecosystemDivider,
+.howToStartBlackBar {
+  display: none;
+}
+
 /* ==========================================================================
    Mobile & Responsive Layout (<= 992px) — Matches Image 1
    ========================================================================== */
@@ -443,6 +448,14 @@
     color: #999999;
   }
 
+  .ecosystemDivider {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: #2a2a2a;
+    margin: 28px 0 0 0;
+  }
+
   .card,
   .cardR1C1,
   .cardR1C2,
@@ -457,16 +470,17 @@
     bottom: auto;
     width: 100%;
     height: auto;
-    min-height: 90px;
-    margin-bottom: 14px;
-    border: 1px solid #222222;
-    border-radius: 12px;
-    padding: 16px;
+    min-height: auto;
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1.5px solid #2a2a2a;
+    border-radius: 0;
+    padding: 24px 0;
     box-sizing: border-box;
-    background-color: #141414;
+    background-color: transparent;
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 16px;
   }
 
   .topIntroLeft {
@@ -480,20 +494,57 @@
   }
 
   .iconTile {
-    width: 40px;
-    height: 40px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
+    background-color: #242424;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .iconImage {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .textArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .cardTitle {
+    font-family: var(--font-display);
     font-size: 16px;
-    margin-bottom: 6px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
   }
 
   .cardDescription {
+    font-family: var(--font-body);
     font-size: 13.5px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: #888888;
+    margin: 0;
+  }
+
+  .howToStartBlackBar {
+    display: block;
+    width: 100vw;
+    margin-left: -20px;
+    height: 44px;
+    background-color: #0c0c0c;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+    margin-top: 36px;
+    box-sizing: border-box;
   }
 
   .aboutBottomDivider {

@@ -255,15 +255,6 @@ export const HowToStart: React.FC = () => {
         <h4 className={styles.contentTitle}>{activeStep.contentTitle}</h4>
 
         <p className={styles.contentText}>{activeStep.description}</p>
-
-        <ul className={styles.contentBullets}>
-          {activeStep.bullets.map((bullet, index) => (
-            <li key={index} className={styles.bulletItem}>
-              <span className={styles.bulletDot} aria-hidden="true" />
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
       </div>
 
       {/* Mobile Flow */}
@@ -297,14 +288,6 @@ export const HowToStart: React.FC = () => {
                   <div className={styles.mobileCardContent}>
                     <h4 className={styles.mobileContentTitle}>{step.contentTitle}</h4>
                     <p className={styles.mobileContentText}>{step.description}</p>
-                    <ul className={styles.mobileBullets}>
-                      {step.bullets.map((b, i) => (
-                        <li key={i} className={styles.mobileBulletItem}>
-                          <span className={styles.bulletDot} aria-hidden="true" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </div>
               )}
