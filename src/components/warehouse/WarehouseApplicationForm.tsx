@@ -73,7 +73,7 @@ export const WarehouseApplicationForm: React.FC = () => {
     setLoading(true);
     setErrorMessage(null);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_PARTNER_API_URL || 'http://localhost:5000/api/v1/public/apply';
+      const apiUrl = process.env.NEXT_PUBLIC_PARTNER_API_URL || '/api/apply';
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -120,8 +120,12 @@ export const WarehouseApplicationForm: React.FC = () => {
       setSubmissionInfo(info);
       setSubmitted(true);
     } catch (err: any) {
-      console.error('Submission failed:', err);
-      setErrorMessage(err.message || 'Failed to submit application. Please try again.');
+      console.warn('Submission request error:', err);
+      const msg =
+        err?.message && !err.message.includes('Failed to fetch')
+          ? err.message
+          : 'Unable to connect to submission service. Please check your connection and try again.';
+      setErrorMessage(msg);
     } finally {
       setLoading(false);
     }
