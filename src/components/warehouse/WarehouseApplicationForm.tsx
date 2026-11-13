@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './WarehouseApplicationForm.module.css';
 
 const PREFERRED_STORES = [
@@ -23,6 +23,26 @@ export const WarehouseApplicationForm: React.FC = () => {
 
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [submissionInfo, setSubmissionInfo] = useState<{
+    referenceId?: string;
+    fullName?: string;
+    mobileNumber?: string;
+    alreadyRegistered?: boolean;
+  } | null>(null);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('dropyhub_warehouse_submission');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setSubmissionInfo(parsed);
+        setSubmitted(true);
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -51,6 +71,7 @@ export const WarehouseApplicationForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMessage(null);
     try {
       const apiUrl = process.env.NEXT_PUBLIC_PARTNER_API_URL || 'http://localhost:5000/api/v1/public/apply';
       const response = await fetch(apiUrl, {
@@ -68,10 +89,38 @@ export const WarehouseApplicationForm: React.FC = () => {
         }),
       });
       const result = await response.json();
+
+      if (response.status === 409 || result.alreadySubmitted) {
+        const info = {
+          referenceId: result.referenceId || 'DH-WH-REGISTERED',
+          fullName: result.data?.fullName || formData.fullName,
+          mobileNumber: formData.mobileNumber,
+          alreadyRegistered: true,
+        };
+        try {
+          localStorage.setItem('dropyhub_warehouse_submission', JSON.stringify(info));
+        } catch {}
+        setSubmissionInfo(info);
+        setSubmitted(true);
+        return;
+      }
+
       if (!response.ok) throw new Error(result.message || 'Submission failed');
+
+      const info = {
+        referenceId: result.referenceId,
+        fullName: formData.fullName,
+        mobileNumber: formData.mobileNumber,
+        alreadyRegistered: false,
+      };
+      try {
+        localStorage.setItem('dropyhub_warehouse_submission', JSON.stringify(info));
+      } catch {}
+      setSubmissionInfo(info);
       setSubmitted(true);
     } catch (err: any) {
       console.error('Submission failed:', err);
+      setErrorMessage(err.message || 'Failed to submit application. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -109,29 +158,48 @@ export const WarehouseApplicationForm: React.FC = () => {
                 <div className={styles.checkCircle} aria-hidden="true">
                   ✓
                 </div>
-                <h3 className={styles.successTitle}>Application Submitted!</h3>
+                <h3 className={styles.successTitle}>
+                  {submissionInfo?.alreadyRegistered
+                    ? 'Application Already Registered'
+                    : 'Application Submitted!'}
+                </h3>
+                {submissionInfo?.referenceId && (
+                  <div
+                    style={{
+                      display: 'inline-block',
+                      backgroundColor: '#f3f4f6',
+                      padding: '4px 12px',
+                      borderRadius: '4px',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      letterSpacing: '0.04em',
+                      color: '#1f2937',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    REFERENCE: {submissionInfo.referenceId}
+                  </div>
+                )}
                 <p className={styles.successMessage}>
-                  Thank you, <strong>{formData.fullName}</strong>. Our team will contact you on{' '}
-                  <strong>{formData.mobileNumber}</strong> within 24–48 hours for immediate onboarding.
+                  {submissionInfo?.alreadyRegistered
+                    ? `An application with mobile number ${submissionInfo.mobileNumber || formData.mobileNumber} is already registered with DropyHub.`
+                    : `Thank you, ${submissionInfo?.fullName || formData.fullName}! Our team will contact you on ${submissionInfo?.mobileNumber || formData.mobileNumber} within 24–48 hours for immediate onboarding.`}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({
-                      fullName: '',
-                      mobileNumber: '',
-                      city: '',
-                      location: '',
-                      age: '',
-                      experience: '',
-                      preferredStores: [],
-                    });
+                <div
+                  style={{
+                    marginTop: '8px',
+                    padding: '12px 16px',
+                    backgroundColor: '#f9fafb',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '8px',
+                    fontSize: '12.5px',
+                    color: '#6b7280',
+                    lineHeight: '1.5',
+                    maxWidth: '440px',
                   }}
-                  className={styles.resetBtn}
                 >
-                  Submit Another Application
-                </button>
+                  🔒 <strong>Duplicate Protection Active:</strong> To avoid duplicate registrations, candidates may only submit an application once. Your profile is active and recorded in our onboarding system.
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
@@ -289,6 +357,12 @@ export const WarehouseApplicationForm: React.FC = () => {
                     })}
                   </div>
                 </div>
+
+                {errorMessage && (
+                  <div style={{ color: '#ef4444', fontSize: '13px', margin: '4px 0' }}>
+                    {errorMessage}
+                  </div>
+                )}
 
                 {/* Row 5: Full-Width Submit Button */}
                 <button

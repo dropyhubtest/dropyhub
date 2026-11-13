@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/layout/Navbar';
 import styles from './ContactHeroForm.module.css';
@@ -50,6 +50,26 @@ export const ContactHeroForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submissionInfo, setSubmissionInfo] = useState<{
+    referenceId?: string;
+    fullName?: string;
+    mobileNumber?: string;
+    alreadyRegistered?: boolean;
+    submittedAt?: string;
+  } | null>(null);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('dropyhub_delivery_submission');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setSubmissionInfo(parsed);
+        setSubmitted(true);
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -109,8 +129,36 @@ export const ContactHeroForm: React.FC = () => {
         }),
       });
       const result = await response.json();
+
+      if (response.status === 409 || result.alreadySubmitted) {
+        const info = {
+          referenceId: result.referenceId || 'DH-DEL-REGISTERED',
+          fullName: result.data?.fullName || formData.fullName,
+          mobileNumber: formData.mobileNumber,
+          alreadyRegistered: true,
+          submittedAt: result.data?.submittedAt || new Date().toISOString(),
+        };
+        try {
+          localStorage.setItem('dropyhub_delivery_submission', JSON.stringify(info));
+        } catch {}
+        setSubmissionInfo(info);
+        setSubmitted(true);
+        return;
+      }
+
       if (!response.ok) throw new Error(result.message || 'Submission failed');
-      console.log('Application registered with Reference:', result.referenceId);
+
+      const info = {
+        referenceId: result.referenceId,
+        fullName: formData.fullName,
+        mobileNumber: formData.mobileNumber,
+        alreadyRegistered: false,
+        submittedAt: new Date().toISOString(),
+      };
+      try {
+        localStorage.setItem('dropyhub_delivery_submission', JSON.stringify(info));
+      } catch {}
+      setSubmissionInfo(info);
       setSubmitted(true);
     } catch (err: any) {
       setSubmitError(err.message || 'Failed to submit application. Please try again.');
@@ -220,10 +268,38 @@ export const ContactHeroForm: React.FC = () => {
 
             {submitted ? (
               <div className={styles.successMessage}>
-                <strong>Application Submitted Successfully!</strong>
-                <p style={{ margin: '8px 0 0 0', color: '#b6e8bf' }}>
-                  Thank you! Our onboarding team will contact you within 24–48 hours to
-                  verify your documents and get you started on the road.
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '18px' }}>✓</span>
+                  <strong style={{ fontSize: '16px', color: '#ffffff' }}>
+                    {submissionInfo?.alreadyRegistered
+                      ? 'Application Already Registered'
+                      : 'Application Submitted Successfully!'}
+                  </strong>
+                </div>
+                {submissionInfo?.referenceId && (
+                  <div
+                    style={{
+                      display: 'inline-block',
+                      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      fontSize: '12px',
+                      letterSpacing: '0.05em',
+                      color: '#4ade80',
+                      fontFamily: 'monospace',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    REFERENCE: {submissionInfo.referenceId}
+                  </div>
+                )}
+                <p style={{ margin: '0 0 10px 0', color: '#b6e8bf', fontSize: '13.5px', lineHeight: '1.5' }}>
+                  {submissionInfo?.alreadyRegistered
+                    ? `An application with mobile number ${submissionInfo.mobileNumber || formData.mobileNumber} is already on file with DropyHub.`
+                    : `Thank you, ${submissionInfo?.fullName || formData.fullName}! Your application has been received.`}
+                </p>
+                <p style={{ margin: '0', color: '#aaaaaa', fontSize: '12.5px', lineHeight: '1.5', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '10px' }}>
+                  🔒 <strong>Duplicate Protection Active:</strong> To prevent duplicate entries, applications can only be submitted once per person. Our team will contact you within 24–48 hours for onboarding.
                 </p>
               </div>
             ) : (
