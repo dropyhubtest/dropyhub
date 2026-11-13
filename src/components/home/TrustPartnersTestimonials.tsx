@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./TrustPartnersTestimonials.module.css";
 
@@ -74,13 +74,37 @@ const TESTIMONIALS_DATA: TestimonialItem[] = [
 
 export const TrustPartnersTestimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length);
+    const nextIdx = (activeIndex - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length;
+    scrollToSlide(nextIdx);
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % TESTIMONIALS_DATA.length);
+    const nextIdx = (activeIndex + 1) % TESTIMONIALS_DATA.length;
+    scrollToSlide(nextIdx);
+  };
+
+  const scrollToSlide = (index: number) => {
+    setActiveIndex(index);
+    if (sliderRef.current && window.innerWidth <= 992) {
+      sliderRef.current.scrollTo({
+        left: index * sliderRef.current.clientWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (!sliderRef.current || window.innerWidth > 992) return;
+    const { scrollLeft, clientWidth } = sliderRef.current;
+    if (clientWidth > 0) {
+      const newIdx = Math.round(scrollLeft / clientWidth);
+      if (newIdx !== activeIndex && newIdx >= 0 && newIdx < TESTIMONIALS_DATA.length) {
+        setActiveIndex(newIdx);
+      }
+    }
   };
 
   const activeTestimonial = TESTIMONIALS_DATA[activeIndex];
@@ -192,6 +216,9 @@ export const TrustPartnersTestimonials: React.FC = () => {
           </div>
         </div>
 
+        {/* Mobile Divider Line between Innovation & Our Partners */}
+        <div className={styles.innovationPartnersDivider} aria-hidden="true" />
+
         {/* ==================================================================
             Section B: Our Partners
             ================================================================== */}
@@ -241,11 +268,28 @@ export const TrustPartnersTestimonials: React.FC = () => {
           </div>
         </div>
 
+        {/* Mobile White Lines Horizontal Bar between Partners & Testimonials */}
+        <div className={styles.mobilePartnersTestimonialsDivider} aria-hidden="true">
+          <div className={styles.mobilePartnersPattern} />
+        </div>
+
         {/* ==================================================================
             Section C: Testimonials
             ================================================================== */}
         <div className={styles.testimonialsComponent}>
           <div className={styles.testimonialsCategoryLabel}>Testimonials</div>
+
+          {/* Mobile Testimonials Header */}
+          <div className={styles.testimonialsEyebrow}>
+            <span className={styles.eyebrow}>
+              <span className={styles.bullet} aria-hidden="true" />
+              OUR TESTIMONIALS
+            </span>
+          </div>
+          <h2 className={styles.testimonialsHeading}>Hear From Our Partners</h2>
+          <p className={styles.testimonialsText}>
+            Real experiences from delivery partners building better lives with DropyHub.
+          </p>
 
           {/* Navigation Controls */}
           <button
@@ -285,7 +329,11 @@ export const TrustPartnersTestimonials: React.FC = () => {
           </button>
 
           {/* Main Testimonial Sliding Viewport */}
-          <div className={styles.quoteSliderViewport}>
+          <div
+            className={styles.quoteSliderViewport}
+            ref={sliderRef}
+            onScroll={handleScroll}
+          >
             <div
               className={styles.quoteSliderTrack}
               style={{
@@ -328,7 +376,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
                 key={index}
                 type="button"
                 className={`${styles.dot} ${index === activeIndex ? styles.dotActive : ""}`}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => scrollToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

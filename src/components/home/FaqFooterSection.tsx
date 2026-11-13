@@ -130,6 +130,11 @@ export const FaqFooterSection: React.FC = () => {
           })}
         </div>
 
+        {/* Mobile White Lines Horizontal Bar between FAQ & Ready to Start Earning CTA */}
+        <div className={styles.mobileFaqCtaDivider} aria-hidden="true">
+          <div className={styles.mobileFaqPattern} />
+        </div>
+
         {/* ================================================================
             C. Final Signup CTA (y = 575px)
             ================================================================ */}
@@ -167,6 +172,9 @@ export const FaqFooterSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Mobile Horizontal Divider Line between CTA & Footer */}
+        <div className={styles.mobileCtaFooterDivider} aria-hidden="true" />
       </div>
     </section>
 

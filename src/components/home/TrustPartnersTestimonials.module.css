@@ -521,7 +521,10 @@
 
 .testimonialsEyebrow,
 .testimonialsHeading,
-.paginationDots {
+.testimonialsText,
+.paginationDots,
+.innovationPartnersDivider,
+.mobilePartnersTestimonialsDivider {
   display: none;
 }
 
@@ -603,6 +606,44 @@
     width: 100%;
   }
 
+  .innovationPartnersDivider {
+    display: block;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    height: 1px;
+    background-color: var(--color-raw-c3c4c8);
+    margin: 32px 0 28px 0;
+  }
+
+  .mobilePartnersTestimonialsDivider {
+    display: block;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    height: 43px;
+    background-color: #ffffff;
+    border-top: 1px solid var(--color-raw-c3c4c8);
+    border-bottom: 1px solid var(--color-raw-c3c4c8);
+    margin: 32px 0 28px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .mobilePartnersPattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(195, 196, 200, 0.5) 13.5px,
+      rgba(195, 196, 200, 0.5) 15px
+    );
+    pointer-events: none;
+  }
+
   .partnersLogoStrip {
     position: static;
     left: auto;
@@ -611,7 +652,7 @@
     height: 50px;
     overflow: hidden;
     display: flex;
-    margin-bottom: 36px;
+    margin-bottom: 8px;
   }
 
   .testimonialsComponent {
@@ -636,7 +677,16 @@
     font-size: 22px;
     font-weight: 600;
     color: #111111;
-    margin: 4px 0 20px 0;
+    margin: 4px 0 6px 0;
+  }
+
+  .testimonialsText {
+    display: block;
+    position: static;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666666;
+    margin: 0 0 24px 0;
   }
 
   .testimonialsTitle,
@@ -655,23 +705,40 @@
     top: auto;
     width: 100%;
     height: auto;
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .quoteSliderViewport::-webkit-scrollbar {
+    display: none;
   }
 
   .quoteSliderTrack {
     transform: none !important;
     height: auto;
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
   }
 
   .quoteSlide {
-    display: none;
+    display: flex !important;
+    flex-direction: column;
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    padding: 0 2px;
     height: auto;
   }
 
   .quoteSlideActive {
-    display: flex;
+    display: flex !important;
   }
 
   .quoteText {

@@ -88,6 +88,29 @@
   display: flex;
   align-items: center;
   width: 100%;
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  user-select: none;
+}
+
+.accordionButton:focus,
+.accordionButton:focus-visible,
+.accordionButton:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.accordionItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-raw-c3c4c8);
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.mobileFaqCtaDivider,
+.mobileCtaFooterDivider {
+  display: none;
 }
 
 .activeIndicator {
@@ -392,6 +415,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
   }
 
   .activeIndicator {
@@ -405,12 +430,14 @@
   .questionText {
     font-size: 16px;
     font-weight: 500;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   .faqToggleIcon {
     font-size: 22px;
     font-weight: 300;
     color: #111111;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   .answerContent {
@@ -423,18 +450,48 @@
     color: #666666;
   }
 
+  .mobileFaqCtaDivider {
+    display: block;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    height: 43px;
+    background-color: #ffffff;
+    border-top: 1px solid var(--color-raw-c3c4c8);
+    border-bottom: 1px solid var(--color-raw-c3c4c8);
+    margin: 32px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .mobileFaqPattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(195, 196, 200, 0.5) 13.5px,
+      rgba(195, 196, 200, 0.5) 15px
+    );
+    pointer-events: none;
+  }
+
   .ctaContainer {
     position: static;
     left: auto;
     top: auto;
     width: 100%;
     height: auto;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     display: flex;
     flex-direction: column;
-    padding: 30px 20px;
-    background-color: #f3f4f6;
-    border-radius: 16px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     box-sizing: border-box;
   }
 
@@ -489,6 +546,16 @@
     font-size: 14px;
     font-weight: 500;
     color: #111111;
-    text-decoration: underline;
+    text-decoration: none !important;
+  }
+
+  .mobileCtaFooterDivider {
+    display: block;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    height: 1px;
+    background-color: var(--color-raw-c3c4c8);
+    margin: 36px 0 0 0;
   }
 }

@@ -408,7 +408,8 @@
 
   .topIntro {
     position: static;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -422,10 +423,14 @@
 
   .mainHeading {
     font-size: 22px;
+    width: 100% !important;
+    max-width: 100% !important;
     margin: 4px 0 0 0;
   }
 
   .aboutDescription {
+    width: 100% !important;
+    max-width: 100% !important;
     font-size: 14px;
     line-height: 1.6;
     color: #999999;
@@ -433,16 +438,21 @@
 
   .ecosystemIntro {
     position: static;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     margin-bottom: 24px;
   }
 
   .ecosystemHeading {
+    width: 100% !important;
+    max-width: 100% !important;
     font-size: 20px;
     margin-bottom: 8px;
   }
 
   .ecosystemDescription {
+    width: 100% !important;
+    max-width: 100% !important;
     font-size: 14px;
     line-height: 1.6;
     color: #999999;
@@ -538,13 +548,22 @@
   .howToStartBlackBar {
     display: block;
     width: 100vw;
-    margin-left: -20px;
-    height: 44px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    height: 48px;
     background-color: #0c0c0c;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(255, 255, 255, 0.12) 13.5px,
+      rgba(255, 255, 255, 0.12) 15px
+    );
     border-top: 1px solid #222222;
     border-bottom: 1px solid #222222;
     margin-top: 36px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .aboutBottomDivider {
