@@ -48,14 +48,33 @@ export const WarehouseApplicationForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate instantaneous clean submission
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_PARTNER_API_URL || 'http://localhost:5000/api/v1/public/apply';
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          mobileNumber: formData.mobileNumber,
+          city: formData.city,
+          area: formData.location,
+          age: formData.age,
+          experience: formData.experience,
+          preferredCompanies: formData.preferredStores,
+          source: 'WAREHOUSE_PAGE',
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Submission failed');
       setSubmitted(true);
-    }, 600);
+    } catch (err: any) {
+      console.error('Submission failed:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

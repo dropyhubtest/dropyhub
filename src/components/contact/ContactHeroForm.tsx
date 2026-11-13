@@ -48,6 +48,8 @@ export const ContactHeroForm: React.FC = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -80,9 +82,41 @@ export const ContactHeroForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_PARTNER_API_URL || 'http://localhost:5000/api/v1/public/apply';
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          mobileNumber: formData.mobileNumber,
+          email: formData.email,
+          age: formData.age,
+          city: formData.city,
+          area: formData.area,
+          hasBike: formData.hasBike,
+          hasLicense: formData.hasLicense,
+          preferredCompanies: formData.preferredCompanies,
+          jobTypes: formData.jobTypes,
+          experience: formData.experience,
+          employmentStatus: formData.employmentStatus,
+          message: formData.message,
+          source: 'DELIVERY_PAGE',
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Submission failed');
+      console.log('Application registered with Reference:', result.referenceId);
+      setSubmitted(true);
+    } catch (err: any) {
+      setSubmitError(err.message || 'Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -486,9 +520,15 @@ export const ContactHeroForm: React.FC = () => {
                   />
                 </div>
 
+                {submitError && (
+                  <p style={{ color: '#ef4444', fontSize: '13px', margin: '4px 0 0 0' }}>
+                    {submitError}
+                  </p>
+                )}
+
                 {/* Submit Button */}
-                <button type="submit" className={styles.submitBtn}>
-                  Submit &rarr;
+                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit \u2192'}
                 </button>
 
                 {/* Disclaimer */}
