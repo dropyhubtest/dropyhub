@@ -81,11 +81,12 @@ export const WarehouseApplicationForm: React.FC = () => {
           fullName: formData.fullName,
           mobileNumber: formData.mobileNumber,
           city: formData.city,
-          area: formData.location,
+          location: formData.location,
           age: formData.age,
           experience: formData.experience,
-          preferredCompanies: formData.preferredStores,
+          preferredStores: formData.preferredStores,
           source: 'WAREHOUSE_PAGE',
+          applicationType: 'WAREHOUSE_ASSOCIATE',
         }),
       });
       const result = await response.json();

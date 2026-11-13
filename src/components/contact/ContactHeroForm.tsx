@@ -126,6 +126,7 @@ export const ContactHeroForm: React.FC = () => {
           employmentStatus: formData.employmentStatus,
           message: formData.message,
           source: 'DELIVERY_PAGE',
+          applicationType: 'DELIVERY_PARTNER',
         }),
       });
       const result = await response.json();
