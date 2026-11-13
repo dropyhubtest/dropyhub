@@ -9,12 +9,14 @@ export interface FooterProps {
   className?: string;
   showRails?: boolean;
   showTopDivider?: boolean;
+  description?: string;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   className,
   showRails = true,
   showTopDivider = true,
+  description = "India's premier delivery partner platform — empowering executives with career growth and financial support.",
 }) => {
   return (
     <footer className={`${styles.footerSection} ${className || ''}`} aria-label="Global Footer">
@@ -209,10 +211,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           <p className={styles.copyrightText}>&copy; 2026 DropyHub. All rights reserved.</p>
 
-          <p className={styles.footerDescription}>
-            Be part of a platform associated with India&apos;s most exciting cricket franchise.
-            Register as a delivery partner today - completely free.
-          </p>
+          <p className={styles.footerDescription}>{description}</p>
         </div>
       </div>
 

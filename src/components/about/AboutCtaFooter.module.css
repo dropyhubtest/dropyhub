@@ -151,6 +151,10 @@
 
 /* Responsive */
 @media (max-width: 992px) {
+  .ctaSection {
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+
   .railLeft,
   .railRight {
     display: none !important;
@@ -205,5 +209,6 @@
     width: 100%;
     padding: 6px 0;
     font-size: 14px;
+    text-decoration: none !important;
   }
 }

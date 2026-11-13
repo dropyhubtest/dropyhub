@@ -321,12 +321,21 @@
   .railRight,
   .blackBarRailLeft,
   .blackBarRailRight,
-  .topDividerLine,
   .bottomDividerLine,
   .blackSpacerBar,
   .brokenRailLeft,
   .brokenRailRight {
     display: none !important;
+  }
+
+  .topDividerLine {
+    display: block !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    height: 1px !important;
+    background-color: #2e2e2e !important;
+    margin: 24px 0 !important;
   }
 
   .storyContainer {
@@ -385,24 +394,26 @@
   .whyWeExistWrapper {
     margin: 0;
     width: 100%;
-    padding: 24px 16px;
+    padding: 0 16px;
     box-sizing: border-box;
-  }
-
-  .topDividerLine,
-  .bottomDividerLine {
-    margin-left: 0;
-    width: 100%;
   }
 
   .twoColumnGrid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     width: 100%;
   }
 
-  .problemColumn,
+  .problemColumn {
+    padding: 0 0 24px 0;
+    border: none;
+    border-bottom: 1px solid #2e2e2e;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+  }
+
   .solutionColumn {
     padding: 0;
     border: none;
@@ -440,8 +451,16 @@
   }
 
   .whiteSlashedBar {
-    width: 100%;
-    height: 40px;
-    margin-top: 16px;
+    display: block !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    height: 44px !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid var(--color-raw-c3c4c8) !important;
+    border-bottom: 1px solid var(--color-raw-c3c4c8) !important;
+    margin-top: 24px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 }

@@ -248,6 +248,7 @@
     margin: 0 !important;
     border-left: none !important;
     border-right: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
   }
 
   .statsBarWrapper::before,
@@ -298,6 +299,7 @@
     width: 100% !important;
     margin: 0 !important;
     box-sizing: border-box !important;
+    border-bottom: 1px solid #e0e0e0 !important;
   }
 
   .pillarsGrid {

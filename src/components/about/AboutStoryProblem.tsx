@@ -30,14 +30,14 @@ export const AboutStoryProblem: React.FC = () => {
                 so delivery executives can focus on completing orders safely and reliably.
               </p>
               <p>
-                We coordinate with partner companies, onboard delivery executives and help
-                organize the resources needed to keep deliveries moving—from EV bike access
-                to hostel accommodation and weekly performance bonuses.
+                We coordinate with partner companies, onboard delivery executives and organize
+                resources that keep deliveries moving—from EV bike access to hostel accommodation
+                and weekly bonuses.
               </p>
               <p>
                 Our role goes beyond recruitment. We connect delivery demand with an
-                organized rider network and support our executives with practical resources,
-                clear onboarding and ongoing assistance.
+                organized rider network and support our executives with clear onboarding
+                and ongoing assistance.
               </p>
             </div>
           </div>
@@ -97,7 +97,7 @@ export const AboutStoryProblem: React.FC = () => {
               <div className={styles.eyebrowSpacer} aria-hidden="true" />
               <h3 className={styles.columnTitle}>The Solution</h3>
               <p className={styles.columnDescription}>
-                DropyHub works to make that journey more accessible by connecting delivery
+                DropyHub makes that journey more accessible by connecting delivery
                 partners with work opportunities and support that can help them move forward.
               </p>
             </div>

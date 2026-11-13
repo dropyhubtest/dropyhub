@@ -178,6 +178,29 @@
   }
 
   .hatchedDivider {
-    display: none !important;
+    display: block !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    height: 44px !important;
+    background-color: #0c0c0c !important;
+    border-top: 1px solid #2e2e2e !important;
+    border-bottom: 1px solid #2e2e2e !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    margin-top: 24px !important;
+  }
+
+  .hatchedPattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(255, 255, 255, 0.12) 13.5px,
+      rgba(255, 255, 255, 0.12) 15px
+    ) !important;
+    pointer-events: none;
   }
 }

@@ -65,10 +65,10 @@ const STATS_DATA: StatMetric[] = [
 ];
 
 const WHY_CHOOSE_ITEMS = [
-  'Weekly incentives and partner reward programmes',
-  'Accommodation options and career development support',
-  'Dedicated assistance for delivery partners and businesses',
-  'Flexible EV vehicle rental options',
+  'Weekly incentives and partner rewards',
+  'Accommodation and career support',
+  'Dedicated assistance for partners',
+  'Flexible EV vehicle rentals',
 ];
 
 export const AboutStatsPillars: React.FC = () => {
