@@ -58,7 +58,7 @@ const CARDS_DATA: PartnerValueCard[] = [
     title: "SRH Official Partner 2025",
     description:
       "Our TATA IPL 2025 partnership reflects our national credibility, brand strength and scale.",
-    iconSrc: "/assets/icons/hugeicons_customer-support.svg",
+    iconSrc: "/assets/About/maki_cricket.svg",
   },
 ];
 

@@ -673,9 +673,9 @@
     display: flex;
     flex-direction: column;
     gap: 28px;
-    padding: 24px 18px;
+    padding: 8px 0;
     background-color: #ffffff;
-    border: 1px solid #e5e5e5;
+    border: none;
     border-radius: 0;
     box-sizing: border-box;
     box-shadow: none;
@@ -713,7 +713,7 @@
   }
 
   .panelTitle {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: #111111;
     margin: 0;
@@ -810,32 +810,33 @@
 
   .rangeInput {
     width: 100%;
-    height: 5px;
+    height: 4px;
     -webkit-appearance: none;
     appearance: none;
-    border-radius: 3px;
+    border-radius: 2px;
     outline: none;
+    margin: 12px 0 8px 0;
   }
 
   .rangeInput::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: #111111;
-    border: 2px solid #ffffff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    border: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
 
   .rangeInput::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: #111111;
-    border: 2px solid #ffffff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    border: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
 
@@ -844,11 +845,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .sliderLabelText {
-    font-size: 12px;
+    font-size: 12.5px;
     color: #666666;
   }
 
@@ -865,14 +866,16 @@
   }
 
   .panelValueBadge {
-    font-size: 15px;
-    font-weight: 500;
+    font-family: var(--font-body), sans-serif;
+    font-size: 18px;
+    font-weight: 400;
     color: #111111;
   }
 
   .boldNumber {
-    font-size: 15px;
-    font-weight: 500;
+    font-family: var(--font-body), sans-serif;
+    font-size: 18px;
+    font-weight: 400;
   }
 
   .rightColumn {
@@ -882,10 +885,10 @@
     top: auto !important;
     width: 100% !important;
     height: auto !important;
-    margin-top: 16px;
+    margin-top: 8px;
     border-radius: 0 !important;
     background-color: #ffffff;
-    border: 1px solid #e5e5e5 !important;
+    border: none !important;
     box-sizing: border-box;
     box-shadow: none !important;
   }
@@ -893,17 +896,17 @@
   .earningsContent {
     position: static !important;
     width: 100% !important;
-    padding: 24px 20px;
+    padding: 24px 0 16px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
   }
 
   .earningsHeading {
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 600;
     color: #111111;
-    margin: 0 0 22px 0;
+    margin: 0 0 20px 0;
   }
 
   .breakdownList {
