@@ -6,14 +6,17 @@ import TrustPartnersTestimonials from "@/components/home/TrustPartnersTestimonia
 import FaqFooterSection from "@/components/home/FaqFooterSection";
 import PageRails from "@/components/layout/PageRails";
 import MotorcycleScroll from "@/components/home/MotorcycleScroll";
+import MobileBikeScroll from "@/components/home/MobileBikeScroll";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <PageRails />
-      {/* Motorcycle animation layer — fixed, covers full viewport, pointer-events: none */}
+      {/* Desktop motorcycle animation layer (≥ 1200px) */}
       <MotorcycleScroll />
+      {/* Mobile horizontal bike animation layer (≤ 1199px) */}
+      <MobileBikeScroll />
       <Hero />
       <StatsWhySection />
       <EarningsEstimator />

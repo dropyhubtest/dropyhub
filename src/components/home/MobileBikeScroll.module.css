@@ -1,0 +1,88 @@
+/* ==========================================================================
+   MobileBikeScroll — Horizontal scroll-synced bike animation for mobile
+   ONLY active on screens ≤ 1199px (mobile / tablet)
+   ========================================================================== */
+
+/* Hidden on desktop — handled by MotorcycleScroll */
+.overlay {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  /*
+    Fixed overlay that sits on top of the entire page.
+    pointer-events: none so it never blocks touches.
+    z-index: 90 — above most sections, below popups.
+  */
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 90;
+    overflow: visible;
+  }
+
+  /*
+    The bike assembly — absolutely positioned inside the overlay.
+    GSAP will drive `transform: translate3d(x, y, 0) rotate(deg)`.
+    Width & height match the user-spec: 103.185 × 154.778px.
+  */
+  .bikeAssembly {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 103.185px;
+    height: 154.778px;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  /* Headlight glow — centred on the front axle (bottom of bike image) */
+  .glowLayer {
+    position: absolute;
+    /* Scale headlight down proportionally from desktop 190×162 → mobile 103×55 */
+    left: calc(103.185px * 0.192);
+    top: calc(154.778px * 0.72);
+    width: calc(103.185px * 0.74);
+    height: calc(103.185px * 0.63);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .glowAsset {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Bike/Rider image layer — fills the assembly exactly */
+  .riderLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 103.185px;
+    height: 154.778px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .riderAsset {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    display: none !important;
+  }
+}
