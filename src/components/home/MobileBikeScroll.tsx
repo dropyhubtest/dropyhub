@@ -68,6 +68,14 @@ const TRAVEL_FRACTION = 0.75;
 const OFFSCREEN_MARGIN = DISPLAY_W + 16;
 
 /**
+ * X value so the bike's visual LEFT EDGE is flush with the viewport left edge.
+ * After -90° rotation around 50% 50%:
+ *   visualLeft  = x + (BIKE_W / 2) - (BIKE_H / 2)
+ * Setting visualLeft = 0 → x = (BIKE_H / 2) - (BIKE_W / 2) ≈ 25.8px
+ */
+const VISIBLE_START_X = (BIKE_H - BIKE_W) / 2;  // ≈ 25.797px
+
+/**
  * Fraction of viewport height where the bike's centre is locked vertically.
  * 0.42 = 42% from top — a visually natural mid-to-upper band on mobile.
  */
@@ -124,7 +132,9 @@ export const MobileBikeScroll: React.FC = () => {
        *   and the assembly's visual width when rotated = DISPLAY_W)
        */
       const rightEdgeX = vw - DISPLAY_W - 8;   // 8px padding from screen edge
-      const leftEdgeX = -OFFSCREEN_MARGIN;
+      // Lap 0: bike starts VISIBLE at left edge so user sees it immediately at page top.
+      // Lap 1+: bike enters from fully off-screen left for a natural entrance effect.
+      const leftEdgeX = lapIndex === 0 ? VISIBLE_START_X : -OFFSCREEN_MARGIN;
 
       let bikeX: number;
       if (lapProgress <= TRAVEL_FRACTION) {
