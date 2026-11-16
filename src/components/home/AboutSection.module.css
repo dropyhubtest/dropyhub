@@ -440,14 +440,20 @@
     position: static;
     width: 100% !important;
     max-width: 100% !important;
-    margin-bottom: 24px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .ecosystemHeading {
     width: 100% !important;
     max-width: 100% !important;
     font-size: 20px;
-    margin-bottom: 8px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0;
+    color: #e2e5ef;
   }
 
   .ecosystemDescription {
@@ -463,7 +469,7 @@
     width: 100%;
     height: 1.5px;
     background-color: #2a2a2a;
-    margin: 28px 0 0 0;
+    margin: 24px 0 0 0;
   }
 
   .card,
