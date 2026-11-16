@@ -319,7 +319,8 @@
     line-height: 0.82;
     margin: 32px auto 0 auto;
     width: 100%;
-    -webkit-text-stroke: 1.5px rgba(195, 196, 200, 0.55);
+    font-weight: 600;
+    -webkit-text-stroke: 0.8px rgba(195, 196, 200, 0.45);
     display: flex;
     justify-content: center;
     align-items: flex-end;
