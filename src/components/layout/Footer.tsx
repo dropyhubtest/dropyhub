@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({
   className,
   showRails = true,
   showTopDivider = true,
-  description = "India's premier delivery partner platform — empowering executives with career growth and financial support.",
+  description = "India's premier delivery partner platform — zero registration fee, career growth and financial support.",
 }) => {
   return (
     <footer className={`${styles.footerSection} ${className || ''}`} aria-label="Global Footer">
@@ -43,23 +43,13 @@ export const Footer: React.FC<FooterProps> = ({
                 </Link>
               </li>
               <li>
-                <Link href="/warehouse" className={styles.footerLink}>
-                  Warehouse
-                </Link>
-              </li>
-              <li>
                 <Link href="/services" className={styles.footerLink}>
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href="/services#how-it-works" className={styles.footerLink}>
-                  How it work
-                </Link>
-              </li>
-              <li>
                 <Link href="/benefits" className={styles.footerLink}>
-                  Career Development
+                  Benefits
                 </Link>
               </li>
               <li>
@@ -92,11 +82,6 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <Link href="/benefits" className={styles.footerLink}>
                   Weekly bonuses
-                </Link>
-              </li>
-              <li>
-                <Link href="/benefits" className={styles.footerLink}>
-                  IT Training
                 </Link>
               </li>
             </ul>

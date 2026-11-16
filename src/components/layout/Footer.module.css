@@ -254,7 +254,11 @@
   }
 
   .footerTopDivider {
-    width: calc(100% - 32px);
+    display: none !important;
+  }
+
+  .footerSection {
+    padding-bottom: 24px;
   }
 
   .container {
@@ -309,10 +313,17 @@
   }
 
   .outlinedWordmark {
-    font-size: clamp(60px, 18vw, 100px);
+    font-size: clamp(74px, 21.6vw, 110px);
     letter-spacing: 0.015em;
-    padding: 0 12px;
-    line-height: 0.88;
-    transform: none;
+    padding: 0 4px;
+    line-height: 0.82;
+    margin: 32px auto 0 auto;
+    width: 100%;
+    -webkit-text-stroke: 1.5px rgba(195, 196, 200, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform: scaleX(1.02);
+    transform-origin: center bottom;
   }
 }

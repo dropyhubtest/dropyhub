@@ -377,9 +377,9 @@
 }
 
 /* ==========================================================================
-   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   Mobile & Responsive Layout (<= 1199px) — Matches Image 3, 4 & 5
    ========================================================================== */
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
   .aboutSection {
     height: auto;
     width: 100%;
@@ -513,7 +513,7 @@
     width: 52px;
     height: 52px;
     flex-shrink: 0;
-    background-color: #242424;
+    background-color: #3e3e3e;
     border-radius: 8px;
     display: flex;
     align-items: center;

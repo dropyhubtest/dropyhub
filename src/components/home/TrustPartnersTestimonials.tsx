@@ -88,7 +88,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
 
   const scrollToSlide = (index: number) => {
     setActiveIndex(index);
-    if (sliderRef.current && window.innerWidth <= 992) {
+    if (sliderRef.current && window.innerWidth < 1200) {
       sliderRef.current.scrollTo({
         left: index * sliderRef.current.clientWidth,
         behavior: "smooth",
@@ -97,7 +97,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
   };
 
   const handleScroll = () => {
-    if (!sliderRef.current || window.innerWidth > 992) return;
+    if (!sliderRef.current || window.innerWidth >= 1200) return;
     const { scrollLeft, clientWidth } = sliderRef.current;
     if (clientWidth > 0) {
       const newIdx = Math.round(scrollLeft / clientWidth);

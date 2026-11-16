@@ -609,9 +609,9 @@
 }
 
 /* ==========================================================================
-   Mobile & Responsive Layout (<= 992px) — Matches Image 1
+   Mobile & Responsive Layout (<= 1199px) — Matches Image 1 & Image 2
    ========================================================================== */
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
   .estimatorSection {
     height: auto;
     width: 100%;
@@ -711,6 +711,42 @@
     align-items: baseline;
     width: 100%;
     gap: 8px;
+  }
+
+  .panelDeliveries .panelHeader,
+  .panelDays .panelHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 6px;
+    gap: 4px;
+  }
+
+  .panelDeliveries .panelTitle,
+  .panelDays .panelTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111111;
+    white-space: normal;
+    overflow: visible;
+    margin: 0;
+  }
+
+  .panelDeliveries .panelValueBadge,
+  .panelDays .panelValueBadge {
+    align-self: flex-end;
+    font-family: var(--font-body), sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #111111;
+    margin: 0;
+  }
+
+  .panelDeliveries .boldNumber,
+  .panelDays .boldNumber {
+    font-family: var(--font-body), sans-serif;
+    font-size: 17px;
+    font-weight: 500;
   }
 
   .panelTitle {
@@ -963,12 +999,12 @@
   }
 
   .totalLabel {
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 400;
+    font-family: var(--font-body), sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     color: #333333;
-    line-height: 1.2;
-    padding-top: 6px;
+    line-height: 1.3;
+    padding-top: 4px;
     flex-shrink: 0;
   }
 
@@ -976,9 +1012,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 2px;
+    gap: 4px;
     flex-shrink: 0;
-    max-width: 70%;
   }
 
   .totalAmountArea {
@@ -986,29 +1021,34 @@
     align-items: baseline;
     gap: 2px;
     white-space: nowrap;
+    font-family: var(--font-display), var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-variant-numeric: tabular-nums;
   }
 
   .totalAmount {
-    font-family: var(--font-display);
-    font-size: 26px;
+    font-family: var(--font-display), var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 24px;
     font-weight: 700;
     color: #111111;
     white-space: nowrap;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
   }
 
   .totalPeriod {
-    font-family: var(--font-display);
-    font-size: 15px;
-    font-weight: 400;
+    font-family: var(--font-display), var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
     color: #111111;
     white-space: nowrap;
+    line-height: 1.2;
   }
 
   .dailyAverage {
-    font-family: var(--font-body);
-    font-size: 11.5px;
-    color: #666666;
+    font-family: var(--font-body), sans-serif;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: #555555;
     margin: 0;
     text-align: right;
     white-space: nowrap;
