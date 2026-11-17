@@ -127,7 +127,7 @@ export const AboutStatsPillars: React.FC = () => {
               Building India&apos;s Trusted Delivery Ecosystem.
             </h3>
             <p className={styles.pillarDescription}>
-              To build one of India&apos;s most trusted delivery partner ecosystems, Connecting delivery partners, businesses and essential services to create a more rewarding and respected future for delivery work.
+              To build one of India&apos;s most trusted delivery partner ecosystems, connecting partners, businesses and essential services for a more rewarding future.
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export const AboutStatsPillars: React.FC = () => {
               Empowering Every Delivery Partner.
             </h3>
             <p className={styles.pillarDescription}>
-              To empower every delivery partner with meaningful work opportunities, essential resources, financial support and career development, helping them build a stable livelihood and a brighter future.
+              To empower every partner with meaningful work, essential resources, financial support and career development for a stable livelihood.
             </p>
           </div>
 

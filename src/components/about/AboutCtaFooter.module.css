@@ -191,22 +191,25 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
   }
 
-  .primaryBtn {
-    padding: 10px 18px;
-    font-size: 13.5px;
-  }
-
+  .primaryBtn,
   .secondaryBtn {
-    padding: 10px 18px;
-    font-size: 13.5px;
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    padding: 11px 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    text-align: center;
   }
 
   .tertiaryLink {
     width: 100%;
+    text-align: center;
+    justify-content: center;
     padding: 6px 0;
     font-size: 14px;
     text-decoration: none !important;
