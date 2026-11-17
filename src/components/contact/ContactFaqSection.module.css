@@ -313,13 +313,17 @@
 
   .container {
     width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     padding: 36px 16px 36px 16px !important;
+    box-sizing: border-box !important;
   }
 
   .layoutGrid {
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
+    width: 100% !important;
   }
 
   .eyebrow {
@@ -343,11 +347,17 @@
 
   .accordionList {
     width: 100% !important;
-    border-top: 1px solid #e5e7eb !important;
+    border-top: none !important;
+  }
+
+  .accordionItem {
+    width: 100% !important;
+    border-bottom: 1px solid #ebebeb !important;
   }
 
   .accordionHeader {
     padding: 16px 0 !important;
+    width: 100% !important;
   }
 
   .questionText {
@@ -373,6 +383,26 @@
   }
 
   .whiteSlashedDivider {
-    height: 36px !important;
+    display: block !important;
+    width: 100vw !important;
+    height: 40px !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .whiteSlashedPattern {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(195, 196, 200, 0.45) 13.5px,
+      rgba(195, 196, 200, 0.45) 15px
+    ) !important;
   }
 }

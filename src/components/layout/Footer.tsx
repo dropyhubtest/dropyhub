@@ -122,6 +122,9 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
+        {/* Divider line dividing the footer links and social media icons */}
+        <div className={styles.socialDividerLine} aria-hidden="true" />
+
         {/* Social Links, Copyright & Description */}
         <div className={styles.socialLegalRow}>
           <div className={styles.socialLinks}>
