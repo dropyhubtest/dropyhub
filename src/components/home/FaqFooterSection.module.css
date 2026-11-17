@@ -453,9 +453,9 @@
   .mobileFaqCtaDivider {
     display: block;
     position: relative;
-    width: calc(100% + 40px) !important;
-    margin-left: -20px !important;
-    margin-right: -20px !important;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
     margin-top: 32px !important;
     margin-bottom: 32px !important;
     height: 43px;
@@ -552,9 +552,9 @@
 
   .mobileCtaFooterDivider {
     display: block;
-    width: calc(100% + 40px) !important;
-    margin-left: -20px !important;
-    margin-right: -20px !important;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
     margin-top: 36px !important;
     margin-bottom: 0 !important;
     height: 1px;

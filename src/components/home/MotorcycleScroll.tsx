@@ -182,23 +182,7 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -450, // Facing horizontal right
       };
 
-      // 07. Testimonials — beside quotation & left carousel navigation, contained above bottom line
-      const navBtn = document.querySelector('[class*="navArrowBtn"], [class*="leftArrow"]');
-      const comp = document.querySelector('[class*="testimonialsComponent"]');
-      let testDocX = 239;
-      let testDocY = 4850;
-      if (comp) {
-        const compR = comp.getBoundingClientRect();
-        testDocX = compR.left + 175;
-        testDocY = compR.top + scrollY + 115;
-      }
-      const testimonialsAnchor: StateAnchor = {
-        docX: testDocX,
-        docY: testDocY,
-        rotation: -360, // Facing vertically down
-      };
-
-      // 08. FAQ — left column centered under "Common Questions"
+      // 07. FAQ — left column centered under "Common Questions"
       const title = document.querySelector('[class*="faqHeading"], [class*="faqTitle"]');
       let faqDocX = 310;
       let faqDocY = 5400;
@@ -236,7 +220,6 @@ export const MotorcycleScroll: React.FC = () => {
         about: aboutAnchor,
         howToStart: howToStartAnchor,
         innovation: innovationAnchor,
-        testimonials: testimonialsAnchor,
         faq: faqAnchor,
         footer: footerAnchor,
       };
@@ -251,7 +234,6 @@ export const MotorcycleScroll: React.FC = () => {
       const aboutEl = document.querySelector('[class*="aboutSection"]');
       const howStartEl = document.querySelector('[class*="howToStartContainer"], [class*="stepsList"]');
       const innovEl = document.querySelector('[class*="innovationEyebrow"], [class*="securityChecklist"]');
-      const testEl = document.querySelector('[class*="testimonialsComponent"]');
       const faqEl = document.querySelector('[class*="faqHeading"], [class*="faqTitle"]');
       const footEl = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
 
@@ -260,7 +242,6 @@ export const MotorcycleScroll: React.FC = () => {
       const aboutTop = aboutEl ? (aboutEl.getBoundingClientRect().top + scrollY) : 2497;
       const howTop = howStartEl ? (howStartEl.getBoundingClientRect().top + scrollY) : 3446;
       const innovTop = innovEl ? (innovEl.getBoundingClientRect().top + scrollY) : 4137;
-      const testTop = testEl ? (testEl.getBoundingClientRect().top + scrollY) : 4728;
       const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5184;
       const footTop = footEl ? (footEl.getBoundingClientRect().top + scrollY) : 6000;
 
@@ -280,18 +261,15 @@ export const MotorcycleScroll: React.FC = () => {
       if (scrollY < innovTop - vh * 0.40) return 'howToStart';
 
       // 06. Innovation: active while viewing security checklist
-      if (scrollY < testTop - vh * 0.40) return 'innovation';
+      if (scrollY < faqTop - vh * 0.40) return 'innovation';
 
-      // 07. Testimonials: active while viewing testimonials carousel
-      if (scrollY < faqTop - vh * 0.40) return 'testimonials';
-
-      // 08. FAQ: active while viewing FAQ accordion questions
+      // 07. FAQ: active while viewing FAQ accordion questions
       const maxScroll = typeof document !== 'undefined'
         ? (document.documentElement.scrollHeight - vh)
         : 5800;
       if (scrollY < footTop - vh * 0.75 && scrollY < maxScroll - 120) return 'faq';
 
-      // 09. Footer: active at page bottom
+      // 08. Footer: active at page bottom
       return 'footer';
     }
 

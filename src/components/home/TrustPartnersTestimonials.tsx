@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "./TrustPartnersTestimonials.module.css";
 
@@ -37,87 +37,16 @@ const REPEATED_LOGOS = [
   ...PARTNER_LOGOS_SEQUENCE,
 ];
 
-interface TestimonialItem {
-  id: string;
-  name: string;
-  subtitle: string;
-  quote: string;
-  avatarSrc: string;
-}
-
-const TESTIMONIALS_DATA: TestimonialItem[] = [
-  {
-    id: "praveen-reddy",
-    name: "Praveen Reddy",
-    subtitle: "Star Partner · Vijayawada · 2 yrs",
-    quote:
-      "The vehicle rental programme is a lifesaver. I do not own a bike and the daily rental is affordable with full maintenance taken care of. No breakdown stress, no repair costs. I focus solely on delivering and earning. DropyHub truly handles everything so I can focus on what matters.",
-    avatarSrc: "/assets/benefits/profile_1.png",
-  },
-  {
-    id: "ramesh-kumar",
-    name: "Ramesh Kumar",
-    subtitle: "Delivery Partner · Hyderabad · 2 yrs",
-    quote:
-      "DropyHub completely changed my life. Before joining, I was stuck with one company earning ₹12,000 a month. Now I work across Swiggy, Zomato, and Blinkit simultaneously and earn ₹28,000+ every month. The weekly bonuses are real and on time. I even got a ₹3 lakh loan to buy a new bike without any paperwork headaches.",
-    avatarSrc: "/assets/benefits/profile_2.jpg",
-  },
-  {
-    id: "md-saleem",
-    name: "Md. Saleem",
-    subtitle: "Delivery Executive · Nellore · 1 yr",
-    quote:
-      "I joined DropyHub in Nellore after hearing from a friend. The onboarding was completed in just 2 days — uniform, ID card, everything. I now earn more than I ever did at my previous factory job. The insurance coverage gives my family peace of mind. Best decision I ever made.",
-    avatarSrc: "/assets/benefits/profile_3.jpg",
-  },
-];
-
 export const TrustPartnersTestimonials: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  const handlePrev = () => {
-    const nextIdx = (activeIndex - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length;
-    scrollToSlide(nextIdx);
-  };
-
-  const handleNext = () => {
-    const nextIdx = (activeIndex + 1) % TESTIMONIALS_DATA.length;
-    scrollToSlide(nextIdx);
-  };
-
-  const scrollToSlide = (index: number) => {
-    setActiveIndex(index);
-    if (sliderRef.current && window.innerWidth < 1200) {
-      sliderRef.current.scrollTo({
-        left: index * sliderRef.current.clientWidth,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleScroll = () => {
-    if (!sliderRef.current || window.innerWidth >= 1200) return;
-    const { scrollLeft, clientWidth } = sliderRef.current;
-    if (clientWidth > 0) {
-      const newIdx = Math.round(scrollLeft / clientWidth);
-      if (newIdx !== activeIndex && newIdx >= 0 && newIdx < TESTIMONIALS_DATA.length) {
-        setActiveIndex(newIdx);
-      }
-    }
-  };
-
-  const activeTestimonial = TESTIMONIALS_DATA[activeIndex];
-
   return (
     <section
       className={styles.section}
-      aria-label="Innovation, Our Partners and Testimonials"
+      aria-label="Innovation and Our Partners"
     >
       {/* Top horizontal border at y = 42px - Full viewport width */}
       <div className={styles.topLine} aria-hidden="true" />
 
-      {/* Frame 352: Partner-to-Testimonials Divider (Full Viewport Width, 43px Height at y = 603px) */}
+      {/* Frame 352: Divider (Full Viewport Width, 43px Height at y = 603px) */}
       <div className={styles.frame352Divider} aria-hidden="true">
         <div className={styles.frame352Pattern} />
         <div className={styles.frame352Inner}>
@@ -151,16 +80,13 @@ export const TrustPartnersTestimonials: React.FC = () => {
       </div>
 
       <div className={styles.container}>
-        {/* Continuous desktop rails across TrustPartners and Testimonials */}
+        {/* Continuous desktop rails across Innovation and Partners */}
         <div className={styles.railTopLeft} aria-hidden="true" />
         <div className={styles.railTopRight} aria-hidden="true" />
-        <div className={styles.railBottomLeft} aria-hidden="true" />
-        <div className={styles.railBottomRight} aria-hidden="true" />
 
         {/* Horizontal Separator Lines inside 1440px container */}
         <div className={`${styles.separatorLine} ${styles.sep175}`} aria-hidden="true" />
         <div className={`${styles.separatorLine} ${styles.sep394}`} aria-hidden="true" />
-        <div className={`${styles.separatorLine} ${styles.sep1068}`} aria-hidden="true" />
 
         {/* ==================================================================
             Section A: Innovation / Your Security, Our Priority
@@ -268,119 +194,9 @@ export const TrustPartnersTestimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile White Lines Horizontal Bar between Partners & Testimonials */}
+        {/* Mobile White Lines Horizontal Bar after Partners */}
         <div className={styles.mobilePartnersTestimonialsDivider} aria-hidden="true">
           <div className={styles.mobilePartnersPattern} />
-        </div>
-
-        {/* ==================================================================
-            Section C: Testimonials
-            ================================================================== */}
-        <div className={styles.testimonialsComponent}>
-          <div className={styles.testimonialsCategoryLabel}>Testimonials</div>
-
-          {/* Mobile Testimonials Header */}
-          <div className={styles.testimonialsEyebrow}>
-            <span className={styles.eyebrow}>
-              <span className={styles.bullet} aria-hidden="true" />
-              OUR TESTIMONIALS
-            </span>
-          </div>
-          <h2 className={styles.testimonialsHeading}>Hear From Our Partners</h2>
-          <p className={styles.testimonialsText}>
-            Real experiences from delivery partners building better lives with DropyHub.
-          </p>
-
-          {/* Navigation Controls */}
-          <button
-            type="button"
-            className={`${styles.navArrowBtn} ${styles.leftArrow} ${
-              activeIndex === 0 ? styles.navArrowBtnDisabled : ""
-            }`}
-            onClick={handlePrev}
-            aria-label="Previous testimonial"
-          >
-            <Image
-              src="/assets/Home/circle-chevron-right.svg"
-              alt=""
-              width={32}
-              height={32}
-              className={styles.navIcon}
-              aria-hidden="true"
-            />
-          </button>
-
-          <button
-            type="button"
-            className={`${styles.navArrowBtn} ${styles.rightArrow} ${
-              activeIndex === TESTIMONIALS_DATA.length - 1 ? styles.navArrowBtnDisabled : ""
-            }`}
-            onClick={handleNext}
-            aria-label="Next testimonial"
-          >
-            <Image
-              src="/assets/Home/circle-chevron-right.svg"
-              alt=""
-              width={32}
-              height={32}
-              className={styles.navIcon}
-              aria-hidden="true"
-            />
-          </button>
-
-          {/* Main Testimonial Sliding Viewport */}
-          <div
-            className={styles.quoteSliderViewport}
-            ref={sliderRef}
-            onScroll={handleScroll}
-          >
-            <div
-              className={styles.quoteSliderTrack}
-              style={{
-                transform: `translateY(-${activeIndex * 100}%)`,
-              }}
-            >
-              {TESTIMONIALS_DATA.map((item, idx) => (
-                <div
-                  key={item.id}
-                  className={`${styles.quoteSlide} ${idx === activeIndex ? styles.quoteSlideActive : ""}`}
-                >
-                  <blockquote className={styles.quoteText}>
-                    &ldquo;{item.quote}&rdquo;
-                  </blockquote>
-
-                  <div className={styles.authorProfile}>
-                    <div className={styles.avatarWrapper}>
-                      <Image
-                        src={item.avatarSrc}
-                        alt={item.name}
-                        width={62}
-                        height={62}
-                        className={styles.avatarImg}
-                      />
-                    </div>
-                    <div className={styles.authorInfo}>
-                      <p className={styles.authorName}>{item.name}</p>
-                      <p className={styles.authorSubtitle}>{item.subtitle}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile Pagination Dots */}
-          <div className={styles.paginationDots} aria-label="Testimonial pagination">
-            {TESTIMONIALS_DATA.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`${styles.dot} ${index === activeIndex ? styles.dotActive : ""}`}
-                onClick={() => scrollToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>
