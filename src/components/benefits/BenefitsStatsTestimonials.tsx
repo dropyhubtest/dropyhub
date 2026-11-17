@@ -16,7 +16,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
     quote:
-      'The vehicle rental programme is a lifesaver. I do not own a bike and the daily rental is affordable with full maintenance taken care of. No breakdown stress, no repair costs. I focus solely on delivering and earning. DropyHub truly handles everything so I can focus on what matters.',
+      'The vehicle rental programme is a lifesaver. I do not own a bike and the daily rental is affordable with full maintenance taken care of. No breakdown stress, no repair costs. I focus solely on delivering and earning.',
     name: 'Praveen Reddy',
     role: 'Star Partner · Vijayawada · 2 yrs',
     avatarSrc: '/assets/benefits/profile_1.png',
@@ -86,11 +86,11 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               alt=""
               width={38}
               height={38}
-              className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
+              className={styles.statIcon}
               aria-hidden="true"
             />
             <div className={styles.statInfo}>
-              <span className={styles.statNumber}>500 Rs</span>
+              <span className={styles.statNumber}>₹500</span>
               <span className={styles.statLabel}>Weekly Bonus</span>
             </div>
           </div>
@@ -102,11 +102,11 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               alt=""
               width={38}
               height={38}
-              className={`${styles.statIcon} ${styles.statIconMobileHidden}`}
+              className={styles.statIcon}
               aria-hidden="true"
             />
             <div className={styles.statInfo}>
-              <span className={styles.statNumber}>0 Rs</span>
+              <span className={styles.statNumber}>₹0</span>
               <span className={styles.statLabel}>Joining Fee</span>
             </div>
           </div>

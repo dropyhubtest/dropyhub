@@ -166,25 +166,50 @@
   z-index: 15;
 }
 
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .railLeft,
   .railRight,
   .brokenRailLeft,
-  .brokenRailRight,
-  .whiteSlashedDivider {
+  .brokenRailRight {
     display: none !important;
   }
 
-  .section {
+  .whiteSlashedDivider {
+    display: block !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    height: 40px !important;
     background-color: #ffffff !important;
+    border-top: 1px solid var(--color-raw-c3c4c8, #c3c4c8) !important;
+    border-bottom: 1px solid var(--color-raw-c3c4c8, #c3c4c8) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .whiteSlashedPattern {
+    position: absolute !important;
+    inset: 0 !important;
     background-image: repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 13.5px,
-      rgba(195, 196, 200, 0.45) 13.5px,
-      rgba(195, 196, 200, 0.45) 15px
+      rgba(195, 196, 200, 0.7) 13.5px,
+      rgba(195, 196, 200, 0.7) 15px
     ) !important;
+    pointer-events: none !important;
+  }
+
+  .section {
+    background-color: #ffffff !important;
+    background-image: none !important;
   }
 
   .container {
@@ -202,19 +227,20 @@
 
   .cardItem {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: flex-start !important;
-    padding: 24px 16px !important;
+    gap: 16px !important;
+    padding: 20px 16px !important;
     border-right: none !important;
     border-left: none !important;
     border-top: none !important;
-    border-bottom: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #ebebeb !important;
     background-color: transparent !important;
     box-sizing: border-box !important;
   }
 
   .cardItem:last-child {
-    border-bottom: none !important;
+    border-bottom: 1px solid #ebebeb !important;
   }
 
   .emptyCell {
@@ -222,32 +248,42 @@
   }
 
   .iconWrapper {
-    width: 32px !important;
-    height: 32px !important;
-    margin-bottom: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background-color: #f3f3f3 !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .iconImage {
-    width: 24px !important;
-    height: 24px !important;
-    opacity: 0.65 !important;
+    width: 22px !important;
+    height: 22px !important;
+    opacity: 0.75 !important;
+  }
+
+  .cardContent {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
   }
 
   .cardTitle {
-    font-size: 17px !important;
+    font-size: 16.5px !important;
     font-weight: 700 !important;
     line-height: 1.25 !important;
     color: #111111 !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 !important;
   }
 
   .cardDesc {
-    font-size: 13.5px !important;
+    font-size: 13px !important;
     line-height: 1.55 !important;
-    color: #555555 !important;
+    color: #666666 !important;
     margin: 0 !important;
   }
 }
