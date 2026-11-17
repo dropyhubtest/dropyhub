@@ -43,22 +43,43 @@ export const PartnersHero: React.FC = () => {
       {/* 2. Hero Team Lineup Banner */}
       <div className={styles.heroContentWrapper}>
         <div className={styles.bannerContainer}>
+          {/* Desktop background */}
           <Image
             src="/assets/partners/hero_bg.png"
             alt=""
             fill
             priority
-            sizes="1392px"
-            className={styles.bannerBg}
+            sizes="(max-width: 992px) 1px, 1392px"
+            className={`${styles.bannerBg} ${styles.desktopOnly}`}
             aria-hidden="true"
           />
+          {/* Mobile background */}
+          <Image
+            src="/assets/partners/mobile_hero_bg.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 992px) 100vw, 1px"
+            className={`${styles.bannerBg} ${styles.mobileOnly}`}
+            aria-hidden="true"
+          />
+          {/* Desktop Team Image */}
           <Image
             src="/assets/partners/hero_img.png"
             alt="Sunrisers Hyderabad Cricket Team with DropyHub"
             width={1392}
             height={473}
             priority
-            className={styles.bannerTeamImg}
+            className={`${styles.bannerTeamImg} ${styles.desktopOnly}`}
+          />
+          {/* Mobile Team Image */}
+          <Image
+            src="/assets/partners/mobile_hero.png"
+            alt="Sunrisers Hyderabad Cricket Team with DropyHub"
+            width={402}
+            height={369}
+            priority
+            className={`${styles.bannerTeamImg} ${styles.mobileOnly}`}
           />
         </div>
       </div>

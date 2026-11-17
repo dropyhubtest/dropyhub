@@ -140,7 +140,7 @@
   padding: 12px 24px;
   background-color: #111111;
   color: #ffffff;
-  border-radius: 4px;
+  border-radius: 0;
   text-decoration: none;
   font-family: var(--font-display);
   font-size: 14.5px;
@@ -194,5 +194,9 @@
   .ctaDescription {
     font-size: 13.5px !important;
     line-height: 1.55 !important;
+  }
+
+  .primaryBtn {
+    border-radius: 0 !important;
   }
 }

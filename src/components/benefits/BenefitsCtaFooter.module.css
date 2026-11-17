@@ -140,7 +140,7 @@
   padding: 12px 24px;
   background-color: #111111;
   color: #ffffff;
-  border-radius: 4px;
+  border-radius: 0;
   text-decoration: none;
   font-family: var(--font-display);
   font-size: 14.5px;
@@ -223,12 +223,14 @@
   }
 
   .primaryBtn {
+    border-radius: 0 !important;
     padding: 12px 20px !important;
     font-size: 13.5px !important;
     white-space: nowrap !important;
   }
 
   .secondaryBtn {
+    border-radius: 0 !important;
     padding: 8px 4px !important;
     font-size: 13.5px !important;
     white-space: nowrap !important;
