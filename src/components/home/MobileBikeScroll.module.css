@@ -22,7 +22,7 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 100;
+    z-index: 80;
     overflow: visible;
   }
 
@@ -40,6 +40,7 @@
     transform-origin: 50% 50%;
     will-change: transform;
     pointer-events: none;
+    opacity: 0;
   }
 
   /* Headlight glow — centred on the front axle (bottom of bike image) */

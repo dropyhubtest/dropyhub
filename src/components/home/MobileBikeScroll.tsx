@@ -3,43 +3,26 @@
 /**
  * MobileBikeScroll — Scroll-Synchronized Mobile Bike Engine
  *
- * Implements the user's exact 5 scroll stages and behaviors:
- *
+ * Calibrated Behaviors:
  * 1. Hero Entrance & Resting State:
- *    - Starts behind the navbar at top center (x: vw/2, y: 65px).
- *    - After 2 seconds (or immediately on user scroll), smoothly glides down onto the
- *      "Join As Delivery Partner" button (x: cta.x, y: cta.y).
+ *    - Starts tucked behind the navbar (y: -40px, centered x: vw/2, z-index behind navbar).
+ *    - After 2 seconds, smoothly glides down onto the "Join As Delivery Partner" button (rotation: 0°).
+ *    - If user scrolls, hand off immediately to scroll.
  *
- * 2. Stage 1 (Hero to Stats End):
- *    - As user scrolls, glides towards the right side and travels down through Stats.
- *    - At the bottom of Stats (hatched divider bar), exits out of the viewport from the right.
- *    - Remains offscreen during Why DropyHub.
+ * 2. Curved Veering & Direction Change:
+ *    - From Hero button to Stats lane: curves in an arc and TURNS towards the right (steers right to -65°),
+ *      then straightens out to 0° (facing down) as it enters the right lane.
+ *    - During all left-to-right section crossings (Estimator, About, FAQ): bike literally FACES RIGHT
+ *      (rotation: -90°, headlights pointing right), driving across the screen, then banks into 0° facing down.
  *
- * 3. Stage 2 (Interactive Estimator):
- *    - At the horizontal bar above the estimator, enters smoothly from the left side and
- *      glides across to the right side (smooth, comfortable traversal paced with scroll).
- *    - Travels down the right side through vehicle choices, sliders, and earnings card.
- *    - At the end of the estimator, exits out of the viewport from the right side.
+ * 3. Early Exits & Early Entrances:
+ *    - Exits right early at the start of Why section, at end of Estimator, and at end of How to Start.
+ *    - Enters early at the very top horizontal bar of Estimator, About, and FAQ sections.
  *
- * 4. Stage 3 (About DropyHub & How to Start):
- *    - At the About section, enters smoothly from the left side across to the right.
- *    - Continues down along the right side through About intro, Ecosystem values, and
- *      all steps (01-05) of How to Start.
- *    - At the end of How to Start, exits out of the viewport to the right.
- *    - Remains offscreen during Innovation & Partners.
- *
- * 5. Stage 4 (FAQ & Ready to Start Earning):
- *    - At the FAQ section, enters from the left side and glides to the right.
- *    - Travels down along the right side through FAQ questions and Ready to Start Earning CTA.
- *    - At the end of Ready to Start Earning, exits out of the viewport to the right.
- *
- * 6. Stage 5 (Footer Wordmark):
- *    - Enters into the footer from the right side, rotated 90° (facing left, headlights shining left).
- *    - Travels smoothly across the outlined "Dropyhub" wordmark from right to left.
- *    - Exits off the left edge of the viewport.
- *
- * Zero-Reverse Flyback:
- *    - Bike NEVER flies backward across the viewport between stages.
+ * 4. Footer Wordmark Crossing:
+ *    - Remains completely hidden during Company / Partners / Contact footer links.
+ *    - Only appears when the outlined "Dropyhub" wordmark itself comes into view.
+ *    - Drives across the wordmark from right to left facing left (rotation: 90°).
  */
 
 import React, { useEffect, useRef } from 'react';
@@ -62,8 +45,11 @@ export const MobileBikeScroll: React.FC = () => {
     const getVw = () => window.innerWidth;
     const getVh = () => window.innerHeight;
 
-    // Entrance state: 0 = behind navbar, 1 = landed on Hero CTA
+    // Entrance state: 0 = tucked behind navbar, 1 = landed on Hero CTA
     const entranceState = { progress: 0 };
+
+    // Footer animated progress (driven by GSAP when wordmark enters view)
+    const footerAnimState = { progress: 0, triggered: false };
 
     // Find Hero CTA button position
     function getHeroCta() {
@@ -80,7 +66,7 @@ export const MobileBikeScroll: React.FC = () => {
       return { x: vw / 2, docY: Math.min(vh * 0.52, 450) };
     }
 
-    // After 2 seconds, smoothly animate bike down from navbar onto the button
+    // After 2 seconds, smoothly animate bike down from behind navbar onto the button
     const entranceTimer = setTimeout(() => {
       gsap.to(entranceState, {
         progress: 1,
@@ -144,23 +130,35 @@ export const MobileBikeScroll: React.FC = () => {
       const rightEdgeX = vw - BIKE_W / 2 - 8;
       const leftOffX   = -BIKE_W - 30;
       const rightOffX  = vw + BIKE_W + 30;
-      const defaultY   = vh * 0.42;
+      const defaultY   = vh * 0.40;
 
       const bounds = getSectionBounds();
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 5: FOOTER (Right-to-Left Wordmark Crossing)
+      // Only active when the outlined "Dropyhub" wordmark itself is visible!
+      // During Company / Partners / Contact links, bike is completely hidden.
       // ─────────────────────────────────────────────────────────────
       if (bounds.footWordmark) {
         const wmRect = bounds.footWordmark.getBoundingClientRect();
-        if (wmRect.top < vh + 100) {
-          const totalDist = 720; // Generous distance for smooth, comfortable pace
-          const currentDist = Math.max(0, (vh + 100) - wmRect.top);
-          const fp = Math.max(0, Math.min(1, currentDist / totalDist));
+        // Trigger ONLY when wordmark has entered the viewport (top < vh * 0.92)
+        if (wmRect.top < vh * 0.92) {
+          if (!footerAnimState.triggered) {
+            footerAnimState.triggered = true;
+            gsap.to(footerAnimState, {
+              progress: 1,
+              duration: 1.8,
+              ease: 'power1.inOut',
+            });
+          }
 
-          // Rotate 0° -> 90° (facing left, headlights shining left)
-          const rotT = Math.min(1, fp * 2.2);
-          const rotation = gsap.utils.interpolate(0, 90, rotT);
+          // Combined progress from scroll and GSAP drive
+          const scrollDist = Math.max(0, (vh * 0.92) - wmRect.top);
+          const scrollP = Math.min(1, scrollDist / 180);
+          const fp = Math.max(footerAnimState.progress, scrollP);
+
+          // Rotate 90° (facing left, headlights shining left)
+          const rotation = 90;
 
           // Center vertically on the wordmark
           const targetY = Math.min(vh - 35, Math.max(80, wmRect.top + wmRect.height * 0.48));
@@ -172,15 +170,20 @@ export const MobileBikeScroll: React.FC = () => {
 
           const opacity = targetX < endX + 15 ? 0 : 1;
           return { x: targetX, y: targetY, rotation, opacity };
+        } else {
+          // Reset trigger if user scrolls back up
+          footerAnimState.triggered = false;
+          footerAnimState.progress = 0;
         }
       }
 
       // ─────────────────────────────────────────────────────────────
       // HERO ENTRANCE & RESTING ON BUTTON
+      // Starts tucked behind navbar (y: -40px)
       // ─────────────────────────────────────────────────────────────
       const cta = getHeroCta();
       const heroScreenY = cta.docY - scrollY;
-      const startY = 65; // Behind navbar
+      const startY = -40; // Tucked behind navbar
       const startX = vw / 2; // Centered
       const entranceP = entranceState.progress;
 
@@ -198,21 +201,32 @@ export const MobileBikeScroll: React.FC = () => {
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 1: HERO BUTTON -> STATS SECTION END
+      // - Moves in an authentic curved arc veering right (turning to -65°).
+      // - Straightens out to 0° facing down into the stats lane.
+      // - Exits EARLY at start of Why DropyHub (by scrollY ≈ 600px).
       // ─────────────────────────────────────────────────────────────
-      // Stats is at top: 559, bottom: 817, whyDivider: 817 to 855.
-      // Bike stays visible throughout Stats, exiting at whyDivider.
-      const statsDividerTop = bounds.whyDivider ? bounds.whyDivider.top : 817;
-      const stage1ExitStart = statsDividerTop - 120; // ~697px
-      const stage1ExitEnd   = statsDividerTop + 60;  // ~877px
+      const stage1CurveEnd = 240;
+      const stage1ExitStart = 480;
+      const stage1ExitEnd   = 620;
 
       if (scrollY < stage1ExitEnd) {
-        // Subphase 1a: Scroll 20 -> 220px: glide from CTA button over to right edge
-        if (scrollY < 220) {
-          const t = Math.max(0, (scrollY - 20) / 200);
-          const eased = gsap.parseEase('power2.inOut')(t);
-          const targetX = gsap.utils.interpolate(cta.x, rightEdgeX, eased);
-          const targetY = gsap.utils.interpolate(Math.max(80, heroScreenY), defaultY, eased);
-          return { x: targetX, y: targetY, rotation: 0, opacity: 1 };
+        // Subphase 1a: Curved arc veering right with steering rotation
+        if (scrollY < stage1CurveEnd) {
+          const t = Math.max(0, (scrollY - 20) / (stage1CurveEnd - 20));
+          const easeX = gsap.parseEase('power2.inOut')(t);
+          const easeY = gsap.parseEase('power1.inOut')(t);
+          const targetX = gsap.utils.interpolate(cta.x, rightEdgeX, easeX);
+          const targetY = gsap.utils.interpolate(Math.max(80, heroScreenY), defaultY, easeY);
+
+          // Steering rotation: turns right (-65°) and then straightens out to 0°
+          let rotation = 0;
+          if (t < 0.55) {
+            rotation = gsap.utils.interpolate(0, -65, t / 0.55);
+          } else {
+            rotation = gsap.utils.interpolate(-65, 0, (t - 0.55) / 0.45);
+          }
+
+          return { x: targetX, y: targetY, rotation, opacity: 1 };
         }
 
         // Subphase 1b: Travel down along the right side through Stats
@@ -220,135 +234,162 @@ export const MobileBikeScroll: React.FC = () => {
           return { x: rightEdgeX, y: defaultY, rotation: 0, opacity: 1 };
         }
 
-        // Subphase 1c: Exit offscreen right at the bottom of Stats
+        // Subphase 1c: EARLY EXIT right into Why DropyHub
         const exitT = Math.max(0, Math.min(1, (scrollY - stage1ExitStart) / (stage1ExitEnd - stage1ExitStart)));
         const eased = gsap.parseEase('power1.in')(exitT);
         const targetX = gsap.utils.interpolate(rightEdgeX, rightOffX, eased);
+        const rotation = gsap.utils.interpolate(0, -70, exitT);
         const opacity = Math.max(0, 1 - exitT);
-        return { x: targetX, y: defaultY, rotation: 0, opacity };
+        return { x: targetX, y: defaultY, rotation, opacity };
       }
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 2: INTERACTIVE ESTIMATOR
+      // - Enters EARLY at the very top horizontal bar of Estimator.
+      // - Drives horizontally from left to right facing RIGHT (rotation: -90°).
+      // - Banks into 0° facing down into the right lane.
+      // - Exits EARLY at end of estimator results card.
       // ─────────────────────────────────────────────────────────────
-      // Estimator top: 1800, bottom: 3036.
       const estTopDoc = bounds.estimator ? bounds.estimator.top : 1800;
-      const estBottomDoc = bounds.estimator ? bounds.estimator.bottom : 3036;
-
-      const estTriggerStart = estTopDoc - vh * 0.40; // ~1460px
-      const estTravelAcrossEnd = estTriggerStart + 350; // 350px smooth traversal window
-      const estExitStart = estBottomDoc - vh * 0.35; // ~2740px
-      const estExitEnd = estBottomDoc - vh * 0.15;   // ~2910px
+      const estTriggerStart = estTopDoc - vh * 0.75; // ~1170px (EARLY entrance!)
+      const estTravelAcrossEnd = estTriggerStart + 220; // 220px crossing span
+      const estExitStart = 2300; // Early exit as results card is reached
+      const estExitEnd   = 2460;
 
       if (scrollY < estExitEnd) {
         if (scrollY < estTriggerStart) {
-          // Parked offscreen right during Why section
+          // Offscreen during Why section
           return { x: rightOffX, y: defaultY, rotation: 0, opacity: 0 };
         }
 
         if (scrollY < estTravelAcrossEnd) {
-          // Subphase 2a: Smooth entrance from left side across to right edge
-          const t = Math.max(0, Math.min(1, (scrollY - estTriggerStart) / 350));
+          // Subphase 2a: Driving from left to right, facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - estTriggerStart) / 220));
           const eased = gsap.parseEase('power1.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
+
+          // Faces right (-90°), and banks into 0° facing down at the end
+          let rotation = -90;
+          if (t > 0.72) {
+            rotation = gsap.utils.interpolate(-90, 0, (t - 0.72) / 0.28);
+          }
+
           const opacity = t < 0.04 ? 0 : Math.min(1, (t - 0.04) / 0.12);
-          return { x: targetX, y: defaultY, rotation: 0, opacity };
+          return { x: targetX, y: defaultY, rotation, opacity };
         }
 
         if (scrollY < estExitStart) {
-          // Subphase 2b: Travel down along right side through estimator
+          // Subphase 2b: Down right lane through vehicle choices & sliders
           return { x: rightEdgeX, y: defaultY, rotation: 0, opacity: 1 };
         }
 
-        // Subphase 2c: Exit right at end of estimator
+        // Subphase 2c: Early Exit right
         const exitT = Math.max(0, Math.min(1, (scrollY - estExitStart) / (estExitEnd - estExitStart)));
         const eased = gsap.parseEase('power1.in')(exitT);
         const targetX = gsap.utils.interpolate(rightEdgeX, rightOffX, eased);
+        const rotation = gsap.utils.interpolate(0, -70, exitT);
         const opacity = Math.max(0, 1 - exitT);
-        return { x: targetX, y: defaultY, rotation: 0, opacity };
+        return { x: targetX, y: defaultY, rotation, opacity };
       }
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 3: ABOUT DROPYHUB & HOW TO START
+      // - Enters EARLY at the very top of About.
+      // - Drives from left to right facing RIGHT (rotation: -90°).
+      // - Banks into 0° facing down into the right lane.
+      // - Cruises down continuously through About, Ecosystem, & Steps 01-05.
+      // - Exits EARLY right when Step 05 finishes.
       // ─────────────────────────────────────────────────────────────
-      // About top: 3036, bottom: 5233.
       const aboutTopDoc = bounds.about ? bounds.about.top : 3036;
-      const aboutBottomDoc = bounds.about ? bounds.about.bottom : 5233;
-
-      const aboutTriggerStart = aboutTopDoc - vh * 0.40; // ~2700px
-      const aboutTravelAcrossEnd = aboutTriggerStart + 350; // 350px smooth traversal
-      const aboutExitStart = aboutBottomDoc - vh * 0.35; // ~4940px
-      const aboutExitEnd = aboutBottomDoc - vh * 0.15;   // ~5100px
+      const aboutTriggerStart = aboutTopDoc - vh * 0.75; // ~2400px (EARLY entrance!)
+      const aboutTravelAcrossEnd = aboutTriggerStart + 220;
+      const aboutExitStart = 4550; // Early exit as step 05 finishes
+      const aboutExitEnd   = 4720;
 
       if (scrollY < aboutExitEnd) {
         if (scrollY < aboutTriggerStart) {
-          // Parked offscreen right between estimator and about
+          // Offscreen between estimator and about
           return { x: rightOffX, y: defaultY, rotation: 0, opacity: 0 };
         }
 
         if (scrollY < aboutTravelAcrossEnd) {
-          // Subphase 3a: Smooth entrance from left across to right edge
-          const t = Math.max(0, Math.min(1, (scrollY - aboutTriggerStart) / 350));
+          // Subphase 3a: Driving from left to right facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - aboutTriggerStart) / 220));
           const eased = gsap.parseEase('power1.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
+
+          let rotation = -90;
+          if (t > 0.72) {
+            rotation = gsap.utils.interpolate(-90, 0, (t - 0.72) / 0.28);
+          }
+
           const opacity = t < 0.04 ? 0 : Math.min(1, (t - 0.04) / 0.12);
-          return { x: targetX, y: defaultY, rotation: 0, opacity };
+          return { x: targetX, y: defaultY, rotation, opacity };
         }
 
         if (scrollY < aboutExitStart) {
-          // Subphase 3b: Goes on and on down right side through About & How to Start
+          // Subphase 3b: Cruises down through About & How to Start
           return { x: rightEdgeX, y: defaultY, rotation: 0, opacity: 1 };
         }
 
-        // Subphase 3c: At How to Start end, exit offscreen right
+        // Subphase 3c: Early Exit right
         const exitT = Math.max(0, Math.min(1, (scrollY - aboutExitStart) / (aboutExitEnd - aboutExitStart)));
         const eased = gsap.parseEase('power1.in')(exitT);
         const targetX = gsap.utils.interpolate(rightEdgeX, rightOffX, eased);
+        const rotation = gsap.utils.interpolate(0, -70, exitT);
         const opacity = Math.max(0, 1 - exitT);
-        return { x: targetX, y: defaultY, rotation: 0, opacity };
+        return { x: targetX, y: defaultY, rotation, opacity };
       }
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 4: FAQ & READY TO START EARNING
+      // - Enters EARLY at the top of FAQ.
+      // - Drives from left to right facing RIGHT (rotation: -90°).
+      // - Travels down right lane through FAQ & Ready to Start Earning CTA.
+      // - Exits EARLY at end of Ready to Start Earning.
       // ─────────────────────────────────────────────────────────────
-      // FAQ top: 6011, CTA bottom: ~6800.
       const faqTopDoc = bounds.faq ? bounds.faq.top : 6011;
-      const ctaBottomDoc = bounds.cta ? bounds.cta.bottom : 6800;
+      const faqTriggerStart = faqTopDoc - vh * 0.75; // ~5380px (EARLY entrance!)
+      const faqTravelAcrossEnd = faqTriggerStart + 220;
+      const faqExitStart = 6180; // Early exit after Ready to Start Earning CTA
+      const faqExitEnd   = 6320;
 
-      const faqTriggerStart = faqTopDoc - vh * 0.40; // ~5670px
-      const faqTravelAcrossEnd = faqTriggerStart + 350; // 350px smooth traversal
-      const ctaExitStart = ctaBottomDoc - vh * 0.35; // ~6500px
-      const ctaExitEnd = ctaBottomDoc - vh * 0.15;   // ~6670px
-
-      if (scrollY < ctaExitEnd) {
+      if (scrollY < faqExitEnd) {
         if (scrollY < faqTriggerStart) {
-          // Parked offscreen right during Innovation & Partners
+          // Offscreen during Innovation & Partners
           return { x: rightOffX, y: defaultY, rotation: 0, opacity: 0 };
         }
 
         if (scrollY < faqTravelAcrossEnd) {
-          // Subphase 4a: Smooth entrance from left side across to right
-          const t = Math.max(0, Math.min(1, (scrollY - faqTriggerStart) / 350));
+          // Subphase 4a: Driving from left to right facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - faqTriggerStart) / 220));
           const eased = gsap.parseEase('power1.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
+
+          let rotation = -90;
+          if (t > 0.72) {
+            rotation = gsap.utils.interpolate(-90, 0, (t - 0.72) / 0.28);
+          }
+
           const opacity = t < 0.04 ? 0 : Math.min(1, (t - 0.04) / 0.12);
-          return { x: targetX, y: defaultY, rotation: 0, opacity };
+          return { x: targetX, y: defaultY, rotation, opacity };
         }
 
-        if (scrollY < ctaExitStart) {
-          // Subphase 4b: Down right side through FAQ & Ready to Start Earning CTA
+        if (scrollY < faqExitStart) {
+          // Subphase 4b: Down right lane through FAQ & Ready to Start Earning CTA
           return { x: rightEdgeX, y: defaultY, rotation: 0, opacity: 1 };
         }
 
-        // Subphase 4c: Exit right at end of Ready to Start Earning
-        const exitT = Math.max(0, Math.min(1, (scrollY - ctaExitStart) / (ctaExitEnd - ctaExitStart)));
+        // Subphase 4c: Early Exit right
+        const exitT = Math.max(0, Math.min(1, (scrollY - faqExitStart) / (faqExitEnd - faqExitStart)));
         const eased = gsap.parseEase('power1.in')(exitT);
         const targetX = gsap.utils.interpolate(rightEdgeX, rightOffX, eased);
+        const rotation = gsap.utils.interpolate(0, -70, exitT);
         const opacity = Math.max(0, 1 - exitT);
-        return { x: targetX, y: defaultY, rotation: 0, opacity };
+        return { x: targetX, y: defaultY, rotation, opacity };
       }
 
-      // Default fallback before footer wordmark is reached
+      // Default fallback: parked offscreen right until wordmark is reached
       return { x: rightOffX, y: defaultY, rotation: 0, opacity: 0 };
     }
 
@@ -384,7 +425,7 @@ export const MobileBikeScroll: React.FC = () => {
       // ZERO-REVERSE-FLYBACK:
       // If target jumps across boundaries (e.g. from right-offscreen to left-offscreen),
       // or if both target and current are invisible/offscreen, snap cur without animating across!
-      const isWrapJump = Math.abs(tgt.x - cur.x) > vw * 0.40;
+      const isWrapJump = Math.abs(tgt.x - cur.x) > vw * 0.35;
       const isBothOffscreen = cur.opacity <= 0.05 && tgt.opacity <= 0.05;
 
       if (isWrapJump || isBothOffscreen) {
