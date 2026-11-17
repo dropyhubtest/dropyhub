@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HowToStart.module.css";
 
@@ -182,19 +182,6 @@ const STEPS_DATA: StepItem[] = [
 
 export const HowToStart: React.FC = () => {
   const [activeStepId, setActiveStepId] = useState<string>("join");
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveStepId((currentId) => {
-        const currentIndex = STEPS_DATA.findIndex((s) => s.id === currentId);
-        const nextIndex = (currentIndex + 1) % STEPS_DATA.length;
-        return STEPS_DATA[nextIndex].id;
-      });
-    }, 4500);
-    return () => clearInterval(timer);
-  }, [isPaused]);
 
   const activeStep = STEPS_DATA.find((s) => s.id === activeStepId) || STEPS_DATA[0];
 
@@ -202,8 +189,6 @@ export const HowToStart: React.FC = () => {
     <div
       className={styles.howToStartContainer}
       aria-label="How to Start Onboarding"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Left Column: Eyebrow, Heading, Description */}
       <div className={styles.leftColumn}>
@@ -228,7 +213,6 @@ export const HowToStart: React.FC = () => {
               role="tab"
               aria-selected={isSelected}
               onClick={() => setActiveStepId(step.id)}
-              onMouseEnter={() => setActiveStepId(step.id)}
               className={`${styles.stepButton} ${isSelected ? styles.stepButtonActive : ""}`}
             >
               <span className={styles.stepNumberBadge}>0{step.stepNumber}</span>
