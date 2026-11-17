@@ -1,26 +1,25 @@
 'use client';
 
 /**
- * MobileBikeScroll — Senior Precision Scroll-Synchronized Mobile Bike Engine
+ * MobileBikeScroll — Scroll-Synchronized Mobile Bike Engine
  *
- * User Specifications & Behaviors:
- * 1. Start Position:
- *    - Positioned directly ON the "Join As Delivery Partner" / Join Now button in the Hero section.
- *    - Facing downwards (0°), headlights illuminating down.
- *    - Immediately rendered in HTML/DOM with zero artificial delay or portal gating.
+ * Implements the user's specified path & scroll-based behaviors:
+ *
+ * 1. Hero Start:
+ *    - Positioned directly ON the "Join As Delivery Partner" button (center-x, button-y).
+ *    - Facing downwards (0°), headlights shining down into the stats grid.
  *
  * 2. Continuous Scroll-Based Travel Across Screen:
- *    - Travels vertically and horizontally across the screen as user scrolls down.
- *    - When it reaches the right edge boundary, it STOPS TEMPORARILY and stays visible.
- *    - As the user continues scrolling, moves out of viewport on the right, wraps to left
- *      with ZERO reverse flyback (completely invisible during wrap), and re-enters smoothly from the left.
- *    - The bike is visible for the vast majority (>90%) of the page scroll, ensuring it is NEVER
- *      missing when the user is reading body sections (e.g. Estimator, About, Ecosystem).
+ *    - The bike moves vertically across the screen as user scrolls down.
+ *    - Travels across from left to right towards the right boundary.
+ *    - When it reaches the right edge of the screen, it STOPS TEMPORARILY.
+ *    - As user continues scrolling, moves out of the viewport on the right and
+ *      re-enters from the opposite (left) side with ZERO reverse flyback.
+ *    - The behavior repeats continuously throughout the entire page scroll.
  *
  * 3. Footer Crossing:
- *    - Drives across the outlined "Dropyhub" wordmark from RIGHT TO LEFT at a calm, unhurried pace.
- *    - Rotated 90° (facing left, headlights shining left).
- *    - Exits off-screen to the left.
+ *    - Reaches the outlined "Dropyhub" wordmark, turns 90° (facing left).
+ *    - Drives smoothly from RIGHT TO LEFT across the wordmark and exits screen-left.
  */
 
 import React, { useEffect, useRef } from 'react';
@@ -28,7 +27,6 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import styles from './MobileBikeScroll.module.css';
 
-/* ── Asset Dimensions ─────────────────────────────────────────────────── */
 const BIKE_W = 103.185;
 const BIKE_H = 154.778;
 
@@ -36,152 +34,138 @@ export const MobileBikeScroll: React.FC = () => {
   const assemblyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Respect prefers-reduced-motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const assembly = assemblyRef.current;
     if (!assembly) return;
 
-    let vw = window.innerWidth;
-    let vh = window.innerHeight;
+    // Helper to get fresh viewport metrics
+    const getVw = () => window.innerWidth;
+    const getVh = () => window.innerHeight;
 
-    // Helper to find Hero CTA button center
-    function getHeroCtaCenter() {
-      const btn = document.querySelector('a[class*="primaryCta"], a[class*="joinBtn"]');
+    // Helper: Find Hero CTA button center
+    function getHeroCta() {
+      const vw = getVw();
+      const vh = getVh();
+      const btn = document.querySelector('a[class*="primaryCta"], a[class*="joinBtn"]') as HTMLElement | null;
       if (btn) {
         const r = btn.getBoundingClientRect();
         return {
           x: r.left + r.width / 2,
-          y: r.top + window.scrollY + r.height * 0.45,
+          docY: r.top + window.scrollY + r.height * 0.45,
         };
       }
-      return { x: vw / 2, y: Math.min(vh * 0.52, 450) };
+      return { x: vw / 2, docY: Math.min(vh * 0.52, 450) };
     }
 
-    const heroCta = getHeroCtaCenter();
+    // ─── Target State Computation ───
+    function getTarget(scrollY: number) {
+      const vw = getVw();
+      const vh = getVh();
+      const docH = document.documentElement.scrollHeight;
+      const maxScroll = Math.max(1, docH - vh);
 
-    // Physics state tracking
-    const current = {
-      x: heroCta.x,
-      y: heroCta.y - window.scrollY,
-      rotation: 0,
-      opacity: vw >= 1200 ? 0 : 1,
-    };
+      const rightEdgeX = vw - BIKE_W / 2 - 8;
+      const leftOffX   = -BIKE_W - 20;
+      const rightOffX  = vw + BIKE_W + 20;
+      const defaultY   = vh * 0.42;
 
-    /* ── Compute Target State Based on Scroll Position ─────────────────── */
-    function getTargetState(scrollY: number) {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
-
-      // Section boundary anchors
-      const whyEl = document.querySelector('[class*="whySectionContainer"], [class*="sectionWrapper"]');
-      const footWordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
-
-      const heroScrollEnd = whyEl ? Math.max(300, whyEl.getBoundingClientRect().top + scrollY - vh * 0.25) : 550;
-
-      const rightEdgeX = vw - BIKE_W / 2 - 8;      // Right edge boundary lane
-      const leftStartX = -BIKE_W - 20;             // Off-screen left entry point
-      const rightExitX = vw + BIKE_W + 20;         // Off-screen right exit point
-      const defaultY = vh * 0.44;                  // Standard vertical lane in body
-
-      // ─────────────────────────────────────────────────────────────────
-      // 1. FOOTER ZONE: Right-to-Left Wordmark Crossing & Exit
-      // ─────────────────────────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────
+      // 1. FOOTER ZONE: Right-to-Left Wordmark Crossing
+      // ─────────────────────────────────────────────────────────────
+      const footWordmark = document.querySelector('[class*="outlinedWordmark"]') as HTMLElement | null;
       if (footWordmark) {
-        const wRect = footWordmark.getBoundingClientRect();
-        // Activate footer crossing when the wordmark enters the viewport
-        if (wRect.top < vh + 100) {
-          // Generous scroll distance (650px) for a calm, natural, unhurried pace
-          const totalDistance = 650;
-          const currentDist = Math.max(0, (vh + 100) - wRect.top);
-          const footerProgress = Math.max(0, Math.min(1, currentDist / totalDistance));
+        const wmRect = footWordmark.getBoundingClientRect();
+        if (wmRect.top < vh + 100) {
+          const totalDist = 650;
+          const currentDist = Math.max(0, (vh + 100) - wmRect.top);
+          const fp = Math.max(0, Math.min(1, currentDist / totalDist));
 
-          // Smooth rotation to 90° (facing left, headlights shining left)
-          const rotProgress = Math.min(1, footerProgress * 2.5);
-          const targetRot = gsap.utils.interpolate(0, 90, rotProgress);
+          // Rotate 0° -> 90° (facing left, headlights shining left)
+          const rotT = Math.min(1, fp * 2.5);
+          const rotation = gsap.utils.interpolate(0, 90, rotT);
 
-          // Align vertically with the center of the outlined wordmark
-          const targetY = Math.min(vh - 40, Math.max(90, wRect.top + wRect.height * 0.48));
+          // Center vertically on the wordmark
+          const targetY = Math.min(vh - 35, Math.max(80, wmRect.top + wmRect.height * 0.48));
 
-          // Drive smoothly from RIGHT TO LEFT across the wordmark, exiting off-screen left
-          const startFooterX = vw - 20;
-          const exitFooterX = -BIKE_H - 90;
-          const targetX = gsap.utils.interpolate(startFooterX, exitFooterX, footerProgress);
+          // Cross from right (vw - 20) to left (-BIKE_H - 80)
+          const startX = vw - 20;
+          const endX   = -BIKE_H - 80;
+          const targetX = gsap.utils.interpolate(startX, endX, fp);
 
-          const opacity = targetX < -BIKE_H - 10 ? 0 : 1;
-
-          return { x: targetX, y: targetY, rotation: targetRot, opacity };
+          const opacity = targetX < endX + 15 ? 0 : 1;
+          return { x: targetX, y: targetY, rotation, opacity };
         }
       }
 
-      // ─────────────────────────────────────────────────────────────────
-      // 2. HERO ZONE: Stationed Directly On Join Now Button -> Glides Right
-      // ─────────────────────────────────────────────────────────────────
-      const cta = getHeroCtaCenter();
-      const heroButtonScreenY = cta.y - scrollY;
+      // ─────────────────────────────────────────────────────────────
+      // 2. HERO ZONE: Stationed Directly On the Join Now Button
+      // ─────────────────────────────────────────────────────────────
+      const cta = getHeroCta();
+      const heroScreenY = cta.docY - scrollY;
 
-      // When scrollY < 100: stays positioned directly ON the Join Now button!
+      // Scroll 0 -> 100px: firmly resting on the button
       if (scrollY < 100) {
         return {
           x: cta.x,
-          y: Math.max(120, heroButtonScreenY),
+          y: Math.max(80, heroScreenY),
           rotation: 0,
           opacity: 1,
         };
       }
 
-      // When 100 <= scrollY < heroScrollEnd:
-      // Glides smoothly from the Join Now button over to the right edge lane
-      if (scrollY < heroScrollEnd) {
-        const t = (scrollY - 100) / (heroScrollEnd - 100);
+      // Scroll 100 -> 550px: smooth glide from Hero CTA over to the right boundary
+      const heroTransitionEnd = 550;
+      if (scrollY < heroTransitionEnd) {
+        const t = (scrollY - 100) / (heroTransitionEnd - 100);
         const easedT = gsap.parseEase('power2.inOut')(t);
         const targetX = gsap.utils.interpolate(cta.x, rightEdgeX, easedT);
-        const targetY = gsap.utils.interpolate(Math.max(120, heroButtonScreenY), defaultY, easedT);
+        const targetY = gsap.utils.interpolate(Math.max(80, heroScreenY), defaultY, easedT);
 
         return { x: targetX, y: targetY, rotation: 0, opacity: 1 };
       }
 
-      // ─────────────────────────────────────────────────────────────────
-      // 3. BODY SECTIONS: Continuous Travel Across Screen with Boundary Pauses
-      // ─────────────────────────────────────────────────────────────────
-      const wordmarkDocY = footWordmark ? (footWordmark.getBoundingClientRect().top + scrollY) : maxScroll;
-      const bodyEndScroll = Math.max(heroScrollEnd + 500, wordmarkDocY - vh - 100);
-      const bodyScroll = Math.max(0, scrollY - heroScrollEnd);
-      const bodySpan = Math.max(1, bodyEndScroll - heroScrollEnd);
+      // ─────────────────────────────────────────────────────────────
+      // 3. BODY SECTIONS: Continuous Scroll-Based Travel Across Screen
+      //    - Travels across from left to right boundary
+      //    - Stops temporarily at the right edge boundary
+      //    - Exits right and re-enters smoothly from left (no flyback)
+      // ─────────────────────────────────────────────────────────────
+      const bodyStart = heroTransitionEnd;
+      const bodyScroll = Math.max(0, scrollY - bodyStart);
 
-      // Cycle pacing: each cycle covers ~900px of scroll
-      const cycleLength = Math.max(700, Math.min(1000, bodySpan / 4));
-      const rawIndex = bodyScroll / cycleLength;
-      const cycleIndex = Math.floor(rawIndex);
-      const p = Math.max(0, Math.min(1, (bodyScroll - cycleIndex * cycleLength) / cycleLength));
+      // Cycle pacing: each traversal and pause cycle spans ~850px of scroll
+      const cycleLen = 850;
+      const rawCycle = bodyScroll / cycleLen;
+      const cycleIdx = Math.floor(rawCycle);
+      const p = rawCycle - cycleIdx; // 0.0 -> 1.0 within cycle
 
       let targetX: number;
       let opacity = 1;
 
       if (p < 0.28) {
-        // Phase A (0.00 -> 0.28): Travels across the screen from left side to right boundary
+        // Phase A (0.00 -> 0.28): Re-enters from left and travels across to right edge
         const travelT = p / 0.28;
-        const easedTravel = gsap.parseEase('power1.inOut')(travelT);
-        targetX = gsap.utils.interpolate(leftStartX, rightEdgeX, easedTravel);
-        // Fades in cleanly as it re-enters from left edge
-        opacity = targetX < leftStartX + 10 ? 0 : Math.min(1, (targetX - leftStartX) / 40);
+        const eased = gsap.parseEase('power1.inOut')(travelT);
+        targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
+        // Clean fade in as it enters from screen-left
+        opacity = targetX < leftOffX + 15 ? 0 : Math.min(1, (targetX - leftOffX) / 45);
       } else if (p < 0.88) {
-        // Phase B (0.28 -> 0.88): STOPS TEMPORARILY at the right edge boundary!
-        // The bike remains FULLY VISIBLE (opacity = 1) along the right edge for 60% of every cycle!
-        // This ensures whenever the user stops to read (e.g. Ecosystem, About, Estimator),
-        // the bike is parked right there in view.
+        // Phase B (0.28 -> 0.88): STOPS TEMPORARILY AT RIGHT EDGE BOUNDARY
+        // Visible and parked in the right lane while user reads content
         targetX = rightEdgeX;
         opacity = 1;
       } else {
         // Phase C (0.88 -> 1.00): Resumes movement and exits off-screen right
         const exitT = (p - 0.88) / 0.12;
-        const easedExit = gsap.parseEase('power1.in')(exitT);
-        targetX = gsap.utils.interpolate(rightEdgeX, rightExitX, easedExit);
-        opacity = targetX > vw + 10 ? 0 : Math.max(0, 1 - (targetX - vw) / (rightExitX - vw));
+        const eased = gsap.parseEase('power1.in')(exitT);
+        targetX = gsap.utils.interpolate(rightEdgeX, rightOffX, eased);
+        opacity = targetX > vw + 10 ? 0 : Math.max(0, 1 - (targetX - vw) / (rightOffX - vw));
       }
 
-      // Gentle vertical float within viewport synchronized with scroll
-      const verticalOffset = Math.sin(bodyScroll * 0.004) * 25;
-      const targetY = defaultY + verticalOffset;
+      // Gentle vertical motion synchronized with scroll down the lane
+      const drift = Math.sin(bodyScroll * 0.003) * 25;
+      const targetY = defaultY + drift;
 
       return {
         x: targetX,
@@ -191,81 +175,72 @@ export const MobileBikeScroll: React.FC = () => {
       };
     }
 
-    /* ── Render Frame (RAF via GSAP Ticker) ────────────────────────────── */
+    // ─── Physics State ───
+    const initial = getTarget(window.scrollY);
+    const cur = {
+      x: initial.x,
+      y: initial.y,
+      rotation: initial.rotation,
+      opacity: initial.opacity,
+    };
+
+    // Set initial layout immediately
+    gsap.set(assembly, {
+      x: cur.x - BIKE_W / 2,
+      y: cur.y - BIKE_H / 2,
+      rotation: cur.rotation,
+      opacity: getVw() >= 1200 ? 0 : cur.opacity,
+      transformOrigin: '50% 50%',
+      force3D: true,
+    });
+
+    // ─── Render Frame (RAF via GSAP Ticker) ───
     function renderFrame() {
-      if (window.innerWidth >= 1200) {
+      const vw = getVw();
+      if (vw >= 1200) {
         gsap.set(assembly, { opacity: 0 });
         return;
       }
 
-      const target = getTargetState(window.scrollY);
+      const tgt = getTarget(window.scrollY);
 
-      // ─────────────────────────────────────────────────────────────────
-      // ZERO-REVERSE-FLYBACK WRAP LOGIC:
-      // If the target jumps between right and left across a cycle boundary,
-      // snap current.x directly without tweening across the viewport!
-      // ─────────────────────────────────────────────────────────────────
-      const isWrapJump = Math.abs(target.x - current.x) > vw * 0.45;
+      // ZERO-REVERSE-FLYBACK:
+      // If target jumps across cycle boundaries (from right offscreen to left offscreen),
+      // snap cur.x directly without animating across the screen!
+      const isWrapJump = Math.abs(tgt.x - cur.x) > vw * 0.45;
       if (isWrapJump) {
-        current.x = target.x;
-        current.y = target.y;
-        current.rotation = target.rotation;
-        current.opacity = 0; // Completely invisible during snap!
+        cur.x = tgt.x;
+        cur.y = tgt.y;
+        cur.rotation = tgt.rotation;
+        cur.opacity = 0; // invisible during wrap snap
       } else {
-        // Smooth inertial tracking
-        current.x += (target.x - current.x) * 0.16;
-        current.y += (target.y - current.y) * 0.16;
-        current.rotation += (target.rotation - current.rotation) * 0.16;
-        current.opacity += (target.opacity - current.opacity) * 0.22;
+        cur.x += (tgt.x - cur.x) * 0.16;
+        cur.y += (tgt.y - cur.y) * 0.16;
+        cur.rotation += (tgt.rotation - cur.rotation) * 0.16;
+        cur.opacity += (tgt.opacity - cur.opacity) * 0.22;
       }
 
-      // Hard safety guard: hide if center is far outside viewport
-      const isOutside = current.x > vw + 40 || current.x < -BIKE_W - 40;
-      const renderOpacity = isOutside ? 0 : Math.max(0, Math.min(1, current.opacity));
-
-      // Position assembly from its visual center
-      const assemblyLeft = current.x - BIKE_W / 2;
-      const assemblyTop = current.y - BIKE_H / 2;
+      // Hard safety guard
+      const isOutside = cur.x > vw + 30 || cur.x < -BIKE_W - 30;
+      const finalOpacity = isOutside ? 0 : Math.max(0, Math.min(1, cur.opacity));
 
       gsap.set(assembly, {
-        x: assemblyLeft,
-        y: assemblyTop,
-        rotation: current.rotation,
-        opacity: renderOpacity,
+        x: cur.x - BIKE_W / 2,
+        y: cur.y - BIKE_H / 2,
+        rotation: cur.rotation,
+        opacity: finalOpacity,
         transformOrigin: '50% 50%',
         force3D: true,
       });
     }
 
-    /* ── Resize Handler ─────────────────────────────────────────────────── */
     function onResize() {
-      vw = window.innerWidth;
-      vh = window.innerHeight;
-
-      if (vw >= 1200) {
+      if (getVw() >= 1200) {
         gsap.set(assembly, { opacity: 0 });
-      } else {
-        gsap.set(assembly, { opacity: 1 });
       }
     }
 
-    // Initial setup — snap directly to computed position at current scroll
-    const initial = getTargetState(window.scrollY);
-    current.x = initial.x;
-    current.y = initial.y;
-    current.rotation = initial.rotation;
-    current.opacity = initial.opacity;
-
-    gsap.set(assembly, {
-      x: current.x - BIKE_W / 2,
-      y: current.y - BIKE_H / 2,
-      rotation: current.rotation,
-      opacity: current.opacity,
-      transformOrigin: '50% 50%',
-      force3D: true,
-    });
-
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize, { passive: true });
     gsap.ticker.add(renderFrame);
 
     return () => {
