@@ -280,8 +280,28 @@
 
   .whiteSlashedDivider {
     display: block !important;
-    width: 100% !important;
-    height: 36px !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    height: 40px !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid var(--color-raw-c3c4c8, #c3c4c8) !important;
+    border-bottom: 1px solid var(--color-raw-c3c4c8, #c3c4c8) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .whiteSlashedPattern {
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 13.5px,
+      rgba(195, 196, 200, 0.7) 13.5px,
+      rgba(195, 196, 200, 0.7) 15px
+    ) !important;
+    pointer-events: none !important;
   }
 
   .container {
@@ -296,8 +316,9 @@
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 12px !important;
-    padding: 0 !important;
-    margin-bottom: 24px !important;
+    padding: 0 0 24px 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid #2e2e2e !important;
   }
 
   .eyebrow {

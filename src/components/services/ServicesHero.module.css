@@ -100,25 +100,23 @@
   }
 
   .imageBannerWrapper {
-    width: 100vw !important;
+    width: 401.973px !important;
     max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-    margin-right: calc(-50vw + 50%) !important;
-    margin-top: 16px !important;
-    margin-bottom: 0 !important;
+    height: 267.982px !important;
+    margin: 16px auto 0 auto !important;
     display: flex !important;
     justify-content: center !important;
+    align-items: flex-end !important;
     line-height: 0 !important;
     overflow: hidden !important;
   }
 
   .bannerImage {
-    width: 100vw !important;
+    width: 401.973px !important;
     max-width: 100vw !important;
-    min-height: auto !important;
-    height: auto !important;
-    aspect-ratio: 1439 / 516 !important;
+    height: 267.982px !important;
     object-fit: cover !important;
+    object-position: center bottom !important;
     display: block !important;
   }
 
