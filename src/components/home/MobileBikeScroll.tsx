@@ -268,12 +268,12 @@ export const MobileBikeScroll: React.FC = () => {
       // ─────────────────────────────────────────────────────────────
       // STAGE 2: INTERACTIVE ESTIMATOR
       // - Enters from left AFTER Why DropyHub (~1460px)
-      // - Drives horizontally facing RIGHT (rotation: -90°) across top bar slowly over 420px of scroll
+      // - Drives horizontally facing RIGHT (rotation: -90°) across top bar to 1800px
       // - Travels down through sliders AND through Monthly Estimated Net Earnings
       // - Exits right AFTER the monthly estimated net earnings card (~2760–3000px)
       // ─────────────────────────────────────────────────────────────
       const estTriggerStart = 1460; // After Why DropyHub section finishes!
-      const estTravelAcrossEnd = estTriggerStart + 420; // ~1880px (relaxed, slower left-to-right pace)
+      const estTravelAcrossEnd = 1800; // Decreased crossing end to 1800px
       const estExitStart = 2760; // Stays through monthly net earnings, exits after!
       const estExitEnd   = 3000;
 
@@ -284,8 +284,8 @@ export const MobileBikeScroll: React.FC = () => {
         }
 
         if (scrollY < estTravelAcrossEnd) {
-          // Subphase 2a: Driving from left to right slowly, facing RIGHT (-90°)
-          const t = Math.max(0, Math.min(1, (scrollY - estTriggerStart) / 420));
+          // Subphase 2a: Driving from left to right, facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - estTriggerStart) / (estTravelAcrossEnd - estTriggerStart)));
           const eased = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
 
@@ -316,12 +316,12 @@ export const MobileBikeScroll: React.FC = () => {
       // ─────────────────────────────────────────────────────────────
       // STAGE 3: ABOUT DROPYHUB & HOW TO START
       // - Enters from left at START of About DropyHub section (~3000px)
-      // - Drives from left to right facing RIGHT (rotation: -90°) slowly over 420px of scroll
+      // - Drives from left to right facing RIGHT (rotation: -90°) to 3350px
       // - Cruises down continuously through About, Ecosystem, & Steps 01-05
       // - Exits right at the VERY END of How to Start section (~4960–5200px)
       // ─────────────────────────────────────────────────────────────
       const aboutTriggerStart = 3000; // Right at start of About DropyHub!
-      const aboutTravelAcrossEnd = aboutTriggerStart + 420; // ~3420px (relaxed, slower left-to-right pace)
+      const aboutTravelAcrossEnd = 3350; // Decreased crossing end to 3350px
       const aboutExitStart = 4960; // Goes to the very end of How to Start!
       const aboutExitEnd   = 5200;
 
@@ -332,8 +332,8 @@ export const MobileBikeScroll: React.FC = () => {
         }
 
         if (scrollY < aboutTravelAcrossEnd) {
-          // Subphase 3a: Driving from left to right slowly facing RIGHT (-90°)
-          const t = Math.max(0, Math.min(1, (scrollY - aboutTriggerStart) / 420));
+          // Subphase 3a: Driving from left to right facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - aboutTriggerStart) / (aboutTravelAcrossEnd - aboutTriggerStart)));
           const eased = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
 
@@ -363,12 +363,12 @@ export const MobileBikeScroll: React.FC = () => {
       // ─────────────────────────────────────────────────────────────
       // STAGE 4: FAQ & READY TO START EARNING
       // - Enters at top of FAQ (~5620px)
-      // - Drives from left to right facing RIGHT (-90°) slowly over 400px of scroll
+      // - Drives from left to right facing RIGHT (-90°) to 5950px
       // - Goes down through FAQ questions AND through Ready to Start Earning section
       // - Exits at the very end of Ready to Start Earning CTA (~6500–6720px)
       // ─────────────────────────────────────────────────────────────
       const faqTriggerStart = 5620; // At start of FAQ
-      const faqTravelAcrossEnd = faqTriggerStart + 400; // ~6020px (relaxed, slower left-to-right pace)
+      const faqTravelAcrossEnd = 5950; // Decreased crossing end to 5950px
       const ctaExitStart = 6500; // Goes through Ready to Start Earning!
       const ctaExitEnd   = 6720;
 
@@ -379,8 +379,8 @@ export const MobileBikeScroll: React.FC = () => {
         }
 
         if (scrollY < faqTravelAcrossEnd) {
-          // Subphase 4a: Driving from left to right slowly facing RIGHT (-90°)
-          const t = Math.max(0, Math.min(1, (scrollY - faqTriggerStart) / 400));
+          // Subphase 4a: Driving from left to right facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - faqTriggerStart) / (faqTravelAcrossEnd - faqTriggerStart)));
           const eased = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
 
