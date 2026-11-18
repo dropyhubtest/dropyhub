@@ -74,16 +74,20 @@ export const MobileBikeScroll: React.FC = () => {
     const entranceTimer = setTimeout(() => {
       gsap.to(entranceState, {
         progress: 1,
-        duration: 1.2,
+        duration: 2.4, // Graceful, slow glide from navbar to button
         ease: 'power2.out',
       });
     }, 2000);
 
-    // If user starts scrolling before 2s, hand off immediately to scroll
+    // If user starts scrolling before 2s, hand off smoothly to scroll
     const onInitialScroll = () => {
       if (window.scrollY > 15 && entranceState.progress < 1) {
         clearTimeout(entranceTimer);
-        entranceState.progress = 1;
+        gsap.to(entranceState, {
+          progress: 1,
+          duration: 0.6,
+          ease: 'power1.out',
+        });
       }
     };
     window.addEventListener('scroll', onInitialScroll, { passive: true });
@@ -129,7 +133,7 @@ export const MobileBikeScroll: React.FC = () => {
     // Physics State initialized early
     const cur = {
       x: getVw() / 2,
-      y: -40,
+      y: -60,
       rotation: 0,
       opacity: 0,
     };
@@ -167,14 +171,14 @@ export const MobileBikeScroll: React.FC = () => {
 
             gsap.to(footerAnimState, {
               progress: 1,
-              duration: 1.8,
+              duration: 2.8,
               ease: 'power1.inOut',
             });
           }
 
           // Combined progress from scroll and GSAP drive
           const scrollDist = Math.max(0, (vh * 0.90) - wmRect.top);
-          const scrollP = Math.min(1, scrollDist / 160);
+          const scrollP = Math.min(1, scrollDist / 300);
           const fp = Math.max(footerAnimState.progress, scrollP);
 
           // Rotate 90° (facing left, headlights shining left)
@@ -200,11 +204,11 @@ export const MobileBikeScroll: React.FC = () => {
       // ─────────────────────────────────────────────────────────────
       const cta = getHeroCta();
       const heroScreenY = cta.docY - scrollY;
-      const startY = -40; // Tucked behind navbar
+      const startY = -60; // Safely tucked behind top of navbar
       const startX = vw / 2; // Centered
       const entranceP = entranceState.progress;
 
-      // When at the very top (scrollY < 20): interpolate navbar -> button
+      // When at the very top (scrollY < 20): interpolate navbar -> button slowly
       if (scrollY < 20) {
         const targetX = gsap.utils.interpolate(startX, cta.x, entranceP);
         const targetY = gsap.utils.interpolate(startY, Math.max(80, heroScreenY), entranceP);
@@ -218,29 +222,30 @@ export const MobileBikeScroll: React.FC = () => {
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 1: HERO BUTTON -> STATS SECTION END
-      // - Moves in an authentic curved arc veering right (turning to -65°).
-      // - Straightens out to 0° facing down into the stats lane.
-      // - Exits EARLY at start of Why DropyHub (scrollY ≈ 520–680px).
+      // - Moves in an authentic curved arc veering right (turning to -55°).
+      // - Straightens out smoothly to 0° facing down into the stats lane.
+      // - Slower curve travel over 300px of scroll (20 -> 320px).
+      // - Exits EARLY at start of Why DropyHub (scrollY ≈ 540–700px).
       // ─────────────────────────────────────────────────────────────
-      const stage1CurveEnd = 220;
-      const stage1ExitStart = 520;
-      const stage1ExitEnd   = 680;
+      const stage1CurveEnd = 320;
+      const stage1ExitStart = 540;
+      const stage1ExitEnd   = 700;
 
       if (scrollY < stage1ExitEnd) {
-        // Subphase 1a: Curved arc veering right with steering rotation
+        // Subphase 1a: Curved arc veering right with smooth steering rotation
         if (scrollY < stage1CurveEnd) {
           const t = Math.max(0, (scrollY - 20) / (stage1CurveEnd - 20));
-          const easeX = gsap.parseEase('power2.inOut')(t);
-          const easeY = gsap.parseEase('power1.inOut')(t);
+          const easeX = gsap.parseEase('sine.inOut')(t);
+          const easeY = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(cta.x, rightEdgeX, easeX);
           const targetY = gsap.utils.interpolate(Math.max(80, heroScreenY), defaultY, easeY);
 
-          // Steering rotation: turns right (-65°) and then straightens out to 0°
+          // Steering rotation: turns right (-55°) and then smoothly straightens out to 0°
           let rotation = 0;
-          if (t < 0.55) {
-            rotation = gsap.utils.interpolate(0, -65, t / 0.55);
+          if (t < 0.50) {
+            rotation = gsap.utils.interpolate(0, -55, t / 0.50);
           } else {
-            rotation = gsap.utils.interpolate(-65, 0, (t - 0.55) / 0.45);
+            rotation = gsap.utils.interpolate(-55, 0, (t - 0.50) / 0.50);
           }
 
           return { x: targetX, y: targetY, rotation, opacity: 1 };
@@ -262,15 +267,15 @@ export const MobileBikeScroll: React.FC = () => {
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 2: INTERACTIVE ESTIMATOR
-      // - Enters from left AFTER Why DropyHub (~1480px)
-      // - Drives horizontally facing RIGHT (rotation: -90°) across top bar
+      // - Enters from left AFTER Why DropyHub (~1460px)
+      // - Drives horizontally facing RIGHT (rotation: -90°) across top bar slowly over 420px of scroll
       // - Travels down through sliders AND through Monthly Estimated Net Earnings
-      // - Exits right AFTER the monthly estimated net earnings card (~2750–2950px)
+      // - Exits right AFTER the monthly estimated net earnings card (~2760–3000px)
       // ─────────────────────────────────────────────────────────────
-      const estTriggerStart = 1480; // After Why DropyHub section finishes!
-      const estTravelAcrossEnd = estTriggerStart + 240; // ~1720px
-      const estExitStart = 2750; // Stays through monthly net earnings, exits after!
-      const estExitEnd   = 2950;
+      const estTriggerStart = 1460; // After Why DropyHub section finishes!
+      const estTravelAcrossEnd = estTriggerStart + 420; // ~1880px (relaxed, slower left-to-right pace)
+      const estExitStart = 2760; // Stays through monthly net earnings, exits after!
+      const estExitEnd   = 3000;
 
       if (scrollY < estExitEnd) {
         if (scrollY < estTriggerStart) {
@@ -279,15 +284,15 @@ export const MobileBikeScroll: React.FC = () => {
         }
 
         if (scrollY < estTravelAcrossEnd) {
-          // Subphase 2a: Driving from left to right, facing RIGHT (-90°)
-          const t = Math.max(0, Math.min(1, (scrollY - estTriggerStart) / 240));
-          const eased = gsap.parseEase('power1.inOut')(t);
+          // Subphase 2a: Driving from left to right slowly, facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - estTriggerStart) / 420));
+          const eased = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
 
-          // Faces right (-90°), and banks into 0° facing down at the end
+          // Faces right (-90°), and banks gently into 0° facing down in the last 25%
           let rotation = -90;
-          if (t > 0.72) {
-            rotation = gsap.utils.interpolate(-90, 0, (t - 0.72) / 0.28);
+          if (t > 0.75) {
+            rotation = gsap.utils.interpolate(-90, 0, (t - 0.75) / 0.25);
           }
 
           const opacity = t < 0.04 ? 0 : Math.min(1, (t - 0.04) / 0.12);
@@ -311,14 +316,14 @@ export const MobileBikeScroll: React.FC = () => {
       // ─────────────────────────────────────────────────────────────
       // STAGE 3: ABOUT DROPYHUB & HOW TO START
       // - Enters from left at START of About DropyHub section (~3000px)
-      // - Drives from left to right facing RIGHT (rotation: -90°)
+      // - Drives from left to right facing RIGHT (rotation: -90°) slowly over 420px of scroll
       // - Cruises down continuously through About, Ecosystem, & Steps 01-05
-      // - Exits right at the VERY END of How to Start section (~4950–5180px)
+      // - Exits right at the VERY END of How to Start section (~4960–5200px)
       // ─────────────────────────────────────────────────────────────
       const aboutTriggerStart = 3000; // Right at start of About DropyHub!
-      const aboutTravelAcrossEnd = aboutTriggerStart + 240; // ~3240px
-      const aboutExitStart = 4950; // Goes to the very end of How to Start!
-      const aboutExitEnd   = 5180;
+      const aboutTravelAcrossEnd = aboutTriggerStart + 420; // ~3420px (relaxed, slower left-to-right pace)
+      const aboutExitStart = 4960; // Goes to the very end of How to Start!
+      const aboutExitEnd   = 5200;
 
       if (scrollY < aboutExitEnd) {
         if (scrollY < aboutTriggerStart) {
@@ -327,14 +332,14 @@ export const MobileBikeScroll: React.FC = () => {
         }
 
         if (scrollY < aboutTravelAcrossEnd) {
-          // Subphase 3a: Driving from left to right facing RIGHT (-90°)
-          const t = Math.max(0, Math.min(1, (scrollY - aboutTriggerStart) / 240));
-          const eased = gsap.parseEase('power1.inOut')(t);
+          // Subphase 3a: Driving from left to right slowly facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - aboutTriggerStart) / 420));
+          const eased = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
 
           let rotation = -90;
-          if (t > 0.72) {
-            rotation = gsap.utils.interpolate(-90, 0, (t - 0.72) / 0.28);
+          if (t > 0.75) {
+            rotation = gsap.utils.interpolate(-90, 0, (t - 0.75) / 0.25);
           }
 
           const opacity = t < 0.04 ? 0 : Math.min(1, (t - 0.04) / 0.12);
@@ -357,15 +362,15 @@ export const MobileBikeScroll: React.FC = () => {
 
       // ─────────────────────────────────────────────────────────────
       // STAGE 4: FAQ & READY TO START EARNING
-      // - Enters at top of FAQ (~5650px)
-      // - Drives from left to right facing RIGHT (-90°)
+      // - Enters at top of FAQ (~5620px)
+      // - Drives from left to right facing RIGHT (-90°) slowly over 400px of scroll
       // - Goes down through FAQ questions AND through Ready to Start Earning section
-      // - Exits at the very end of Ready to Start Earning CTA (~6500–6680px)
+      // - Exits at the very end of Ready to Start Earning CTA (~6500–6720px)
       // ─────────────────────────────────────────────────────────────
-      const faqTriggerStart = 5650; // At start of FAQ
-      const faqTravelAcrossEnd = faqTriggerStart + 230; // ~5880px
+      const faqTriggerStart = 5620; // At start of FAQ
+      const faqTravelAcrossEnd = faqTriggerStart + 400; // ~6020px (relaxed, slower left-to-right pace)
       const ctaExitStart = 6500; // Goes through Ready to Start Earning!
-      const ctaExitEnd   = 6680;
+      const ctaExitEnd   = 6720;
 
       if (scrollY < ctaExitEnd) {
         if (scrollY < faqTriggerStart) {
@@ -374,14 +379,14 @@ export const MobileBikeScroll: React.FC = () => {
         }
 
         if (scrollY < faqTravelAcrossEnd) {
-          // Subphase 4a: Driving from left to right facing RIGHT (-90°)
-          const t = Math.max(0, Math.min(1, (scrollY - faqTriggerStart) / 230));
-          const eased = gsap.parseEase('power1.inOut')(t);
+          // Subphase 4a: Driving from left to right slowly facing RIGHT (-90°)
+          const t = Math.max(0, Math.min(1, (scrollY - faqTriggerStart) / 400));
+          const eased = gsap.parseEase('sine.inOut')(t);
           const targetX = gsap.utils.interpolate(leftOffX, rightEdgeX, eased);
 
           let rotation = -90;
-          if (t > 0.72) {
-            rotation = gsap.utils.interpolate(-90, 0, (t - 0.72) / 0.28);
+          if (t > 0.75) {
+            rotation = gsap.utils.interpolate(-90, 0, (t - 0.75) / 0.25);
           }
 
           const opacity = t < 0.04 ? 0 : Math.min(1, (t - 0.04) / 0.12);
@@ -438,10 +443,10 @@ export const MobileBikeScroll: React.FC = () => {
         cur.rotation = tgt.rotation;
         cur.opacity = tgt.opacity;
       } else {
-        cur.x += (tgt.x - cur.x) * 0.16;
-        cur.y += (tgt.y - cur.y) * 0.16;
-        cur.rotation += (tgt.rotation - cur.rotation) * 0.16;
-        cur.opacity += (tgt.opacity - cur.opacity) * 0.22;
+        cur.x += (tgt.x - cur.x) * 0.10;
+        cur.y += (tgt.y - cur.y) * 0.10;
+        cur.rotation += (tgt.rotation - cur.rotation) * 0.10;
+        cur.opacity += (tgt.opacity - cur.opacity) * 0.15;
       }
 
       // Hard safety guard: if outside bounds, guarantee opacity 0
