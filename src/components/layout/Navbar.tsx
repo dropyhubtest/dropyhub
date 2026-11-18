@@ -150,17 +150,20 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
             <nav className={styles.mobileNavContainer}>
               <ul className={styles.mobileNavList}>
-                {MOBILE_NAV_ITEMS.map((item) => (
-                  <li key={item.label} className={styles.mobileNavItem}>
-                    <Link
-                      href={item.href}
-                      className={styles.mobileNavLink}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {MOBILE_NAV_ITEMS.map((item) => {
+                  const active = isItemActive(item.href);
+                  return (
+                    <li key={item.label} className={styles.mobileNavItem}>
+                      <Link
+                        href={item.href}
+                        className={`${styles.mobileNavLink} ${active ? styles.mobileNavLinkActive : ''}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
                 <li className={styles.mobileNavItem}>
                   <Link
                     href="/apply"

@@ -41,17 +41,50 @@ const TESTIMONIALS: Testimonial[] = [
 
 export const BenefitsStatsTestimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = React.useRef<number | null>(null);
+  const touchEndX = React.useRef<number | null>(null);
+
+  // Auto-advance testimonials every 4.5 seconds
+  React.useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-    }
+    setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
   };
 
   const handleNext = () => {
-    if (currentIndex < TESTIMONIALS.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
+    setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsPaused(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+      }
     }
+    touchStartX.current = null;
+    touchEndX.current = null;
+    setTimeout(() => setIsPaused(false), 3000);
   };
 
   return (
@@ -138,7 +171,14 @@ export const BenefitsStatsTestimonials: React.FC = () => {
         </div>
 
         {/* Testimonials Slider Area matching video prototype */}
-        <div className={styles.testimonialsArea}>
+        <div
+          className={styles.testimonialsArea}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className={styles.sliderRow}>
             <div className={styles.labelCol}>
               <span className={styles.categoryLabel}>Testimonials</span>

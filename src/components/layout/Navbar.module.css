@@ -250,6 +250,12 @@
   background-color: #f5f5f5;
 }
 
+.mobileNavLinkActive {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border-color: #111111 !important;
+}
+
 .mobileJoinButton {
   display: flex;
   align-items: center;

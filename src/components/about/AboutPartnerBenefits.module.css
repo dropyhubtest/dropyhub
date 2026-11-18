@@ -89,11 +89,27 @@
   display: none;
 }
 
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+}
+
 .logoRow {
   display: flex;
   align-items: center;
   gap: 36px;
   flex-wrap: nowrap;
+  width: max-content;
+  animation: marqueeScroll 24s linear infinite;
+  will-change: transform;
+}
+
+.logoRow:hover {
+  animation-play-state: paused;
 }
 
 .logoItem {
@@ -246,10 +262,11 @@
 
 .benefitIcon {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  opacity: 0.9;
+  filter: brightness(0);
+  opacity: 0.95;
 }
 
 .cellTitle {
@@ -341,15 +358,13 @@
 
   .marqueeContainer {
     width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
+    overflow: hidden !important;
     padding-bottom: 8px !important;
-    cursor: grab !important;
   }
 
-  .marqueeContainer::-webkit-scrollbar {
-    display: none !important;
+  .logoRow {
+    gap: 28px !important;
+    animation: marqueeScroll 22s linear infinite !important;
   }
 
   .dividerLine {
@@ -427,6 +442,13 @@
     align-items: center !important;
     justify-content: center !important;
     margin-bottom: 18px !important;
+  }
+
+  .benefitIcon {
+    width: 24px !important;
+    height: 24px !important;
+    filter: brightness(0) !important;
+    opacity: 0.95 !important;
   }
 
   .cellTitle {

@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import styles from './AboutPartnerBenefits.module.css';
 
 const PARTNER_LOGOS = [
+  { name: 'YogaBar', src: '/assets/Home/yogabar.png', width: 44, height: 32 },
   { name: 'Delhivery', src: '/assets/Home/delhivery.png', width: 140, height: 32 },
   { name: 'BigBasket', src: '/assets/Home/big_basket.png', width: 120, height: 32 },
   { name: 'BookMyShow', src: '/assets/Home/bms.png', width: 120, height: 32 },
@@ -18,8 +19,8 @@ const PARTNER_LOGOS = [
   { name: 'Uber', src: '/assets/Home/uber.png', width: 80, height: 32 },
 ];
 
-// Duplicate logos array so the marquee has plenty of runway to glide smoothly
-const DISPLAY_LOGOS = [...PARTNER_LOGOS, ...PARTNER_LOGOS];
+// Repeat 3 times for a seamless infinite marquee
+const DISPLAY_LOGOS = [...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS];
 
 interface BenefitBox {
   id: string;
@@ -74,84 +75,6 @@ const BENEFITS_DATA: BenefitBox[] = [
 ];
 
 export const AboutPartnerBenefits: React.FC = () => {
-  const marqueeContainerRef = useRef<HTMLDivElement>(null);
-  const partnersSectionRef = useRef<HTMLDivElement>(null);
-  const hasAutoScrolled = useRef<boolean>(false);
-  const animationFrameId = useRef<number | null>(null);
-
-  useEffect(() => {
-    const section = partnersSectionRef.current;
-    const container = marqueeContainerRef.current;
-    if (!section || !container) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAutoScrolled.current) {
-            hasAutoScrolled.current = true;
-
-            const timer = setTimeout(() => {
-              const maxScroll = container.scrollWidth - container.clientWidth;
-              if (maxScroll <= 10) return;
-
-              // Scroll one complete set of logos and then stop
-              const scrollTarget = Math.min(maxScroll, 1600);
-              const startScroll = container.scrollLeft;
-              const distance = scrollTarget - startScroll;
-              const duration = 7500; // 7.5s smooth glide
-              let startTime: number | null = null;
-              let isUserInteracting = false;
-
-              const stopAnimation = () => {
-                isUserInteracting = true;
-                if (animationFrameId.current) {
-                  cancelAnimationFrame(animationFrameId.current);
-                }
-              };
-
-              container.addEventListener('touchstart', stopAnimation, { passive: true });
-              container.addEventListener('wheel', stopAnimation, { passive: true });
-              container.addEventListener('mousedown', stopAnimation, { passive: true });
-
-              const step = (timestamp: number) => {
-                if (isUserInteracting) return;
-                if (!startTime) startTime = timestamp;
-                const elapsed = timestamp - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                // easeOutCubic deceleration for an elegant gentle stop
-                const ease = 1 - Math.pow(1 - progress, 3);
-                container.scrollLeft = startScroll + distance * ease;
-
-                if (progress < 1 && !isUserInteracting) {
-                  animationFrameId.current = requestAnimationFrame(step);
-                } else {
-                  container.removeEventListener('touchstart', stopAnimation);
-                  container.removeEventListener('wheel', stopAnimation);
-                  container.removeEventListener('mousedown', stopAnimation);
-                }
-              };
-
-              animationFrameId.current = requestAnimationFrame(step);
-            }, 300);
-
-            return () => clearTimeout(timer);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-      if (animationFrameId.current) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
-    };
-  }, []);
-
   return (
     <section className={styles.section} aria-label="Partner Platforms and Executive Benefits">
       {/* Continuous Side Rails at 40px: stops exactly at the top of the white slashed bar */}
@@ -159,14 +82,14 @@ export const AboutPartnerBenefits: React.FC = () => {
       <div className={styles.railRight} aria-hidden="true" />
 
       {/* 1. Partner Logos Section */}
-      <div ref={partnersSectionRef} className={styles.partnersSectionWrapper}>
+      <div className={styles.partnersSectionWrapper}>
         <span className={styles.eyebrow}>
           <span className={styles.bulletDot} aria-hidden="true" />
           OUR PARTNERS
         </span>
         <h2 className={styles.marqueeHeading}>Connecting you with India&apos;s top platforms</h2>
 
-        <div ref={marqueeContainerRef} className={styles.marqueeContainer}>
+        <div className={styles.marqueeContainer}>
           <div className={styles.logoRow}>
             {DISPLAY_LOGOS.map((logo, index) => (
               <div key={`${logo.name}-${index}`} className={styles.logoItem}>

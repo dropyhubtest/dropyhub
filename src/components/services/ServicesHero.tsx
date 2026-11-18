@@ -21,7 +21,15 @@ export const ServicesHero: React.FC = () => {
             height={516}
             priority
             sizes="100vw"
-            className={styles.bannerImage}
+            className={styles.desktopBannerImage}
+          />
+          <Image
+            src="/assets/services/mobile_hero.png"
+            alt="DropyHub Services Delivery Operations Ecosystem Mobile"
+            width={402}
+            height={268}
+            priority
+            className={styles.mobileBannerImage}
           />
         </div>
       </div>

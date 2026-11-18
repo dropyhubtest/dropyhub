@@ -37,7 +37,7 @@
   overflow: hidden;
 }
 
-.bannerImage {
+.desktopBannerImage {
   width: 100vw;
   max-width: 100vw;
   height: auto;
@@ -45,6 +45,10 @@
   display: block;
   object-fit: cover;
   object-position: center bottom;
+}
+
+.mobileBannerImage {
+  display: none;
 }
 
 /* Hatched Divider Bar Transition (Black 40px) */
@@ -103,7 +107,7 @@
     width: 401.973px !important;
     max-width: 100vw !important;
     height: 267.982px !important;
-    margin: 16px auto 0 auto !important;
+    margin: 0 auto 0 auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: flex-end !important;
@@ -111,13 +115,17 @@
     overflow: hidden !important;
   }
 
-  .bannerImage {
+  .desktopBannerImage {
+    display: none !important;
+  }
+
+  .mobileBannerImage {
+    display: block !important;
     width: 401.973px !important;
     max-width: 100vw !important;
     height: 267.982px !important;
     object-fit: cover !important;
-    object-position: center bottom !important;
-    display: block !important;
+    object-position: center center !important;
   }
 
   .hatchedDivider {

@@ -15,6 +15,7 @@
   color: #111111;
   overflow: hidden;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Continuous Side Rails at 64px:
@@ -166,6 +167,17 @@
   text-align: left;
   transition: opacity 0.2s ease;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  user-select: none;
+}
+
+.accordionHeader:focus,
+.accordionHeader:focus-visible,
+.accordionHeader:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .faqToggleIcon {
