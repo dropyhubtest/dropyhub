@@ -9,13 +9,11 @@ export const AboutCtaFooter: React.FC = () => {
   return (
     <>
       <section className={styles.ctaSection} aria-label="Call to Action">
-        {/* Continuous Side Rails for CTA Section Only */}
-        <div className={styles.railLeft} aria-hidden="true" />
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
         <div className={styles.container}>
-          {/* CTA Banner */}
-          <div className={styles.ctaBanner}>
+                    <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>
                 Ready to Be Part of the DropyHub Family?
@@ -52,8 +50,7 @@ export const AboutCtaFooter: React.FC = () => {
         </div>
       </section>
 
-      {/* Shared Global Footer */}
-      <Footer showRails={true} />
+            <Footer showRails={true} />
     </>
   );
 };

@@ -1,12 +1,3 @@
-/* ==========================================================================
-   Contact Page FAQ Section Styles
-   Matches Figma Image 3 and Image 4 reference mocks:
-   - Clean 2-column layout on white surface (#ffffff)
-   - Left and right rails (1px) stopping before the bottom slashed divider bar (40px)
-   - Only 1px dotted lines inside the slashed bar
-   - Vertical black bar indicator (|) when a question is expanded (like Image 4)
-   - No chevrons on questions
-   ========================================================================== */
 
 .faqSection {
   position: relative;

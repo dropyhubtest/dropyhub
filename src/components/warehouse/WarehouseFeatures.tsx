@@ -38,12 +38,10 @@ const FEATURES_DATA: FeatureCard[] = [
 export const WarehouseFeatures: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Warehouse Talent and Operations Features">
-      {/* Continuous Side Rails at 40px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
-      {/* Header Row: Title on Left, Narrative on Right */}
-      <div className={styles.headerWrapper}>
+            <div className={styles.headerWrapper}>
         <div className={styles.headerLeftCol}>
           <span className={styles.eyebrow}>
             <span className={styles.bulletDot} aria-hidden="true" />
@@ -61,8 +59,7 @@ export const WarehouseFeatures: React.FC = () => {
         </div>
       </div>
 
-      {/* 3-Column Grid Table: Connected directly to Left & Right Rails */}
-      <div className={styles.gridWrapper}>
+            <div className={styles.gridWrapper}>
         <div className={styles.grid}>
           {FEATURES_DATA.map((item) => (
             <div key={item.id} className={styles.featureCell}>

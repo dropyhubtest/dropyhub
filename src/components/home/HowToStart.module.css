@@ -1,8 +1,3 @@
-/* ==========================================================================
-   How to Start? Onboarding Section
-   Figma Reference: Node 1278:20501 (Component 70) in Desktop - 13 (1278:20469)
-   Geometry: x = 93px, y = 949px, width = 1255px, height = 533px
-   ========================================================================== */
 
 .howToStartContainer {
   position: absolute;
@@ -12,10 +7,6 @@
   height: 533px;
   box-sizing: border-box;
 }
-
-/* ==========================================================================
-   Left Heading and Introduction (x = 0, aligned with 108px section margin)
-   ========================================================================== */
 
 .leftColumn {
   position: absolute;
@@ -66,10 +57,6 @@
   margin: 12px 0 0 0;
   max-width: 293px;
 }
-
-/* ==========================================================================
-   Five Onboarding Items (x = 15px, y = 162px, width = 293px, height = 348px)
-   ========================================================================== */
 
 .stepsList {
   position: absolute;
@@ -127,10 +114,6 @@
   line-height: 1.2;
   white-space: nowrap;
 }
-
-/* ==========================================================================
-   Right Panel: Card with Image and Content (x = 602px, y = 27px, 624 × 469px)
-   ========================================================================== */
 
 .rightPanel {
   position: absolute;
@@ -235,9 +218,6 @@
   margin-right: 6px;
 }
 
-/* ==========================================================================
-   Mobile & Responsive Layout (<= 992px) — Matches Image 1
-   ========================================================================== */
 @media (max-width: 1199px) {
   .howToStartContainer {
     position: static;

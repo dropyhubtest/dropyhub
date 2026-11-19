@@ -9,8 +9,7 @@ export const BenefitsCtaFooter: React.FC = () => {
   return (
     <>
       <section className={styles.ctaSection} aria-label="Benefits Registration Call to Action">
-        {/* White horizontal bar with slashes and dotted rail lines before CTA */}
-        <div className={styles.whiteSlashedDivider} aria-hidden="true">
+                <div className={styles.whiteSlashedDivider} aria-hidden="true">
           <div className={styles.whiteSlashedPattern} />
           <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
             <line
@@ -36,12 +35,10 @@ export const BenefitsCtaFooter: React.FC = () => {
           </svg>
         </div>
 
-        {/* Continuous Side Rails at 48px for CTA Banner Only */}
-        <div className={styles.railLeft} aria-hidden="true" />
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
-        {/* CTA Banner */}
-        <div className={styles.container}>
+                <div className={styles.container}>
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>
@@ -69,8 +66,7 @@ export const BenefitsCtaFooter: React.FC = () => {
         </div>
       </section>
 
-      {/* Global Unified Footer */}
-      <Footer showRails={true} />
+            <Footer showRails={true} />
     </>
   );
 };

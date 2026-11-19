@@ -27,14 +27,11 @@ export const Footer: React.FC<FooterProps> = ({
         </>
       )}
 
-      {/* Footer Top Divider with small gap on both left and right (does not touch rails) */}
-      {showTopDivider && <div className={styles.footerTopDivider} aria-hidden="true" />}
+            {showTopDivider && <div className={styles.footerTopDivider} aria-hidden="true" />}
 
       <div className={styles.container}>
-        {/* Footer Navigation Columns */}
-        <div className={styles.footerLinksGrid}>
-          {/* Company Column */}
-          <div className={styles.footerCol}>
+                <div className={styles.footerLinksGrid}>
+                    <div className={styles.footerCol}>
             <h4 className={styles.colTitle}>Company</h4>
             <ul className={styles.linkList}>
               <li>
@@ -60,8 +57,7 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* For Partners Column */}
-          <div className={styles.footerCol}>
+                    <div className={styles.footerCol}>
             <h4 className={styles.colTitle}>For Partners</h4>
             <ul className={styles.linkList}>
               <li>
@@ -87,8 +83,7 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Contact Column */}
-          <div className={`${styles.footerCol} ${styles.contactCol}`}>
+                    <div className={`${styles.footerCol} ${styles.contactCol}`}>
             <h4 className={styles.colTitle}>Contact</h4>
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
@@ -122,14 +117,11 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Divider line dividing the footer links and social media icons */}
-        <div className={styles.socialDividerLine} aria-hidden="true" />
+                <div className={styles.socialDividerLine} aria-hidden="true" />
 
-        {/* Social Links, Copyright & Description */}
-        <div className={styles.socialLegalRow}>
+                <div className={styles.socialLegalRow}>
           <div className={styles.socialLinks}>
-            {/* YouTube */}
-            <a
+                        <a
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -145,8 +137,7 @@ export const Footer: React.FC<FooterProps> = ({
               />
             </a>
 
-            {/* Instagram */}
-            <a
+                        <a
               href="https://www.instagram.com/dropy_hub"
               target="_blank"
               rel="noopener noreferrer"
@@ -162,8 +153,7 @@ export const Footer: React.FC<FooterProps> = ({
               />
             </a>
 
-            {/* Facebook */}
-            <a
+                        <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -179,8 +169,7 @@ export const Footer: React.FC<FooterProps> = ({
               />
             </a>
 
-            {/* Twitter / X */}
-            <a
+                        <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -203,8 +192,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
       </div>
 
-      {/* Outlined Wordmark (Full Viewport Width) */}
-      <div className={styles.outlinedWordmark} aria-hidden="true">
+            <div className={styles.outlinedWordmark} aria-hidden="true">
         Dropyhub
       </div>
     </footer>

@@ -13,10 +13,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <PageRails />
-      {/* Desktop motorcycle animation layer (≥ 1200px) */}
-      <MotorcycleScroll />
-      {/* Mobile horizontal bike animation layer (≤ 1199px) */}
-      <MobileBikeScroll />
+            <MotorcycleScroll />
+            <MobileBikeScroll />
       <Hero />
       <StatsWhySection />
       <EarningsEstimator />

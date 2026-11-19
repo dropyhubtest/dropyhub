@@ -23,9 +23,6 @@
 # misc
 .DS_Store
 *.pem
-/scratch
-/screenshot_desktop.png
-/screenshot_mobile.png
 
 # debug
 npm-debug.log*

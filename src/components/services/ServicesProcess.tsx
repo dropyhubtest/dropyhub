@@ -50,13 +50,11 @@ const PROCESS_STEPS: ProcessStep[] = [
 export const ServicesProcess: React.FC = () => {
   return (
     <section className={styles.section} aria-label="How Delivery Works Process">
-      {/* Continuous Side Rails at 48px: stops before the transition bars (36px + 40px = 76px) */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Header Row */}
-        <div className={styles.headerRow}>
+                <div className={styles.headerRow}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>
               <span className={styles.bulletDot} aria-hidden="true" />
@@ -71,8 +69,7 @@ export const ServicesProcess: React.FC = () => {
           </div>
         </div>
 
-        {/* 4-Column Grid */}
-        <div className={styles.processGrid}>
+                <div className={styles.processGrid}>
           {PROCESS_STEPS.map((step) => (
             <div key={step.id} className={styles.stepCard}>
               <div className={styles.stepTopRow}>
@@ -94,8 +91,7 @@ export const ServicesProcess: React.FC = () => {
         </div>
       </div>
 
-      {/* Bar 1: Normal black spacer bar with dotted side rails */}
-      <div className={styles.blackSpacerBar} aria-hidden="true">
+            <div className={styles.blackSpacerBar} aria-hidden="true">
         <svg className={styles.blackBarRailLeft} viewBox="0 0 2 36" preserveAspectRatio="none">
           <line
             x1="1"
@@ -120,8 +116,7 @@ export const ServicesProcess: React.FC = () => {
         </svg>
       </div>
 
-      {/* Bar 2: White horizontal bar with crossed slashes and dotted side rails */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

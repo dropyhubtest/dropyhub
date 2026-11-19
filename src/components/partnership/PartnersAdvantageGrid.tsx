@@ -59,13 +59,11 @@ const ADVANTAGE_ITEMS: AdvantageItem[] = [
 export const PartnersAdvantageGrid: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Working Together Principles">
-      {/* Side Rails at 48px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Header Row */}
-        <div className={styles.headerRow}>
+                <div className={styles.headerRow}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>
               <span className={styles.bulletDot} aria-hidden="true" />
@@ -83,8 +81,7 @@ export const PartnersAdvantageGrid: React.FC = () => {
           </div>
         </div>
 
-        {/* 2-Column x 3-Row Grid */}
-        <div className={styles.cardsGrid}>
+                <div className={styles.cardsGrid}>
           {ADVANTAGE_ITEMS.map((item) => (
             <div key={item.id} className={styles.cardItem}>
               <div className={styles.iconBox}>
@@ -106,8 +103,7 @@ export const PartnersAdvantageGrid: React.FC = () => {
         </div>
       </div>
 
-      {/* White horizontal bar with slashes and dotted side rails */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

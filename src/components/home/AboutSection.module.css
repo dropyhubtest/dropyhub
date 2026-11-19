@@ -1,8 +1,3 @@
-/* ==========================================================================
-   About DropyHub and Partner Value Grid Section
-   Figma Reference: Node 1278:20469 (Desktop - 13)
-   Reference dimensions: 1440px desktop reference width
-   ========================================================================== */
 
 .aboutSection {
   position: relative;
@@ -24,9 +19,6 @@
   box-sizing: border-box;
 }
 
-/* ==========================================================================
-   1. About Introduction (Responsive Full Width)
-   ========================================================================== */
 .topIntro {
   position: absolute;
   left: 108px;
@@ -87,9 +79,6 @@
   margin: 0;
 }
 
-/* ==========================================================================
-   2. Partner Ecosystem Introduction (x = 100px, y = 225px)
-   ========================================================================== */
 .ecosystemIntro {
   position: absolute;
   left: 108px;
@@ -117,9 +106,6 @@
   margin: 0;
 }
 
-/* ==========================================================================
-   3. Section Dividers (Subtle Grey)
-   ========================================================================== */
 .horizontalDivider {
   position: absolute;
   left: 64px;
@@ -180,10 +166,6 @@
   height: 181px;
 }
 
-/* ==========================================================================
-   4. Partner Value Cards Grid
-   Two-column, three-row desktop grid
-   ========================================================================== */
 .card {
   position: absolute;
   background-color: transparent;
@@ -287,9 +269,6 @@
   margin: 0;
 }
 
-/* ==========================================================================
-   5. Bottom Section Divider (Full-Viewport Width, 64px Height)
-   ========================================================================== */
 .aboutBottomDivider {
   position: absolute;
   left: 0;
@@ -376,9 +355,6 @@
   display: none;
 }
 
-/* ==========================================================================
-   Mobile & Responsive Layout (<= 1199px) — Matches Image 3, 4 & 5
-   ========================================================================== */
 @media (max-width: 1199px) {
   .aboutSection {
     height: auto;

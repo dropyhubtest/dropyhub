@@ -1,7 +1,3 @@
-/* ==========================================================================
-   MobileBikeScroll — Horizontal scroll-synced bike animation for mobile
-   ONLY active on screens ≤ 1199px (mobile / tablet)
-   ========================================================================== */
 
 /* Hidden on desktop — handled by MotorcycleScroll */
 .overlay {

@@ -77,8 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
         </Link>
       </div>
 
-      {/* Desktop Navigation */}
-      <nav className={styles.navigation} aria-label="Main Navigation">
+            <nav className={styles.navigation} aria-label="Main Navigation">
         <ul className={styles.navList}>
           {NAV_ITEMS.map((item) => {
             const active = isItemActive(item.href);
@@ -102,8 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
         </Link>
       </div>
 
-      {/* Mobile Hamburger Toggle Button */}
-      <button
+            <button
         type="button"
         className={styles.hamburgerButton}
         onClick={() => setMobileMenuOpen(true)}
@@ -115,8 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
         <span className={styles.hamburgerLine} />
       </button>
 
-      {/* Mobile Navigation Popover (matches Figma reference image) */}
-      {mobileMenuOpen && (
+            {mobileMenuOpen && (
         <>
           <div
             className={styles.mobileBackdrop}

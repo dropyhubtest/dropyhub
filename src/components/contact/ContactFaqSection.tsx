@@ -39,7 +39,6 @@ const FAQ_LIST: FaqItem[] = [
 ];
 
 export const ContactFaqSection: React.FC = () => {
-  // Collapsed by default matching Figma
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleFaq = (id: string) => {
@@ -49,14 +48,12 @@ export const ContactFaqSection: React.FC = () => {
   return (
     <>
       <section className={styles.faqSection} aria-label="Frequently Asked Questions">
-        {/* Continuous 48px Side Rails stopping before bottom transition bar */}
-        <div className={styles.railLeft} aria-hidden="true" />
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
         <div className={styles.container}>
           <div className={styles.layoutGrid}>
-            {/* Left Column: Heading & Info */}
-            <div className={styles.leftCol}>
+                        <div className={styles.leftCol}>
               <div className={styles.eyebrow}>
                 <span className={styles.bullet} aria-hidden="true" />
                 FAQ
@@ -67,8 +64,7 @@ export const ContactFaqSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Right Column: Accordion (matches Figma) */}
-            <div className={styles.accordionList} role="region" aria-label="FAQ Accordion">
+                        <div className={styles.accordionList} role="region" aria-label="FAQ Accordion">
               {FAQ_LIST.map((item) => {
                 const isExpanded = expandedId === item.id;
                 return (
@@ -110,8 +106,7 @@ export const ContactFaqSection: React.FC = () => {
           </div>
         </div>
 
-        {/* White Slashed Divider Bar before Footer: ONLY dotted lines inside */}
-        <div className={styles.whiteSlashedDivider} aria-hidden="true">
+                <div className={styles.whiteSlashedDivider} aria-hidden="true">
           <div className={styles.whiteSlashedPattern} />
           <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
             <line
@@ -138,8 +133,7 @@ export const ContactFaqSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Global Unified Footer: showTopDivider={false} prevents duplicate divider line under slashed bar */}
-      <Footer showRails={true} showTopDivider={false} />
+            <Footer showRails={true} showTopDivider={false} />
     </>
   );
 };

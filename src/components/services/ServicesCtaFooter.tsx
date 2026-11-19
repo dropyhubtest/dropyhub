@@ -9,12 +9,10 @@ export const ServicesCtaFooter: React.FC = () => {
   return (
     <>
       <section className={styles.ctaSection} aria-label="Services Call to Action">
-        {/* Continuous Side Rails at 48px for CTA Banner Only */}
-        <div className={styles.railLeft} aria-hidden="true" />
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
-        {/* CTA Banner Container */}
-        <div className={styles.container}>
+                <div className={styles.container}>
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>
@@ -45,8 +43,7 @@ export const ServicesCtaFooter: React.FC = () => {
         </div>
       </section>
 
-      {/* Global Unified Footer */}
-      <Footer showRails={true} />
+            <Footer showRails={true} />
     </>
   );
 };

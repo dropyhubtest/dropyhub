@@ -1,12 +1,3 @@
-/* ==========================================================================
-   Continuous Vertical Page Rails
-   Global desktop rail system at 1440px reference frame
-   - Left rail: x = 40px
-   - Right rail: x = 1400px
-   - Origin: y = 88px (below header)
-   All solid lines and dotted/dashed divider transitions are rendered directly
-   on the rail itself to guarantee zero shift or duplicate lines.
-   ========================================================================== */
 
 .railsOverlay {
   position: absolute;
@@ -54,7 +45,6 @@
   flex-direction: column;
 }
 
-/* 1. Hero segment (y = 88px to 759px -> 671px) on dark surface */
 .heroSegment {
   width: 1px;
   height: 671px;
@@ -62,7 +52,6 @@
   flex-shrink: 0;
 }
 
-/* 2. Stats bar segment (y = 759px to 897px -> 138px) on light surface */
 .statsBarSegment {
   width: 1px;
   height: 138px;
@@ -70,7 +59,6 @@
   flex-shrink: 0;
 }
 
-/* 3. Dotted divider transitions across horizontal hatched bars (Frame 334 / 352) */
 .dashedDivider40 {
   width: 1px;
   height: 40px;
@@ -110,7 +98,6 @@
   flex-shrink: 0;
 }
 
-/* 4. Why DropyHub & Estimator content (694px + 785px = 1479px) on light surface */
 .whyEstimatorSegment {
   width: 1px;
   height: 1479px;
@@ -118,7 +105,6 @@
   flex-shrink: 0;
 }
 
-/* 5. About Section content (1499px) on dark surface */
 .aboutContentSegment {
   width: 1px;
   height: 1499px;
@@ -126,7 +112,6 @@
   flex-shrink: 0;
 }
 
-/* 6. Trust & Partners content (603px) on light surface */
 .trustPartnersSegment {
   width: 1px;
   height: 603px;
@@ -134,7 +119,6 @@
   flex-shrink: 0;
 }
 
-/* 7. Testimonials & FAQ content (422px + 446px = 868px) on light surface */
 .testimonialsFaqSegment {
   width: 1px;
   height: 868px;
@@ -142,7 +126,6 @@
   flex-shrink: 0;
 }
 
-/* 8. CTA & Footer Top (solid down to Our Services at y = 895px in FaqFooterSection -> 406px) */
 .ctaFooterTopSegment {
   width: 1px;
   height: 406px;
@@ -150,7 +133,6 @@
   flex-shrink: 0;
 }
 
-/* 9. Footer Fade Out: Starts exactly at 'Our Services' and fades to 0 over 135px */
 .footerFadeSegment {
   width: 1px;
   height: 135px;
@@ -162,7 +144,6 @@
   flex-shrink: 0;
 }
 
-/* 10. Footer Transparent: Stays clean/transparent through social links and wordmark (471px) */
 .footerTransparentSegment {
   width: 1px;
   height: 471px;

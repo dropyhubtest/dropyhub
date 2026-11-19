@@ -35,13 +35,11 @@ const SHUTTLE_DATA: ShuttleItem[] = [
 export const WarehouseShuttle: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Dedicated Bus Transportation Service">
-      {/* Continuous Side Rails at 40px: stops before the transition bars */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Header: Zero Hassle Commute */}
-        <div className={styles.headerBlock}>
+                <div className={styles.headerBlock}>
           <span className={styles.eyebrow}>
             <span className={styles.bulletDot} aria-hidden="true" />
             ZERO HASSLE COMMUTE
@@ -49,8 +47,7 @@ export const WarehouseShuttle: React.FC = () => {
           <h2 className={styles.heading}>Dedicated Bus Transportation</h2>
         </div>
 
-        {/* 3 Shuttle Columns with left icon and stacked text */}
-        <div className={styles.shuttleContentRow}>
+                <div className={styles.shuttleContentRow}>
           <div className={styles.cardsRow}>
             {SHUTTLE_DATA.map((item) => (
               <div key={item.id} className={styles.cardItem}>
@@ -75,8 +72,7 @@ export const WarehouseShuttle: React.FC = () => {
         </div>
       </div>
 
-      {/* Bar 1: Normal black bar with dotted side rails */}
-      <div className={styles.blackSpacerBar} aria-hidden="true">
+            <div className={styles.blackSpacerBar} aria-hidden="true">
         <svg className={styles.blackBarRailLeft} viewBox="0 0 2 36" preserveAspectRatio="none">
           <line
             x1="1"
@@ -101,8 +97,7 @@ export const WarehouseShuttle: React.FC = () => {
         </svg>
       </div>
 
-      {/* Bar 2: White horizontal bar with slashes and dotted rail lines before Application Form */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

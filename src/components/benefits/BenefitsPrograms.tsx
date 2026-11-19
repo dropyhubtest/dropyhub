@@ -52,8 +52,7 @@ const PROGRAM_CARDS: ProgramCard[] = [
 export const BenefitsPrograms: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Partner Programmes and Growth Benefits">
-      {/* Continuous Side Rails at 48px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
@@ -76,13 +75,11 @@ export const BenefitsPrograms: React.FC = () => {
             </div>
           ))}
 
-          {/* 6th Empty Slot matching Figma grid */}
-          <div className={`${styles.cardItem} ${styles.emptyCell}`} aria-hidden="true" />
+                    <div className={`${styles.cardItem} ${styles.emptyCell}`} aria-hidden="true" />
         </div>
       </div>
 
-      {/* White horizontal bar with crossed slashes and dotted side rails */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

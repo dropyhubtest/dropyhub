@@ -1,6 +1,3 @@
-/* ==========================================================================
-   ServicesHero.module.css — Precision Services Hero Section
-   ========================================================================== */
 
 .heroSection {
   position: relative;
@@ -51,7 +48,6 @@
   display: none;
 }
 
-/* Hatched Divider Bar Transition (Black 40px) */
 .hatchedDivider {
   position: relative;
   width: 100%;

@@ -8,11 +8,9 @@ import styles from './BenefitsHero.module.css';
 export const BenefitsHero: React.FC = () => {
   return (
     <section className={styles.heroSection} aria-label="Benefits Hero">
-      {/* 1. Global Navbar */}
-      <Navbar />
+            <Navbar />
 
-      {/* 2. Main Title & Description Row */}
-      <div className={styles.contentContainer}>
+            <div className={styles.contentContainer}>
         <div className={styles.titleRow}>
           <div className={styles.headingCol}>
             <h1 className={styles.mainTitle}>
@@ -30,8 +28,7 @@ export const BenefitsHero: React.FC = () => {
           </div>
         </div>
 
-        {/* 3. Hero 3D Isometric Benefits Ecosystem Model */}
-        <div className={styles.imageBannerWrapper}>
+                <div className={styles.imageBannerWrapper}>
           <Image
             src="/assets/benefits/Hero.png"
             alt="DropyHub Ecosystem of Delivery Benefits and Partner Support"
@@ -43,8 +40,7 @@ export const BenefitsHero: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Hatched Divider Bar Transition after Hero with Dotted Rails */}
-      <div className={styles.hatchedDivider} aria-hidden="true">
+            <div className={styles.hatchedDivider} aria-hidden="true">
         <div className={styles.hatchedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

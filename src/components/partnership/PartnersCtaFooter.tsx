@@ -9,8 +9,7 @@ export const PartnersCtaFooter: React.FC = () => {
   return (
     <>
       <section className={styles.ctaSection} aria-label="Join the Winning Team Partnership CTA">
-        {/* White horizontal bar with slashes and dotted side rails */}
-        <div className={styles.whiteSlashedDivider} aria-hidden="true">
+                <div className={styles.whiteSlashedDivider} aria-hidden="true">
           <div className={styles.whiteSlashedPattern} />
           <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
             <line
@@ -36,12 +35,10 @@ export const PartnersCtaFooter: React.FC = () => {
           </svg>
         </div>
 
-        {/* Continuous Side Rails at 48px */}
-        <div className={styles.railLeft} aria-hidden="true" />
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
-        {/* CTA Banner Container */}
-        <div className={styles.container}>
+                <div className={styles.container}>
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>Join the Winning Team</h2>
@@ -68,8 +65,7 @@ export const PartnersCtaFooter: React.FC = () => {
         </div>
       </section>
 
-      {/* Global Unified Footer */}
-      <Footer showRails={true} />
+            <Footer showRails={true} />
     </>
   );
 };

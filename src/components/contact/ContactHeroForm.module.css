@@ -1,8 +1,4 @@
-/* ==========================================================================
-   ContactHeroForm.module.css — Precision Contact / Application Form Section
-   Surface: #0c0c0c (Dark Surface)
-   Matches Image 2 reference mock exactly.
-   ========================================================================== */
+
 
 .section {
   position: relative;
@@ -52,9 +48,7 @@
   }
 }
 
-/* ==========================================================================
-   Left Column: Narrative, Value Checklist, Contact Details
-   ========================================================================== */
+
 
 .leftCol {
   display: flex;
@@ -184,9 +178,7 @@
   text-decoration: underline;
 }
 
-/* ==========================================================================
-   Right Column: Application Form Card (Image 2 Exact Spec)
-   ========================================================================== */
+
 
 .formCard {
   background-color: #000000;
@@ -495,9 +487,7 @@
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   Transition: Slashed Divider Bar at Bottom of Hero
-   ========================================================================== */
+
 
 .whiteSlashedDivider {
   position: relative;

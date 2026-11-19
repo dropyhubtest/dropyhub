@@ -89,15 +89,12 @@ export const BenefitsStatsTestimonials: React.FC = () => {
 
   return (
     <section className={styles.section} aria-label="Partner Statistics and Testimonials">
-      {/* Continuous Side Rails at 48px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* 4 Large Stats Grid */}
-        <div className={styles.statsGrid}>
-          {/* Stat 1: Cities Active */}
-          <div className={styles.statBox}>
+                <div className={styles.statsGrid}>
+                    <div className={styles.statBox}>
             <Image
               src="/assets/icons/user.svg"
               alt=""
@@ -112,8 +109,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
             </div>
           </div>
 
-          {/* Stat 2: Weekly Bonus */}
-          <div className={styles.statBox}>
+                    <div className={styles.statBox}>
             <Image
               src="/assets/icons/rupee.svg"
               alt=""
@@ -128,8 +124,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
             </div>
           </div>
 
-          {/* Stat 3: Joining Fee */}
-          <div className={styles.statBox}>
+                    <div className={styles.statBox}>
             <Image
               src="/assets/icons/shake-hands.svg"
               alt=""
@@ -144,8 +139,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
             </div>
           </div>
 
-          {/* Stat 4: Max Loan Available */}
-          <div className={styles.statBox}>
+                    <div className={styles.statBox}>
             <Image
               src="/assets/icons/loan.svg"
               alt=""
@@ -161,8 +155,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* Section Header: VOICES OF OUR PARTNERS */}
-        <div className={styles.testimonialsHeader}>
+                <div className={styles.testimonialsHeader}>
           <span className={styles.eyebrow}>
             <span className={styles.bulletDot} aria-hidden="true" />
             VOICES OF OUR PARTNERS
@@ -170,8 +163,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
           <h2 className={styles.sectionTitle}>Voices of Our Partners</h2>
         </div>
 
-        {/* Testimonials Slider Area matching video prototype */}
-        <div
+                <div
           className={styles.testimonialsArea}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -184,8 +176,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               <span className={styles.categoryLabel}>Testimonials</span>
             </div>
 
-            {/* Previous Button (Disabled on First Slide) */}
-            <button
+                        <button
               type="button"
               onClick={handlePrev}
               disabled={currentIndex === 0}
@@ -199,8 +190,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               </svg>
             </button>
 
-            {/* Vertical Sliding Viewport & Track */}
-            <div className={styles.quoteSliderViewport}>
+                        <div className={styles.quoteSliderViewport}>
               <div
                 className={styles.quoteSliderTrack}
                 style={{
@@ -231,8 +221,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
               </div>
             </div>
 
-            {/* Next Button (Disabled on Last Slide) */}
-            <button
+                        <button
               type="button"
               onClick={handleNext}
               disabled={currentIndex === TESTIMONIALS.length - 1}
@@ -249,8 +238,7 @@ export const BenefitsStatsTestimonials: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Pagination Dots */}
-          <div className={styles.dotsPagination} aria-label="Testimonial Pagination">
+                    <div className={styles.dotsPagination} aria-label="Testimonial Pagination">
             {TESTIMONIALS.map((_, idx) => (
               <button
                 key={idx}

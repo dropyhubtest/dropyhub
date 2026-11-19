@@ -25,7 +25,6 @@ export const EarningsEstimator: React.FC = () => {
   const [workingDays, setWorkingDays] = useState<number>(24);
   const [showStatusNote, setShowStatusNote] = useState<boolean>(false);
 
-  // Exact reference figures matching user image 2
   const referenceFigures = {
     baseDeliveryFee: "₹30,140",
     bonuses: "+₹4,800",
@@ -55,8 +54,7 @@ export const EarningsEstimator: React.FC = () => {
       <div className={styles.estimatorContainer}>
         <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
-        {/* 1. Section Heading (x=100px, y=38px) */}
-        <div className={styles.headerArea}>
+                <div className={styles.headerArea}>
           <span className={styles.eyebrow}>
             <span className={styles.bullet} aria-hidden="true" />
             INTERACTIVE ESTIMATOR
@@ -64,20 +62,16 @@ export const EarningsEstimator: React.FC = () => {
           <h2 className={styles.sectionTitle}>Calculate Your Monthly Take-Home</h2>
         </div>
 
-        {/* 2. Main Desktop Geometry (x=94px, y=113px, width=1252px) */}
-        <div className={styles.mainContent}>
-          {/* Left Column: 4 Input Panels (width=612px) */}
-          <div className={styles.leftColumn}>
-            {/* Panel 1: Vehicle type */}
-            <div className={`${styles.panelBase} ${styles.panelVehicle}`}>
+                <div className={styles.mainContent}>
+                    <div className={styles.leftColumn}>
+                        <div className={`${styles.panelBase} ${styles.panelVehicle}`}>
               <div className={styles.panelHeader}>
                 <h3 className={styles.panelTitle}>
                   <span className={styles.stepNumber}>1. </span>Choose Your Vehicle Type
                 </h3>
               </div>
               <div className={styles.vehicleRow}>
-                {/* 1. EV Electric Scooter */}
-                <button
+                                <button
                   type="button"
                   className={`${styles.vehicleBtnBase} ${styles.vehicleBtnEV} ${
                     vehicle === "ev" ? styles.vehicleBtnActive : ""
@@ -99,8 +93,7 @@ export const EarningsEstimator: React.FC = () => {
                   </span>
                 </button>
 
-                {/* 2. Petrol Bike */}
-                <button
+                                <button
                   type="button"
                   className={`${styles.vehicleBtnBase} ${styles.vehicleBtnPetrol} ${
                     vehicle === "petrol" ? styles.vehicleBtnActive : ""
@@ -122,8 +115,7 @@ export const EarningsEstimator: React.FC = () => {
                   </span>
                 </button>
 
-                {/* 3. E-Cycle */}
-                <button
+                                <button
                   type="button"
                   className={`${styles.vehicleBtnBase} ${styles.vehicleBtnBicycle} ${
                     vehicle === "bicycle" ? styles.vehicleBtnActive : ""
@@ -147,8 +139,7 @@ export const EarningsEstimator: React.FC = () => {
               </div>
             </div>
 
-            {/* Panel 2: Operating city */}
-            <div className={`${styles.panelBase} ${styles.panelCity}`}>
+                        <div className={`${styles.panelBase} ${styles.panelCity}`}>
               <div className={styles.panelHeader}>
                 <h3 className={styles.panelTitle}>
                   <span className={styles.stepNumber}>2. </span>Select Operating City
@@ -171,8 +162,7 @@ export const EarningsEstimator: React.FC = () => {
               </div>
             </div>
 
-            {/* Panel 3: Deliveries slider */}
-            <div className={`${styles.panelBase} ${styles.panelDeliveries}`}>
+                        <div className={`${styles.panelBase} ${styles.panelDeliveries}`}>
               <div className={styles.panelHeader}>
                 <h3 className={styles.panelTitle}>
                   <span className={styles.stepNumber}>3. </span>Expected Deliveries Per Day
@@ -201,8 +191,7 @@ export const EarningsEstimator: React.FC = () => {
               </div>
             </div>
 
-            {/* Panel 4: Working days slider */}
-            <div className={`${styles.panelBase} ${styles.panelDays}`}>
+                        <div className={`${styles.panelBase} ${styles.panelDays}`}>
               <div className={styles.panelHeader}>
                 <h3 className={styles.panelTitle}>
                   <span className={styles.stepNumber}>4. </span>Working Days Per Month
@@ -232,8 +221,7 @@ export const EarningsEstimator: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Earnings Summary Card (width=603px) */}
-          <div className={styles.rightColumn}>
+                    <div className={styles.rightColumn}>
             <div className={styles.earningsContent}>
               <h3 className={styles.earningsHeading}>Monthly Estimated Net Earnings</h3>
 
@@ -298,8 +286,7 @@ export const EarningsEstimator: React.FC = () => {
         </div>
       </div>
 
-      {/* 5. Full-Viewport Hatched Divider (Frame 334) at Section Bottom */}
-      <div className={styles.bottomDivider} aria-hidden="true">
+            <div className={styles.bottomDivider} aria-hidden="true">
         <div className={styles.bottomDividerPattern} />
         <div className={styles.bottomDividerInner}>
           <div className={styles.brokenRailLeft}>

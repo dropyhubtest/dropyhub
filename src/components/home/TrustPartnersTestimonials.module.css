@@ -1,9 +1,3 @@
-/* ==========================================================================
-   TrustPartnersTestimonials — Innovation, Our Partners & Testimonials
-   Figma Reference: Desktop - 15 (Node 1278:20583, Child Frame 1278:20584)
-   Dimensions: 1440 × 1068px Desktop Section
-   Surface: #f8f8f8 (Light Surface)
-   ========================================================================== */
 
 .section {
   position: relative;
@@ -25,9 +19,6 @@
   box-sizing: border-box;
 }
 
-/* ==========================================================================
-   Separators & Frame Lines
-   ========================================================================== */
 .topLine {
   position: absolute;
   left: 0;
@@ -59,9 +50,6 @@
   top: 394px;
 }
 
-/* ==========================================================================
-   Frame 352: Partner-to-Testimonials Divider (Full Viewport Width, 43px Height)
-   ========================================================================== */
 .frame352Divider {
   position: absolute;
   left: 0;
@@ -166,9 +154,6 @@
   z-index: 15;
 }
 
-/* ==========================================================================
-   Section A: Innovation / Your Security, Our Priority
-   ========================================================================== */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -255,9 +240,6 @@
   color: var(--color-raw-2c2a);
 }
 
-/* ==========================================================================
-   Section B: Our Partners
-   ========================================================================== */
 .partnersEyebrow {
   position: absolute;
   left: 108px;
@@ -336,9 +318,6 @@
   display: block;
 }
 
-/* ==========================================================================
-   Section C: Testimonials
-   ========================================================================== */
 .testimonialsComponent {
   position: absolute;
   left: 64px;
@@ -524,9 +503,6 @@
   display: none;
 }
 
-/* ==========================================================================
-   Mobile & Responsive Layout (<= 992px) — Matches Image 1
-   ========================================================================== */
 @media (max-width: 1199px) {
   .section {
     height: auto;

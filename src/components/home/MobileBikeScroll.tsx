@@ -1,34 +1,5 @@
 'use client';
 
-/**
- * MobileBikeScroll — Scroll-Synchronized Mobile Bike Engine
- *
- * Calibrated Behaviors:
- * 1. Hero Entrance & Resting State:
- *    - Starts tucked behind the navbar (y: -40px, centered x: vw/2, z-index behind navbar).
- *    - After 2 seconds, smoothly glides down onto the "Join As Delivery Partner" button (rotation: 0°).
- *    - If user scrolls, hand off immediately to scroll.
- *
- * 2. Curved Veering & Direction Change:
- *    - From Hero button to Stats lane: curves in an arc and TURNS towards the right (steers right to -65°),
- *      then straightens out to 0° (facing down) as it enters the right lane.
- *    - During all left-to-right section crossings (Estimator, About, FAQ): bike literally FACES RIGHT
- *      (rotation: -90°, headlights pointing right), driving across the screen, then banks into 0° facing down.
- *
- * 3. Precision Section Pacing (User-Calibrated):
- *    - Estimator: Enters from left AFTER Why DropyHub (at ~1480px), stays through the entire Monthly
- *      Estimated Net Earnings card, and exits right AFTER the earnings card (~2750–2950px).
- *    - About & How to Start: Enters from left at the START of About (~3000px), travels down through
- *      About and How to Start, and exits right at the VERY END of the section (~4950–5180px).
- *    - FAQ & Ready to Start Earning: Enters from left at top of FAQ (~5650px), travels down through
- *      FAQ questions and through Ready to Start Earning, exiting at the end of CTA (~6500–6680px).
- *
- * 4. Footer Wordmark Crossing:
- *    - Completely hidden during Company / Partners / Contact / Social / Copyright links.
- *    - Only appears when the outlined "Dropyhub" wordmark itself comes into view.
- *    - Starts at the far right (vw - 10px) and drives across the wordmark to the left facing left (rotation: 90°).
- */
-
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
@@ -483,8 +454,7 @@ export const MobileBikeScroll: React.FC = () => {
   return (
     <div className={styles.overlay} aria-hidden="true">
       <div ref={assemblyRef} className={styles.bikeAssembly}>
-        {/* Headlight glow layer */}
-        <div className={styles.glowLayer}>
+                <div className={styles.glowLayer}>
           <Image
             src="/assets/Home/Headlight.png"
             alt=""
@@ -495,8 +465,7 @@ export const MobileBikeScroll: React.FC = () => {
           />
         </div>
 
-        {/* Motorcycle and rider top-down sprite */}
-        <div className={styles.riderLayer}>
+                <div className={styles.riderLayer}>
           <Image
             src="/assets/Home/Bike.png"
             alt=""

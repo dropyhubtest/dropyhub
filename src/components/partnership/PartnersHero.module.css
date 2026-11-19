@@ -1,7 +1,3 @@
-/* ==========================================================================
-   PartnersHero.module.css — Precision Partners & SRH Hero Section
-   Surface: #0c0c0c (Dark Surface)
-   ========================================================================== */
 
 .heroSection {
   position: relative;
@@ -61,7 +57,6 @@
   z-index: 3;
 }
 
-/* Hatched Divider Bar Transition after Hero (Increased Height: 56px) */
 .hatchedDivider {
   position: relative;
   width: 100%;
@@ -271,7 +266,6 @@
   line-height: 1.25;
 }
 
-/* Bar 1: Normal black spacer bar with dotted side rails */
 .blackSpacerBar {
   position: relative;
   width: 100%;
@@ -304,7 +298,6 @@
   z-index: 15;
 }
 
-/* Bar 2: White Slashed Divider Bar at bottom of dark section */
 .whiteSlashedDivider {
   position: relative;
   width: 100%;
@@ -406,7 +399,6 @@
     z-index: 3 !important;
   }
 
-  /* Hatched divider bar directly touching hero image with zero gap */
   .hatchedDivider {
     display: block !important;
     width: 100vw !important;

@@ -57,7 +57,6 @@ export async function POST(req: NextRequest) {
         ? 'WAREHOUSE_ASSOCIATE'
         : 'DELIVERY_PARTNER');
 
-    // 1. Attempt forwarding to Express backend if configured
     const backendUrl = process.env.PARTNER_API_URL;
     if (backendUrl) {
       try {
@@ -80,7 +79,6 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 2. Direct Supabase Storage (Resilient Production Fallback)
     const inputMobile = String(mobileNumber).trim();
     const digitsOnly = inputMobile.replace(/\D/g, '');
 

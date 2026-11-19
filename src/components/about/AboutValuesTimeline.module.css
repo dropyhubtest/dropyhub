@@ -1,7 +1,3 @@
-/* ==========================================================================
-   AboutValuesTimeline.module.css — Precision Styling for What We Believe In & Our History
-   Matches Figma design media_1793776175759_7e61642c.png & media_1793776206368_45f88b54.png
-   ========================================================================== */
 
 .sectionWrapper {
   position: relative;
@@ -10,7 +6,6 @@
   box-sizing: border-box;
 }
 
-/* 1. What We Believe In (Light Background) */
 .valuesContainer {
   position: relative;
   width: 100%;
@@ -149,9 +144,6 @@
   margin: 0;
 }
 
-/* ==========================================================================
-   Bar 1: Hatched Divider Bar Transition (Black 40px)
-   ========================================================================== */
 .hatchedDivider {
   position: relative;
   width: 100%;
@@ -196,9 +188,6 @@
   z-index: 5;
 }
 
-/* ==========================================================================
-   2. Our History (Dark Background with one phase at a time & separating lines)
-   ========================================================================== */
 .historySection {
   position: relative;
   width: 100%;
@@ -398,9 +387,6 @@
   max-width: 620px;
 }
 
-/* ==========================================================================
-   Bar 2: White horizontal bar with slashes and dotted rail lines
-   ========================================================================== */
 .whiteSlashedDivider {
   position: relative;
   width: 100%;

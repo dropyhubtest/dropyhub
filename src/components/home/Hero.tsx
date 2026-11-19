@@ -7,27 +7,22 @@ import styles from "./Hero.module.css";
 export const Hero: React.FC = () => {
   return (
     <section className={styles.heroSection} aria-label="Hero Section">
-      {/* Shared Global Navbar */}
-      <Navbar />
+            <Navbar />
 
       <div className={styles.heroFrame}>
-        {/* Continuous desktop rails across Hero */}
-        <div className={styles.decorativeLine} aria-hidden="true" />
+                <div className={styles.decorativeLine} aria-hidden="true" />
         <div className={styles.decorativeLineRight} aria-hidden="true" />
 
-        {/* Small italic tagline */}
-        <p className={styles.tagline}>
+                <p className={styles.tagline}>
           Your Delivery Workforce, Ready to Move
         </p>
 
-        {/* Main Heading */}
-        <h1 className={styles.mainTitle}>
+                <h1 className={styles.mainTitle}>
           <span className={styles.titleLineFirst}>Delivery</span>
           <span className={styles.titleLineSecond}>Partners</span>
         </h1>
 
-        {/* Circular Fast Delivery Sticker */}
-        <div className={styles.stickerWrapper} aria-hidden="true">
+                <div className={styles.stickerWrapper} aria-hidden="true">
           <Image
             src="/assets/Home/Hero_sticker.png"
             alt=""
@@ -38,8 +33,7 @@ export const Hero: React.FC = () => {
           />
         </div>
 
-        {/* Sunrisers Hyderabad Official Partner Badge */}
-        <div className={styles.partnerBadge}>
+                <div className={styles.partnerBadge}>
           <div className={styles.badgeFrame}>
             <div className={styles.badgeInner}>
               <Image
@@ -64,8 +58,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Row / Content */}
-        <div className={styles.bottomRow}>
+                <div className={styles.bottomRow}>
           <p className={styles.description}>
             DropyHub connects delivery platforms with trained delivery executives. We
             coordinate deliveries and support our riders with EV bikes, hostel

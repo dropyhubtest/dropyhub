@@ -103,13 +103,11 @@ const PARTNER_BENEFITS: PartnerBenefit[] = [
 export const BenefitsPartnerGrid: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Partner Benefits Built for Your Well-being & Growth">
-      {/* Continuous Side Rails at 40px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Header Row */}
-        <div className={styles.headerRow}>
+                <div className={styles.headerRow}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>
               <span className={styles.bulletDot} aria-hidden="true" />
@@ -126,11 +124,9 @@ export const BenefitsPartnerGrid: React.FC = () => {
           </div>
         </div>
 
-        {/* Hairline Divider connecting under header matching Image 1 */}
-        <div className={styles.headerDivider} aria-hidden="true" />
+                <div className={styles.headerDivider} aria-hidden="true" />
 
-        {/* 2-Column Dark Grid with New Icons */}
-        <div className={styles.cardsGrid}>
+                <div className={styles.cardsGrid}>
           {PARTNER_BENEFITS.map((item) => (
             <div key={item.id} className={styles.cardItem}>
               <div className={styles.iconBox} aria-hidden="true">
@@ -145,8 +141,7 @@ export const BenefitsPartnerGrid: React.FC = () => {
         </div>
       </div>
 
-      {/* Bar 1: Normal black bar with dotted side rails */}
-      <div className={styles.blackSpacerBar} aria-hidden="true">
+            <div className={styles.blackSpacerBar} aria-hidden="true">
         <svg className={styles.blackBarRailLeft} viewBox="0 0 2 36" preserveAspectRatio="none">
           <line
             x1="1"
@@ -171,8 +166,7 @@ export const BenefitsPartnerGrid: React.FC = () => {
         </svg>
       </div>
 
-      {/* Bar 2: White horizontal bar with crossed slashes and dotted side rails */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

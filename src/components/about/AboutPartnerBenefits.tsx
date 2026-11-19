@@ -77,12 +77,10 @@ const BENEFITS_DATA: BenefitBox[] = [
 export const AboutPartnerBenefits: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Partner Platforms and Executive Benefits">
-      {/* Continuous Side Rails at 40px: stops exactly at the top of the white slashed bar */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
-      {/* 1. Partner Logos Section */}
-      <div className={styles.partnersSectionWrapper}>
+            <div className={styles.partnersSectionWrapper}>
         <span className={styles.eyebrow}>
           <span className={styles.bulletDot} aria-hidden="true" />
           OUR PARTNERS
@@ -106,11 +104,9 @@ export const AboutPartnerBenefits: React.FC = () => {
         </div>
       </div>
 
-      {/* Middle Hairline Divider: Attaches directly to Left & Right Rails at 40px */}
-      <div className={styles.dividerLine} aria-hidden="true" />
+            <div className={styles.dividerLine} aria-hidden="true" />
 
-      {/* 2. Why We Are Different Header */}
-      <div className={styles.benefitsHeaderWrapper}>
+            <div className={styles.benefitsHeaderWrapper}>
         <span className={styles.eyebrow}>
           <span className={styles.bulletDot} aria-hidden="true" />
           WHY WE ARE DIFFERENT
@@ -118,8 +114,7 @@ export const AboutPartnerBenefits: React.FC = () => {
         <h2 className={styles.benefitsHeading}>What We Stand For, For Partners</h2>
       </div>
 
-      {/* 3. 2x3 Grid Table: Top, middle, and bottom lines connect to Left & Right Rails */}
-      <div className={styles.benefitsGridWrapper}>
+            <div className={styles.benefitsGridWrapper}>
         <div className={styles.benefitsGrid}>
           {BENEFITS_DATA.map((benefit) => (
             <div key={benefit.id} className={styles.benefitCell}>
@@ -140,8 +135,7 @@ export const AboutPartnerBenefits: React.FC = () => {
         </div>
       </div>
 
-      {/* Bar 3: White horizontal bar with slashes and dotted rail lines before CTA */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

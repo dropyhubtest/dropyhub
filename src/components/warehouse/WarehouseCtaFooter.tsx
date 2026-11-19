@@ -9,8 +9,7 @@ export const WarehouseCtaFooter: React.FC = () => {
   return (
     <>
       <section className={styles.ctaSection} aria-label="Call to Action">
-        {/* 1. White horizontal bar with slashes and dotted rail lines before CTA */}
-        <div className={styles.whiteSlashedDivider} aria-hidden="true">
+                <div className={styles.whiteSlashedDivider} aria-hidden="true">
           <div className={styles.whiteSlashedPattern} />
           <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
             <line
@@ -36,12 +35,10 @@ export const WarehouseCtaFooter: React.FC = () => {
           </svg>
         </div>
 
-        {/* 2. Continuous Side Rails for CTA Section Only */}
-        <div className={styles.railLeft} aria-hidden="true" />
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
-        {/* 3. CTA Banner */}
-        <div className={styles.container}>
+                <div className={styles.container}>
           <div className={styles.ctaBanner}>
             <div className={styles.ctaLeftCol}>
               <h2 className={styles.ctaTitle}>
@@ -68,8 +65,7 @@ export const WarehouseCtaFooter: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Global Footer */}
-      <Footer showRails={true} />
+            <Footer showRails={true} />
     </>
   );
 };

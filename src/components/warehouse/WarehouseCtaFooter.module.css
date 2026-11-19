@@ -1,6 +1,3 @@
-/* ==========================================================================
-   WarehouseCtaFooter.module.css — Precision Styling for CTA Banner
-   ========================================================================== */
 
 .ctaSection {
   position: relative;
@@ -10,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* 1. White horizontal bar with slashes and dotted rail lines before CTA */
 .whiteSlashedDivider {
   position: relative;
   width: 100%;

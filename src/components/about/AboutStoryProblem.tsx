@@ -7,12 +7,10 @@ import styles from './AboutStoryProblem.module.css';
 export const AboutStoryProblem: React.FC = () => {
   return (
     <section className={styles.storySection} aria-label="The DropyHub Story, Problem and Solution">
-      {/* Continuous Side Rails at 40px (runs down to the white slashed bar) */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
-      {/* Part 1: THE DROPYHUB STORY */}
-      <div className={styles.storyContainer}>
+            <div className={styles.storyContainer}>
         <div className={styles.storyBlock}>
           <div className={styles.storyTextCol}>
             <span className={styles.eyebrow}>
@@ -57,15 +55,11 @@ export const AboutStoryProblem: React.FC = () => {
         </div>
       </div>
 
-      {/* Part 2: WHY WE EXIST (The Problem & The Solution)
-          Spans from left rail (40px) to right rail (40px) so all 4 corners connect directly */}
-      <div className={styles.whyWeExistWrapper}>
-        {/* Top hairline border line connecting to left rail and right rail */}
-        <div className={styles.topDividerLine} aria-hidden="true" />
+            <div className={styles.whyWeExistWrapper}>
+                <div className={styles.topDividerLine} aria-hidden="true" />
 
         <div className={styles.twoColumnGrid}>
-          {/* The Problem Column */}
-          <div className={styles.problemColumn}>
+                    <div className={styles.problemColumn}>
             <div className={styles.columnContent}>
               <span className={styles.eyebrow}>
                 <span className={styles.bullet} aria-hidden="true" />
@@ -90,11 +84,9 @@ export const AboutStoryProblem: React.FC = () => {
             </div>
           </div>
 
-          {/* The Solution Column */}
-          <div className={styles.solutionColumn}>
+                    <div className={styles.solutionColumn}>
             <div className={styles.columnContent}>
-              {/* Spacer so The Solution baseline aligns horizontally with The Problem */}
-              <div className={styles.eyebrowSpacer} aria-hidden="true" />
+                            <div className={styles.eyebrowSpacer} aria-hidden="true" />
               <h3 className={styles.columnTitle}>The Solution</h3>
               <p className={styles.columnDescription}>
                 DropyHub makes that journey more accessible by connecting delivery
@@ -114,18 +106,15 @@ export const AboutStoryProblem: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom hairline border line connecting to left rail and right rail */}
-        <div className={styles.bottomDividerLine} aria-hidden="true" />
+                <div className={styles.bottomDividerLine} aria-hidden="true" />
       </div>
 
-      {/* Bar 1: Normal black bar with decreased height and continuous side rails */}
-      <div className={styles.blackSpacerBar} aria-hidden="true">
+            <div className={styles.blackSpacerBar} aria-hidden="true">
         <div className={styles.blackBarRailLeft} />
         <div className={styles.blackBarRailRight} />
       </div>
 
-      {/* Bar 2: White horizontal bar with slashes and dotted rail lines */}
-      <div className={styles.whiteSlashedBar} aria-hidden="true">
+            <div className={styles.whiteSlashedBar} aria-hidden="true">
         <div className={styles.slashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 44" preserveAspectRatio="none">
           <line

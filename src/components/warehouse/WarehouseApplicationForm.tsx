@@ -133,13 +133,11 @@ export const WarehouseApplicationForm: React.FC = () => {
 
   return (
     <section className={styles.section} aria-label="Warehouse and Stores Application Form">
-      {/* Continuous Side Rails at 40px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Left Column: Heading & Narrative (Sticky) */}
-        <div className={styles.leftCol}>
+                <div className={styles.leftCol}>
           <div className={styles.stickyWrapper}>
             <span className={styles.eyebrow}>
               <span className={styles.bulletDot} aria-hidden="true" />
@@ -155,8 +153,7 @@ export const WarehouseApplicationForm: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Modern Application Form Card */}
-        <div className={styles.rightCol}>
+                <div className={styles.rightCol}>
           <div className={styles.formCard}>
             {submitted ? (
               <div className={styles.successState}>
@@ -208,8 +205,7 @@ export const WarehouseApplicationForm: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
-                {/* Row 1: Full Name & Mobile Number */}
-                <div className={styles.inputGrid}>
+                                <div className={styles.inputGrid}>
                   <div className={styles.fieldGroup}>
                     <label htmlFor="fullName" className={styles.label}>
                       Full Name <span className={styles.required}>*</span>
@@ -242,8 +238,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                     />
                   </div>
 
-                  {/* Row 2: City & Area / Location */}
-                  <div className={styles.fieldGroup}>
+                                    <div className={styles.fieldGroup}>
                     <label htmlFor="city" className={styles.label}>
                       City <span className={styles.required}>*</span>
                     </label>
@@ -275,8 +270,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                     />
                   </div>
 
-                  {/* Row 3: Age & Previous Experience */}
-                  <div className={styles.fieldGroup}>
+                                    <div className={styles.fieldGroup}>
                     <label htmlFor="age" className={styles.label}>
                       Age <span className={styles.required}>*</span>
                     </label>
@@ -319,8 +313,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Row 4: Preferred Warehouse / Store Checkboxes */}
-                <div className={styles.checkboxSection}>
+                                <div className={styles.checkboxSection}>
                   <label className={styles.checkboxHeaderLabel}>
                     Preferred Warehouse/Store <span className={styles.required}>*</span>
                   </label>
@@ -369,8 +362,7 @@ export const WarehouseApplicationForm: React.FC = () => {
                   </div>
                 )}
 
-                {/* Row 5: Full-Width Submit Button */}
-                <button
+                                <button
                   type="submit"
                   disabled={loading}
                   className={styles.submitBtn}

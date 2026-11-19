@@ -196,10 +196,8 @@ export const AboutValuesTimeline: React.FC = () => {
 
   return (
     <section className={styles.sectionWrapper} aria-label="What We Believe In and Company History">
-      {/* 1. What We Believe In (Light Background) */}
-      <div className={styles.valuesContainer}>
-        {/* Continuous Side Rails for Values */}
-        <div className={styles.railLeftLight} aria-hidden="true" />
+            <div className={styles.valuesContainer}>
+                <div className={styles.railLeftLight} aria-hidden="true" />
         <div className={styles.railRightLight} aria-hidden="true" />
 
         <div className={styles.valuesInner}>
@@ -234,8 +232,7 @@ export const AboutValuesTimeline: React.FC = () => {
         </div>
       </div>
 
-      {/* Bar 1: Hatched Divider Bar Transition (Black 40px) */}
-      <div className={styles.hatchedDivider} aria-hidden="true">
+            <div className={styles.hatchedDivider} aria-hidden="true">
         <div className={styles.hatchedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line
@@ -261,15 +258,12 @@ export const AboutValuesTimeline: React.FC = () => {
         </svg>
       </div>
 
-      {/* 2. Our History (Dark Background with hidden scrollbar and snap scroll mechanism) */}
-      <div ref={sectionRef} className={styles.historySection}>
-        {/* Continuous Side Rails for History */}
-        <div className={styles.railLeftDark} aria-hidden="true" />
+            <div ref={sectionRef} className={styles.historySection}>
+                <div className={styles.railLeftDark} aria-hidden="true" />
         <div className={styles.railRightDark} aria-hidden="true" />
 
         <div className={styles.historyContainer}>
-          {/* Left Column: Eyebrow + Active Phase Title + Subtitle + Underline */}
-          <div className={styles.historyLeftCol}>
+                    <div className={styles.historyLeftCol}>
             <span className={styles.eyebrowDark}>
               <span className={styles.bulletDotDark} aria-hidden="true" />
               OUR HISTORY
@@ -284,8 +278,7 @@ export const AboutValuesTimeline: React.FC = () => {
             <div className={styles.historyUnderline} aria-hidden="true" />
           </div>
 
-          {/* Right Column: Scroll Container with invisible scrollbars and separator lines */}
-          <div
+                    <div
             ref={scrollTrackRef}
             className={styles.historyScrollTrack}
             onScroll={handleScroll}
@@ -293,8 +286,7 @@ export const AboutValuesTimeline: React.FC = () => {
             {HISTORY_PHASES.map((phase, index) => {
               return (
                 <div key={phase.id} className={styles.historyPhaseCard}>
-                  {/* Top Separator Line (if exists) */}
-                  {phase.topTag ? (
+                                    {phase.topTag ? (
                     <button
                       type="button"
                       onClick={() => scrollToPhase(index - 1)}
@@ -310,11 +302,9 @@ export const AboutValuesTimeline: React.FC = () => {
                     <div className={styles.topSpacer} />
                   )}
 
-                  {/* Description */}
-                  <p className={styles.phaseDescription}>{phase.description}</p>
+                                    <p className={styles.phaseDescription}>{phase.description}</p>
 
-                  {/* Bottom Separator Line (if exists) */}
-                  {phase.bottomTag ? (
+                                    {phase.bottomTag ? (
                     <button
                       type="button"
                       onClick={() => scrollToPhase(index + 1)}
@@ -335,8 +325,7 @@ export const AboutValuesTimeline: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile History View (matches Figma mobile design) */}
-        <div className={styles.mobileHistoryContainer}>
+                <div className={styles.mobileHistoryContainer}>
           <span className={styles.eyebrowDark}>
             <span className={styles.bulletDotDark} aria-hidden="true" />
             OUR HISTORY
@@ -367,8 +356,7 @@ export const AboutValuesTimeline: React.FC = () => {
         </div>
       </div>
 
-      {/* Bar 2: White horizontal bar with slashes and dotted rail lines */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

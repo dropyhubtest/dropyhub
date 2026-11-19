@@ -30,7 +30,6 @@ const PARTNER_LOGOS_SEQUENCE: PartnerLogo[] = [
   { id: "image 27", name: "Flipkart", src: "/assets/Home/flipkart.png", width: 40, height: 40 },
 ];
 
-// Repeat sequence 3 times statically as specified in Figma
 const REPEATED_LOGOS = [
   ...PARTNER_LOGOS_SEQUENCE,
   ...PARTNER_LOGOS_SEQUENCE,
@@ -43,11 +42,9 @@ export const TrustPartnersTestimonials: React.FC = () => {
       className={styles.section}
       aria-label="Innovation and Our Partners"
     >
-      {/* Top horizontal border at y = 42px - Full viewport width */}
-      <div className={styles.topLine} aria-hidden="true" />
+            <div className={styles.topLine} aria-hidden="true" />
 
-      {/* Frame 352: Divider (Full Viewport Width, 43px Height at y = 603px) */}
-      <div className={styles.frame352Divider} aria-hidden="true">
+            <div className={styles.frame352Divider} aria-hidden="true">
         <div className={styles.frame352Pattern} />
         <div className={styles.frame352Inner}>
           <div className={styles.brokenRailLeft}>
@@ -80,17 +77,13 @@ export const TrustPartnersTestimonials: React.FC = () => {
       </div>
 
       <div className={styles.container}>
-        {/* Continuous desktop rails across Innovation and Partners */}
-        <div className={styles.railTopLeft} aria-hidden="true" />
+                <div className={styles.railTopLeft} aria-hidden="true" />
         <div className={styles.railTopRight} aria-hidden="true" />
 
-        {/* Horizontal Separator Lines inside 1440px container */}
-        <div className={`${styles.separatorLine} ${styles.sep175}`} aria-hidden="true" />
+                <div className={`${styles.separatorLine} ${styles.sep175}`} aria-hidden="true" />
         <div className={`${styles.separatorLine} ${styles.sep394}`} aria-hidden="true" />
 
-        {/* ==================================================================
-            Section A: Innovation / Your Security, Our Priority
-            ================================================================== */}
+        {}
         <div className={styles.innovationEyebrow}>
           <span className={styles.eyebrow}>
             <span className={styles.bullet} aria-hidden="true" />
@@ -105,8 +98,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
           their journey with us.
         </p>
 
-        {/* Security Checklist */}
-        <div className={styles.securityChecklist}>
+                <div className={styles.securityChecklist}>
           <div className={styles.securityItem}>
             <Image
               src="/assets/Home/hugeicons_tick-02.svg"
@@ -142,12 +134,9 @@ export const TrustPartnersTestimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Divider Line between Innovation & Our Partners */}
-        <div className={styles.innovationPartnersDivider} aria-hidden="true" />
+                <div className={styles.innovationPartnersDivider} aria-hidden="true" />
 
-        {/* ==================================================================
-            Section B: Our Partners
-            ================================================================== */}
+        {}
         <div className={styles.partnersEyebrow}>
           <span className={styles.eyebrow}>
             <span className={styles.bullet} aria-hidden="true" />
@@ -194,8 +183,7 @@ export const TrustPartnersTestimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile White Lines Horizontal Bar after Partners */}
-        <div className={styles.mobilePartnersTestimonialsDivider} aria-hidden="true">
+                <div className={styles.mobilePartnersTestimonialsDivider} aria-hidden="true">
           <div className={styles.mobilePartnersPattern} />
         </div>
       </div>

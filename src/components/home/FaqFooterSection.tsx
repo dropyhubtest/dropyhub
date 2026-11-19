@@ -39,7 +39,6 @@ const FAQ_DATA: FaqItem[] = [
 ];
 
 export const FaqFooterSection: React.FC = () => {
-  // First item expanded by default per Figma spec
   const [expandedId, setExpandedId] = useState<string | null>("free-registration");
 
   const toggleFaq = (id: string) => {
@@ -49,9 +48,7 @@ export const FaqFooterSection: React.FC = () => {
   return (
     <>
       <section className={styles.section} aria-label="FAQ and Signup">
-      {/* ==================================================================
-          B. Full-Width FAQ Divider Band (y = 446px, h = 43px)
-          ================================================================== */}
+      {}
       <div className={styles.faqDividerBand} aria-hidden="true">
         <div className={styles.faqDividerPattern} />
         <div className={styles.faqDividerInner}>
@@ -85,15 +82,12 @@ export const FaqFooterSection: React.FC = () => {
       </div>
 
       <div className={styles.container}>
-        {/* Continuous desktop rails across FAQ and CTA */}
-        <div className={styles.railFaqLeft} aria-hidden="true" />
+                <div className={styles.railFaqLeft} aria-hidden="true" />
         <div className={styles.railFaqRight} aria-hidden="true" />
         <div className={styles.railCtaLeft} aria-hidden="true" />
         <div className={styles.railCtaRight} aria-hidden="true" />
 
-        {/* ================================================================
-            A. FAQ Section
-            ================================================================ */}
+        {}
         <div className={styles.faqEyebrow}>
           <span className={styles.bullet} aria-hidden="true" />
           FAQ
@@ -101,8 +95,7 @@ export const FaqFooterSection: React.FC = () => {
 
         <h2 className={styles.faqHeading}>Common Questions</h2>
 
-        {/* FAQ Accordion */}
-        <div className={styles.accordionContainer}>
+                <div className={styles.accordionContainer}>
           {FAQ_DATA.map((item) => {
             const isExpanded = expandedId === item.id;
             return (
@@ -130,14 +123,11 @@ export const FaqFooterSection: React.FC = () => {
           })}
         </div>
 
-        {/* Mobile White Lines Horizontal Bar between FAQ & Ready to Start Earning CTA */}
-        <div className={styles.mobileFaqCtaDivider} aria-hidden="true">
+                <div className={styles.mobileFaqCtaDivider} aria-hidden="true">
           <div className={styles.mobileFaqPattern} />
         </div>
 
-        {/* ================================================================
-            C. Final Signup CTA (y = 575px)
-            ================================================================ */}
+        {}
         <div className={styles.ctaContainer}>
           <h2 className={styles.ctaHeading}>Ready to Start Earning?</h2>
 
@@ -173,13 +163,11 @@ export const FaqFooterSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Horizontal Divider Line between CTA & Footer */}
-        <div className={styles.mobileCtaFooterDivider} aria-hidden="true" />
+                <div className={styles.mobileCtaFooterDivider} aria-hidden="true" />
       </div>
     </section>
 
-    {/* Shared Global Footer (Used identically across all internal pages) */}
-    <Footer showRails={true} showTopDivider={true} />
+        <Footer showRails={true} showTopDivider={true} />
     </>
   );
 };

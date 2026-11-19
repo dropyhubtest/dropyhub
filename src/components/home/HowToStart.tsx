@@ -190,8 +190,7 @@ export const HowToStart: React.FC = () => {
       className={styles.howToStartContainer}
       aria-label="How to Start Onboarding"
     >
-      {/* Left Column: Eyebrow, Heading, Description */}
-      <div className={styles.leftColumn}>
+            <div className={styles.leftColumn}>
         <span className={styles.eyebrow}>
           <span className={styles.bullet} aria-hidden="true" />
           HOW TO START?
@@ -202,8 +201,7 @@ export const HowToStart: React.FC = () => {
         </p>
       </div>
 
-      {/* Desktop Onboarding Items (x = 15px, y = 162px) */}
-      <div className={styles.stepsList} aria-label="Onboarding steps" role="tablist">
+            <div className={styles.stepsList} aria-label="Onboarding steps" role="tablist">
         {STEPS_DATA.map((step) => {
           const isSelected = step.id === activeStepId;
           return (
@@ -223,8 +221,7 @@ export const HowToStart: React.FC = () => {
         })}
       </div>
 
-      {/* Desktop Image & Content Panel (x = 602px, y = 27px) */}
-      <div className={styles.rightPanel} role="tabpanel" aria-label={activeStep.contentTitle}>
+            <div className={styles.rightPanel} role="tabpanel" aria-label={activeStep.contentTitle}>
         <div className={styles.imageContainer}>
           <Image
             src={activeStep.imageSrc}
@@ -241,8 +238,7 @@ export const HowToStart: React.FC = () => {
         <p className={styles.contentText}>{activeStep.description}</p>
       </div>
 
-      {/* Mobile Flow */}
-      <div className={styles.mobileStepsFlow}>
+            <div className={styles.mobileStepsFlow}>
         {STEPS_DATA.map((step) => {
           const isSelected = step.id === activeStepId;
           return (

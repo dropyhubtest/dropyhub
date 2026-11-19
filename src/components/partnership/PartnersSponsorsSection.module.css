@@ -1,7 +1,3 @@
-/* ==========================================================================
-   PartnersSponsorsSection.module.css — Sponsors & Partners Gallery
-   Surface: #ffffff (White Surface)
-   ========================================================================== */
 
 .section {
   position: relative;
@@ -45,7 +41,6 @@
   z-index: 2;
 }
 
-/* Header Row (Horizontal dividing line removed per specification) */
 .headerRow {
   display: flex;
   justify-content: space-between;

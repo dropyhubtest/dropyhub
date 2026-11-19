@@ -37,14 +37,11 @@ const HERO_PERKS: PerkItem[] = [
 export const PartnersHero: React.FC = () => {
   return (
     <section className={styles.heroSection} aria-label="Partnership & Sunrisers Hyderabad Official Partner">
-      {/* 1. Global Navbar */}
-      <Navbar />
+            <Navbar />
 
-      {/* 2. Hero Team Lineup Banner */}
-      <div className={styles.heroContentWrapper}>
+            <div className={styles.heroContentWrapper}>
         <div className={styles.bannerContainer}>
-          {/* Desktop background */}
-          <Image
+                    <Image
             src="/assets/partners/hero_bg.png"
             alt=""
             fill
@@ -53,8 +50,7 @@ export const PartnersHero: React.FC = () => {
             className={`${styles.bannerBg} ${styles.desktopOnly}`}
             aria-hidden="true"
           />
-          {/* Mobile background */}
-          <Image
+                    <Image
             src="/assets/partners/mobile_hero_bg.png"
             alt=""
             fill
@@ -63,8 +59,7 @@ export const PartnersHero: React.FC = () => {
             className={`${styles.bannerBg} ${styles.mobileOnly}`}
             aria-hidden="true"
           />
-          {/* Desktop Team Image */}
-          <Image
+                    <Image
             src="/assets/partners/hero_img.png"
             alt="Sunrisers Hyderabad Cricket Team with DropyHub"
             width={1392}
@@ -72,8 +67,7 @@ export const PartnersHero: React.FC = () => {
             priority
             className={`${styles.bannerTeamImg} ${styles.desktopOnly}`}
           />
-          {/* Mobile Team Image */}
-          <Image
+                    <Image
             src="/assets/partners/mobile_hero.png"
             alt="Sunrisers Hyderabad Cricket Team with DropyHub"
             width={402}
@@ -84,8 +78,7 @@ export const PartnersHero: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Hatched Divider Bar Transition (56px Height) */}
-      <div className={styles.hatchedDivider} aria-hidden="true">
+            <div className={styles.hatchedDivider} aria-hidden="true">
         <div className={styles.hatchedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 56" preserveAspectRatio="none">
           <line
@@ -111,10 +104,8 @@ export const PartnersHero: React.FC = () => {
         </svg>
       </div>
 
-      {/* 5. Narrative Header & 4 Perks Grid */}
-      <div className={styles.networkSectionWrapper}>
-        {/* Continuous Side Rails at 64px for Platform Network Section */}
-        <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.networkSectionWrapper}>
+                <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
 
         <div className={styles.container}>
@@ -156,8 +147,7 @@ export const PartnersHero: React.FC = () => {
         </div>
       </div>
 
-      {/* 6. Bar 1: Normal black spacer bar with dotted side rails */}
-      <div className={styles.blackSpacerBar} aria-hidden="true">
+            <div className={styles.blackSpacerBar} aria-hidden="true">
         <svg className={styles.blackBarRailLeft} viewBox="0 0 2 36" preserveAspectRatio="none">
           <line
             x1="1"
@@ -182,8 +172,7 @@ export const PartnersHero: React.FC = () => {
         </svg>
       </div>
 
-      {/* 7. Bar 2: White Slashed Divider Bar at bottom of dark section */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.whiteBrokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

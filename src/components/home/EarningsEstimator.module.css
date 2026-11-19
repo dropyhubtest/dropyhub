@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Interactive Earnings Estimator Section
-   Figma Reference: Node 1278:20631 (1440 × 825px)
-   ========================================================================== */
 
 .estimatorSection {
   position: relative;
@@ -23,9 +19,6 @@
   box-sizing: border-box;
 }
 
-/* ==========================================================================
-   1. Section Heading (x = 100px, y = 38px)
-   ========================================================================== */
 .headerArea {
   position: absolute;
   left: 108px;
@@ -63,9 +56,6 @@
   margin: 8px 0 0 0;
 }
 
-/* ==========================================================================
-   2. Main Desktop Geometry (Centered within rails with clean 108px margin)
-   ========================================================================== */
 .mainContent {
   position: absolute;
   left: 108px;
@@ -74,15 +64,6 @@
   height: 633px;
 }
 
-/* ==========================================================================
-   3. Left Input Panels (Width: 612px, Total Height: 633px)
-   Exact Figma Heights & Offsets:
-   - Panel 1: top: 0, height: 132px
-   - Panel 2: top: 145px, height: 212px
-   - Panel 3: top: 370px, height: 125px
-   - Panel 4: top: 508px, height: 125px
-   Simple white rectangular surfaces: no rounded corners, no drop shadows, no extra borders.
-   ========================================================================== */
 .leftColumn {
   position: absolute;
   left: 0;
@@ -278,12 +259,6 @@
   font-weight: 400;
 }
 
-/* ==========================================================================
-   Figma Designed Slider / Scrolling Bar
-   - 5px track height with split black (#111111) and neutral grey (#e2e2e8)
-   - 15px circular thumb
-   - 11px Manrope zone labels
-   ========================================================================== */
 .sliderArea {
   display: flex;
   flex-direction: column;
@@ -340,11 +315,6 @@
   color: #888888;
 }
 
-/* ==========================================================================
-   4. Right Earnings Panel (x = 649px, y = 3px, width = 603px, height = 630px)
-   - White background, square outer corners, no additional shadow
-   - Internal content: x = 52px, y = 47px, width = 495px
-   ========================================================================== */
 .rightColumn {
   position: absolute;
   right: 0;
@@ -524,9 +494,6 @@
   margin: 12px 0 0 0;
 }
 
-/* ==========================================================================
-   5. Full-Viewport Hatched Divider (Frame 334) at Section Bottom (Height 40px)
-   ========================================================================== */
 .bottomDivider {
   position: absolute;
   bottom: 0;
@@ -608,9 +575,6 @@
   z-index: 5;
 }
 
-/* ==========================================================================
-   Mobile & Responsive Layout (<= 1199px) — Matches Image 1 & Image 2
-   ========================================================================== */
 @media (max-width: 1199px) {
   .estimatorSection {
     height: auto;

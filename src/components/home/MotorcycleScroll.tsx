@@ -1,29 +1,5 @@
 'use client';
 
-/**
- * MotorcycleScroll — Master Motorcycle Animation (Precision Video-Calibrated Engine)
- *
- * Section-by-Section Precision Architecture:
- * 1. Dedicated Hero Entrance & Resting State:
- *    - On page load, motorcycle smoothly glides down from above (1.2s, power2.out)
- *    - Stops firmly in Hero center (docX: 50vw, docY ≈ 380px, rot: 0°).
- *    - While at the top of the page, the bike remains firmly parked and resting in Hero.
- * 2. Rock-Solid Continuous Section-by-Section Triggers:
- *    - Every section has a defined, contiguous document-scroll window.
- *    - Moving between sections triggers a crisp, snappy GSAP transition (0.75s, power2.out).
- *    - Within each section, motorcycle moves 1:1 with document scroll, resting beside that section's content.
- * 3. Video-Calibrated Section Anchors:
- *    - 01. Hero: Center 50vw, upper-middle display area (~380px), rot: 0° (facing down)
- *    - 02. Why DropyHub: Central corridor between 4 cards, rot: 0° (facing down)
- *    - 03. Estimator: Lower whitespace of results card below onboarding line, rot: -90° (facing right)
- *    - 04. About: Right column directly below intro paragraph, rot: -270° (facing left)
- *    - 05. How to Start: Corridor between steps list & photo card, rot: -360° (facing down)
- *    - 06. Innovation: Left of security checklist, rot: -450° (facing right)
- *    - 07. Testimonials: Left column beside quotation & left arrow, rot: -360° (facing down)
- *    - 08. FAQ: Left column centered under "Common Questions", rot: -360° (facing down)
- *    - 09. Footer: Over outlined "Dropyhub" wordmark, rot: -450° (facing right)
- */
-
 import React, { useEffect, useRef, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
@@ -81,14 +57,12 @@ export const MotorcycleScroll: React.FC = () => {
       const scrollY = window.scrollY;
       const centerX = vw / 2;
 
-      // 01. Hero — centered horizontally, upper-middle display area
       const heroAnchor: StateAnchor = {
         docX: centerX,
         docY: Math.min(vh * 0.46, 380),
         rotation: 0,
       };
 
-      // 02. Why DropyHub — center corridor between the 4 feature cards
       const whyContainer = document.querySelector('[class*="whySectionContainer"]');
       const leftCol = document.querySelector('[class*="cardsColumnLeft"]');
       const rightCol = document.querySelector('[class*="cardsColumnRight"]');
@@ -114,7 +88,6 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: 0,
       };
 
-      // 03. Estimator — resting in the lower whitespace of the results card below the 48-hour onboarding line
       const panel = document.querySelector('[class*="rightColumn"]');
       const note = document.querySelector('[class*="supportingText"]');
       let estDocX = centerX + 260;
@@ -135,7 +108,6 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -90, // Facing horizontal right
       };
 
-      // 04. About DropyHub — right side directly below intro paragraph
       const desc = document.querySelector('[class*="topIntroRight"], [class*="aboutDescription"]');
       let aboutDocX = centerX + 260;
       let aboutDocY = 2760;
@@ -150,7 +122,6 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -270, // Facing horizontal left
       };
 
-      // 05. How to Start — central corridor between steps list & photo panel
       const steps = document.querySelector('[class*="stepsList"]');
       const howPanel = document.querySelector('[class*="rightPanel"]');
       let howDocX = centerX - 120;
@@ -167,7 +138,6 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing vertically down
       };
 
-      // 06. Innovation — left of security checklist (shifted right by 5% per user instruction)
       const checklist = document.querySelector('[class*="securityChecklist"], [class*="checklist"]');
       let innovDocX = 285;
       let innovDocY = 4320;
@@ -182,7 +152,6 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -450, // Facing horizontal right
       };
 
-      // 07. FAQ — left column centered under "Common Questions"
       const title = document.querySelector('[class*="faqHeading"], [class*="faqTitle"]');
       let faqDocX = 310;
       let faqDocY = 5400;
@@ -197,7 +166,6 @@ export const MotorcycleScroll: React.FC = () => {
         rotation: -360, // Facing vertically down
       };
 
-      // 09. Footer — start at left side of outlined wordmark before moving right across
       const wordmark = document.querySelector('[class*="outlinedWordmark"], [class*="footerWordmark"]');
       let footerDocX = 260;
       let footerDocY = 6380;
@@ -245,31 +213,23 @@ export const MotorcycleScroll: React.FC = () => {
       const faqTop = faqEl ? (faqEl.getBoundingClientRect().top + scrollY) : 5184;
       const footTop = footEl ? (footEl.getBoundingClientRect().top + scrollY) : 6000;
 
-      // 01. Hero: active from top of page until user scrolls down towards Why section
       if (scrollY < whyTop - vh * 0.40) return 'hero';
 
-      // 02. Why DropyHub: active while viewing Why feature cards
       if (scrollY < estTop - vh * 0.40) return 'why';
 
-      // 03. Estimator: active while viewing earnings estimator
       if (scrollY < aboutTop - vh * 0.40) return 'estimator';
 
-      // 04. About: active while viewing About intro & 6 value cards
       if (scrollY < howTop - vh * 0.40) return 'about';
 
-      // 05. How to Start: active while viewing onboarding steps
       if (scrollY < innovTop - vh * 0.40) return 'howToStart';
 
-      // 06. Innovation: active while viewing security checklist
       if (scrollY < faqTop - vh * 0.40) return 'innovation';
 
-      // 07. FAQ: active while viewing FAQ accordion questions
       const maxScroll = typeof document !== 'undefined'
         ? (document.documentElement.scrollHeight - vh)
         : 5800;
       if (scrollY < footTop - vh * 0.75 && scrollY < maxScroll - 120) return 'faq';
 
-      // 08. Footer: active at page bottom
       return 'footer';
     }
 
@@ -310,7 +270,6 @@ export const MotorcycleScroll: React.FC = () => {
         }
 
         footerTimeline = gsap.timeline();
-        // 1. Bike comes to the starting point at the left side of the wordmark
         footerTimeline.to(animState, {
           docX: footAnchor.docX,
           docY: footAnchor.docY,
@@ -319,7 +278,6 @@ export const MotorcycleScroll: React.FC = () => {
           duration: 0.65,
           ease: 'power2.out',
         })
-        // 2. Then after arriving, the bike drives rightward off-screen without fading out
         .to(animState, {
           docX: exitX,
           opacity: 1,
@@ -471,12 +429,9 @@ export const MotorcycleScroll: React.FC = () => {
   // top-level stacking context (z-index: 100) above all sections and divider bands.
   return createPortal(
     <div ref={overlayRef} className={styles.overlay} aria-hidden="true">
-      {/* Time-based entrance layer (vertical only) */}
-      <div ref={entryRef} className={styles.entryLayer}>
-        {/* Main persistent motorcycle assembly */}
-        <div ref={assemblyRef} className={styles.assembly}>
-          {/* Layer 1: Headlight yellow glow (Headlight.png, rotates with bike) */}
-          <div ref={glowRef} className={styles.glowLayer}>
+            <div ref={entryRef} className={styles.entryLayer}>
+                <div ref={assemblyRef} className={styles.assembly}>
+                    <div ref={glowRef} className={styles.glowLayer}>
             <Image
               src="/assets/Home/Headlight.png"
               alt=""
@@ -488,8 +443,7 @@ export const MotorcycleScroll: React.FC = () => {
             />
           </div>
 
-          {/* Layer 2: Primary Motorcycle & Rider (Bike.png, clean and sharp) */}
-          <div className={styles.riderLayer}>
+                    <div className={styles.riderLayer}>
             <Image
               src="/assets/Home/Bike.png"
               alt=""

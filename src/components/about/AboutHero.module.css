@@ -1,9 +1,3 @@
-/* ==========================================================================
-   AboutHero.module.css — Precision Styling for About Hero
-   Matches Figma design Frame 402 / Frame 1191:2038
-   Hero image covers 90% of the hero section width.
-   Left and right borders start AFTER this section.
-   ========================================================================== */
 
 .heroSection {
   position: relative;

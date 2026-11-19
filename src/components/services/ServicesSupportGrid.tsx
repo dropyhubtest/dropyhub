@@ -45,13 +45,11 @@ const SERVICES_DATA: ServiceItem[] = [
 export const ServicesSupportGrid: React.FC = () => {
   return (
     <section className={styles.section} aria-label="Our Services - Delivery Support for Every Shift">
-      {/* Continuous Side Rails at 48px: stops at 40px from bottom (start of white slashed bar) */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Header Row */}
-        <div className={styles.headerRow}>
+                <div className={styles.headerRow}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>
               <span className={styles.bulletDot} aria-hidden="true" />
@@ -66,8 +64,7 @@ export const ServicesSupportGrid: React.FC = () => {
           </div>
         </div>
 
-        {/* 2x2 Services Grid Table */}
-        <div className={styles.servicesGrid}>
+                <div className={styles.servicesGrid}>
           {SERVICES_DATA.map((service) => (
             <div key={service.id} className={styles.serviceCell}>
               <div className={styles.iconBox} aria-hidden="true">
@@ -86,8 +83,7 @@ export const ServicesSupportGrid: React.FC = () => {
         </div>
       </div>
 
-      {/* White horizontal bar with slashes and dotted side rails */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

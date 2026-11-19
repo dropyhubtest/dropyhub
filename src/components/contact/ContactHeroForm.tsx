@@ -175,15 +175,11 @@ export const ContactHeroForm: React.FC = () => {
 
   return (
     <section className={styles.section} aria-label="Contact Us & Application Form">
-      {/* 1. Global Navigation Bar */}
-      <Navbar />
+            <Navbar />
 
-      {/* 2. Main Content Container (Black section has no left/right side rails per Figma) */}
-      <div className={styles.container}>
+            <div className={styles.container}>
         <div className={styles.layoutGrid}>
-          {/* =============================================================
-              Left Column: Value Narrative, Checklist, Contact Info
-              ============================================================= */}
+          {}
           <div className={styles.leftCol}>
             <span className={styles.eyebrow}>
               <span className={styles.bulletDot} aria-hidden="true" />
@@ -200,8 +196,7 @@ export const ContactHeroForm: React.FC = () => {
               cost.
             </p>
 
-            {/* Checklist */}
-            <ul className={styles.checklist}>
+                        <ul className={styles.checklist}>
               {CHECKLIST_ITEMS.map((item, idx) => (
                 <li key={idx} className={styles.checkItem}>
                   <div className={styles.tickIconWrapper}>
@@ -219,8 +214,7 @@ export const ContactHeroForm: React.FC = () => {
               ))}
             </ul>
 
-            {/* Direct Contact Info */}
-            <div className={styles.contactDetails}>
+                        <div className={styles.contactDetails}>
               <div className={styles.contactItem}>
                 <svg
                   className={styles.contactIcon}
@@ -259,9 +253,7 @@ export const ContactHeroForm: React.FC = () => {
             </div>
           </div>
 
-          {/* =============================================================
-              Right Column: Application Form Card
-              ============================================================= */}
+          {}
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
               <h2 className={styles.formTitle}>
@@ -310,8 +302,7 @@ export const ContactHeroForm: React.FC = () => {
               </div>
             ) : (
               <form className={styles.form} onSubmit={handleSubmit}>
-                {/* Row 1: Full Name & Mobile */}
-                <div className={styles.formRow}>
+                                <div className={styles.formRow}>
                   <div className={styles.fieldGroup}>
                     <label className={styles.fieldLabel} htmlFor="fullName">
                       Full Name<span className={styles.requiredStar}>*</span>
@@ -345,8 +336,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Row 2: Email & Age */}
-                <div className={styles.formRow}>
+                                <div className={styles.formRow}>
                   <div className={styles.fieldGroup}>
                     <label className={styles.fieldLabel} htmlFor="email">
                       Email ID (Optional)
@@ -381,8 +371,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Row 3: City & Area */}
-                <div className={styles.formRow}>
+                                <div className={styles.formRow}>
                   <div className={styles.fieldGroup}>
                     <label className={styles.fieldLabel} htmlFor="city">
                       City<span className={styles.requiredStar}>*</span>
@@ -416,8 +405,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Field 4: Do you have a bike? */}
-                <div className={styles.fieldGroup}>
+                                <div className={styles.fieldGroup}>
                   <label className={styles.fieldLabel}>
                     Do You Have a Bike?<span className={styles.requiredStar}>*</span>
                   </label>
@@ -449,8 +437,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Field 5: Driving License Available? */}
-                <div className={styles.fieldGroup}>
+                                <div className={styles.fieldGroup}>
                   <label className={styles.fieldLabel}>
                     Driving License Available?<span className={styles.requiredStar}>*</span>
                   </label>
@@ -482,8 +469,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Field 6: Preferred Company */}
-                <div className={styles.fieldGroup}>
+                                <div className={styles.fieldGroup}>
                   <label className={styles.fieldLabel}>
                     Preferred Company<span className={styles.requiredStar}>*</span>
                   </label>
@@ -502,8 +488,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Field 7: Job Type Interested */}
-                <div className={styles.fieldGroup}>
+                                <div className={styles.fieldGroup}>
                   <label className={styles.fieldLabel}>
                     Job Type Interested<span className={styles.requiredStar}>*</span>
                   </label>
@@ -542,8 +527,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Row 8: Previous Experience & Employment Status */}
-                <div className={styles.formRow}>
+                                <div className={styles.formRow}>
                   <div className={styles.fieldGroup}>
                     <label className={styles.fieldLabel} htmlFor="experience">
                       Previous Experience<span className={styles.requiredStar}>*</span>
@@ -586,8 +570,7 @@ export const ContactHeroForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Field 9: Message / Additional Details */}
-                <div className={styles.fieldGroup}>
+                                <div className={styles.fieldGroup}>
                   <label className={styles.fieldLabel} htmlFor="message">
                     Message / Additional Details (Optional)
                   </label>
@@ -608,13 +591,11 @@ export const ContactHeroForm: React.FC = () => {
                   </p>
                 )}
 
-                {/* Submit Button */}
-                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
                   {isSubmitting ? 'Submitting...' : 'Submit \u2192'}
                 </button>
 
-                {/* Disclaimer */}
-                <p className={styles.disclaimer}>
+                                <p className={styles.disclaimer}>
                   By applying, you agree to our Privacy Policy. We will never share your
                   details.
                 </p>
@@ -624,8 +605,7 @@ export const ContactHeroForm: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. White Slashed Divider Bar at bottom of dark section */}
-      <div className={styles.whiteSlashedDivider} aria-hidden="true">
+            <div className={styles.whiteSlashedDivider} aria-hidden="true">
         <div className={styles.whiteSlashedPattern} />
         <svg className={styles.brokenRailLeft} viewBox="0 0 2 40" preserveAspectRatio="none">
           <line

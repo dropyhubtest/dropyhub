@@ -110,8 +110,7 @@ const RIGHT_CARDS: WhyCardData[] = [WHY_CARDS[1], WHY_CARDS[3]];
 export const StatsWhySection: React.FC = () => {
   return (
     <section className={styles.sectionWrapper} aria-label="Statistics and Why DropyHub">
-      {/* 1. Top Statistics Bar (Bounded by 1319px inner grid from x=61px to x=1380px) */}
-      <div className={styles.statsBarContainer}>
+            <div className={styles.statsBarContainer}>
         <div className={styles.statsBarFrame}>
           <div className={styles.railLeft} aria-hidden="true" />
           <div className={styles.railRight} aria-hidden="true" />
@@ -140,8 +139,7 @@ export const StatsWhySection: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Full-Viewport Horizontal Divider (Width 100%, Height 40px) */}
-      <div className={styles.fullBleedDivider} aria-hidden="true">
+            <div className={styles.fullBleedDivider} aria-hidden="true">
         <div className={styles.dividerPattern} />
         <div className={styles.dividerInner}>
           <div className={styles.dottedRailLeft}>
@@ -173,13 +171,11 @@ export const StatsWhySection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Why DropyHub Content Area */}
-      <div className={styles.whySectionContainer}>
+            <div className={styles.whySectionContainer}>
         <div className={styles.whySectionFrame}>
           <div className={styles.railLeft} aria-hidden="true" />
           <div className={styles.railRight} aria-hidden="true" />
-          {/* Why DropyHub Heading */}
-          <div className={styles.headerArea}>
+                    <div className={styles.headerArea}>
             <span className={styles.subBadge}>
               <span className={styles.bullet} aria-hidden="true" />
               WHY DROPYHUB
@@ -189,8 +185,7 @@ export const StatsWhySection: React.FC = () => {
             </h2>
           </div>
 
-          {/* Desktop Left Column Feature Cards */}
-          <div className={styles.cardsColumnLeft}>
+                    <div className={styles.cardsColumnLeft}>
             {LEFT_CARDS.map((card) => (
               <div key={card.id} className={styles.card}>
                 <div className={styles.cardIconWrapper}>
@@ -208,8 +203,7 @@ export const StatsWhySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Desktop Right Column Feature Cards */}
-          <div className={styles.cardsColumnRight}>
+                    <div className={styles.cardsColumnRight}>
             {RIGHT_CARDS.map((card) => (
               <div key={card.id} className={styles.card}>
                 <div className={styles.cardIconWrapper}>
@@ -227,8 +221,7 @@ export const StatsWhySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile Single-Column In-Order Cards List (1 -> 2 -> 3 -> 4) */}
-          <div className={styles.mobileCardsList}>
+                    <div className={styles.mobileCardsList}>
             {WHY_CARDS.map((card) => (
               <div key={`m-${card.id}`} className={styles.card}>
                 <div className={styles.cardIconWrapper}>
@@ -246,8 +239,7 @@ export const StatsWhySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile Horizontal Divider Line between Why DropyHub & Interactive Estimator (Not touching left & right viewport) */}
-          <div className={styles.sectionBottomDivider} aria-hidden="true" />
+                    <div className={styles.sectionBottomDivider} aria-hidden="true" />
         </div>
       </div>
     </section>

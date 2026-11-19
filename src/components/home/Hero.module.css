@@ -16,9 +16,6 @@
   overflow: hidden;
 }
 
-/* ==========================================================================
-   Desktop Layout (≥ 1200px) - Full-Viewport Responsive Frame
-   ========================================================================== */
 @media (min-width: 1200px) {
   .heroSection {
     min-height: 800px;
@@ -277,9 +274,6 @@
   }
 }
 
-/* ==========================================================================
-   Fluid & Mobile Layout (< 1200px) — Matches Figma Mobile Design (Image 1)
-   ========================================================================== */
 @media (max-width: 1199px) {
   .heroSection {
     min-height: auto;

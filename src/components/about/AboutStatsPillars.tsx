@@ -74,12 +74,10 @@ const WHY_CHOOSE_ITEMS = [
 export const AboutStatsPillars: React.FC = () => {
   return (
     <section className={styles.statsSection} aria-label="Key Metrics, Vision and Mission">
-      {/* Continuous Side Rails at 40px */}
-      <div className={styles.railLeft} aria-hidden="true" />
+            <div className={styles.railLeft} aria-hidden="true" />
       <div className={styles.railRight} aria-hidden="true" />
 
-      {/* 1. 6-Metric Stats Bar: Full-width boxes connected to rails at 40px */}
-      <div className={styles.statsBarWrapper}>
+            <div className={styles.statsBarWrapper}>
         <div className={styles.statsGrid}>
           {STATS_DATA.map((stat) => (
             <div key={stat.id} className={styles.statBox}>
@@ -114,11 +112,9 @@ export const AboutStatsPillars: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Three Pillar Cards Grid (Vision, Mission, Why Choose DropyHub) */}
-      <div className={styles.pillarsWrapper}>
+            <div className={styles.pillarsWrapper}>
         <div className={styles.pillarsGrid}>
-          {/* Card 1: OUR VISION */}
-          <div className={styles.pillarCard}>
+                    <div className={styles.pillarCard}>
             <span className={styles.eyebrow}>
               <span className={styles.bullet} aria-hidden="true" />
               OUR VISION
@@ -131,8 +127,7 @@ export const AboutStatsPillars: React.FC = () => {
             </p>
           </div>
 
-          {/* Card 2: OUR MISSION */}
-          <div className={styles.pillarCard}>
+                    <div className={styles.pillarCard}>
             <span className={styles.eyebrow}>
               <span className={styles.bullet} aria-hidden="true" />
               OUR MISSION
@@ -145,8 +140,7 @@ export const AboutStatsPillars: React.FC = () => {
             </p>
           </div>
 
-          {/* Card 3: WHY CHOOSE DROPYHUB */}
-          <div className={styles.pillarCard}>
+                    <div className={styles.pillarCard}>
             <span className={styles.eyebrow}>
               <span className={styles.bullet} aria-hidden="true" />
               WHY CHOOSE DROPYHUB

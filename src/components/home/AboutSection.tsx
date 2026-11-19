@@ -68,8 +68,7 @@ export const AboutSection: React.FC = () => {
       <div className={styles.aboutContainer}>
         <div className={styles.railLeft} aria-hidden="true" />
         <div className={styles.railRight} aria-hidden="true" />
-        {/* 1. About Introduction (x = 100px, y = 79px, width = 1240px) */}
-        <div className={styles.topIntro}>
+                <div className={styles.topIntro}>
           <div className={styles.topIntroLeft}>
             <span className={styles.eyebrow}>
               <span className={styles.bullet} aria-hidden="true" />
@@ -88,8 +87,7 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. Partner Ecosystem Introduction (x = 100px, y = 225px) */}
-        <div className={styles.ecosystemIntro}>
+                <div className={styles.ecosystemIntro}>
           <h3 className={styles.ecosystemHeading}>
             More Than Staffing. A Complete Partner Ecosystem.
           </h3>
@@ -100,24 +98,17 @@ export const AboutSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile Divider below Ecosystem Intro */}
-        <div className={styles.ecosystemDivider} aria-hidden="true" />
+                <div className={styles.ecosystemDivider} aria-hidden="true" />
 
-        {/* 3. Section Specific Dividers */}
-        {/* Horizontal line 1: y = 381px */}
-        <div className={`${styles.horizontalDivider} ${styles.divider1}`} aria-hidden="true" />
-        {/* Horizontal line 2: y = 551px */}
-        <div className={`${styles.horizontalDivider} ${styles.divider2}`} aria-hidden="true" />
-        {/* Horizontal line 3: y = 719px */}
-        <div className={`${styles.horizontalDivider} ${styles.divider3}`} aria-hidden="true" />
+                        <div className={`${styles.horizontalDivider} ${styles.divider1}`} aria-hidden="true" />
+                <div className={`${styles.horizontalDivider} ${styles.divider2}`} aria-hidden="true" />
+                <div className={`${styles.horizontalDivider} ${styles.divider3}`} aria-hidden="true" />
 
-        {/* Central Vertical Dividers at x = 720px */}
-        <div className={`${styles.verticalDivider} ${styles.vDividerRow1}`} aria-hidden="true" />
+                <div className={`${styles.verticalDivider} ${styles.vDividerRow1}`} aria-hidden="true" />
         <div className={`${styles.verticalDivider} ${styles.vDividerRow2}`} aria-hidden="true" />
         <div className={`${styles.verticalDivider} ${styles.vDividerRow3}`} aria-hidden="true" />
 
-        {/* 4. Six Partner-Value Cards */}
-        {CARDS_DATA.map((card) => (
+                {CARDS_DATA.map((card) => (
           <div key={card.id} className={`${styles.card} ${card.positionClass}`}>
             <div className={styles.iconTile}>
               <Image
@@ -136,18 +127,14 @@ export const AboutSection: React.FC = () => {
           </div>
         ))}
 
-        {/* 5. How to Start? Onboarding Section */}
-        <HowToStart />
+                <HowToStart />
 
-        {/* Mobile Black Bar after How to Start */}
-        <div className={styles.howToStartBlackBar} aria-hidden="true" />
+                <div className={styles.howToStartBlackBar} aria-hidden="true" />
       </div>
 
-      {/* Horizontal line 4: Full-Viewport Width divider at y = 900px */}
-      <div className={styles.divider4FullBleed} aria-hidden="true" />
+            <div className={styles.divider4FullBleed} aria-hidden="true" />
 
-      {/* 6. Bottom Section Divider (Full-Viewport Width, 64px Height) */}
-      <div className={styles.aboutBottomDivider} aria-hidden="true">
+            <div className={styles.aboutBottomDivider} aria-hidden="true">
         <div className={styles.aboutBottomDividerPattern} />
         <div className={styles.aboutBottomDividerInner}>
           <div className={styles.brokenRailLeft}>

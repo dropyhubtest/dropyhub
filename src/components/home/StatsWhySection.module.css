@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Statistics + Why DropyHub Section
-   Target: 1440px Desktop Reference Frame (Node 1278:20360)
-   ========================================================================== */
 
 .sectionWrapper {
   position: relative;
@@ -12,10 +8,6 @@
   flex-direction: column;
 }
 
-/* ==========================================================================
-   1. Top Statistics Bar
-   Bounded by 1319px inner grid (x=61px to x=1380px), height=138px
-   ========================================================================== */
 .statsBarContainer {
   width: 100%;
   display: flex;
@@ -99,13 +91,6 @@
   margin: 6px 0 0 0;
 }
 
-/* ==========================================================================
-   2. Full-Viewport Horizontal Divider (Frame 334)
-   - Width: 100% of browser content viewport (full-bleed, edge-to-edge)
-   - Height: 40px
-   - Diagonal hatch pattern with top and bottom subtle grey borders
-   - Dotted vertical rail transitions at x=61px and x=1380px across 40px height
-   ========================================================================== */
 .fullBleedDivider {
   position: relative;
   z-index: 15;
@@ -185,14 +170,6 @@
   z-index: 5;
 }
 
-/* ==========================================================================
-   3. Why DropyHub Content Area
-   - Frame: 1440px desktop reference width
-   - Heading at x=100px, top=37px (overall y=215px)
-   - Left column at x=125px, top=143px (overall y=321px)
-   - Right column at x=951px, top=143px (overall y=321px)
-   - Central corridor: 467px gap
-   ========================================================================== */
 .whySectionContainer {
   width: 100%;
   display: flex;
@@ -315,9 +292,6 @@
   display: none;
 }
 
-/* ==========================================================================
-   Mobile & Responsive Layout (<= 992px) — Matches Image 1
-   ========================================================================== */
 @media (max-width: 1199px) {
   .statsBarContainer {
     width: 100%;

@@ -1,6 +1,3 @@
-/* ==========================================================================
-   ServicesSupportGrid.module.css — Precision 2x2 Services Grid
-   ========================================================================== */
 
 .section {
   position: relative;
@@ -174,7 +171,6 @@
   margin: 0;
 }
 
-/* White horizontal bar with slashes and dotted rail lines */
 .whiteSlashedDivider {
   position: relative;
   width: 100%;
